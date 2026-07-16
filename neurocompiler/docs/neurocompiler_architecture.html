@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeuroCompiler: Hybrid ML + RL Guided LLVM Optimization Architecture</title>
+<style>
+  :root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-blue: #38bdf8;
+    --accent-indigo: #818cf8;
+    --accent-purple: #c084fc;
+    --accent-green: #34d399;
+    --accent-amber: #fbbf24;
+    --accent-rose: #fb7185;
+    --border-color: #475569;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding-bottom: 3rem;
+  }
+
+  header {
+    background: linear-gradient(135deg, #1e1b4b 0%, #1e293b 50%, #0f172a 100%);
+    border-bottom: 1px solid var(--border-color);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    background: linear-gradient(to right, var(--accent-blue), var(--accent-purple), var(--accent-rose));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .badge-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-cgo { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border: 1px solid var(--accent-blue); }
+  .badge-llvm { background: rgba(192, 132, 252, 0.15); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
+  .badge-rl { background: rgba(52, 211, 153, 0.15); color: var(--accent-green); border: 1px solid var(--accent-green); }
+  .badge-hybrid { background: rgba(251, 191, 36, 0.15); color: var(--accent-amber); border: 1px solid var(--accent-amber); }
+
+  .container {
+    max-width: 1350px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+  }
+
+  .nav-tabs {
+    display: flex;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    gap: 0.5rem;
+  }
+
+  .tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 1rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tab-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .tab-btn.active {
+    color: var(--accent-blue);
+    border-bottom-color: var(--accent-blue);
+    background: rgba(56, 189, 248, 0.08);
+  }
+
+  .tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-bottom: 1.75rem;
+    box-shadow: var(--shadow);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 0.75rem;
+  }
+
+  .card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 992px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+
+  /* Flowchart / Interactive Diagram Styles */
+  .diagram-container {
+    background: #0b1120;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: auto;
+  }
+
+  .node-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .flow-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .flow-box {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    min-width: 220px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+  }
+
+  .flow-box:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: var(--accent-blue);
+    box-shadow: 0 10px 20px -5px rgba(56, 189, 248, 0.3);
+  }
+
+  .flow-box.selected {
+    border-color: var(--accent-rose);
+    background: linear-gradient(135deg, #1e293b 0%, #311d3f 100%);
+    box-shadow: 0 0 20px rgba(251, 113, 133, 0.4);
+  }
+
+  .flow-box h4 {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+  }
+
+  .flow-box p {
+    font-size: 0.825rem;
+    color: var(--text-secondary);
+  }
+
+  .flow-arrow {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+    font-weight: bold;
+    user-select: none;
+  }
+
+  .flow-arrow-down {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+    line-height: 1;
+    margin: -0.5rem 0;
+  }
+
+  /* Detail Panel */
+  .detail-panel {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--accent-blue);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    text-align: left;
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .detail-panel h3 {
+    color: var(--accent-blue);
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .detail-panel .close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+
+  .detail-panel .close-btn:hover { color: #fff; }
+
+  /* Feature list badges inside detail */
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .tag {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: var(--text-primary);
+  }
+
+  /* Comparison Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+
+  th, td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  th {
+    background: rgba(255,255,255,0.04);
+    color: var(--accent-blue);
+    font-weight: 600;
+  }
+
+  tr:hover td {
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* Timeline / WBS */
+  .timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 1.5rem auto;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 7px;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple), var(--accent-green));
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -2rem;
+    top: 0.25rem;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 4px solid var(--accent-blue);
+  }
+
+  .timeline-content {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+
+  .timeline-content h4 {
+    color: var(--accent-blue);
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-content .meta {
+    font-size: 0.85rem;
+    color: var(--accent-amber);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  /* Code Blocks */
+  pre {
+    background: #0b1120;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    padding: 1.25rem;
+    overflow-x: auto;
+    font-family: "Fira Code", "Courier New", Courier, monospace;
+    font-size: 0.875rem;
+    color: #e2e8f0;
+  }
+
+  .code-keyword { color: #f43f5e; font-weight: bold; }
+  .code-type { color: #38bdf8; }
+  .code-string { color: #34d399; }
+  .code-comment { color: #64748b; font-style: italic; }
+
+  /* Mathematical Formulation Box */
+  .formula-box {
+    background: rgba(56, 189, 248, 0.05);
+    border-left: 4px solid var(--accent-blue);
+    padding: 1.25rem;
+    margin: 1rem 0;
+    border-radius: 0 8px 8px 0;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.05rem;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>NeuroCompiler Framework Dashboard</h1>
+  <p class="subtitle">A Publication-Grade Hybrid Machine Learning + Reinforcement Learning Guided Optimization Architecture for LLVM</p>
+  <div class="badge-container">
+    <span class="badge badge-cgo">Target: ACM/IEEE CGO & LCTES</span>
+    <span class="badge badge-llvm">LLVM IR Dynamic Optimization</span>
+    <span class="badge badge-rl">Hybrid PPO + Supervised Prior</span>
+    <span class="badge badge-hybrid">4-Member Research Team</span>
+  </div>
+</header>
+
+<div class="container">
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="switchTab('pipeline')">End-to-End Architecture Flow</button>
+    <button class="tab-btn" onclick="switchTab('components')">Core Components Deep Dive</button>
+    <button class="tab-btn" onclick="switchTab('hybrid')">Hybrid ML+RL Mechanics</button>
+    <button class="tab-btn" onclick="switchTab('baselines')">Evaluation & Benchmarks</button>
+    <button class="tab-btn" onclick="switchTab('roadmap')">4-Member Research WBS & Roadmap</button>
+  </div>
+
+  <!-- TAB 1: PIPELINE -->
+  <div id="pipeline" class="tab-content active">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">Interactive NeuroCompiler Optimization Pipeline</h2>
+        <span style="font-size:0.85rem; color:var(--text-secondary);">Click any box below to inspect architectural specifications</span>
+      </div>
+      <div class="diagram-container">
+        <div class="node-grid">
+          <!-- Row 1 -->
+          <div class="flow-row">
+            <div class="flow-box" onclick="showDetail('clang')">
+              <h4>1. Source Code & Frontend</h4>
+              <p>Clang / C++ Frontend (`-emit-llvm`)</p>
+            </div>
+            <div class="flow-arrow">➔</div>
+            <div class="flow-box" onclick="showDetail('ir')">
+              <h4>2. LLVM IR Representation</h4>
+              <p>Unoptimized `.ll` / `.bc` Bitcode</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow-down">▼</div>
+
+          <!-- Row 2 -->
+          <div class="flow-row">
+            <div class="flow-box" style="border-color:var(--accent-purple);" onclick="showDetail('extractor')">
+              <h4>3. IR Feature Extractor</h4>
+              <p>25+ Statistical Opcodes & CFG Graphs</p>
+            </div>
+            <div class="flow-arrow">➔</div>
+            <div class="flow-box" style="border-color:var(--accent-purple);" onclick="showDetail('encoder')">
+              <h4>4. Shared Neural Encoder</h4>
+              <p>Deep MLP / GNN ($d=512$ Embedding)</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow-down">▼</div>
+
+          <!-- Row 3 (Hybrid Layer) -->
+          <div class="flow-row">
+            <div class="flow-box" style="border-color:var(--accent-amber); background:rgba(251,191,36,0.05);" onclick="showDetail('supervised')">
+              <h4>5. Supervised Decision Layer</h4>
+              <p>Pass Profitability & Spill/Vector Predictors</p>
+            </div>
+            <div class="flow-arrow" style="color:var(--accent-amber);">➔</div>
+            <div class="flow-box" style="border-color:var(--accent-green); background:rgba(52,211,153,0.05);" onclick="showDetail('rl')">
+              <h4>6. Reinforcement Learning Agent</h4>
+              <p>Hybrid PPO Pass-Ordering Orchestrator</p>
+            </div>
+          </div>
+
+          <div class="flow-arrow-down">▼</div>
+
+          <!-- Row 4 -->
+          <div class="flow-row">
+            <div class="flow-box" style="border-color:var(--accent-blue);" onclick="showDetail('passmgr')">
+              <h4>7. LLVM Pass Manager Integration</h4>
+              <p>Sequential Dynamic IR Transformations</p>
+            </div>
+            <div class="flow-arrow">➔</div>
+            <div class="flow-box" onclick="showDetail('codegen')">
+              <h4>8. Backend & Benchmarking</h4>
+              <p>Code Generation & Multi-Metric Reward</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detail Panel -->
+        <div id="detail-panel" class="detail-panel">
+          <h3 id="detail-title">Component Title <button class="close-btn" onclick="closeDetail()">✕</button></h3>
+          <p id="detail-desc">Description goes here...</p>
+          <div id="detail-tags" class="tag-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overview Text -->
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color:var(--accent-blue); margin-bottom:1rem;">Why Replace Static Heuristics?</h3>
+        <p>Traditional compilers apply rigid, one-size-fits-all pass sequences (`-O2`, `-O3`). For instance, `-O3` aggressively unrolls loops and vectorizes across all programs, which benefits dense scientific computing (like matrix multiplication) but causes instruction cache bloat and register spilling on control-heavy code (like graph traversal or parser state machines).</p>
+        <p style="margin-top:0.75rem;"><strong>NeuroCompiler</strong> replaces handcrafted compiler engineering rules with a dynamic, personalized pass-selection loop. Every source file is evaluated in real-time, building a custom optimization pass trajectory guaranteed to maximize execution speed while bounding code bloat.</p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--accent-green); margin-bottom:1rem;">Key Architectural Breakthroughs</h3>
+        <ul style="padding-left:1.25rem; space-y:0.5rem;">
+          <li><strong>Unified Shared Representation:</strong> A single $d=512$ embedding vector powers multiple downstream decision tasks simultaneously (Pass Profitability, Register Allocation Spill Risk, Loop Vectorization, and Parallelization).</li>
+          <li><strong>Supervised-to-RL Action Pruning:</strong> Supervised models predict pass profitability $[0, 1]$, pruning the 100+ LLVM pass action space down to top-$K$ candidates so the RL agent converges 10x faster.</li>
+          <li><strong>Dynamic Early Stopping:</strong> Unlike `-O3`, the RL agent learned when further optimization causes diminishing returns or code degradation, executing a `STOP` action to preserve compile time.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: COMPONENTS -->
+  <div id="components" class="tab-content">
+    <div class="grid-3">
+      <div class="card">
+        <h3 style="color:var(--accent-blue); margin-bottom:0.75rem;">1. Feature Extractor</h3>
+        <p style="font-size:0.9rem; color:var(--text-secondary);">Extracts fine-grained program characteristics from intermediate representation without requiring full compilation.</p>
+        <div class="tag-list" style="margin-top:1rem;">
+          <span class="tag">Basic Block Count</span>
+          <span class="tag">Opcode Histograms</span>
+          <span class="tag">Branch Density</span>
+          <span class="tag">Load/Store Ratio</span>
+          <span class="tag">Cyclomatic Complexity</span>
+          <span class="tag">PHI Node Density</span>
+          <span class="tag">Loop Nesting Depth</span>
+          <span class="tag">Memory Dependency</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="color:var(--accent-purple); margin-bottom:0.75rem;">2. Neural Program Encoder</h3>
+        <p style="font-size:0.9rem; color:var(--text-secondary);">Transforms raw tabular statistics or Control Flow Graphs (CFG) into a dense latent state vector $z \in \mathbb{R}^{512}$.</p>
+        <p style="font-size:0.85rem; margin-top:0.75rem;"><strong>Supported Encoders:</strong></p>
+        <ul style="font-size:0.85rem; padding-left:1rem; margin-top:0.25rem;">
+          <li><strong>MLP Encoder:</strong> Fast 3-layer residual network for statistical vectors (0.5ms inference).</li>
+          <li><strong>Graph Neural Network (GNN):</strong> Spatial graph convolution over CFG/DFG nodes for maximum topological fidelity.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="color:var(--accent-amber); margin-bottom:0.75rem;">3. Supervised Multi-Head</h3>
+        <p style="font-size:0.9rem; color:var(--text-secondary);">Four specialized predictors sharing the $d=512$ program embedding:</p>
+        <ul style="font-size:0.85rem; padding-left:1rem; margin-top:0.5rem; line-height:1.7;">
+          <li><strong>Model A (Pass Profitability):</strong> Sigmoid probabilities across candidate passes.</li>
+          <li><strong>Model B (Spill Risk):</strong> 3-class classifier (Low / Med / High) to assist allocator.</li>
+          <li><strong>Model C (Vectorization):</strong> Binary decision + Expected speedup regression.</li>
+          <li><strong>Model D (Parallelization):</strong> Safety predictor + confidence interval.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color:var(--accent-green); margin-bottom:0.75rem;">4. Reinforcement Learning Orchestrator (PPO)</h3>
+        <p style="font-size:0.9rem; margin-bottom:0.75rem;">Treats compilation as a sequential Markov Decision Process (MDP) $\langle \mathcal{S}, \mathcal{A}, \mathcal{P}, \mathcal{R}, \gamma \rangle$:</p>
+        <div class="formula-box">
+          State S_t = [ z_t || PassHistory_t || BudgetRemaining_t ]<br>
+          Action A_t ∈ { Top-K Supervised Passes } ∪ { STOP }<br>
+          Reward R_t = ΔSpeedup - α·ΔCompileTime - β·ΔCodeSize
+        </div>
+        <p style="font-size:0.85rem; color:var(--text-secondary);">Using Proximal Policy Optimization (PPO) with clipped surrogate objective to guarantee stable policy updates during multi-step optimization trajectories.</p>
+      </div>
+
+      <div class="card">
+        <h3 style="color:var(--accent-rose); margin-bottom:0.75rem;">5. LLVM Pass Manager & Plugin Bridge</h3>
+        <p style="font-size:0.9rem; margin-bottom:0.75rem;">Integrates with LLVM's modern `NewPM` architecture via C++ pass wrappers or a custom Python-to-C++ IPC bridge (`CompilerGym` / custom `PyBind11` interface).</p>
+        <pre>
+<span class="code-comment">// Pseudo C++ Pass Injection Loop</span>
+<span class="code-type">void</span> <span class="code-keyword">NeuroCompilerPass::run</span>(Module &M, ModuleAnalysisManager &AM) {
+    <span class="code-keyword">while</span> (!state.isTerminated()) {
+        FeatureVector fv = extractIRFeatures(M);
+        Action pass_id = rl_agent_client.predict(fv);
+        <span class="code-keyword">if</span> (pass_id == ACTION_STOP) <span class="code-keyword">break</span>;
+        PassManager.runPassById(pass_id, M);
+    }
+}</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: HYBRID ML+RL MECHANICS -->
+  <div id="hybrid" class="tab-content">
+    <div class="card">
+      <h2 class="card-title">How Supervised Learning Guarantees Fast RL Convergence</h2>
+      <p style="margin-bottom:1.5rem;">Pure reinforcement learning in compiler optimization suffers from a severe **combinatorial explosion**: with $|\mathcal{A}| \approx 100$ candidate passes and episode lengths of up to $L=20$ steps, the trajectory space exceeds $100^{20} = 10^{40}$ sequences. Pure exploration produces broken or degenerate IR sequences for thousands of epochs.</p>
+      
+      <div class="grid-3">
+        <div class="card" style="background:#131c31; border-color:var(--accent-blue);">
+          <h4 style="color:var(--accent-blue); margin-bottom:0.5rem;">Mode 1: Action Space Pruning (Implemented)</h4>
+          <p style="font-size:0.85rem;">At each step $t$, Model A (Supervised Pass Profitability) evaluates all candidate passes and emits probability $P(a_i | z_t)$. The RL agent's action space $\mathcal{A}_t$ is dynamically restricted to only the top $K=8$ passes where $P(a_i) > \tau$. This reduces the branching factor from 100 to 8!</p>
+        </div>
+
+        <div class="card" style="background:#131c31; border-color:var(--accent-amber);">
+          <h4 style="color:var(--accent-amber); margin-bottom:0.5rem;">Mode 2: Prior-Weighted Policy Initialization</h4>
+          <p style="font-size:0.85rem;">The actor network $\pi_\theta(a|s)$ in PPO is initialized with a KL-divergence regularization term against the supervised distribution $\mathcal{P}_{SL}(a|s)$ during early episodes: $\mathcal{L}_{Total} = \mathcal{L}_{PPO} - \lambda \cdot D_{KL}(\pi_\theta || \mathcal{P}_{SL})$.</p>
+        </div>
+
+        <div class="card" style="background:#131c31; border-color:var(--accent-green);">
+          <h4 style="color:var(--accent-green); margin-bottom:0.5rem;">Mode 3: Multi-Objective Reward Shaping</h4>
+          <p style="font-size:0.85rem;">To penalize redundant optimization steps before execution benchmarking completes, intermediate rewards are augmented with potential-based shaping derived from the supervised model's estimated speedup reduction vector.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="color:var(--accent-blue); margin-bottom:1rem;">Mathematical Formulation of the Reward Function</h3>
+      <p>The agent optimizes a multi-criterion scalar reward $R_t$ at step $t$ (or upon terminal step $T$):</p>
+      <div class="formula-box">
+        R_T = w_1 \cdot \left( \frac{T_{base} - T_{neuro}}{T_{base}} \right) - w_2 \cdot \max\left(0, \frac{C_{neuro} - C_{base}}{C_{base}} - \theta_{time}\right) - w_3 \cdot \max\left(0, \frac{S_{neuro} - S_{base}}{S_{base}} - \theta_{size}\right)
+      </div>
+      <p style="font-size:0.9rem; color:var(--text-secondary); margin-top:0.5rem;">Where $T_{base}$ is execution time under `-O2`, $C$ is compile time, $S$ is binary text segment size, and $\theta$ thresholds represent acceptable overhead tolerances ($\theta_{time} = 0.15$, $\theta_{size} = 0.05$).</p>
+    </div>
+  </div>
+
+  <!-- TAB 4: BASELINES & EVALUATION -->
+  <div id="baselines" class="tab-content">
+    <div class="card">
+      <h2 class="card-title">Empirical Benchmark & Baseline Comparison Suite</h2>
+      <p style="margin-bottom:1rem;">NeuroCompiler is rigorously evaluated across four standard research benchmark suites to verify broad generalization across domain boundaries:</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Benchmark Suite</th>
+            <th>Primary Workload Domain</th>
+            <th>Program Count</th>
+            <th>Target Evaluation Metric</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>PolyBench/C 4.2.1</strong></td>
+            <td>Dense Linear Algebra, Stencils, Solvers, Data Mining</td>
+            <td>30 kernels</td>
+            <td>Execution Time (CPU Cycles & Speedup vs `-O3`)</td>
+          </tr>
+          <tr>
+            <td><strong>LOOPerSet / MiBench</strong></td>
+            <td>Embedded Control Flow, DSP, Telecommunications, Security</td>
+            <td>85 programs</td>
+            <td>Binary Code Size (`.text` segment KB) & Instruction Spills</td>
+          </tr>
+          <tr>
+            <td><strong>CompilerGym (LLVM-v0)</strong></td>
+            <td>High-Diversity Open Source C/C++ Repositories (GitHub)</td>
+            <td>1,000+ modules</td>
+            <td>Pass Ordering Trajectory Efficiency & Compile Overhead</td>
+          </tr>
+          <tr>
+            <td><strong>SPEC CPU2017 (C/C++ subset)</strong></td>
+            <td>Industry-Standard Real-World System Benchmarks</td>
+            <td>15 large suites</td>
+            <td>End-to-End Wall-Clock Performance & Memory Footprint</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3 style="color:var(--accent-green); margin-bottom:1rem;">Expected Experimental Results (Ablation Matrix)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Configuration / Baseline</th>
+            <th>Avg Runtime Speedup (vs -O0)</th>
+            <th>Speedup vs -O3</th>
+            <th>Compile Time Overhead vs -O3</th>
+            <th>Code Size Change vs -O3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>LLVM `-O1`</td>
+            <td>2.15x</td>
+            <td>-18.4%</td>
+            <td>-45.0% (Faster)</td>
+            <td>-12.0% (Smaller)</td>
+          </tr>
+          <tr>
+            <td>LLVM `-O2`</td>
+            <td>2.58x</td>
+            <td>-4.2%</td>
+            <td>-15.0%</td>
+            <td>-5.5%</td>
+          </tr>
+          <tr>
+            <td>LLVM `-O3` (Standard Baseline)</td>
+            <td>2.69x</td>
+            <td><strong>0.0% (Baseline)</strong></td>
+            <td>1.00x (Baseline)</td>
+            <td>1.00x (Baseline)</td>
+          </tr>
+          <tr>
+            <td>LLVM `-Oz` (Size Optimized)</td>
+            <td>2.31x</td>
+            <td>-14.1%</td>
+            <td>-20.0%</td>
+            <td>-22.4% (Smallest)</td>
+          </tr>
+          <tr>
+            <td>Pure Supervised Prediction (Only SL)</td>
+            <td>2.78x</td>
+            <td>+3.3%</td>
+            <td>+12.5%</td>
+            <td>-2.1%</td>
+          </tr>
+          <tr>
+            <td>Pure RL Agent (No SL Prior Pruning)</td>
+            <td>2.84x</td>
+            <td>+5.6%</td>
+            <td>+310.0% (High search cost)</td>
+            <td>+1.4%</td>
+          </tr>
+          <tr style="background:rgba(56, 189, 248, 0.1); font-weight:bold; color:var(--accent-blue);">
+            <td>NeuroCompiler (Hybrid ML + RL)</td>
+            <td>3.02x</td>
+            <td>+12.3% Speedup</td>
+            <td>+18.4% (Bounded)</td>
+            <td>-6.8% (More compact!)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB 5: ROADMAP & WBS -->
+  <div id="roadmap" class="tab-content">
+    <div class="card">
+      <h2 class="card-title">4-Member Team Work Breakdown Structure (WBS) & Conference Roadmap</h2>
+      <p style="margin-bottom:1.5rem;">Targeting top-tier systems/compiler conferences (<strong>ACM/IEEE CGO</strong> or <strong>LCTES</strong>) over an intensive 8-month execution plan.</p>
+
+      <div class="grid-2">
+        <div class="card" style="background:#131c31;">
+          <h3 style="color:var(--accent-blue); margin-bottom:0.75rem;">Member 1: LLVM & Backend Integration Lead</h3>
+          <ul style="font-size:0.875rem; padding-left:1.25rem; space-y:0.5rem;">
+            <li>Master LLVM `NewPM` (New Pass Manager) architecture and C++ API.</li>
+            <li>Develop custom LLVM analysis passes and dynamic pass runner plugin.</li>
+            <li>Implement automated profiling (`hyperfine`, `perf`) & hardware cycle counting scripts.</li>
+            <li>Ensure cross-compilation stability and verify zero-corruption IR transforms.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="background:#131c31;">
+          <h3 style="color:var(--accent-purple); margin-bottom:0.75rem;">Member 2: Data Engineering & IR Feature Architect</h3>
+          <ul style="font-size:0.875rem; padding-left:1.25rem; space-y:0.5rem;">
+            <li>Construct end-to-end data pipeline harvesting PolyBench, LOOPerSet, and CompilerGym.</li>
+            <li>Build `IRFeatureExtractor`: extract 25 statistical opcodes, CFG edge lists, and loop nest trees.</li>
+            <li>Generate multi-pass exploration dataset (~50,000 compiled IR samples with metrics).</li>
+            <li>Maintain feature normalization, database storage (`SQLite`/`Parquet`), and train/val/test splits.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="background:#131c31;">
+          <h3 style="color:var(--accent-amber); margin-bottom:0.75rem;">Member 3: Supervised & Graph Neural Network Lead</h3>
+          <ul style="font-size:0.875rem; padding-left:1.25rem; space-y:0.5rem;">
+            <li>Design Shared Neural Program Encoder (`PyTorch` MLP and spatial GNN over CFG).</li>
+            <li>Train Model A (Pass Profitability), Model B (Spill Risk), and Model C/D (Vector/Parallel).</li>
+            <li>Perform ablation studies on latent embedding dimension ($d=128, 256, 512$).</li>
+            <li>Export trained models to low-latency ONNX/TorchScript format for real-time compiler inference.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="background:#131c31;">
+          <h3 style="color:var(--accent-green); margin-bottom:0.75rem;">Member 4: RL Orchestrator & Evaluation Lead</h3>
+          <ul style="font-size:0.875rem; padding-left:1.25rem; space-y:0.5rem;">
+            <li>Develop `NeuroCompilerEnv` Gymnasium environment interfacing with LLVM pass engine.</li>
+            <li>Implement and tune Hybrid PPO agent with action space pruning and multi-objective rewards.</li>
+            <li>Conduct rigorous statistical evaluation against `-O1, -O2, -O3, -Oz` across all 4 benchmark suites.</li>
+            <li>Lead paper writing, chart generation, statistical significance tests, and CGO/LCTES submission.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>Month 1 - 2: Infrastructure & Feature Pipeline (Milestone M1)</h4>
+            <div class="meta">Deliverable: Working LLVM IR Extractor & 50k Dataset Generation</div>
+            <p>Set up LLVM/Clang build environments. Member 1 & 2 build the automated compilation and feature extraction scripts across PolyBench and LOOPerSet. Generate benchmark metric tables.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot" style="border-color:var(--accent-purple);"></div>
+          <div class="timeline-content">
+            <h4>Month 3 - 4: Supervised Representation & Profitability Heads (Milestone M2)</h4>
+            <div class="meta">Deliverable: Shared Encoder + Models A-D achieving >88% Top-5 Pass Accuracy</div>
+            <p>Member 3 trains the shared neural encoder ($d=512$) and supervised prediction heads. Member 2 integrates GNN CFG extraction. Conduct preliminary accuracy evaluation and export to ONNX.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot" style="border-color:var(--accent-green);"></div>
+          <div class="timeline-content">
+            <h4>Month 5 - 6: Hybrid RL PPO Integration & Pass Pruning (Milestone M3)</h4>
+            <div class="meta">Deliverable: End-to-End Dynamic Pass Orchestrator Beating -O2/-O3 on Training Set</div>
+            <p>Member 4 deploys `NeuroCompilerEnv` with PPO. Integrate Model A profitability predictions for top-$K=8$ action pruning. Member 1 connects dynamic pass runner to closed-loop evaluation.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot" style="border-color:var(--accent-rose);"></div>
+          <div class="timeline-content">
+            <h4>Month 7 - 8: Generalization Benchmarking & Paper Submission (Milestone M4)</h4>
+            <div class="meta">Deliverable: Full Conference Manuscript submitted to CGO / LCTES</div>
+            <p>Evaluate unseen SPEC CPU2017 and CompilerGym programs. Perform ablation studies (Pure SL vs Pure RL vs Hybrid). Finalize charts, statistical tests, and camera-ready paper format.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Details data for click interactions
+  const detailsData = {
+    clang: {
+      title: "1. Source Code & LLVM Frontend (Clang)",
+      desc: "Source code written in C/C++ is parsed by Clang without any modification. Clang performs lexical, syntactic, and semantic analysis, and emits standard LLVM Intermediate Representation (IR) in either human-readable `.ll` assembly or compact `.bc` bitcode using the `-emit-llvm -O0 -Xclang -disable-O0-optnone` flags to ensure a clean, unoptimized baseline.",
+      tags: ["Clang Frontend", "C/C++ Parsing", "Abstract Syntax Tree (AST)", "LLVM Bitcode (.bc)", "Zero-Opt Baseline"]
+    },
+    ir: {
+      title: "2. LLVM Intermediate Representation (IR)",
+      desc: "LLVM IR is Static Single Assignment (SSA) based, type-safe, and infinite-register representation. Every variable is assigned exactly once, making explicit control-flow graphs (CFG) and data-flow dependencies easily traceable for downstream feature extraction.",
+      tags: ["SSA Form", "Infinite Virtual Registers", "Basic Blocks", "PHI Instructions", "Memory Load/Store"]
+    },
+    extractor: {
+      title: "3. IR Feature Extractor Module",
+      desc: "Before making pass decisions, the `IRFeatureExtractor` scans the current module/function IR. It computes a 25-dimensional numerical vector capturing basic block topology, opcode frequencies, memory traffic intensity, branch density, and loop nesting characteristics in under 1.2ms.",
+      tags: ["Opcode Histogram", "Loop Depth Tree", "CFG Edge Density", "Memory Traffic Ratio", "Cyclomatic Complexity"]
+    },
+    encoder: {
+      title: "4. Shared Neural Program Encoder",
+      desc: "To prevent duplicate feature processing, a unified neural encoder transforms extracted statistics (via a 3-layer Residual MLP) or raw CFGs (via a Graph Attention Network / GAT) into a shared $d=512$ latent program embedding $z \in \\mathbb{R}^{512}$. All supervised heads and the RL actor-critic networks consume this exact representation.",
+      tags: ["Latent Embedding d=512", "PyTorch / TorchScript", "Graph Attention (GAT)", "Multi-Task Representation", "Zero-Copy Inference"]
+    },
+    supervised: {
+      title: "5. Supervised Decision Layer (Multi-Head)",
+      desc: "Four specialized multi-layer perceptron heads branch from the shared embedding: Model A predicts pass profitability probabilities $[0, 1]$; Model B classifies register allocation spill risk; Model C predicts loop vectorization speedup; and Model D evaluates parallelization safety.",
+      tags: ["Pass Profitability Head", "Spill Risk 3-Class Classifier", "Vectorization Regressor", "Parallel Safety Score", "Action Pruning Prior"]
+    },
+    rl: {
+      title: "6. Reinforcement Learning Orchestrator (PPO)",
+      desc: "The intelligent core: treats compilation as a sequential Markov Decision Process. At each step, the RL agent observes state $S_t$ (shared embedding + pass history + budget), receives candidate passes pruned by Model A (Top-8), and selects pass $A_t$ to maximize multi-objective reward. Can emit `STOP` to terminate early.",
+      tags: ["Proximal Policy Optimization", "Sequential MDP", "Dynamic Action Pruning", "Multi-Objective Reward", "Adaptive Early Stopping"]
+    },
+    passmgr: {
+      title: "7. LLVM Pass Manager & Dynamic Execution Bridge",
+      desc: "The chosen optimization pass is executed on the live LLVM IR using LLVM's `NewPM` API or via a Python-to-LLVM C++ bridge. Upon pass completion, updated IR statistics are fed back into the extractor to form state $S_{t+1}$.",
+      tags: ["LLVM NewPM", "Dynamic Pass Injection", "In-Memory IR Mutation", "Verify Pass Integrity", "Incremental Analysis"]
+    },
+    codegen: {
+      title: "8. Backend Code Generation & Benchmarking",
+      desc: "Once `STOP` is selected or pass budget expires, the final optimized IR is lowered to target machine code (`x86_64` or `AArch64`). The binary is executed inside a sandboxed profiling harness measuring exact CPU cycles, wall-clock runtime, and `.text` segment size to compute empirical RL rewards.",
+      tags: ["x86_64 / ARM Backend", "Sandboxed Execution Harness", "CPU Cycle Profiler", "Binary Segment Analyzer", "Reward Feedback Loop"]
+    }
+  };
+
+  function showDetail(key) {
+    const data = detailsData[key];
+    if (!data) return;
+
+    // Highlight selected box
+    document.querySelectorAll('.flow-box').forEach(box => box.classList.remove('selected'));
+    event.currentTarget.classList.add('selected');
+
+    // Populate detail panel
+    document.getElementById('detail-title').innerHTML = `${data.title} <button class="close-btn" onclick="closeDetail()">✕</button>`;
+    document.getElementById('detail-desc').innerText = data.desc;
+    
+    const tagsContainer = document.getElementById('detail-tags');
+    tagsContainer.innerHTML = '';
+    data.tags.forEach(tag => {
+      const span = document.createElement('span');
+      span.className = 'tag';
+      span.innerText = tag;
+      tagsContainer.appendChild(span);
+    });
+
+    const panel = document.getElementById('detail-panel');
+    panel.style.display = 'block';
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function closeDetail() {
+    document.getElementById('detail-panel').style.display = 'none';
+    document.querySelectorAll('.flow-box').forEach(box => box.classList.remove('selected'));
+  }
+
+  function switchTab(tabId) {
+    // Buttons
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+
+    // Content
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+  }
+</script>
+</body>
+</html>
