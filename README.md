@@ -1,4 +1,4 @@
-#NeuroCompiler: A Hybrid ML + RL Guided Optimization Framework for LLVM
+# NeuroCompiler: A Hybrid ML + RL Guided Optimization Framework for LLVM
 
 Project Summary
 
