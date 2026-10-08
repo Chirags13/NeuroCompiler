@@ -103,6 +103,7 @@ def main():
       source_hash=sha256_text("|".join(sha256_file(s) for s in sources))
       for inp in program.get("inputs",[{"input_id":"default","run_args":[]}]):
         args_run=program.get("run_args",[])+inp.get("run_args",[])
+        compile_flags=program.get("compile_flags",[])+inp.get("compile_flags",[])
         root=a.workdir/program["program_id"].replace("/","__")/inp["input_id"]
         o3=None
         try:
