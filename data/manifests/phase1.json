@@ -1,0 +1,32 @@
+{
+  "manifest_version": "2.0",
+  "selection_policy": {"project_split": "hash(project_id)", "external_test_projects": "separate-from-training"},
+  "source_roots": {
+    "llvm-test-suite": "external/llvm-test-suite",
+    "polybench-c": "external/PolyBenchC",
+    "cbench": "external/cBench",
+    "mibench": "external/MiBench",
+    "rodinia": "external/Rodinia",
+    "opensource": "external/opensource"
+  },
+  "programs": [
+    {
+      "program_id": "smoke/gemm",
+      "project_id": "smoke-gemm-project",
+      "benchmark_family": "smoke",
+      "source": "benchmarks/smoke/gemm.c",
+      "compile_flags": ["-std=c11"], "link_flags": [], "run_args": [],
+      "inputs": [{"input_id":"n192","run_args":["192"]},{"input_id":"n256","run_args":["256"]}],
+      "optimization_origin": "controlled_smoke"
+    },
+    {
+      "program_id": "smoke/branchy",
+      "project_id": "smoke-branchy-project",
+      "benchmark_family": "smoke",
+      "source": "benchmarks/smoke/branchy.c",
+      "compile_flags": ["-std=c11"], "link_flags": [], "run_args": [],
+      "inputs": [{"input_id":"n3000000","run_args":["3000000"]},{"input_id":"n5000000","run_args":["5000000"]}],
+      "optimization_origin": "controlled_smoke"
+    }
+  ]
+}

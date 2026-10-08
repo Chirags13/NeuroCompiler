@@ -1,0 +1,62 @@
+name: Build runtime-grounded NeuroCompiler dataset
+
+on:
+  push:
+    branches: [dataset-rebuild]
+  workflow_dispatch:
+
+jobs:
+  phase1-runtime:
+    # Final measurements should run on a controlled, low-noise machine.
+    # Register a GitHub self-hosted runner with labels:
+    # self-hosted, linux, x64, neurocompiler
+    runs-on: [self-hosted, linux, x64, neurocompiler]
+    timeout-minutes: 4320
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pinned LLVM toolchain
+        shell: bash
+        run: |
+          set -euxo pipefail
+          sudo apt-get update
+          sudo apt-get install -y clang-18 llvm-18 llvm-18-tools lld-18 ninja-build cmake git python3
+          sudo ln -sf /usr/bin/clang-18 /usr/local/bin/clang
+          sudo ln -sf /usr/bin/clang++-18 /usr/local/bin/clang++
+          sudo ln -sf /usr/bin/opt-18 /usr/local/bin/opt
+          sudo ln -sf /usr/bin/llvm-dis-18 /usr/local/bin/llvm-dis
+          sudo ln -sf /usr/bin/llvm-size-18 /usr/local/bin/llvm-size
+          sudo ln -sf /usr/bin/llvm-link-18 /usr/local/bin/llvm-link
+          sudo ln -sf /usr/bin/ld.lld-18 /usr/local/bin/ld.lld
+          clang --version
+          opt --version
+
+      - name: Materialize benchmark sources
+        run: bash scripts/fetch_benchmarks.sh
+
+      - name: Build benchmark manifests
+        run: bash scripts/build_manifests.sh
+
+      - name: Validate toolchain and pass catalog
+        run: |
+          python3 tools/requirements-check.py
+          python3 tools/validate_pass_catalog.py
+
+      - name: Generate runtime dataset
+        run: |
+          python3 tools/generate_dataset.py             --manifest data/manifests/polybench.json             --config data/config/dataset_config.json             --passes data/pass_catalog.json             --mode random             --output data/processed/polybench-runtime             --workdir data/work/polybench
+
+      - name: Validate generated records
+        run: python3 tools/validate_dataset.py data/processed/polybench-runtime/transitions.jsonl
+
+      - name: Hash generated artifacts
+        run: python3 tools/check_dataset_hashes.py data/processed/polybench-runtime
+
+      - name: Upload dataset artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: neurocompiler-phase1-polybench-runtime
+          path: data/processed/polybench-runtime
+          retention-days: 30
