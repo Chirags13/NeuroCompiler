@@ -1,0 +1,12 @@
+[build-system]
+requires = []
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neurocompiler-dataset"
+version = "0.1.0"
+description = "Runtime-grounded dataset generation for NeuroCompiler"
+requires-python = ">=3.10"
+
+[project.scripts]
+neuro-dataset = "tools.generate_dataset:main"

@@ -1,0 +1,7 @@
+{
+  "source_id": "replace-me",
+  "source_url": "https://example.invalid/repository.git",
+  "source_commit": "IMMUTABLE_COMMIT_REQUIRED",
+  "license": "record-license-here",
+  "programs": []
+}

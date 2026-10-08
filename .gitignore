@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+data/work/
+data/raw/
+data/ir/
+data/measurements/
+data/processed/
+external/
+*.bc
+*.ll
+*.o
+*.out

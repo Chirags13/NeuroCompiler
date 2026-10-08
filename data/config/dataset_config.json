@@ -1,0 +1,38 @@
+{
+  "dataset_version": "runtime_v2",
+  "llvm": {
+    "required_tools": ["clang", "opt", "llvm-dis", "llvm-size", "llvm-link"],
+    "compile_frontend_flags": ["-O0", "-Xclang", "-disable-O0-optnone", "-emit-llvm", "-c"],
+    "link_flags": ["-O0"],
+    "baseline_levels": ["O0", "O1", "O2", "O3", "Os", "Oz"]
+  },
+  "measurement": {
+    "warmups": 3,
+    "repetitions": 10,
+    "primary_estimator": "median",
+    "correctness_repetitions": 1,
+    "timeout_seconds": 120,
+    "capture_perf": true,
+    "perf_events": ["cycles", "instructions", "branches", "branch-misses", "cache-references", "cache-misses"]
+  },
+  "sampling": {
+    "single_pass_per_program": true,
+    "pair_experiments_per_program": 64,
+    "random_sequences_per_program": 128,
+    "max_sequence_length": 15,
+    "seed": 20261008
+  },
+  "training_policy": {
+    "exclude_incorrect": true,
+    "exclude_timeouts": true,
+    "exclude_unstable_runtime": true,
+    "max_cv_runtime": 0.10,
+    "min_runtime_seconds_for_sequence_search": 0.001
+  },
+  "split": {
+    "strategy": "project_hash",
+    "train_fraction": 0.70,
+    "validation_fraction": 0.15,
+    "test_fraction": 0.15
+  }
+}

@@ -1,23 +1,31 @@
 # NeuroCompiler: A Hybrid ML + RL Guided Optimization Framework for LLVM
 
-Project Summary
+NeuroCompiler is a runtime-grounded ML + RL compiler optimization framework. The project now follows a three-phase rebuild:
 
-NeuroCompiler is a machine learning–augmented compiler optimization framework built on top of the LLVM infrastructure. The system introduces a hybrid Supervised Learning and Reinforcement Learning decision layer into the compiler pipeline to improve optimization decisions beyond traditional heuristic-based approaches.
+1. Phase 1 — runtime-grounded dataset generation.
+2. Phase 2 — supervised learning plus reinforcement learning.
+3. Phase 3 — LLVM integration and final evaluation.
 
-The framework learns program representations from LLVM Intermediate Representation (IR) using neural encoders (e.g., Graph Neural Networks or Transformer-based models). These embeddings are used to:
+## Phase 1 is now the controlled foundation
 
-Predict optimization pass profitability
-Assist register allocation decisions (spill risk prediction)
-Guide vectorization and parallelization decisions
-Dynamically select and order optimization passes using a Reinforcement Learning agent
+The dataset specification in `data/DATASET_SPEC.md` makes measured execution runtime the primary target. IR size and code size remain important observations, but a smaller IR is not treated as a successful optimization when execution gets slower.
 
-Unlike static optimization levels (-O2, -O3), NeuroCompiler adapts its optimization strategy per program, aiming to improve runtime performance while controlling compilation overhead.
+The runtime corpus is built from diverse benchmark families and is split at the project level to prevent leakage. Each training example records a program, workload, current optimization history, candidate pass, correctness, repeated runtime measurements, compile time, binary size, IR features, and optional hardware performance counters.
 
-The project evaluates the hybrid system against standard LLVM optimization pipelines using benchmark programs and measures:
+## Repository structure
 
-Execution time improvements
-Code size impact
-Compilation time overhead
-Generalization across unseen programs
+- `data/DATASET_SPEC.md` — final dataset contract.
+- `data/schema/` — machine-readable schema.
+- `data/config/` — measurement and sampling policy.
+- `data/pass_catalog.json` — initial 32-action optimization space.
+- `data/benchmark_sources.json` — benchmark-source policy and roles.
+- `data/manifests/` — concrete runnable benchmark manifests.
+- `tools/` — dataset generation, feature extraction, environment and quality checks.
+- `scripts/` — reproducible generation entry points.
+- `benchmarks/smoke/` — tiny controlled benchmarks used only to validate the infrastructure.
 
-The primary research objective is to determine whether a hybrid ML + RL approach can outperform static compiler heuristics in optimization decision-making.
+## Important limitation
+
+The final runtime-labelled corpus is not generated inside GitHub. It must be produced on a controlled machine with one internally consistent LLVM installation, stable CPU measurement conditions, the benchmark sources materialized and pinned, and sufficient execution time. This repository contains the reproducible machinery and contract; it does not pretend that runtime labels exist before those measurements are actually executed.
+
+See `scripts/README.md` for generation instructions.

@@ -1,0 +1,60 @@
+{
+  "version": "1.0",
+  "policy": {
+    "do_not_vendor_external_sources": true,
+    "store_source_commit": true,
+    "store_license": true,
+    "split_unit": "project",
+    "runtime_ground_truth_required_for_training": true
+  },
+  "sources": [
+    {
+      "id": "llvm-test-suite",
+      "family": "LLVM Test Suite",
+      "url": "https://github.com/llvm/llvm-test-suite.git",
+      "role": "primary-runtime-corpus",
+      "adapter": "llvm_test_suite",
+      "notes": "Use whole-program benchmarks, preferably MultiSource, SingleSource performance benchmarks, MicroBenchmarks, and CTMark. Keep SPEC under External for evaluation only unless licensing/access is explicitly available."
+    },
+    {
+      "id": "polybench-c",
+      "family": "PolyBench/C",
+      "url": "https://github.com/ferrandi/PolyBenchC.git",
+      "role": "training-and-validation",
+      "adapter": "polybench",
+      "notes": "Numerical kernels with compile-time dataset sizes. Use multiple dataset sizes and repeated measurements."
+    },
+    {
+      "id": "rodinia",
+      "family": "Rodinia",
+      "url": "https://github.com/socal-ucr/Rodinia.git",
+      "role": "training-and-validation",
+      "adapter": "generic_manifest",
+      "notes": "Use CPU/OpenMP-capable workloads with validated input and verification commands."
+    },
+    {
+      "id": "cbench",
+      "family": "Collective cBench",
+      "url": "https://github.com/summerspringwei/cBench.git",
+      "role": "training-and-validation",
+      "adapter": "generic_manifest",
+      "notes": "Prefer programs and datasets with reproducible runtime measurements and correctness checks."
+    },
+    {
+      "id": "anghabench",
+      "family": "AnghaBench",
+      "url": "https://github.com/AnghaBench/AnghaBench.git",
+      "role": "structural-pretraining-only",
+      "adapter": "catalog_only",
+      "notes": "Use for representation diversity and static IR data. Do not treat compile-only programs as runtime-labelled examples."
+    },
+    {
+      "id": "spec-cpu",
+      "family": "SPEC CPU",
+      "url": "https://www.spec.org/cpu/",
+      "role": "external-final-evaluation",
+      "adapter": "spec_external",
+      "notes": "Requires legitimate licensed access. Do not redistribute benchmark sources or results that violate license terms."
+    }
+  ]
+}
