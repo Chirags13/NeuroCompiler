@@ -16,8 +16,11 @@ def split_for_project(pid: str) -> str:
     x=int(hashlib.sha256(pid.encode()).hexdigest()[:8],16)/0xFFFFFFFF
     return "train" if x<.70 else ("validation" if x<.85 else "test")
 
-def measure(exe: Path, args: list[str], cfg: dict[str,Any]) -> dict[str,Any]:
+def measure(exe: Path, args: list[str], cfg: dict[str,Any], expected_stdout_sha256: str | None = None) -> dict[str,Any]:
     c=correctness_run(exe,args,cfg["measurement"]["timeout_seconds"])
+    if c["ok"] and expected_stdout_sha256 is not None and c["stdout_sha256"] != expected_stdout_sha256:
+        c["ok"] = False
+        c["correctness_reason"] = "stdout_hash_mismatch_against_O3_baseline"
     if not c["ok"]: return {"correctness":False,"correctness_result":c}
     rt=measure_runtime(exe,args,cfg["measurement"]["warmups"],cfg["measurement"]["repetitions"],cfg["measurement"]["timeout_seconds"])
     perf=perf_measure(exe,args,cfg["measurement"]["timeout_seconds"]) if cfg["measurement"]["capture_perf"] else {}
@@ -105,11 +108,13 @@ def main():
         try:
           for level in cfg["llvm"]["baseline_levels"]:
             exe=root/f"baseline_{level}"/"program"
-            ct=compile_baseline(sources,exe,level,program.get("compile_flags",[]))
+            ct=compile_baseline(sources,exe,level,compile_flags)
             m=measure(exe,args_run,cfg)
             if not m["correctness"]: continue
+            if level == "O3":
+                expected_stdout_sha256 = m["correctness_result"]["stdout_sha256"]
             ll=root/f"baseline_{level}.ll"
-            try: feat=baseline_ir(sources,level,program.get("compile_flags",[]),ll)
+            try: feat=baseline_ir(sources,level,compile_flags,ll)
             except Exception: feat={}
             item={"program_id":program["program_id"],"project_id":program["project_id"],"benchmark_family":program["benchmark_family"],
                   "split":split,"input_id":inp["input_id"],"optimization_level":level,"runtime":m["runtime"],
@@ -119,7 +124,7 @@ def main():
             baselines.append(item)
           if o3 is None: continue
           custom_base_dir=root/"state_cache"/"root"
-          source_bc,front_time=compile_to_bitcode(sources,custom_base_dir/"frontend",cfg["llvm"]["compile_frontend_flags"]+program.get("compile_flags",[]))
+          source_bc,front_time=compile_to_bitcode(sources,custom_base_dir/"frontend",cfg["llvm"]["compile_frontend_flags"]+compile_flags)
           cache={():None}
           base=build_custom_state(source_bc,[],pmap,custom_base_dir,program.get("link_flags",[]),cfg,args_run)
           cache[()]=base
@@ -140,6 +145,9 @@ def main():
                     break
                   cache[prefix]=state
                 after=cache[prefix]
+                if after["correctness"] and expected_stdout_sha256 is not None and after["correctness_result"]["stdout_sha256"] != expected_stdout_sha256:
+                  after["correctness"] = False
+                  after["correctness_result"]["correctness_reason"] = "stdout_hash_mismatch_against_O3_baseline"
                 if not after["correctness"] or after["runtime"]["coefficient_of_variation"]>cfg["training_policy"]["max_cv_runtime"]:
                   break
                 rows.append(record(program,inp,split,source_hash,prev,after,prev_seq,candidate,step,compiler,hardware,round(o3["runtime"]["median_seconds"]*1e9)))
