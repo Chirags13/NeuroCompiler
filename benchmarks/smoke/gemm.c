@@ -1,1 +1,37 @@
-#include <stdio.h>\n#include <stdlib.h>\nstatic double checksum(const double *a,int n){double s=0;for(int i=0;i<n*n;i++)s+=a[i];return s;}\nint main(int argc,char**argv){int n=argc>1?atoi(argv[1]):192;if(n<8||n>1024)return 2;double*a=malloc((size_t)n*n*sizeof(double));double*b=malloc((size_t)n*n*sizeof(double));double*c=malloc((size_t)n*n*sizeof(double));if(!a||!b||!c)return 3;for(int i=0;i<n*n;i++){a[i]=(double)((i*17)%101)/101.;b[i]=(double)((i*13+7)%97)/97.;c[i]=0;}for(int i=0;i<n;i++)for(int k=0;k<n;k++){double aik=a[i*n+k];for(int j=0;j<n;j++)c[i*n+j]+=aik*b[k*n+j];}printf("%.17g\\n",checksum(c,n));free(a);free(b);free(c);return 0;}\n
+#include <stdio.h>
+#include <stdlib.h>
+
+static double checksum(const double *a, int n) {
+    double s = 0.0;
+    for (int i = 0; i < n * n; ++i) s += a[i];
+    return s;
+}
+
+int main(int argc, char **argv) {
+    int n = argc > 1 ? atoi(argv[1]) : 192;
+    if (n < 8 || n > 1024) return 2;
+
+    double *a = malloc((size_t)n * n * sizeof(double));
+    double *b = malloc((size_t)n * n * sizeof(double));
+    double *c = malloc((size_t)n * n * sizeof(double));
+    if (!a || !b || !c) return 3;
+
+    for (int i = 0; i < n * n; ++i) {
+        a[i] = (double)((i * 17) % 101) / 101.0;
+        b[i] = (double)((i * 13 + 7) % 97) / 97.0;
+        c[i] = 0.0;
+    }
+
+    for (int i = 0; i < n; ++i)
+        for (int k = 0; k < n; ++k) {
+            double aik = a[i * n + k];
+            for (int j = 0; j < n; ++j)
+                c[i * n + j] += aik * b[k * n + j];
+        }
+
+    printf("%.17g\n", checksum(c, n));
+    free(a);
+    free(b);
+    free(c);
+    return 0;
+}
