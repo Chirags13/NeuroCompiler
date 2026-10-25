@@ -3,6 +3,8 @@
 **Results: see [results/FINAL_REPORT.md](results/FINAL_REPORT.md).** Model top-8 + timing: +7.5% geomean vs -O3
 (+4.3% excluding the largest result) on 33 held-out programs; details, baselines and limits in the report.
 
+**How to install and run it: [RUN.md](RUN.md).**
+
 **Final version = RL + SL** (`bin/neurocompiler prog.c --out prog`): the RL agent (PPO) proposes pipelines for the
 program, the supervised LightGBM model ranks them together with the pipeline library, the top 8 are compiled,
 verified and timed against -O3, and the fastest ships only if a fresh run confirms it beats -O3 by >1% (else -O3).
