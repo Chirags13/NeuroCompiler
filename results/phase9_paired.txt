@@ -1,0 +1,99 @@
+Phase 9 paired comparison, tag final_serial, 33 test programs
+topk vs random_topk  mean  +5.81% (95% CI +0.97..+13.87)  better 8 / worse 2 by >1%
+topk vs random@8     mean  +2.12% (95% CI -0.61..+5.75)  better 7 / worse 5 by >1%
+topk vs ga@8         mean  +5.32% (95% CI +0.32..+13.40)  better 6 / worse 6 by >1%
+topk vs topk_nodyn   mean  +1.30% (95% CI -0.47..+4.08)  better 3 / worse 5 by >1%
+topk vs ml_top1      mean  +5.04% (95% CI +2.34..+8.34)  better 15 / worse 2 by >1%
+topk vs O2           mean  +8.61% (95% CI +3.10..+17.39)  better 15 / worse 0 by >1%
+topk vs Os           mean +10.84% (95% CI +4.62..+19.88)  better 17 / worse 1 by >1%
+
+Regressions (final 95% CI below -O3):
+  O2           ms/Applications/JM/lencod                  0.987 [0.985,0.990]
+  O2           ms/Applications/aha                        0.967 [0.967,0.968]
+  O2           ms/Applications/siod                       0.987 [0.986,0.988]
+  O2           ms/Benchmarks/Ptrdist/ft                   0.905 [0.850,0.934]
+  O2           ms/Benchmarks/VersaBench/8b10b             0.976 [0.974,0.976]
+  O2           ss/Shootout-C++/hash2                      0.852 [0.850,0.854]
+  Os           ms/Applications/JM/lencod                  0.990 [0.989,0.993]
+  Os           ms/Applications/aha                        0.967 [0.966,0.967]
+  Os           ms/Applications/siod                       0.911 [0.910,0.913]
+  Os           ms/Benchmarks/BitBench/five11              0.937 [0.937,0.938]
+  Os           ms/Benchmarks/NPB-serial/is                0.911 [0.910,0.911]
+  Os           ms/Benchmarks/Ptrdist/ft                   0.897 [0.867,0.931]
+  Os           ms/Benchmarks/VersaBench/8b10b             0.687 [0.686,0.688]
+  Os           ms/Benchmarks/VersaBench/beamformer        0.995 [0.994,0.996]
+  Os           ms/Benchmarks/VersaBench/dbms              0.991 [0.990,0.995]
+  Os           ms/Benchmarks/VersaBench/ecbdes            0.991 [0.991,0.991]
+  Os           polybench/atax                             0.997 [0.996,0.998]
+  Os           polybench/ludcmp                           0.997 [0.995,0.999]
+  Os           polybench/mvt                              0.998 [0.996,0.999]
+  Os           polybench/nussinov                         0.995 [0.991,0.997]
+  Os           ss/Shootout-C++/ackermann                  0.996 [0.996,0.997]
+  Os           ss/Shootout-C++/hash2                      0.815 [0.812,0.817]
+  Os           ss/Shootout-C++/methcall                   0.998 [0.995,0.999]
+  ga@8         ms/Benchmarks/BitBench/five11              0.992 [0.991,0.992]
+  ga@8         ms/Benchmarks/Ptrdist/ft                   0.919 [0.841,0.967]
+  ga@8         ms/Benchmarks/VersaBench/ecbdes            0.999 [0.999,0.999]
+  ga@8         polybench/floyd-warshall                   0.999 [0.998,1.000]
+  ga@8         polybench/gramschmidt                      0.975 [0.974,0.976]
+  ga@8         polybench/lu                               0.992 [0.990,0.994]
+  ml_top1      ms/Applications/JM/lencod                  0.897 [0.895,0.899]
+  ml_top1      ms/Applications/aha                        0.886 [0.885,0.887]
+  ml_top1      ms/Applications/siod                       0.973 [0.972,0.974]
+  ml_top1      ms/Benchmarks/NPB-serial/is                0.984 [0.983,0.986]
+  ml_top1      ms/Benchmarks/VersaBench/8b10b             0.850 [0.848,0.851]
+  ml_top1      ms/Benchmarks/VersaBench/ecbdes            1.000 [0.999,1.000]
+  ml_top1      polybench/2mm                              0.998 [0.997,0.999]
+  ml_top1      polybench/bicg                             0.993 [0.992,0.994]
+  ml_top1      polybench/cholesky                         0.936 [0.934,0.938]
+  ml_top1      polybench/floyd-warshall                   0.857 [0.856,0.859]
+  ml_top1      polybench/gramschmidt                      0.971 [0.967,0.973]
+  ml_top1      polybench/lu                               0.942 [0.941,0.943]
+  ml_top1      polybench/nussinov                         0.678 [0.674,0.680]
+  ml_top1      polybench/trisolv                          0.995 [0.994,0.996]
+  ml_top1      ss/Shootout-C++/ackermann                  0.992 [0.990,0.994]
+  ml_top1      ss/Shootout-C++/hash2                      0.925 [0.921,0.927]
+  random@8     ms/Applications/aha                        1.000 [0.999,1.000]
+  random@8     ms/Benchmarks/Ptrdist/ft                   0.901 [0.858,0.943]
+  random@8     ms/Benchmarks/VersaBench/ecbdes            0.992 [0.991,0.993]
+  random@8     polybench/2mm                              0.996 [0.995,0.998]
+  random@8     polybench/atax                             0.997 [0.996,0.998]
+  random@8     polybench/floyd-warshall                   0.999 [0.998,0.999]
+  topk         ms/Applications/JM/lencod                  0.979 [0.977,0.980]
+  topk_nodyn   ms/Benchmarks/VersaBench/ecbdes            0.999 [0.999,0.999]
+  topk_nodyn   polybench/2mm                              0.999 [0.997,1.000]
+
+Model top-k per program:
+  polybench/durbin                           topk 2.836   random_topk 1.000   random@8 2.693   ga@8 1.000
+  polybench/3mm                              topk 1.441   random_topk 1.000   random@8 1.002   ga@8 1.481
+  ms/Benchmarks/Ptrdist/ft                   topk 1.248   random_topk 1.162   random@8 0.901   ga@8 0.919
+  ss/Shootout-C++/heapsort                   topk 1.198   random_topk 1.143   random@8 1.244   ga@8 1.014
+  ss/Shootout-C++/ackermann                  topk 1.191   random_topk 1.192   random@8 1.193   ga@8 1.000
+  polybench/gramschmidt                      topk 1.157   random_topk 1.000   random@8 0.999   ga@8 0.975
+  ss/Shootout-C++/fibo                       topk 1.131   random_topk 1.000   random@8 1.055   ga@8 1.219
+  polybench/ludcmp                           topk 1.070   random_topk 1.000   random@8 1.119   ga@8 1.000
+  ss/Shootout-C++/methcall                   topk 1.040   random_topk 1.052   random@8 1.042   ga@8 1.052
+  polybench/atax                             topk 1.029   random_topk 1.000   random@8 0.997   ga@8 1.099
+  polybench/bicg                             topk 1.015   random_topk 1.018   random@8 1.001   ga@8 1.012
+  ss/Shootout-C++/sieve                      topk 1.008   random_topk 1.000   random@8 1.001   ga@8 1.002
+  ms/Applications/aha                        topk 1.000   random_topk 1.000   random@8 1.000   ga@8 0.999
+  ms/Applications/siod                       topk 1.000   random_topk 1.000   random@8 1.000   ga@8 1.000
+  ms/Benchmarks/BitBench/five11              topk 1.000   random_topk 1.000   random@8 1.000   ga@8 0.992
+  ms/Benchmarks/NPB-serial/is                topk 1.000   random_topk 1.000   random@8 1.000   ga@8 0.999
+  ms/Benchmarks/VersaBench/8b10b             topk 1.000   random_topk 1.000   random@8 1.000   ga@8 1.005
+  ms/Benchmarks/VersaBench/beamformer        topk 1.000   random_topk 1.000   random@8 1.005   ga@8 1.004
+  ms/Benchmarks/VersaBench/dbms              topk 1.000   random_topk 1.000   random@8 0.999   ga@8 1.003
+  ms/Benchmarks/VersaBench/ecbdes            topk 1.000   random_topk 1.000   random@8 0.992   ga@8 0.999
+  polybench/2mm                              topk 1.000   random_topk 1.000   random@8 0.996   ga@8 1.000
+  polybench/cholesky                         topk 1.000   random_topk 1.000   random@8 1.040   ga@8 1.000
+  polybench/deriche                          topk 1.000   random_topk 1.000   random@8 1.000   ga@8 1.000
+  polybench/doitgen                          topk 1.000   random_topk 1.000   random@8 1.000   ga@8 1.000
+  polybench/floyd-warshall                   topk 1.000   random_topk 1.000   random@8 0.999   ga@8 0.999
+  polybench/lu                               topk 1.000   random_topk 1.000   random@8 1.000   ga@8 0.992
+  polybench/mvt                              topk 1.000   random_topk 1.000   random@8 1.000   ga@8 1.033
+  polybench/nussinov                         topk 1.000   random_topk 1.000   random@8 1.009   ga@8 1.000
+  polybench/trisolv                          topk 1.000   random_topk 1.000   random@8 1.000   ga@8 1.000
+  ss/Shootout-C++/hash2                      topk 1.000   random_topk 1.000   random@8 1.056   ga@8 1.000
+  ss/Shootout-C++/lists                      topk 1.000   random_topk 1.000   random@8 1.009   ga@8 0.999
+  ss/Shootout-C++/random                     topk 1.000   random_topk 1.000   random@8 1.000   ga@8 1.000
+  ms/Applications/JM/lencod                  topk 0.979   random_topk 1.000   random@8 1.113   ga@8 1.000

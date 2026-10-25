@@ -1,0 +1,138 @@
+{
+ "polybench/jacobi-1d|copies=1": {
+  "worst_dev_pct": 0.22782821601974312,
+  "ci_excl": 0,
+  "runs": [
+   {
+    "n": 20,
+    "speedup": 1.0022782821601974,
+    "ci_lo": 0.9964753408568474,
+    "ci_hi": 1.0065916055312432,
+    "significant": false
+   },
+   {
+    "n": 20,
+    "speedup": 1.0001176881069072,
+    "ci_lo": 0.9967959545633691,
+    "ci_hi": 1.0073681342848546,
+    "significant": false
+   },
+   {
+    "n": 20,
+    "speedup": 0.9990297790443395,
+    "ci_lo": 0.9928727977119005,
+    "ci_hi": 1.005913752477163,
+    "significant": false
+   },
+   {
+    "n": 20,
+    "speedup": 0.998741169617701,
+    "ci_lo": 0.9937349134196314,
+    "ci_hi": 1.0056673558874212,
+    "significant": false
+   }
+  ]
+ },
+ "polybench/jacobi-1d|copies=4": {
+  "worst_dev_pct": 0.5313647832533297,
+  "ci_excl": 0,
+  "runs": [
+   {
+    "n": 20,
+    "speedup": 0.997858330420621,
+    "ci_lo": 0.9921101273642977,
+    "ci_hi": 1.01504391406537,
+    "significant": false
+   },
+   {
+    "n": 20,
+    "speedup": 1.0040755311625982,
+    "ci_lo": 0.9903932747710116,
+    "ci_hi": 1.0065326866294904,
+    "significant": false
+   },
+   {
+    "n": 20,
+    "speedup": 1.0007572492243115,
+    "ci_lo": 0.9878101928762693,
+    "ci_hi": 1.0081200975957905,
+    "significant": false
+   },
+   {
+    "n": 20,
+    "speedup": 1.0053136478325333,
+    "ci_lo": 0.9996120477403457,
+    "ci_hi": 1.015199973952787,
+    "significant": false
+   }
+  ]
+ },
+ "ss/BenchmarkGame/fannkuch|copies=1": {
+  "worst_dev_pct": 0.9169210453643939,
+  "ci_excl": 1,
+  "runs": [
+   {
+    "n": 20,
+    "speedup": 0.9949455470466837,
+    "ci_lo": 0.9910994923852103,
+    "ci_hi": 1.0027290579371213,
+    "significant": false
+   },
+   {
+    "n": 20,
+    "speedup": 0.9908307895463561,
+    "ci_lo": 0.9866496411410544,
+    "ci_hi": 0.9950709303901326,
+    "significant": true
+   },
+   {
+    "n": 20,
+    "speedup": 0.9995657323045984,
+    "ci_lo": 0.9903256191280589,
+    "ci_hi": 1.0065539454517518,
+    "significant": false
+   },
+   {
+    "n": 20,
+    "speedup": 0.9972946053863774,
+    "ci_lo": 0.9831140222797351,
+    "ci_hi": 1.000595258109899,
+    "significant": false
+   }
+  ]
+ },
+ "ss/BenchmarkGame/fannkuch|copies=4": {
+  "worst_dev_pct": 1.1707660912253615,
+  "ci_excl": 2,
+  "runs": [
+   {
+    "n": 20,
+    "speedup": 0.9964537034624267,
+    "ci_lo": 0.9918867518235563,
+    "ci_hi": 1.0091112981540238,
+    "significant": false
+   },
+   {
+    "n": 20,
+    "speedup": 1.006880049449198,
+    "ci_lo": 1.0022003706507445,
+    "ci_hi": 1.013216336810985,
+    "significant": true
+   },
+   {
+    "n": 20,
+    "speedup": 0.9927417565122678,
+    "ci_lo": 0.9872108161998624,
+    "ci_hi": 1.0035411403439793,
+    "significant": false
+   },
+   {
+    "n": 20,
+    "speedup": 0.9882923390877464,
+    "ci_lo": 0.9833444477459574,
+    "ci_hi": 0.9965120575025712,
+    "significant": true
+   }
+  ]
+ }
+}

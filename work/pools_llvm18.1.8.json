@@ -1,0 +1,118 @@
+{
+ "extras": {
+  "module": [
+   "globaldce",
+   "constmerge",
+   "mergefunc",
+   "strip-dead-prototypes",
+   "elim-avail-extern",
+   "ipsccp",
+   "globalopt",
+   "deadargelim",
+   "argpromotion",
+   "inline",
+   "function-attrs"
+  ],
+  "function": [
+   "mldst-motion",
+   "gvn-hoist",
+   "sink",
+   "nary-reassociate",
+   "reassociate",
+   "dse",
+   "dce",
+   "adce",
+   "bdce",
+   "early-cse",
+   "gvn",
+   "instcombine",
+   "simplifycfg",
+   "jump-threading",
+   "correlated-propagation",
+   "sccp",
+   "aggressive-instcombine",
+   "slp-vectorizer",
+   "loop-vectorize",
+   "load-store-vectorizer",
+   "loop-distribute",
+   "loop-fusion",
+   "loop-load-elim",
+   "loop-unroll-and-jam",
+   "div-rem-pairs",
+   "tailcallelim",
+   "speculative-execution",
+   "memcpyopt",
+   "float2int",
+   "vector-combine",
+   "instsimplify",
+   "sroa",
+   "loop-sink",
+   "lcssa",
+   "loop-simplify",
+   "constraint-elimination"
+  ],
+  "loop": [
+   "loop-idiom",
+   "indvars",
+   "loop-deletion",
+   "loop-unroll-full",
+   "loop-flatten",
+   "loop-interchange",
+   "loop-predication",
+   "loop-reduce",
+   "loop-simplifycfg",
+   "loop-instsimplify"
+  ],
+  "loop-mssa": [
+   "licm",
+   "loop-rotate",
+   "simple-loop-unswitch",
+   "loop-simplifycfg"
+  ]
+ },
+ "knobs": {
+  "-inline-threshold": [
+   0,
+   50,
+   100,
+   200,
+   250,
+   325,
+   400,
+   500,
+   1000
+  ],
+  "-unroll-threshold": [
+   0,
+   100,
+   200,
+   300,
+   450,
+   600,
+   1000
+  ],
+  "-unroll-count": [
+   1,
+   2,
+   4,
+   8
+  ],
+  "-force-vector-width": [
+   1,
+   2,
+   4,
+   8
+  ],
+  "-force-vector-interleave": [
+   1,
+   2,
+   4
+  ],
+  "-slp-threshold": [
+   -8,
+   -4,
+   0,
+   4
+  ]
+ }
+}

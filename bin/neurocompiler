@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# neurocompiler <source.c> [more sources] --out prog [--args "..."] [--cflags "..."] [--k 8] [--no-rl]
+# RL + SL: the RL agent proposes pipelines for this program, the supervised model ranks them together with
+# the pipeline library, the top-k are compiled, verified against the -O0 output and timed with -O3 (always
+# a candidate); the fastest ships only if a fresh confirmation run beats -O3 by >1%, else -O3 ships.
+# --no-rl: SL only. Prints where the shipped pipeline came from (RL agent or library).
+# NC_CONFIG=path selects another config (default: the repo's config.toml).
+here="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export NC_CALLER_CWD="$PWD"
+cd "$here" && exec "$here/.venv/bin/python" -m nc.cli --config "${NC_CONFIG:-$here/config.toml}" deploy "$@"

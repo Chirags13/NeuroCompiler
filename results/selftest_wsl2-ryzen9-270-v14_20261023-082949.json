@@ -1,0 +1,143 @@
+{
+  "env": {
+    "machine_id": "wsl2-ryzen9-270-v14",
+    "kernel": "6.6.87.2-microsoft-standard-WSL2",
+    "is_wsl": true,
+    "is_wsl2": true,
+    "cpu_model": "AMD Ryzen 9 270 w/ Radeon 780M Graphics",
+    "logical_cpus": 14,
+    "allowed_cpus": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "timing_cpu": 6,
+    "cpu_mhz_now": [
+      3993,
+      3993,
+      3993,
+      3993
+    ],
+    "governor_controllable": false,
+    "clocksource": "tsc",
+    "mem_gb": 9.7,
+    "loadavg_1m": 1.8,
+    "perf_available": false,
+    "valgrind_available": true,
+    "python": "3.14.4",
+    "cwd": "/home/chirag/neurocompiler",
+    "clang": "Ubuntu clang version 18.1.8 (20ubuntu8)",
+    "llvm_version": "18.1.8"
+  },
+  "src": "bench/matmul.c",
+  "args": [
+    "800"
+  ],
+  "reps": 30,
+  "aslr_disabled": true,
+  "settle_s": 3.0,
+  "warmup": 5,
+  "repeatability": {
+    "summary": {
+      "n": 40,
+      "median_ms": 419.42372,
+      "ci_lo_ms": 418.8568075,
+      "ci_hi_ms": 419.8773875,
+      "ci_halfwidth_pct": 0.12166455440336033,
+      "iqr_pct": 0.43085748703006144,
+      "min_ms": 417.59471,
+      "max_ms": 422.192916
+    },
+    "drift_pct": 0.025486335599850963,
+    "pass": true,
+    "raw": [
+      418.241639,
+      419.880649,
+      419.600335,
+      418.965109,
+      421.674839,
+      420.432009,
+      421.215874,
+      418.871285,
+      420.143771,
+      418.235899,
+      419.033368,
+      421.629204,
+      417.625189,
+      419.736403,
+      418.449077,
+      420.93552,
+      420.807571,
+      418.411076,
+      418.281606,
+      417.607035,
+      418.552951,
+      420.272793,
+      418.325155,
+      419.015094,
+      418.518836,
+      419.047923,
+      422.192916,
+      419.874126,
+      419.403086,
+      420.447266,
+      419.851824,
+      419.758241,
+      420.223699,
+      417.902776,
+      418.84233,
+      417.59471,
+      421.839285,
+      419.444354,
+      418.344711,
+      420.237996
+    ]
+  },
+  "aa": {
+    "paired": {
+      "n": 30,
+      "speedup": 1.0001101465273319,
+      "ci_lo": 0.9982537519502312,
+      "ci_hi": 1.0015162838125653,
+      "significant": false
+    },
+    "pass": true
+  },
+  "sensitivity": {
+    "paired": {
+      "n": 30,
+      "speedup": 3.398321169902093,
+      "ci_lo": 3.3915913151539234,
+      "ci_hi": 3.403389558014322,
+      "significant": true
+    },
+    "pass": true,
+    "status": {
+      "O0": "ok",
+      "O3": "ok",
+      "clang-O3": "ok"
+    }
+  },
+  "fidelity": {
+    "paired": {
+      "n": 30,
+      "speedup": 0.9993568945224174,
+      "ci_lo": 0.998210894853406,
+      "ci_hi": 0.9999210498081778,
+      "significant": true
+    },
+    "gap_pct": 0.06431054775826173
+  },
+  "verdict": "PASS"
+}

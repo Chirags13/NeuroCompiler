@@ -1,0 +1,70 @@
+{
+ "tag": "rl_serial",
+ "programs": [
+  "ms/Applications/JM/lencod",
+  "ms/Applications/aha",
+  "ms/Applications/siod",
+  "ms/Benchmarks/BitBench/five11",
+  "ms/Benchmarks/NPB-serial/is",
+  "ms/Benchmarks/Ptrdist/ft",
+  "ms/Benchmarks/VersaBench/8b10b",
+  "ms/Benchmarks/VersaBench/beamformer",
+  "ms/Benchmarks/VersaBench/dbms",
+  "ms/Benchmarks/VersaBench/ecbdes",
+  "polybench/2mm",
+  "polybench/3mm",
+  "polybench/atax",
+  "polybench/bicg",
+  "polybench/cholesky",
+  "polybench/deriche",
+  "polybench/doitgen",
+  "polybench/durbin",
+  "polybench/floyd-warshall",
+  "polybench/gramschmidt",
+  "polybench/lu",
+  "polybench/ludcmp",
+  "polybench/mvt",
+  "polybench/nussinov",
+  "polybench/trisolv",
+  "ss/Shootout-C++/ackermann",
+  "ss/Shootout-C++/fibo",
+  "ss/Shootout-C++/hash2",
+  "ss/Shootout-C++/heapsort",
+  "ss/Shootout-C++/lists",
+  "ss/Shootout-C++/methcall",
+  "ss/Shootout-C++/random",
+  "ss/Shootout-C++/sieve"
+ ],
+ "summary": {
+  "topk": {
+   "geomean": 1.0791961753872341,
+   "ci": [
+    1.0256549869849287,
+    1.1623126979704101
+   ],
+   "excl_largest": 1.047433177956468,
+   "regressions": 0,
+   "size": 0.7894552685478479
+  },
+  "rl_topk": {
+   "geomean": 1.0334597461421207,
+   "ci": [
+    1.011234722534846,
+    1.0618899362628702
+   ],
+   "excl_largest": 1.0251403935952423,
+   "regressions": 0,
+   "size": 0.9009173028806354
+  },
+  "rl_lib_topk": {
+   "geomean": 1.0809412368314582,
+   "ci": [
+    1.0260253845514693,
+    1.1635139213659678
+   ],
+   "excl_largest": 1.049177330315714,
+   "regressions": 0,
+   "size": 0.9055582243477476
+  }
+ }
+}

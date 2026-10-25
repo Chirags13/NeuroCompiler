@@ -1,0 +1,28 @@
+Phase 5 headroom report (2026-10-24 14:30): wider search (evo+evo2, budget 50 each), 116 programs never searched before; speedups vs -O3, serial re-validation.
+sources: {'no winner': 37, 'serial': 79}
+compile-time-evaluation suspects: ['ss/Misc-C++/mandel-text']
+
+all                                n=116  geomean +20.37% (95% CI +11.25..+34.02)  excl. largest +15.57%  median +3.93%  >=5%: 55/116 (47%)  >=3%: 62/116  no gain: 45
+no compile-time-eval suspects      n=115  geomean +15.57% (95% CI +10.24..+22.07)  excl. largest +14.07%  median +3.60%  >=5%: 54/115 (47%)  >=3%: 61/115  no gain: 45
+capped at 2x                       n=116  geomean +13.80% (95% CI +9.86..+18.17)  excl. largest +13.25%  median +3.93%  >=5%: 55/116 (47%)  >=3%: 62/116  no gain: 45
+per family (median), no suspects   n= 26  geomean  +8.52% (95% CI +2.67..+18.04)  excl. largest  +5.02%  median +2.99%  >=5%: 10/26 (38%)  >=3%: 13/26  no gain: 11
+split=train, no suspects           n= 77  geomean +14.59% (95% CI +8.78..+21.57)  excl. largest +12.75%  median +3.23%  >=5%: 34/77 (44%)  >=3%: 39/77  no gain: 30
+split=val, no suspects             n= 16  geomean +20.10% (95% CI +5.54..+49.79)  excl. largest  +9.03%  median +6.98%  >=5%: 10/16 (62%)  >=3%: 11/16  no gain: 5
+split=test, no suspects            n= 22  geomean +15.77% (95% CI +5.53..+30.55)  excl. largest +10.88%  median +1.83%  >=5%: 10/22 (45%)  >=3%: 11/22  no gain: 10
+
+Top 15:
+  ss/Misc-C++/mandel-text                        130.395x  train serial  SUSPECT
+  ss/Misc/fp-convert                               5.119x  val   serial
+  ss/BenchmarkGame/spectral-norm                   3.904x  train serial
+  polybench/durbin                                 2.866x  test  serial
+  ms/Benchmarks/TSVC/Reductions-flt                2.430x  train serial
+  ms/Benchmarks/TSVC/LoopRerolling-dbl             2.365x  train serial
+  ms/Benchmarks/TSVC/Reductions-dbl                2.003x  train serial
+  polybench/lu                                     1.957x  test  serial
+  ms/Benchmarks/TSVC/ControlLoops-flt              1.863x  train serial
+  ss/Shootout/matrix                               1.784x  train serial
+  ms/Benchmarks/TSVC/Searching-flt                 1.764x  train serial
+  ms/Benchmarks/TSVC/StatementReordering-flt       1.729x  train serial
+  polybench/3mm                                    1.590x  test  serial
+  ms/Benchmarks/TSVC/IndirectAddressing-dbl        1.561x  train serial
+  ms/Benchmarks/TSVC/ControlLoops-dbl              1.534x  train serial

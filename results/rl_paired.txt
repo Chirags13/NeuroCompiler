@@ -1,0 +1,7 @@
+RL evaluation (exploratory), serial re-measurement, 33 test programs; same-session = tag rl_serial, other = tag final_serial
+RL only                    vs model top-8 (same session)  -4.24% (95% CI -11.00..+0.64)  better 5 / worse 8 by >1%
+RL + library               vs model top-8 (same session)  +0.16% (95% CI -0.24..+0.73)  better 2 / worse 1 by >1%
+RL only                    vs GA@8 (final run)          +1.24% (95% CI -2.37..+4.80)  better 5 / worse 4 by >1%
+RL + library               vs GA@8 (final run)          +5.90% (95% CI +0.60..+14.45)  better 8 / worse 4 by >1%
+RL + library               vs random search@8 (final)   +2.68% (95% CI -0.42..+6.55)  better 7 / worse 5 by >1%
+model top-8 (re-run)       vs model top-8 (final run)   +0.38% (95% CI -0.06..+0.96)  better 5 / worse 3 by >1%

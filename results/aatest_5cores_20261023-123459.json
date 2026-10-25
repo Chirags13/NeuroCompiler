@@ -1,0 +1,230 @@
+{
+ "timing_cpus": [
+  2,
+  4,
+  6,
+  8,
+  10
+ ],
+ "reps": 30,
+ "rounds": 1,
+ "rows": [
+  {
+   "program": "polybench/ludcmp",
+   "cpu": 2,
+   "wall_s": 87.6,
+   "base_median_ms": 829.0787654999999,
+   "aa": {
+    "n": 30,
+    "speedup": 0.9984413411020435,
+    "ci_lo": 0.9956471852253298,
+    "ci_hi": 1.0018840816959151,
+    "significant": false
+   },
+   "aa_iqr_pct": 0.8692915161414495,
+   "win": {
+    "n": 30,
+    "speedup": 1.1770609657060138,
+    "ci_lo": 1.1734196766621152,
+    "ci_hi": 1.1786313729328244,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 0
+  },
+  {
+   "program": "ms/Benchmarks/TSVC/GlobalDataFlow-dbl",
+   "cpu": 4,
+   "wall_s": 64.8,
+   "base_median_ms": 858.420896,
+   "aa": {
+    "n": 30,
+    "speedup": 1.0012143252582986,
+    "ci_lo": 0.9992674880350895,
+    "ci_hi": 1.0028404070480605,
+    "significant": false
+   },
+   "aa_iqr_pct": 0.8740133113873418,
+   "mode": "serial",
+   "round": 0
+  },
+  {
+   "program": "ss/Shootout/fib2",
+   "cpu": 6,
+   "wall_s": 100.2,
+   "base_median_ms": 942.911259,
+   "aa": {
+    "n": 30,
+    "speedup": 0.9999943651336436,
+    "ci_lo": 0.9995388887687278,
+    "ci_hi": 1.000277841113262,
+    "significant": false
+   },
+   "aa_iqr_pct": 0.12594074318179543,
+   "win": {
+    "n": 30,
+    "speedup": 1.12677504421518,
+    "ci_lo": 1.126441714357198,
+    "ci_hi": 1.1272227793054503,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 0
+  },
+  {
+   "program": "ss/BenchmarkGame/recursive",
+   "cpu": 8,
+   "wall_s": 41.8,
+   "base_median_ms": 371.29763449999996,
+   "aa": {
+    "n": 30,
+    "speedup": 0.999765059077382,
+    "ci_lo": 0.9992024299265939,
+    "ci_hi": 1.0009492271560168,
+    "significant": false
+   },
+   "aa_iqr_pct": 0.2827837651781865,
+   "win": {
+    "n": 30,
+    "speedup": 1.1373915473531986,
+    "ci_lo": 1.13605424508869,
+    "ci_hi": 1.1382310055928135,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 0
+  },
+  {
+   "program": "ss/BenchmarkGame/fannkuch",
+   "cpu": 10,
+   "wall_s": 144.4,
+   "base_median_ms": 1350.181458,
+   "aa": {
+    "n": 30,
+    "speedup": 0.9995989093470276,
+    "ci_lo": 0.9991053289635996,
+    "ci_hi": 1.0004220366099557,
+    "significant": false
+   },
+   "aa_iqr_pct": 0.15677434330850687,
+   "win": {
+    "n": 30,
+    "speedup": 1.0575881669228484,
+    "ci_lo": 1.0571484541682428,
+    "ci_hi": 1.0583259666680342,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 0
+  },
+  {
+   "program": "ss/BenchmarkGame/recursive",
+   "cpu": 8,
+   "wall_s": 46.1,
+   "base_median_ms": 400.49946450000004,
+   "aa": {
+    "n": 30,
+    "speedup": 0.9978831602950085,
+    "ci_lo": 0.9886615454871049,
+    "ci_hi": 1.01654295570915,
+    "significant": false
+   },
+   "aa_iqr_pct": 5.947075780531341,
+   "win": {
+    "n": 30,
+    "speedup": 1.1356887391619945,
+    "ci_lo": 1.1183442343283434,
+    "ci_hi": 1.153838584932166,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 0
+  },
+  {
+   "program": "ms/Benchmarks/TSVC/GlobalDataFlow-dbl",
+   "cpu": 4,
+   "wall_s": 70.8,
+   "base_median_ms": 936.812141,
+   "aa": {
+    "n": 30,
+    "speedup": 1.0079263267330987,
+    "ci_lo": 0.9866895713023105,
+    "ci_hi": 1.02273931228982,
+    "significant": false
+   },
+   "aa_iqr_pct": 4.967818915574126,
+   "mode": "parallel",
+   "round": 0
+  },
+  {
+   "program": "polybench/ludcmp",
+   "cpu": 2,
+   "wall_s": 93.9,
+   "base_median_ms": 874.3949865,
+   "aa": {
+    "n": 30,
+    "speedup": 1.0016062137529875,
+    "ci_lo": 0.9828672924268919,
+    "ci_hi": 1.0190795667820427,
+    "significant": false
+   },
+   "aa_iqr_pct": 6.099301447742746,
+   "win": {
+    "n": 30,
+    "speedup": 1.17341879858537,
+    "ci_lo": 1.1566817593976857,
+    "ci_hi": 1.1798203423326608,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 0
+  },
+  {
+   "program": "ss/Shootout/fib2",
+   "cpu": 6,
+   "wall_s": 111.5,
+   "base_median_ms": 1045.4421379999999,
+   "aa": {
+    "n": 30,
+    "speedup": 0.9906243940475655,
+    "ci_lo": 0.9668489485263537,
+    "ci_hi": 1.0176628306466815,
+    "significant": false
+   },
+   "aa_iqr_pct": 7.810911137322318,
+   "win": {
+    "n": 30,
+    "speedup": 1.1262203703425027,
+    "ci_lo": 1.097545806800087,
+    "ci_hi": 1.1532996042110635,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 0
+  },
+  {
+   "program": "ss/BenchmarkGame/fannkuch",
+   "cpu": 10,
+   "wall_s": 159.3,
+   "base_median_ms": 1482.4428229999999,
+   "aa": {
+    "n": 30,
+    "speedup": 0.9924335916459186,
+    "ci_lo": 0.9778901059758888,
+    "ci_hi": 1.004698469672593,
+    "significant": false
+   },
+   "aa_iqr_pct": 3.605825567153957,
+   "win": {
+    "n": 30,
+    "speedup": 1.0591443191044363,
+    "ci_lo": 1.042318038828825,
+    "ci_hi": 1.066906293954802,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 0
+  }
+ ],
+ "pass": false
+}

@@ -1,0 +1,817 @@
+{
+ "surrogate": "results/models/surrogate_full.json",
+ "gate_7b_passed": true,
+ "exploratory": false,
+ "programs": 113,
+ "actions": [
+  {
+   "op": "knob",
+   "name": "-force-vector-width",
+   "value": 2
+  },
+  {
+   "op": "knob",
+   "name": "-unroll-max-count",
+   "value": 2
+  },
+  {
+   "op": "knob",
+   "name": "-force-vector-width",
+   "value": 8
+  },
+  {
+   "op": "knob",
+   "name": "-unroll-count",
+   "value": 2
+  },
+  {
+   "op": "knob",
+   "name": "-unroll-count",
+   "value": 4
+  },
+  {
+   "op": "del_all",
+   "pass": "instcombine"
+  },
+  {
+   "op": "knob",
+   "name": "-unroll-count",
+   "value": 8
+  },
+  {
+   "op": "del_all",
+   "pass": "simplifycfg"
+  },
+  {
+   "op": "knob",
+   "name": "-slp-threshold",
+   "value": -4
+  },
+  {
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "speculate-blocks",
+   "new": "no-speculate-blocks"
+  },
+  {
+   "op": "knob",
+   "name": "-force-vector-width",
+   "value": 4
+  },
+  {
+   "op": "knob",
+   "name": "-unroll-max-count",
+   "value": 4
+  },
+  {
+   "op": "param_all",
+   "pass": "loop-rotate",
+   "tok": "header-duplication",
+   "new": "no-header-duplication"
+  },
+  {
+   "op": "del_all",
+   "pass": "loop-rotate"
+  },
+  {
+   "op": "backend",
+   "value": 1
+  },
+  {
+   "op": "knob",
+   "name": "llc:-align-loops",
+   "value": 64
+  },
+  {
+   "op": "del",
+   "id": 96
+  },
+  {
+   "op": "param",
+   "id": 96,
+   "tok": "no-vectorize-forced-only",
+   "new": "vectorize-forced-only"
+  },
+  {
+   "op": "param_all",
+   "pass": "loop-vectorize",
+   "tok": "no-vectorize-forced-only",
+   "new": "vectorize-forced-only"
+  },
+  {
+   "op": "knob",
+   "name": "-force-vector-width",
+   "value": 1
+  },
+  {
+   "op": "knob",
+   "name": "-inline-threshold",
+   "value": 500
+  },
+  {
+   "op": "knob",
+   "name": "-inline-threshold",
+   "value": 1000
+  },
+  {
+   "op": "backend",
+   "value": 0
+  },
+  {
+   "op": "knob",
+   "name": "-inline-threshold",
+   "value": 50
+  },
+  {
+   "op": "del_all",
+   "pass": "sroa"
+  },
+  {
+   "op": "del",
+   "id": 55
+  },
+  {
+   "op": "del_all",
+   "pass": "licm"
+  },
+  {
+   "op": "del",
+   "id": 42
+  },
+  {
+   "op": "knob",
+   "name": "llc:-enable-misched",
+   "value": "false"
+  },
+  {
+   "op": "param",
+   "id": 50,
+   "tok": "nontrivial",
+   "new": "no-nontrivial"
+  },
+  {
+   "op": "param_all",
+   "pass": "simple-loop-unswitch",
+   "tok": "nontrivial",
+   "new": "no-nontrivial"
+  },
+  {
+   "op": "del",
+   "id": 50
+  },
+  {
+   "op": "del",
+   "id": 61
+  },
+  {
+   "op": "param",
+   "id": 51,
+   "tok": "bonus-inst-threshold=1",
+   "new": "bonus-inst-threshold=4"
+  },
+  {
+   "op": "param",
+   "id": 74,
+   "tok": "bonus-inst-threshold=1",
+   "new": "bonus-inst-threshold=4"
+  },
+  {
+   "op": "param",
+   "id": 36,
+   "tok": "bonus-inst-threshold=1",
+   "new": "bonus-inst-threshold=4"
+  },
+  {
+   "op": "param",
+   "id": 41,
+   "tok": "bonus-inst-threshold=1",
+   "new": "bonus-inst-threshold=4"
+  },
+  {
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "bonus-inst-threshold=1",
+   "new": "bonus-inst-threshold=4"
+  },
+  {
+   "op": "knob",
+   "name": "llc:-align-loops",
+   "value": 1
+  },
+  {
+   "op": "knob",
+   "name": "llc:-align-loops",
+   "value": 32
+  },
+  {
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "simplify-cond-branch",
+   "new": "no-simplify-cond-branch"
+  },
+  {
+   "op": "param_all",
+   "pass": "licm",
+   "tok": "allowspeculation",
+   "new": "no-allowspeculation"
+  },
+  {
+   "op": "knob",
+   "name": "llc:-tail-dup-size",
+   "value": 6
+  },
+  {
+   "op": "del",
+   "id": 48
+  },
+  {
+   "op": "param",
+   "id": 48,
+   "tok": "header-duplication",
+   "new": "no-header-duplication"
+  },
+  {
+   "op": "param",
+   "id": 49,
+   "tok": "allowspeculation",
+   "new": "no-allowspeculation"
+  },
+  {
+   "op": "del",
+   "id": 68
+  },
+  {
+   "op": "del_all",
+   "pass": "early-cse"
+  },
+  {
+   "op": "del",
+   "id": 8
+  },
+  {
+   "op": "del",
+   "id": 17
+  },
+  {
+   "op": "param",
+   "id": 18,
+   "tok": "no-sink-common-insts",
+   "new": "sink-common-insts"
+  },
+  {
+   "op": "param",
+   "id": 36,
+   "tok": "no-sink-common-insts",
+   "new": "sink-common-insts"
+  },
+  {
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "sink-common-insts",
+   "new": "no-sink-common-insts"
+  },
+  {
+   "op": "knob",
+   "name": "-simplifycfg-sink-common",
+   "value": "false"
+  },
+  {
+   "op": "knob",
+   "name": "llc:-tail-dup-size",
+   "value": 4
+  },
+  {
+   "op": "param",
+   "id": 41,
+   "tok": "no-hoist-common-insts",
+   "new": "hoist-common-insts"
+  },
+  {
+   "op": "del",
+   "id": 66
+  },
+  {
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "keep-loops",
+   "new": "no-keep-loops"
+  },
+  {
+   "op": "param",
+   "id": 41,
+   "tok": "keep-loops",
+   "new": "no-keep-loops"
+  },
+  {
+   "op": "knob",
+   "name": "-vectorizer-min-trip-count",
+   "value": 4
+  },
+  {
+   "op": "knob",
+   "name": "llc:-min-jump-table-entries",
+   "value": 16
+  },
+  {
+   "op": "knob",
+   "name": "llc:-x86-cmov-converter",
+   "value": "false"
+  },
+  {
+   "op": "knob",
+   "name": "-slp-threshold",
+   "value": -8
+  },
+  {
+   "op": "del",
+   "id": 26
+  },
+  {
+   "op": "knob",
+   "name": "-inline-threshold",
+   "value": 0
+  },
+  {
+   "op": "del_all",
+   "pass": "jump-threading"
+  },
+  {
+   "op": "knob",
+   "name": "-unroll-count",
+   "value": 1
+  },
+  {
+   "op": "del",
+   "id": 108
+  },
+  {
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "bonus-inst-threshold=1",
+   "new": "bonus-inst-threshold=2"
+  },
+  {
+   "op": "knob",
+   "name": "-inline-threshold",
+   "value": 100
+  },
+  {
+   "op": "del",
+   "id": 104
+  },
+  {
+   "op": "knob",
+   "name": "-unroll-runtime",
+   "value": "false"
+  },
+  {
+   "op": "del",
+   "id": 65
+  },
+  {
+   "op": "knob",
+   "name": "-force-vector-interleave",
+   "value": 4
+  },
+  {
+   "op": "knob",
+   "name": "-inline-threshold",
+   "value": 200
+  },
+  {
+   "op": "knob",
+   "name": "-jump-threading-threshold",
+   "value": 12
+  },
+  {
+   "op": "del",
+   "id": 37
+  },
+  {
+   "op": "del",
+   "id": 40
+  },
+  {
+   "op": "del_all",
+   "pass": "globalopt"
+  },
+  {
+   "op": "knob",
+   "name": "-unroll-threshold",
+   "value": 0
+  },
+  {
+   "op": "param",
+   "id": 18,
+   "tok": "no-switch-to-lookup",
+   "new": "switch-to-lookup"
+  },
+  {
+   "op": "param",
+   "id": 51,
+   "tok": "bonus-inst-threshold=1",
+   "new": "bonus-inst-threshold=2"
+  },
+  {
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "no-switch-to-lookup",
+   "new": "switch-to-lookup"
+  },
+  {
+   "op": "backend",
+   "value": 2
+  },
+  {
+   "op": "param",
+   "id": 36,
+   "tok": "bonus-inst-threshold=1",
+   "new": "bonus-inst-threshold=2"
+  },
+  {
+   "op": "param",
+   "id": 41,
+   "tok": "bonus-inst-threshold=1",
+   "new": "bonus-inst-threshold=2"
+  },
+  {
+   "op": "param",
+   "id": 51,
+   "tok": "keep-loops",
+   "new": "no-keep-loops"
+  },
+  {
+   "op": "del",
+   "id": 54
+  },
+  {
+   "op": "param",
+   "id": 74,
+   "tok": "bonus-inst-threshold=1",
+   "new": "bonus-inst-threshold=2"
+  },
+  {
+   "op": "knob",
+   "name": "-jump-threading-threshold",
+   "value": 3
+  },
+  {
+   "op": "del_all",
+   "pass": "tailcallelim"
+  },
+  {
+   "op": "knob",
+   "name": "llc:-enable-tail-merge",
+   "value": "false"
+  },
+  {
+   "op": "del",
+   "id": 7
+  },
+  {
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "bonus-inst-threshold=1",
+   "new": "bonus-inst-threshold=0"
+  },
+  {
+   "op": "del",
+   "id": 18
+  },
+  {
+   "op": "del",
+   "id": 110
+  },
+  {
+   "op": "param",
+   "id": 110,
+   "tok": "allowspeculation",
+   "new": "no-allowspeculation"
+  },
+  {
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "no-sink-common-insts",
+   "new": "sink-common-insts"
+  },
+  {
+   "op": "knob",
+   "name": "llc:-tail-dup-size",
+   "value": 1
+  },
+  {
+   "op": "knob",
+   "name": "llc:-min-jump-table-entries",
+   "value": 2
+  },
+  {
+   "op": "param",
+   "id": 18,
+   "tok": "speculate-blocks",
+   "new": "no-speculate-blocks"
+  },
+  {
+   "op": "param",
+   "id": 36,
+   "tok": "no-hoist-common-insts",
+   "new": "hoist-common-insts"
+  },
+  {
+   "op": "param",
+   "id": 47,
+   "tok": "no-allowspeculation",
+   "new": "allowspeculation"
+  },
+  {
+   "op": "del",
+   "id": 106
+  },
+  {
+   "op": "del_all",
+   "pass": "correlated-propagation"
+  },
+  {
+   "op": "del_all",
+   "pass": "loop-deletion"
+  },
+  {
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "no-hoist-common-insts",
+   "new": "hoist-common-insts"
+  },
+  {
+   "op": "param_all",
+   "pass": "licm",
+   "tok": "no-allowspeculation",
+   "new": "allowspeculation"
+  },
+  {
+   "op": "knob",
+   "name": "-slp-threshold",
+   "value": 4
+  },
+  {
+   "op": "param",
+   "id": 7,
+   "tok": "keep-loops",
+   "new": "no-keep-loops"
+  },
+  {
+   "op": "param",
+   "id": 7,
+   "tok": "no-hoist-common-insts",
+   "new": "hoist-common-insts"
+  },
+  {
+   "op": "param",
+   "id": 7,
+   "tok": "no-sink-common-insts",
+   "new": "sink-common-insts"
+  },
+  {
+   "op": "del",
+   "id": 9
+  },
+  {
+   "op": "param",
+   "id": 18,
+   "tok": "keep-loops",
+   "new": "no-keep-loops"
+  },
+  {
+   "op": "param",
+   "id": 18,
+   "tok": "no-hoist-common-insts",
+   "new": "hoist-common-insts"
+  },
+  {
+   "op": "param",
+   "id": 41,
+   "tok": "no-sink-common-insts",
+   "new": "sink-common-insts"
+  },
+  {
+   "op": "del",
+   "id": 49
+  },
+  {
+   "op": "del",
+   "id": 57
+  },
+  {
+   "op": "del",
+   "id": 64
+  },
+  {
+   "op": "param",
+   "id": 96,
+   "tok": "no-interleave-forced-only",
+   "new": "interleave-forced-only"
+  }
+ ],
+ "horizon": 4,
+ "history": [
+  0.010171022575557888,
+  0.005644226191180743,
+  0.008219486963424753,
+  0.017801553852756804,
+  0.030448427629237843,
+  0.03738967794586446,
+  0.08465848405622778,
+  0.08386798510430243,
+  0.09217342528472246,
+  0.09472069057070223,
+  0.084853044521542,
+  0.07989899237193979,
+  0.11882062562007739,
+  0.096884991169474,
+  0.1364474432809217,
+  0.09837961034015029,
+  0.10915933946713131,
+  0.1399373701077703,
+  0.15365850380553464,
+  0.13713677603777455,
+  0.15344999645329557,
+  0.11928523058314047,
+  0.11045459788434522,
+  0.15313999070439954,
+  0.1743562236457672,
+  0.08794614648042146,
+  0.15752622318360743,
+  0.14958456046156132,
+  0.12121853170143847,
+  0.17560611476710525,
+  0.12499150596610958,
+  0.1275650300872135,
+  0.15510474393791046,
+  0.11881065471814048,
+  0.13402416226230074,
+  0.1656737411681513,
+  0.16077309520657623,
+  0.16846733605319208,
+  0.11557882630017516,
+  0.15533683342520993,
+  0.15210074586771727,
+  0.19313201250024598,
+  0.18791168091760985,
+  0.14587270761850185,
+  0.19479634589242426,
+  0.13629588406162318,
+  0.17222072153126178,
+  0.20193593060131032,
+  0.16919140540816469,
+  0.12804035014854823,
+  0.18227917113588482,
+  0.17437053660530621,
+  0.18094083763650504,
+  0.19758200283381372,
+  0.15632239399501655,
+  0.16332749617661624,
+  0.17268338689330273,
+  0.14030409636311567,
+  0.17601210451289945,
+  0.21798873415906891,
+  0.15151319944930877,
+  0.20686525245199802,
+  0.15984025946014507,
+  0.1920865052269971,
+  0.2489400455037789,
+  0.20082470574685252,
+  0.19772356758151177,
+  0.20823298795375422,
+  0.12227183958728274,
+  0.2505833470954365,
+  0.21468266075396975,
+  0.19712442519846898,
+  0.1789141445151658,
+  0.1781926429693445,
+  0.19516148682743067,
+  0.2073196071998999,
+  0.2281989960725892,
+  0.14419064178969676,
+  0.19304289040884665,
+  0.24467133531210866,
+  0.20973153987945353,
+  0.26723929590297457,
+  0.2004850868860937,
+  0.18154221278425972,
+  0.19739413979902287,
+  0.2146413574187569,
+  0.18851676525900643,
+  0.15424214230745956,
+  0.21285219429597135,
+  0.1946122414298047,
+  0.20944192618066806,
+  0.1743792298285141,
+  0.24913019492967092,
+  0.2099149394481868,
+  0.1899847707935124,
+  0.19238835726643344,
+  0.20173105755622764,
+  0.2147415272394962,
+  0.16331489965253537,
+  0.1867564790260371,
+  0.19506028194277636,
+  0.2289496943574844,
+  0.1850497766857205,
+  0.20939319671783277,
+  0.21819933705661818,
+  0.19119294373572743,
+  0.1814027319597673,
+  0.17947899181679422,
+  0.19903499389936694,
+  0.18663716296339375,
+  0.22889236883693304,
+  0.22111152054279176,
+  0.21328483537049356,
+  0.2402623384314575,
+  0.20903713875471852,
+  0.22780024906533985,
+  0.199433091792533,
+  0.2070888223664954,
+  0.2797363791751235,
+  0.22426781069719082,
+  0.22446695727754715,
+  0.17159559616510506,
+  0.25180953862794075,
+  0.22724377482485314,
+  0.2247643519232701,
+  0.21156937382659977,
+  0.18577639180458422,
+  0.19752010533634054,
+  0.22164660233185868,
+  0.20258455227795308,
+  0.24546436408850508,
+  0.1852872020199648,
+  0.16930247368738732,
+  0.23179485726011848,
+  0.26587255639103274,
+  0.2444925601468436,
+  0.23510748516979244,
+  0.2328047600495176,
+  0.2432511041840804,
+  0.1747766790862082,
+  0.19983229551166998,
+  0.19911614363263813,
+  0.18264924840301772,
+  0.24146487982323342,
+  0.2290319846019057,
+  0.21476388618773887,
+  0.16316403057091555,
+  0.22956438674652785,
+  0.2493468766837046,
+  0.21744653221206225,
+  0.22515899875899273,
+  0.24181627082923435,
+  0.20989404115196325,
+  0.2040038908978626,
+  0.22490595866712873,
+  0.23995289943947137,
+  0.2625151708993726,
+  0.1988300071101668,
+  0.20614633273817218,
+  0.26477750670287736,
+  0.20184171354419245,
+  0.2856865174501203,
+  0.22278860270233491,
+  0.22201674916041753,
+  0.23629209119904854,
+  0.18058099538502376,
+  0.20359238842712063,
+  0.21237045196800103,
+  0.2321048037816219,
+  0.2047327745225037,
+  0.20904651103699623,
+  0.231756395921921,
+  0.21660006886184457,
+  0.21140016804497508,
+  0.22066152267667916,
+  0.25406403076770756,
+  0.27304051024908527,
+  0.23902366550253196,
+  0.1981196808883947,
+  0.23522853512413444,
+  0.2581214442188467,
+  0.19159089281038771,
+  0.1771617871842513,
+  0.23020684463434068,
+  0.28530842642519877,
+  0.19703943634948978,
+  0.24597686235166025,
+  0.25049678202264336,
+  0.247289619824615,
+  0.26446156688834555,
+  0.22782507364494164,
+  0.21108835083064437,
+  0.17621937498761464,
+  0.255944124978472,
+  0.19565683787179544,
+  0.26932802625191166,
+  0.21788675849407246,
+  0.22662476940314877,
+  0.2082720682072745,
+  0.22408204253310188
+ ],
+ "created": "20261025-024204"
+}

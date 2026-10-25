@@ -1,0 +1,135 @@
+{
+  "env": {
+    "machine_id": "wsl2-ryzen9-270",
+    "kernel": "6.6.87.2-microsoft-standard-WSL2",
+    "is_wsl": true,
+    "is_wsl2": true,
+    "cpu_model": "AMD Ryzen 9 270 w/ Radeon 780M Graphics",
+    "logical_cpus": 8,
+    "allowed_cpus": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "timing_cpu": 6,
+    "cpu_mhz_now": [
+      3993,
+      3993,
+      3993,
+      3993
+    ],
+    "governor_controllable": false,
+    "clocksource": "tsc",
+    "mem_gb": 11.7,
+    "loadavg_1m": 0.53,
+    "perf_available": false,
+    "valgrind_available": true,
+    "python": "3.14.4",
+    "cwd": "/home/chirag/neurocompiler",
+    "clang": "Ubuntu clang version 18.1.8 (20ubuntu8)",
+    "llvm_version": "18.1.8"
+  },
+  "src": "bench/matmul.c",
+  "args": [],
+  "reps": 30,
+  "aslr_disabled": true,
+  "settle_s": 3.0,
+  "warmup": 5,
+  "repeatability": {
+    "summary": {
+      "n": 40,
+      "median_ms": 219.99635949999998,
+      "ci_lo_ms": 216.6430845,
+      "ci_hi_ms": 222.198247,
+      "ci_halfwidth_pct": 1.2625578242807294,
+      "iqr_pct": 3.41246635492621,
+      "min_ms": 214.822721,
+      "max_ms": 238.461778
+    },
+    "drift_pct": -1.296463198469801,
+    "pass": false,
+    "raw": [
+      221.662845,
+      223.537151,
+      215.705702,
+      236.169429,
+      219.170449,
+      224.01506,
+      215.635702,
+      225.607753,
+      215.80647,
+      222.227041,
+      224.797934,
+      232.907201,
+      215.328987,
+      232.299863,
+      215.652082,
+      221.926033,
+      216.486847,
+      223.627664,
+      222.169453,
+      223.813874,
+      214.822721,
+      224.80407,
+      215.574125,
+      238.461778,
+      216.238468,
+      219.181447,
+      216.574276,
+      219.762618,
+      215.802027,
+      221.059914,
+      216.014064,
+      220.038133,
+      216.217865,
+      230.089487,
+      216.711893,
+      219.45361,
+      215.597724,
+      219.954586,
+      222.268278,
+      220.23482
+    ]
+  },
+  "aa": {
+    "paired": {
+      "n": 30,
+      "speedup": 1.0060438997897638,
+      "ci_lo": 0.9985241760323913,
+      "ci_hi": 1.015201145416305,
+      "significant": false
+    },
+    "pass": true
+  },
+  "sensitivity": {
+    "paired": {
+      "n": 30,
+      "speedup": 3.285216363506971,
+      "ci_lo": 3.2003150152335436,
+      "ci_hi": 3.3147459570549413,
+      "significant": true
+    },
+    "pass": true,
+    "status": {
+      "O0": "ok",
+      "O3": "ok",
+      "clang-O3": "ok"
+    }
+  },
+  "fidelity": {
+    "paired": {
+      "n": 30,
+      "speedup": 1.0063974291993736,
+      "ci_lo": 0.9888996757166425,
+      "ci_hi": 1.0213780860470016,
+      "significant": false
+    },
+    "gap_pct": 0.6397429199373583
+  },
+  "verdict": "FAIL"
+}

@@ -1,0 +1,934 @@
+{
+ "values": {
+  "ss/CoyoteBench/almabench": 1.0,
+  "ms/Benchmarks/ASC_Sequoia/AMGmk": 1.035212809448191,
+  "ss/Misc/salsa20": 1.0627928610266268,
+  "ms/Applications/SPASS": 1.0,
+  "ss/Shootout/heapsort": 1.1756440623950672,
+  "ss/Shootout/hash": 1.0577778750994615,
+  "polybench/3mm": 1.5895300515890525,
+  "ss/Shootout/lists": 1.0558911271642237,
+  "ss/Shootout/methcall": 1.0816921607858188,
+  "ss/CoyoteBench/lpbench": 1.0,
+  "ms/Benchmarks/TSVC/LoopRerolling-dbl": 2.3650117348243405,
+  "ss/Shootout-C++/heapsort": 1.2098489478876515,
+  "ms/Benchmarks/Olden/health": 1.0537007290705156,
+  "ss/Shootout-C++/lists": 1.0,
+  "ss/Misc/flops": 1.1094820925476865,
+  "ms/Benchmarks/TSVC/Recurrences-flt": 1.0931099206327217,
+  "ms/Benchmarks/TSVC/Recurrences-dbl": 1.0894856634751653,
+  "ss/Misc-C++/Large/sphereflake": 1.0194734511694132,
+  "polybench/gramschmidt": 1.1606810350358339,
+  "ms/Benchmarks/TSVC/LoopRestructuring-dbl": 1.0,
+  "ms/Benchmarks/TSVC/LoopRerolling-flt": 1.133868551443981,
+  "ms/Benchmarks/Olden/bisort": 1.023379830780603,
+  "ms/Benchmarks/DOE-ProxyApps-C++/miniFE": 1.0322819826190344,
+  "ms/Benchmarks/TSVC/Packing-dbl": 1.0,
+  "ms/Benchmarks/Olden/voronoi": 1.0,
+  "polybench/fdtd-2d": 1.0,
+  "ms/Benchmarks/ASC_Sequoia/CrystalMk": 1.1410118209513243,
+  "ms/Benchmarks/TSVC/IndirectAddressing-flt": 1.354810508111175,
+  "polybench/2mm": 1.0,
+  "ss/Misc-C++/Large/ray": 1.045247405551112,
+  "ms/Benchmarks/TSVC/Packing-flt": 1.0350053919046949,
+  "ss/Shootout/sieve": 1.1238871304306226,
+  "ms/Benchmarks/TSVC/LoopRestructuring-flt": 1.0778252783378217,
+  "ms/Benchmarks/TSVC/IndirectAddressing-dbl": 1.560873622115391,
+  "ms/Benchmarks/Trimaran/enc-pc1": 1.0153362878609289,
+  "ss/Misc/oourafft": 1.2996356460204408,
+  "ms/Benchmarks/ASC_Sequoia/IRSmk": 1.1277845779143534,
+  "ms/Benchmarks/TSVC/Searching-dbl": 1.4857365877235413,
+  "polybench/gemver": 1.0,
+  "ms/Benchmarks/TSVC/Reductions-dbl": 2.002737233409237,
+  "ms/Benchmarks/TSVC/Searching-flt": 1.7641269887941364,
+  "ms/Benchmarks/TSVC/InductionVariable-dbl": 1.0,
+  "ms/Benchmarks/TSVC/Reductions-flt": 2.4301948738764274,
+  "ss/Shootout-C++/random": 1.0,
+  "ms/Benchmarks/TSVC/LinearDependence-dbl": 1.0,
+  "ss/Misc/fp-convert": 5.1190951595200875,
+  "ms/Benchmarks/TSVC/NodeSplitting-dbl": 1.159924417772807,
+  "polybench/mvt": 1.0359657027346953,
+  "ms/Benchmarks/TSVC/InductionVariable-flt": 1.0,
+  "ms/Benchmarks/DOE-ProxyApps-C/XSBench": 1.0,
+  "polybench/floyd-warshall": 1.0,
+  "polybench/syr2k": 1.0971583807517389,
+  "ss/Shootout-C++/fibo": 1.219758840167698,
+  "ss/McGill/queens": 1.0518012069402374,
+  "polybench/lu": 1.956660190207252,
+  "polybench/atax": 1.1165089832896662,
+  "ms/Applications/obsequi": 1.063362758994139,
+  "ms/Benchmarks/TSVC/NodeSplitting-flt": 1.0475349154316018,
+  "polybench/adi": 1.0,
+  "ms/Benchmarks/Olden/em3d": 1.0,
+  "polybench/deriche": 1.0,
+  "ms/Benchmarks/TSVC/StatementReordering-flt": 1.7291635679964492,
+  "ms/Benchmarks/TSVC/GlobalDataFlow-dbl": 1.050136058621576,
+  "ms/Benchmarks/TSVC/StatementReordering-dbl": 1.4812630660598223,
+  "ms/Benchmarks/VersaBench/beamformer": 1.1017641022567377,
+  "ms/Benchmarks/TSVC/ControlLoops-dbl": 1.5335115386709621,
+  "ms/Benchmarks/Trimaran/enc-3des": 1.0,
+  "ms/Benchmarks/Olden/tsp": 1.0,
+  "ms/Benchmarks/Olden/bh": 1.0,
+  "ms/Benchmarks/TSVC/ControlFlow-dbl": 1.0039633555474126,
+  "ss/Shootout-C++/sieve": 1.0007247253246352,
+  "ms/Benchmarks/TSVC/LinearDependence-flt": 1.08370648131371,
+  "ms/Benchmarks/Olden/mst": 1.0,
+  "ms/Benchmarks/Trimaran/enc-md5": 1.0892577850240575,
+  "ms/Benchmarks/TSVC/CrossingThresholds-dbl": 1.0,
+  "ms/Benchmarks/DOE-ProxyApps-C/SimpleMOC": 1.2415576544789844,
+  "ms/Benchmarks/TSVC/ControlLoops-flt": 1.8633715182351758,
+  "polybench/cholesky": 1.0,
+  "ss/Misc-C++/mandel-text": 130.3951321075273,
+  "ms/Benchmarks/Fhourstones-3.1": 1.1153535708979385,
+  "ss/Shootout-C++/hash2": 1.0789467934883394,
+  "ms/Benchmarks/DOE-ProxyApps-C/Pathfinder": 1.0128311000656227,
+  "ss/BenchmarkGame/spectral-norm": 3.903875672346149,
+  "polybench/symm": 1.0,
+  "ms/Benchmarks/TSVC/ControlFlow-flt": 1.1379935842937188,
+  "ms/Applications/siod": 1.0,
+  "ms/Benchmarks/llubenchmark": 1.0,
+  "ms/Benchmarks/nbench": 1.0274615999724148,
+  "ms/Benchmarks/TSVC/CrossingThresholds-flt": 1.0,
+  "ms/Benchmarks/TSVC/Expansion-dbl": 1.0,
+  "ms/Benchmarks/TSVC/Symbolics-dbl": 1.0,
+  "ms/Benchmarks/Trimaran/netbench-crc": 1.0,
+  "ss/CoyoteBench/fftbench": 1.0064082344469396,
+  "polybench/durbin": 2.866378169267222,
+  "ms/Applications/minisat": 1.0,
+  "ms/Benchmarks/DOE-ProxyApps-C/CoMD": 1.0,
+  "polybench/trmm": 1.0,
+  "ms/Benchmarks/Olden/perimeter": 1.0652494600705467,
+  "ss/Misc/whetstone": 1.0,
+  "ms/Benchmarks/VersaBench/8b10b": 1.0,
+  "ss/Misc/himenobmtxpa": 1.4041889262076106,
+  "ss/Shootout/matrix": 1.7837027012090725,
+  "ss/BenchmarkGame/Large/fasta": 1.021334782830298,
+  "ss/Shootout-C++/ackermann": 1.1934793317991028,
+  "ms/Benchmarks/VersaBench/dbms": 1.0,
+  "ss/Shootout/strcat": 1.0,
+  "ms/Benchmarks/Trimaran/enc-rc4": 1.211783755232786,
+  "polybench/doitgen": 1.0,
+  "ss/Misc/fbench": 1.0,
+  "ss/Shootout/ackermann": 1.0,
+  "ss/Misc/perlin": 1.0761723733528588,
+  "ms/Benchmarks/TSVC/Expansion-flt": 1.0,
+  "ms/Benchmarks/DOE-ProxyApps-C/miniAMR": 1.0,
+  "ms/Benchmarks/TSVC/GlobalDataFlow-flt": 1.0699721818828567,
+  "ss/Misc/mandel-2": 1.0,
+  "polybench/syrk": 1.042600630115347
+ },
+ "meta": {
+  "ss/CoyoteBench/almabench": {
+   "source": "no winner",
+   "family": "ss/CoyoteBench",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/ASC_Sequoia/AMGmk": {
+   "source": "serial",
+   "family": "ms/ASC_Sequoia",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Misc/salsa20": {
+   "source": "serial",
+   "family": "ss/Misc",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Applications/SPASS": {
+   "source": "no winner",
+   "family": "ms/Applications/SPASS",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout/heapsort": {
+   "source": "serial",
+   "family": "ss/Shootout",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout/hash": {
+   "source": "serial",
+   "family": "ss/Shootout",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/3mm": {
+   "source": "serial",
+   "family": "polybench/linear-algebra/kernels",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout/lists": {
+   "source": "serial",
+   "family": "ss/Shootout",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout/methcall": {
+   "source": "serial",
+   "family": "ss/Shootout",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/CoyoteBench/lpbench": {
+   "source": "no winner",
+   "family": "ss/CoyoteBench",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/LoopRerolling-dbl": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout-C++/heapsort": {
+   "source": "serial",
+   "family": "ss/Shootout-C++",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/Olden/health": {
+   "source": "serial",
+   "family": "ms/Olden",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout-C++/lists": {
+   "source": "no winner",
+   "family": "ss/Shootout-C++",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Misc/flops": {
+   "source": "serial",
+   "family": "ss/Misc",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/Recurrences-flt": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/Recurrences-dbl": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Misc-C++/Large/sphereflake": {
+   "source": "serial",
+   "family": "ss/Misc-C++",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/gramschmidt": {
+   "source": "serial",
+   "family": "polybench/linear-algebra/solvers",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/LoopRestructuring-dbl": {
+   "source": "no winner",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/LoopRerolling-flt": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/Olden/bisort": {
+   "source": "serial",
+   "family": "ms/Olden",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/DOE-ProxyApps-C++/miniFE": {
+   "source": "serial",
+   "family": "ms/DOE-ProxyApps-C++",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/Packing-dbl": {
+   "source": "no winner",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/Olden/voronoi": {
+   "source": "no winner",
+   "family": "ms/Olden",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/fdtd-2d": {
+   "source": "serial",
+   "family": "polybench/stencils",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/ASC_Sequoia/CrystalMk": {
+   "source": "serial",
+   "family": "ms/ASC_Sequoia",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/IndirectAddressing-flt": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/2mm": {
+   "source": "serial",
+   "family": "polybench/linear-algebra/kernels",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Misc-C++/Large/ray": {
+   "source": "serial",
+   "family": "ss/Misc-C++",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/Packing-flt": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout/sieve": {
+   "source": "serial",
+   "family": "ss/Shootout",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/LoopRestructuring-flt": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/IndirectAddressing-dbl": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/Trimaran/enc-pc1": {
+   "source": "serial",
+   "family": "ms/Trimaran",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Misc/oourafft": {
+   "source": "serial",
+   "family": "ss/Misc",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/ASC_Sequoia/IRSmk": {
+   "source": "serial",
+   "family": "ms/ASC_Sequoia",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/Searching-dbl": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/gemver": {
+   "source": "no winner",
+   "family": "polybench/linear-algebra/blas",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/Reductions-dbl": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/Searching-flt": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/InductionVariable-dbl": {
+   "source": "no winner",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/Reductions-flt": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout-C++/random": {
+   "source": "no winner",
+   "family": "ss/Shootout-C++",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/LinearDependence-dbl": {
+   "source": "no winner",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Misc/fp-convert": {
+   "source": "serial",
+   "family": "ss/Misc",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/NodeSplitting-dbl": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/mvt": {
+   "source": "serial",
+   "family": "polybench/linear-algebra/kernels",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/InductionVariable-flt": {
+   "source": "no winner",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/DOE-ProxyApps-C/XSBench": {
+   "source": "serial",
+   "family": "ms/DOE-ProxyApps-C",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/floyd-warshall": {
+   "source": "no winner",
+   "family": "polybench/medley",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/syr2k": {
+   "source": "serial",
+   "family": "polybench/linear-algebra/blas",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout-C++/fibo": {
+   "source": "serial",
+   "family": "ss/Shootout-C++",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/McGill/queens": {
+   "source": "serial",
+   "family": "ss/McGill",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/lu": {
+   "source": "serial",
+   "family": "polybench/linear-algebra/solvers",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/atax": {
+   "source": "serial",
+   "family": "polybench/linear-algebra/kernels",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Applications/obsequi": {
+   "source": "serial",
+   "family": "ms/Applications/obsequi",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/NodeSplitting-flt": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/adi": {
+   "source": "no winner",
+   "family": "polybench/stencils",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/Olden/em3d": {
+   "source": "no winner",
+   "family": "ms/Olden",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/deriche": {
+   "source": "no winner",
+   "family": "polybench/medley",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/StatementReordering-flt": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/GlobalDataFlow-dbl": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/StatementReordering-dbl": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/VersaBench/beamformer": {
+   "source": "serial",
+   "family": "ms/VersaBench",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/ControlLoops-dbl": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/Trimaran/enc-3des": {
+   "source": "no winner",
+   "family": "ms/Trimaran",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/Olden/tsp": {
+   "source": "serial",
+   "family": "ms/Olden",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/Olden/bh": {
+   "source": "serial",
+   "family": "ms/Olden",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/ControlFlow-dbl": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout-C++/sieve": {
+   "source": "serial",
+   "family": "ss/Shootout-C++",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/LinearDependence-flt": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/Olden/mst": {
+   "source": "no winner",
+   "family": "ms/Olden",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/Trimaran/enc-md5": {
+   "source": "serial",
+   "family": "ms/Trimaran",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/CrossingThresholds-dbl": {
+   "source": "no winner",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/DOE-ProxyApps-C/SimpleMOC": {
+   "source": "serial",
+   "family": "ms/DOE-ProxyApps-C",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/ControlLoops-flt": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/cholesky": {
+   "source": "no winner",
+   "family": "polybench/linear-algebra/solvers",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Misc-C++/mandel-text": {
+   "source": "serial",
+   "family": "ss/Misc-C++",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": true
+  },
+  "ms/Benchmarks/Fhourstones-3.1": {
+   "source": "serial",
+   "family": "ms/Benchmarks/Fhourstones-3.1",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout-C++/hash2": {
+   "source": "serial",
+   "family": "ss/Shootout-C++",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/DOE-ProxyApps-C/Pathfinder": {
+   "source": "serial",
+   "family": "ms/DOE-ProxyApps-C",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/BenchmarkGame/spectral-norm": {
+   "source": "serial",
+   "family": "ss/BenchmarkGame",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/symm": {
+   "source": "serial",
+   "family": "polybench/linear-algebra/blas",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/ControlFlow-flt": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Applications/siod": {
+   "source": "no winner",
+   "family": "ms/Applications/siod",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/llubenchmark": {
+   "source": "no winner",
+   "family": "ms/Benchmarks/llubenchmark",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/nbench": {
+   "source": "serial",
+   "family": "ms/Benchmarks/nbench",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/CrossingThresholds-flt": {
+   "source": "no winner",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/Expansion-dbl": {
+   "source": "no winner",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/Symbolics-dbl": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/Trimaran/netbench-crc": {
+   "source": "serial",
+   "family": "ms/Trimaran",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/CoyoteBench/fftbench": {
+   "source": "serial",
+   "family": "ss/CoyoteBench",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/durbin": {
+   "source": "serial",
+   "family": "polybench/linear-algebra/solvers",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Applications/minisat": {
+   "source": "no winner",
+   "family": "ms/Applications/minisat",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/DOE-ProxyApps-C/CoMD": {
+   "source": "no winner",
+   "family": "ms/DOE-ProxyApps-C",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/trmm": {
+   "source": "no winner",
+   "family": "polybench/linear-algebra/blas",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/Olden/perimeter": {
+   "source": "serial",
+   "family": "ms/Olden",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Misc/whetstone": {
+   "source": "no winner",
+   "family": "ss/Misc",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/VersaBench/8b10b": {
+   "source": "no winner",
+   "family": "ms/VersaBench",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Misc/himenobmtxpa": {
+   "source": "serial",
+   "family": "ss/Misc",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout/matrix": {
+   "source": "serial",
+   "family": "ss/Shootout",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/BenchmarkGame/Large/fasta": {
+   "source": "serial",
+   "family": "ss/BenchmarkGame",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout-C++/ackermann": {
+   "source": "serial",
+   "family": "ss/Shootout-C++",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/VersaBench/dbms": {
+   "source": "no winner",
+   "family": "ms/VersaBench",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout/strcat": {
+   "source": "no winner",
+   "family": "ss/Shootout",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/Trimaran/enc-rc4": {
+   "source": "serial",
+   "family": "ms/Trimaran",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/doitgen": {
+   "source": "no winner",
+   "family": "polybench/linear-algebra/kernels",
+   "split": "test",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Misc/fbench": {
+   "source": "no winner",
+   "family": "ss/Misc",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Shootout/ackermann": {
+   "source": "no winner",
+   "family": "ss/Shootout",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Misc/perlin": {
+   "source": "serial",
+   "family": "ss/Misc",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/Expansion-flt": {
+   "source": "no winner",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/DOE-ProxyApps-C/miniAMR": {
+   "source": "no winner",
+   "family": "ms/DOE-ProxyApps-C",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ms/Benchmarks/TSVC/GlobalDataFlow-flt": {
+   "source": "serial",
+   "family": "ms/TSVC",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "ss/Misc/mandel-2": {
+   "source": "no winner",
+   "family": "ss/Misc",
+   "split": "val",
+   "o3_mismatch": false,
+   "suspect": false
+  },
+  "polybench/syrk": {
+   "source": "serial",
+   "family": "polybench/linear-algebra/blas",
+   "split": "train",
+   "o3_mismatch": false,
+   "suspect": false
+  }
+ }
+}

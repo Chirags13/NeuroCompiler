@@ -1,0 +1,136 @@
+{
+ "timing_cpus": [
+  2,
+  6,
+  10
+ ],
+ "reps": 30,
+ "rounds": 1,
+ "rows": [
+  {
+   "program": "polybench/ludcmp",
+   "cpu": 2,
+   "wall_s": 90.0,
+   "base_median_ms": 831.480627,
+   "aa": {
+    "n": 30,
+    "speedup": 0.9977064236154077,
+    "ci_lo": 0.9651307486279246,
+    "ci_hi": 1.0085859740586314,
+    "significant": false
+   },
+   "aa_iqr_pct": 5.594119619369726,
+   "win": {
+    "n": 30,
+    "speedup": 1.1800294402387084,
+    "ci_lo": 1.1576465744644644,
+    "ci_hi": 1.20277388217552,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 0
+  },
+  {
+   "program": "ms/Benchmarks/TSVC/GlobalDataFlow-dbl",
+   "cpu": 6,
+   "wall_s": 64.5,
+   "base_median_ms": 855.1594215,
+   "aa": {
+    "n": 30,
+    "speedup": 1.000620509530164,
+    "ci_lo": 0.9947183332295784,
+    "ci_hi": 1.0048903780576488,
+    "significant": false
+   },
+   "aa_iqr_pct": 1.4321752776066952,
+   "mode": "serial",
+   "round": 0
+  },
+  {
+   "program": "ss/Shootout/fib2",
+   "cpu": 10,
+   "wall_s": 100.2,
+   "base_median_ms": 942.6304095,
+   "aa": {
+    "n": 30,
+    "speedup": 1.0007720981812422,
+    "ci_lo": 0.9993488219257831,
+    "ci_hi": 1.0039555331285266,
+    "significant": false
+   },
+   "aa_iqr_pct": 0.8282729076066208,
+   "win": {
+    "n": 30,
+    "speedup": 1.1250482752010944,
+    "ci_lo": 1.1234609095797312,
+    "ci_hi": 1.1267241729891637,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 0
+  },
+  {
+   "program": "ms/Benchmarks/TSVC/GlobalDataFlow-dbl",
+   "cpu": 6,
+   "wall_s": 67.7,
+   "base_median_ms": 895.888455,
+   "aa": {
+    "n": 30,
+    "speedup": 0.9994937683409743,
+    "ci_lo": 0.9900662470354742,
+    "ci_hi": 1.0036166200447083,
+    "significant": false
+   },
+   "aa_iqr_pct": 1.8307830970183139,
+   "mode": "parallel",
+   "round": 0
+  },
+  {
+   "program": "polybench/ludcmp",
+   "cpu": 2,
+   "wall_s": 89.8,
+   "base_median_ms": 847.9116805,
+   "aa": {
+    "n": 30,
+    "speedup": 0.9953660185896495,
+    "ci_lo": 0.9696381609841555,
+    "ci_hi": 1.0046195625234775,
+    "significant": false
+   },
+   "aa_iqr_pct": 4.967547968223252,
+   "win": {
+    "n": 30,
+    "speedup": 1.178434282498325,
+    "ci_lo": 1.1635638961067285,
+    "ci_hi": 1.1968461419754748,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 0
+  },
+  {
+   "program": "ss/Shootout/fib2",
+   "cpu": 10,
+   "wall_s": 104.1,
+   "base_median_ms": 977.6669865,
+   "aa": {
+    "n": 30,
+    "speedup": 1.0009627352905561,
+    "ci_lo": 0.9962892853351357,
+    "ci_hi": 1.0036072614156377,
+    "significant": false
+   },
+   "aa_iqr_pct": 1.0635937100149397,
+   "win": {
+    "n": 30,
+    "speedup": 1.1232864583678277,
+    "ci_lo": 1.1199051777453133,
+    "ci_hi": 1.1283982009580846,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 0
+  }
+ ],
+ "pass": true
+}

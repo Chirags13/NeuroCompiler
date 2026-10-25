@@ -1,0 +1,288 @@
+{
+ "timing_cpus": [
+  2,
+  6,
+  10
+ ],
+ "reps": 30,
+ "rounds": 2,
+ "rows": [
+  {
+   "program": "ss/Shootout/fib2",
+   "cpu": 2,
+   "wall_s": 100.4,
+   "base_median_ms": 943.3145629999999,
+   "aa": {
+    "n": 30,
+    "speedup": 1.0003096475040103,
+    "ci_lo": 0.9995377433597661,
+    "ci_hi": 1.002260167644935,
+    "significant": false
+   },
+   "aa_iqr_pct": 0.42771974809284063,
+   "win": {
+    "n": 30,
+    "speedup": 1.126455016737274,
+    "ci_lo": 1.1255149695353217,
+    "ci_hi": 1.1269858301497355,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 0
+  },
+  {
+   "program": "polybench/ludcmp",
+   "cpu": 6,
+   "wall_s": 85.9,
+   "base_median_ms": 820.9504335,
+   "aa": {
+    "n": 30,
+    "speedup": 1.000400002627544,
+    "ci_lo": 0.9960974522604866,
+    "ci_hi": 1.0103546921878546,
+    "significant": false
+   },
+   "aa_iqr_pct": 2.6347029936007664,
+   "win": {
+    "n": 30,
+    "speedup": 1.1792240680170267,
+    "ci_lo": 1.172252988030845,
+    "ci_hi": 1.1872623672839486,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 0
+  },
+  {
+   "program": "polybench/jacobi-2d",
+   "cpu": 10,
+   "wall_s": 146.5,
+   "base_median_ms": 1356.6096240000002,
+   "aa": {
+    "n": 30,
+    "speedup": 1.0035406233447182,
+    "ci_lo": 0.9810874149789518,
+    "ci_hi": 1.0240038931248647,
+    "significant": false
+   },
+   "aa_iqr_pct": 5.816612429009725,
+   "win": {
+    "n": 30,
+    "speedup": 1.022061193058227,
+    "ci_lo": 1.009104498575094,
+    "ci_hi": 1.0369694604304096,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 0
+  },
+  {
+   "program": "ss/Shootout/fib2",
+   "cpu": 2,
+   "wall_s": 103.7,
+   "base_median_ms": 972.50026,
+   "aa": {
+    "n": 30,
+    "speedup": 0.9999463614958407,
+    "ci_lo": 0.9993413292716768,
+    "ci_hi": 1.0018622895226748,
+    "significant": false
+   },
+   "aa_iqr_pct": 0.34905307385055034,
+   "win": {
+    "n": 30,
+    "speedup": 1.1295949045339675,
+    "ci_lo": 1.1235061566092195,
+    "ci_hi": 1.1362682916190086,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 0
+  },
+  {
+   "program": "polybench/ludcmp",
+   "cpu": 6,
+   "wall_s": 137.6,
+   "base_median_ms": 1387.263151,
+   "aa": {
+    "n": 30,
+    "speedup": 1.010285595267728,
+    "ci_lo": 0.9720252667779758,
+    "ci_hi": 1.047764917349319,
+    "significant": false
+   },
+   "aa_iqr_pct": 18.092815395938473,
+   "win": {
+    "n": 30,
+    "speedup": 1.1658922838118162,
+    "ci_lo": 1.0803908410677954,
+    "ci_hi": 1.222955342999201,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 0
+  },
+  {
+   "program": "polybench/jacobi-2d",
+   "cpu": 10,
+   "wall_s": 175.9,
+   "base_median_ms": 1629.34382,
+   "aa": {
+    "n": 30,
+    "speedup": 1.0038614590692818,
+    "ci_lo": 0.9881795061816093,
+    "ci_hi": 1.006421403729505,
+    "significant": false
+   },
+   "aa_iqr_pct": 3.1849959351214103,
+   "win": {
+    "n": 30,
+    "speedup": 1.0003988855329893,
+    "ci_lo": 0.9873115737355495,
+    "ci_hi": 1.0144028174066573,
+    "significant": false
+   },
+   "mode": "parallel",
+   "round": 0
+  },
+  {
+   "program": "ss/Shootout/fib2",
+   "cpu": 6,
+   "wall_s": 100.7,
+   "base_median_ms": 946.6195170000001,
+   "aa": {
+    "n": 30,
+    "speedup": 1.0016798825613602,
+    "ci_lo": 0.9998275816914226,
+    "ci_hi": 1.0046570552609744,
+    "significant": false
+   },
+   "aa_iqr_pct": 0.8236636300783708,
+   "win": {
+    "n": 30,
+    "speedup": 1.12549078527438,
+    "ci_lo": 1.1246395155645996,
+    "ci_hi": 1.1287621959911407,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 1
+  },
+  {
+   "program": "polybench/ludcmp",
+   "cpu": 10,
+   "wall_s": 86.4,
+   "base_median_ms": 824.782651,
+   "aa": {
+    "n": 30,
+    "speedup": 1.009584744195242,
+    "ci_lo": 0.9977718567233776,
+    "ci_hi": 1.034710282875974,
+    "significant": false
+   },
+   "aa_iqr_pct": 4.114847050586688,
+   "win": {
+    "n": 30,
+    "speedup": 1.1762001737293557,
+    "ci_lo": 1.1663055840899033,
+    "ci_hi": 1.1888864298306636,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 1
+  },
+  {
+   "program": "polybench/jacobi-2d",
+   "cpu": 2,
+   "wall_s": 148.9,
+   "base_median_ms": 1394.0775925,
+   "aa": {
+    "n": 30,
+    "speedup": 1.0115203461818452,
+    "ci_lo": 1.0037451286418457,
+    "ci_hi": 1.0266277773802903,
+    "significant": true
+   },
+   "aa_iqr_pct": 4.105883405430071,
+   "win": {
+    "n": 30,
+    "speedup": 1.0265726743509986,
+    "ci_lo": 1.0101698404795747,
+    "ci_hi": 1.0464424075963161,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 1
+  },
+  {
+   "program": "ss/Shootout/fib2",
+   "cpu": 6,
+   "wall_s": 105.0,
+   "base_median_ms": 971.8625385,
+   "aa": {
+    "n": 30,
+    "speedup": 1.000399340525504,
+    "ci_lo": 0.9952836534699651,
+    "ci_hi": 1.0075798459048206,
+    "significant": false
+   },
+   "aa_iqr_pct": 1.7094112769379666,
+   "win": {
+    "n": 30,
+    "speedup": 1.1232645513058916,
+    "ci_lo": 1.1161165226705438,
+    "ci_hi": 1.1418684318722427,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 1
+  },
+  {
+   "program": "polybench/ludcmp",
+   "cpu": 10,
+   "wall_s": 137.0,
+   "base_median_ms": 1391.1414565,
+   "aa": {
+    "n": 30,
+    "speedup": 1.0086115420707051,
+    "ci_lo": 0.9563134391899075,
+    "ci_hi": 1.0518396485630275,
+    "significant": false
+   },
+   "aa_iqr_pct": 18.025409975199253,
+   "win": {
+    "n": 30,
+    "speedup": 1.150885075371292,
+    "ci_lo": 1.1193031789666532,
+    "ci_hi": 1.279603626729874,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 1
+  },
+  {
+   "program": "polybench/jacobi-2d",
+   "cpu": 2,
+   "wall_s": 177.2,
+   "base_median_ms": 1650.3489375,
+   "aa": {
+    "n": 30,
+    "speedup": 0.9981315751699131,
+    "ci_lo": 0.9829001065154307,
+    "ci_hi": 1.0060520260604353,
+    "significant": false
+   },
+   "aa_iqr_pct": 3.990773322069267,
+   "win": {
+    "n": 30,
+    "speedup": 1.0278978086976396,
+    "ci_lo": 1.0098423985426181,
+    "ci_hi": 1.0396271760397757,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 1
+  }
+ ],
+ "pass": false
+}

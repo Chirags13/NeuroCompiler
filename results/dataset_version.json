@@ -1,0 +1,16 @@
+{
+  "version": "692d2418a83f",
+  "created": "2026-10-24T14:31:03",
+  "machine_id": "wsl2-ryzen9-270-v14",
+  "llvm": "18.1.8",
+  "code_hash": "868c94c1c81cca6b",
+  "programs": 146,
+  "families": 35,
+  "program_input_pairs": 146,
+  "records_ok": 51449,
+  "screen_measurements": 15015,
+  "confirmed_measurements": 1220,
+  "issues": [
+    "15 programs with a noisy accepted A/A control (>10% of programs)"
+  ]
+}

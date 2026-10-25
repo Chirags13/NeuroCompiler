@@ -1,0 +1,286 @@
+{
+ "extras": {
+  "module": [
+   "partial-inliner",
+   "hotcoldsplit",
+   "called-value-propagation"
+  ],
+  "function": [
+   "dfa-jump-threading",
+   "gvn-sink",
+   "callsite-splitting",
+   "loop-data-prefetch",
+   "separate-const-offset-from-gep",
+   "libcalls-shrinkwrap"
+  ],
+  "loop": [
+   "loop-versioning-licm"
+  ]
+ },
+ "knobs": {
+  "-jump-threading-threshold": [
+   3,
+   12
+  ],
+  "-vectorizer-min-trip-count": [
+   4,
+   32
+  ],
+  "-unroll-runtime": [
+   "false"
+  ],
+  "-unroll-max-count": [
+   2,
+   4
+  ],
+  "-phi-node-folding-threshold": [
+   1,
+   4
+  ],
+  "-simplifycfg-sink-common": [
+   "false"
+  ],
+  "-simplifycfg-hoist-common": [
+   "false"
+  ],
+  "llc:-tail-dup-size": [
+   1,
+   4,
+   6
+  ],
+  "llc:-tail-dup-indirect-size": [
+   3,
+   50
+  ],
+  "llc:-enable-tail-merge": [
+   "false"
+  ],
+  "llc:-align-loops": [
+   1,
+   32,
+   64
+  ],
+  "llc:-x86-cmov-converter": [
+   "false"
+  ],
+  "llc:-enable-misched": [
+   "false"
+  ],
+  "llc:-min-jump-table-entries": [
+   2,
+   16
+  ]
+ },
+ "params": [
+  {
+   "pass": "loop-vectorize",
+   "ctx": "function",
+   "tok": "no-interleave-forced-only",
+   "new": "interleave-forced-only"
+  },
+  {
+   "pass": "loop-vectorize",
+   "ctx": "function",
+   "tok": "no-vectorize-forced-only",
+   "new": "vectorize-forced-only"
+  },
+  {
+   "pass": "instcombine",
+   "ctx": "function",
+   "tok": "max-iterations=1",
+   "new": "max-iterations=2"
+  },
+  {
+   "pass": "instcombine",
+   "ctx": "function",
+   "tok": "no-use-loop-info",
+   "new": "use-loop-info"
+  },
+  {
+   "pass": "instcombine",
+   "ctx": "function",
+   "tok": "no-verify-fixpoint",
+   "new": "verify-fixpoint"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "bonus-inst-threshold=1",
+   "new": "bonus-inst-threshold=0"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "bonus-inst-threshold=1",
+   "new": "bonus-inst-threshold=2"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "bonus-inst-threshold=1",
+   "new": "bonus-inst-threshold=4"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "forward-switch-cond",
+   "new": "no-forward-switch-cond"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "switch-range-to-icmp",
+   "new": "no-switch-range-to-icmp"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "switch-to-lookup",
+   "new": "no-switch-to-lookup"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "no-keep-loops",
+   "new": "keep-loops"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "hoist-common-insts",
+   "new": "no-hoist-common-insts"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "sink-common-insts",
+   "new": "no-sink-common-insts"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "speculate-blocks",
+   "new": "no-speculate-blocks"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "simplify-cond-branch",
+   "new": "no-simplify-cond-branch"
+  },
+  {
+   "pass": "loop-unroll",
+   "ctx": "function",
+   "tok": "O3",
+   "new": "O1"
+  },
+  {
+   "pass": "loop-unroll",
+   "ctx": "function",
+   "tok": "O3",
+   "new": "O2"
+  },
+  {
+   "pass": "sroa",
+   "ctx": "function",
+   "tok": "preserve-cfg",
+   "new": "modify-cfg"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "no-forward-switch-cond",
+   "new": "forward-switch-cond"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "no-switch-to-lookup",
+   "new": "switch-to-lookup"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "keep-loops",
+   "new": "no-keep-loops"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "no-hoist-common-insts",
+   "new": "hoist-common-insts"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "no-sink-common-insts",
+   "new": "sink-common-insts"
+  },
+  {
+   "pass": "licm",
+   "ctx": "loop-mssa",
+   "tok": "allowspeculation",
+   "new": "no-allowspeculation"
+  },
+  {
+   "pass": "loop-rotate",
+   "ctx": "loop",
+   "tok": "header-duplication",
+   "new": "no-header-duplication"
+  },
+  {
+   "pass": "loop-rotate",
+   "ctx": "loop",
+   "tok": "no-prepare-for-lto",
+   "new": "prepare-for-lto"
+  },
+  {
+   "pass": "sroa",
+   "ctx": "function",
+   "tok": "modify-cfg",
+   "new": "preserve-cfg"
+  },
+  {
+   "pass": "mldst-motion",
+   "ctx": "function",
+   "tok": "no-split-footer-bb",
+   "new": "split-footer-bb"
+  },
+  {
+   "pass": "licm",
+   "ctx": "loop-mssa",
+   "tok": "no-allowspeculation",
+   "new": "allowspeculation"
+  },
+  {
+   "pass": "loop-rotate",
+   "ctx": "loop-mssa",
+   "tok": "header-duplication",
+   "new": "no-header-duplication"
+  },
+  {
+   "pass": "loop-rotate",
+   "ctx": "loop-mssa",
+   "tok": "no-prepare-for-lto",
+   "new": "prepare-for-lto"
+  },
+  {
+   "pass": "simple-loop-unswitch",
+   "ctx": "loop-mssa",
+   "tok": "nontrivial",
+   "new": "no-nontrivial"
+  },
+  {
+   "pass": "simple-loop-unswitch",
+   "ctx": "loop-mssa",
+   "tok": "trivial",
+   "new": "no-trivial"
+  },
+  {
+   "pass": "simplifycfg",
+   "ctx": "function",
+   "tok": "no-switch-range-to-icmp",
+   "new": "switch-range-to-icmp"
+  }
+ ]
+}

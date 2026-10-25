@@ -1,0 +1,195 @@
+{
+ "timing_cpus": [
+  6,
+  10
+ ],
+ "reps": 30,
+ "rounds": 2,
+ "rows": [
+  {
+   "program": "ss/Shootout/fib2",
+   "cpu": 6,
+   "wall_s": 100.4,
+   "base_median_ms": 944.9102545000001,
+   "aa": {
+    "n": 30,
+    "speedup": 1.0007201351998525,
+    "ci_lo": 0.9994061830525577,
+    "ci_hi": 1.00147266096963,
+    "significant": false
+   },
+   "aa_iqr_pct": 0.4177278458825757,
+   "win": {
+    "n": 30,
+    "speedup": 1.1290253096532639,
+    "ci_lo": 1.1246274281275435,
+    "ci_hi": 1.1320714848189755,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 0
+  },
+  {
+   "program": "polybench/ludcmp",
+   "cpu": 10,
+   "wall_s": 87.8,
+   "base_median_ms": 832.9455714999999,
+   "aa": {
+    "n": 30,
+    "speedup": 0.999070294545411,
+    "ci_lo": 0.9924258855953777,
+    "ci_hi": 1.0120596133769764,
+    "significant": false
+   },
+   "aa_iqr_pct": 3.554182441895079,
+   "win": {
+    "n": 30,
+    "speedup": 1.167224275261456,
+    "ci_lo": 1.1629670877985487,
+    "ci_hi": 1.1827862428976839,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 0
+  },
+  {
+   "program": "polybench/ludcmp",
+   "cpu": 10,
+   "wall_s": 87.7,
+   "base_median_ms": 820.163695,
+   "aa": {
+    "n": 30,
+    "speedup": 0.9972057538457729,
+    "ci_lo": 0.9857342511900751,
+    "ci_hi": 1.0067021440097979,
+    "significant": false
+   },
+   "aa_iqr_pct": 3.5931212736249623,
+   "win": {
+    "n": 30,
+    "speedup": 1.182930666748262,
+    "ci_lo": 1.1632489251453555,
+    "ci_hi": 1.1894165455613788,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 0
+  },
+  {
+   "program": "ss/Shootout/fib2",
+   "cpu": 6,
+   "wall_s": 103.2,
+   "base_median_ms": 969.4323830000001,
+   "aa": {
+    "n": 30,
+    "speedup": 0.9989081420896967,
+    "ci_lo": 0.9972765727851803,
+    "ci_hi": 0.9999089781444385,
+    "significant": true
+   },
+   "aa_iqr_pct": 0.3408400665783243,
+   "win": {
+    "n": 30,
+    "speedup": 1.1235717914070664,
+    "ci_lo": 1.12178650692389,
+    "ci_hi": 1.1253933262313638,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 0
+  },
+  {
+   "program": "ss/Shootout/fib2",
+   "cpu": 10,
+   "wall_s": 100.5,
+   "base_median_ms": 946.227791,
+   "aa": {
+    "n": 30,
+    "speedup": 1.0000363997646147,
+    "ci_lo": 0.9991671139418175,
+    "ci_hi": 1.001493380724944,
+    "significant": false
+   },
+   "aa_iqr_pct": 0.3136565043287068,
+   "win": {
+    "n": 30,
+    "speedup": 1.1282131740506995,
+    "ci_lo": 1.1259112529773199,
+    "ci_hi": 1.1294566836960926,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 1
+  },
+  {
+   "program": "polybench/ludcmp",
+   "cpu": 6,
+   "wall_s": 84.5,
+   "base_median_ms": 799.2235705,
+   "aa": {
+    "n": 30,
+    "speedup": 0.997805712979665,
+    "ci_lo": 0.9923262957612962,
+    "ci_hi": 1.0091522353652627,
+    "significant": false
+   },
+   "aa_iqr_pct": 2.857295159519034,
+   "win": {
+    "n": 30,
+    "speedup": 1.1778569849459117,
+    "ci_lo": 1.1657495150655406,
+    "ci_hi": 1.1903263884569102,
+    "significant": true
+   },
+   "mode": "serial",
+   "round": 1
+  },
+  {
+   "program": "polybench/ludcmp",
+   "cpu": 6,
+   "wall_s": 89.2,
+   "base_median_ms": 843.2309805,
+   "aa": {
+    "n": 30,
+    "speedup": 0.9951979533402205,
+    "ci_lo": 0.9805611419122164,
+    "ci_hi": 1.0083174232776775,
+    "significant": false
+   },
+   "aa_iqr_pct": 3.7691609424660752,
+   "win": {
+    "n": 30,
+    "speedup": 1.1783648943072471,
+    "ci_lo": 1.1555822786493697,
+    "ci_hi": 1.190084242693204,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 1
+  },
+  {
+   "program": "ss/Shootout/fib2",
+   "cpu": 10,
+   "wall_s": 104.6,
+   "base_median_ms": 978.361052,
+   "aa": {
+    "n": 30,
+    "speedup": 1.0000214815386284,
+    "ci_lo": 0.9987691206326708,
+    "ci_hi": 1.0040648102220169,
+    "significant": false
+   },
+   "aa_iqr_pct": 1.2632834627209635,
+   "win": {
+    "n": 30,
+    "speedup": 1.125313170355339,
+    "ci_lo": 1.1209368872143837,
+    "ci_hi": 1.1293152346661948,
+    "significant": true
+   },
+   "mode": "parallel",
+   "round": 1
+  }
+ ],
+ "pass": false
+}

@@ -1,0 +1,4 @@
+FRESH 15 (decisive)                n=15 geomean  +4.00% (95% CI +1.54..+7.14) excl. largest +2.94% | >=5%: 4/15 (26.7%) | GATE NOT MET
+ORIGINAL 15                        n=15 geomean +11.73% (95% CI +1.81..+31.97) excl. largest +3.50% | >=5%: 5/15 (33.3%) | GATE PASS
+ALL 30 pooled                      n=30 geomean  +7.80% (95% CI +2.39..+17.56) excl. largest +3.76% | >=5%: 9/30 (30.0%) | GATE PASS
+ALL 30 without noisy controls      n=27 geomean  +7.74% (95% CI +2.00..+18.46) excl. largest +3.24% | >=5%: 7/27 (25.9%) | GATE NOT MET

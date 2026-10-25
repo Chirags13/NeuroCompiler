@@ -1,0 +1,4215 @@
+{
+ "created": "20261024-192004",
+ "programs": [
+  "ms/Applications/SIBsim4",
+  "ms/Applications/obsequi",
+  "ms/Benchmarks/ASC_Sequoia/CrystalMk",
+  "ms/Benchmarks/ASC_Sequoia/IRSmk",
+  "ms/Benchmarks/DOE-ProxyApps-C++/miniFE",
+  "ms/Benchmarks/DOE-ProxyApps-C/Pathfinder",
+  "ms/Benchmarks/DOE-ProxyApps-C/SimpleMOC",
+  "ms/Benchmarks/Fhourstones-3.1",
+  "ms/Benchmarks/Olden/health",
+  "ms/Benchmarks/Olden/perimeter",
+  "ms/Benchmarks/TSVC/LoopRerolling-dbl",
+  "ms/Benchmarks/TSVC/Reductions-flt",
+  "ms/Benchmarks/Trimaran/enc-md5",
+  "ms/Benchmarks/Trimaran/enc-rc4",
+  "ms/Benchmarks/nbench",
+  "polybench/covariance",
+  "polybench/jacobi-2d",
+  "polybench/seidel-2d",
+  "polybench/syr2k",
+  "polybench/syrk",
+  "ss/BenchmarkGame/recursive",
+  "ss/BenchmarkGame/spectral-norm",
+  "ss/CoyoteBench/fftbench",
+  "ss/McGill/chomp",
+  "ss/McGill/queens",
+  "ss/Misc-C++/Large/ray",
+  "ss/Misc-C++/Large/sphereflake",
+  "ss/Misc/evalloop",
+  "ss/Misc/fp-convert",
+  "ss/Shootout/heapsort",
+  "ss/Shootout/matrix"
+ ],
+ "actions": [
+  {
+   "label": "-force-vector-width=2",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-force-vector-width",
+    "value": 2
+   },
+   "conf_faster": 5,
+   "conf_slower": 2,
+   "screen_big": 12
+  },
+  {
+   "label": "-unroll-max-count=2",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-unroll-max-count",
+    "value": 2
+   },
+   "conf_faster": 5,
+   "conf_slower": 1,
+   "screen_big": 14
+  },
+  {
+   "label": "-force-vector-width=8",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-force-vector-width",
+    "value": 8
+   },
+   "conf_faster": 5,
+   "conf_slower": 0,
+   "screen_big": 14
+  },
+  {
+   "label": "-unroll-count=2",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-unroll-count",
+    "value": 2
+   },
+   "conf_faster": 4,
+   "conf_slower": 6,
+   "screen_big": 23
+  },
+  {
+   "label": "-unroll-count=4",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-unroll-count",
+    "value": 4
+   },
+   "conf_faster": 4,
+   "conf_slower": 3,
+   "screen_big": 21
+  },
+  {
+   "label": "del EVERY instcombine",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "instcombine"
+   },
+   "conf_faster": 4,
+   "conf_slower": 1,
+   "screen_big": 21
+  },
+  {
+   "label": "-unroll-count=8",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-unroll-count",
+    "value": 8
+   },
+   "conf_faster": 3,
+   "conf_slower": 6,
+   "screen_big": 21
+  },
+  {
+   "label": "del EVERY simplifycfg",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "simplifycfg"
+   },
+   "conf_faster": 3,
+   "conf_slower": 2,
+   "screen_big": 22
+  },
+  {
+   "label": "-slp-threshold=-4",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-slp-threshold",
+    "value": -4
+   },
+   "conf_faster": 3,
+   "conf_slower": 2,
+   "screen_big": 21
+  },
+  {
+   "label": "EVERY simplifycfg speculate-blocks->no-speculate-blocks",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "speculate-blocks",
+    "new": "no-speculate-blocks"
+   },
+   "conf_faster": 3,
+   "conf_slower": 2,
+   "screen_big": 11
+  },
+  {
+   "label": "-force-vector-width=4",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-force-vector-width",
+    "value": 4
+   },
+   "conf_faster": 3,
+   "conf_slower": 1,
+   "screen_big": 13
+  },
+  {
+   "label": "-unroll-max-count=4",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-unroll-max-count",
+    "value": 4
+   },
+   "conf_faster": 3,
+   "conf_slower": 0,
+   "screen_big": 16
+  },
+  {
+   "label": "EVERY loop-rotate header-duplication->no-header-duplication",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "loop-rotate",
+    "tok": "header-duplication",
+    "new": "no-header-duplication"
+   },
+   "conf_faster": 2,
+   "conf_slower": 2,
+   "screen_big": 21
+  },
+  {
+   "label": "del EVERY loop-rotate",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "loop-rotate"
+   },
+   "conf_faster": 2,
+   "conf_slower": 1,
+   "screen_big": 20
+  },
+  {
+   "label": "llc -O1",
+   "kind": "backend",
+   "edit": {
+    "op": "backend",
+    "value": 1
+   },
+   "conf_faster": 2,
+   "conf_slower": 1,
+   "screen_big": 15
+  },
+  {
+   "label": "llc:-align-loops=64",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "llc:-align-loops",
+    "value": 64
+   },
+   "conf_faster": 2,
+   "conf_slower": 0,
+   "screen_big": 16
+  },
+  {
+   "label": "del #96 loop-vectorize",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 96
+   },
+   "conf_faster": 2,
+   "conf_slower": 0,
+   "screen_big": 13
+  },
+  {
+   "label": "#96 loop-vectorize no-vectorize-forced-only->vectorize-forced-only",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 96,
+    "tok": "no-vectorize-forced-only",
+    "new": "vectorize-forced-only"
+   },
+   "conf_faster": 2,
+   "conf_slower": 0,
+   "screen_big": 13
+  },
+  {
+   "label": "EVERY loop-vectorize no-vectorize-forced-only->vectorize-forced-only",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "loop-vectorize",
+    "tok": "no-vectorize-forced-only",
+    "new": "vectorize-forced-only"
+   },
+   "conf_faster": 2,
+   "conf_slower": 0,
+   "screen_big": 13
+  },
+  {
+   "label": "-force-vector-width=1",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-force-vector-width",
+    "value": 1
+   },
+   "conf_faster": 2,
+   "conf_slower": 0,
+   "screen_big": 13
+  },
+  {
+   "label": "-inline-threshold=500",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-inline-threshold",
+    "value": 500
+   },
+   "conf_faster": 2,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "-inline-threshold=1000",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-inline-threshold",
+    "value": 1000
+   },
+   "conf_faster": 2,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "llc -O0",
+   "kind": "backend",
+   "edit": {
+    "op": "backend",
+    "value": 0
+   },
+   "conf_faster": 1,
+   "conf_slower": 8,
+   "screen_big": 13
+  },
+  {
+   "label": "-inline-threshold=50",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-inline-threshold",
+    "value": 50
+   },
+   "conf_faster": 1,
+   "conf_slower": 2,
+   "screen_big": 18
+  },
+  {
+   "label": "del EVERY sroa",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "sroa"
+   },
+   "conf_faster": 1,
+   "conf_slower": 2,
+   "screen_big": 14
+  },
+  {
+   "label": "del #55 indvars",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 55
+   },
+   "conf_faster": 1,
+   "conf_slower": 1,
+   "screen_big": 17
+  },
+  {
+   "label": "del EVERY licm",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "licm"
+   },
+   "conf_faster": 1,
+   "conf_slower": 1,
+   "screen_big": 15
+  },
+  {
+   "label": "del #42 reassociate",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 42
+   },
+   "conf_faster": 1,
+   "conf_slower": 1,
+   "screen_big": 14
+  },
+  {
+   "label": "llc:-enable-misched=false",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "llc:-enable-misched",
+    "value": "false"
+   },
+   "conf_faster": 1,
+   "conf_slower": 1,
+   "screen_big": 14
+  },
+  {
+   "label": "#50 simple-loop-unswitch nontrivial->no-nontrivial",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 50,
+    "tok": "nontrivial",
+    "new": "no-nontrivial"
+   },
+   "conf_faster": 1,
+   "conf_slower": 1,
+   "screen_big": 13
+  },
+  {
+   "label": "EVERY simple-loop-unswitch nontrivial->no-nontrivial",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simple-loop-unswitch",
+    "tok": "nontrivial",
+    "new": "no-nontrivial"
+   },
+   "conf_faster": 1,
+   "conf_slower": 1,
+   "screen_big": 13
+  },
+  {
+   "label": "del #50 simple-loop-unswitch",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 50
+   },
+   "conf_faster": 1,
+   "conf_slower": 1,
+   "screen_big": 12
+  },
+  {
+   "label": "del #61 gvn",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 61
+   },
+   "conf_faster": 1,
+   "conf_slower": 1,
+   "screen_big": 12
+  },
+  {
+   "label": "#51 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=4",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 51,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=4"
+   },
+   "conf_faster": 1,
+   "conf_slower": 1,
+   "screen_big": 7
+  },
+  {
+   "label": "#74 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=4",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 74,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=4"
+   },
+   "conf_faster": 1,
+   "conf_slower": 1,
+   "screen_big": 7
+  },
+  {
+   "label": "#36 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=4",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 36,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=4"
+   },
+   "conf_faster": 1,
+   "conf_slower": 1,
+   "screen_big": 6
+  },
+  {
+   "label": "#41 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=4",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 41,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=4"
+   },
+   "conf_faster": 1,
+   "conf_slower": 1,
+   "screen_big": 6
+  },
+  {
+   "label": "EVERY simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=4",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=4"
+   },
+   "conf_faster": 1,
+   "conf_slower": 1,
+   "screen_big": 6
+  },
+  {
+   "label": "llc:-align-loops=1",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "llc:-align-loops",
+    "value": 1
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 17
+  },
+  {
+   "label": "llc:-align-loops=32",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "llc:-align-loops",
+    "value": 32
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 16
+  },
+  {
+   "label": "EVERY simplifycfg simplify-cond-branch->no-simplify-cond-branch",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "simplify-cond-branch",
+    "new": "no-simplify-cond-branch"
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 15
+  },
+  {
+   "label": "EVERY licm allowspeculation->no-allowspeculation",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "licm",
+    "tok": "allowspeculation",
+    "new": "no-allowspeculation"
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 14
+  },
+  {
+   "label": "llc:-tail-dup-size=6",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "llc:-tail-dup-size",
+    "value": 6
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 13
+  },
+  {
+   "label": "del #48 loop-rotate",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 48
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 12
+  },
+  {
+   "label": "#48 loop-rotate header-duplication->no-header-duplication",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 48,
+    "tok": "header-duplication",
+    "new": "no-header-duplication"
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 12
+  },
+  {
+   "label": "#49 licm allowspeculation->no-allowspeculation",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 49,
+    "tok": "allowspeculation",
+    "new": "no-allowspeculation"
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 10
+  },
+  {
+   "label": "del #68 memcpyopt",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 68
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 10
+  },
+  {
+   "label": "del EVERY early-cse",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "early-cse"
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 10
+  },
+  {
+   "label": "del #8 sroa",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 8
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "del #17 instcombine",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 17
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "#18 simplifycfg no-sink-common-insts->sink-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 18,
+    "tok": "no-sink-common-insts",
+    "new": "sink-common-insts"
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "#36 simplifycfg no-sink-common-insts->sink-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 36,
+    "tok": "no-sink-common-insts",
+    "new": "sink-common-insts"
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "EVERY simplifycfg sink-common-insts->no-sink-common-insts",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "sink-common-insts",
+    "new": "no-sink-common-insts"
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "-simplifycfg-sink-common=false",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-simplifycfg-sink-common",
+    "value": "false"
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "llc:-tail-dup-size=4",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "llc:-tail-dup-size",
+    "value": 4
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "#41 simplifycfg no-hoist-common-insts->hoist-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 41,
+    "tok": "no-hoist-common-insts",
+    "new": "hoist-common-insts"
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "del #66 correlated-propagation",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 66
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "EVERY simplifycfg keep-loops->no-keep-loops",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "keep-loops",
+    "new": "no-keep-loops"
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "#41 simplifycfg keep-loops->no-keep-loops",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 41,
+    "tok": "keep-loops",
+    "new": "no-keep-loops"
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "-vectorizer-min-trip-count=4",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-vectorizer-min-trip-count",
+    "value": 4
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "llc:-min-jump-table-entries=16",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "llc:-min-jump-table-entries",
+    "value": 16
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "llc:-x86-cmov-converter=false",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "llc:-x86-cmov-converter",
+    "value": "false"
+   },
+   "conf_faster": 1,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "-slp-threshold=-8",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-slp-threshold",
+    "value": -8
+   },
+   "conf_faster": 0,
+   "conf_slower": 6,
+   "screen_big": 18
+  },
+  {
+   "label": "del #26 inline",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 26
+   },
+   "conf_faster": 0,
+   "conf_slower": 5,
+   "screen_big": 13
+  },
+  {
+   "label": "-inline-threshold=0",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-inline-threshold",
+    "value": 0
+   },
+   "conf_faster": 0,
+   "conf_slower": 4,
+   "screen_big": 13
+  },
+  {
+   "label": "del EVERY jump-threading",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "jump-threading"
+   },
+   "conf_faster": 0,
+   "conf_slower": 3,
+   "screen_big": 14
+  },
+  {
+   "label": "-unroll-count=1",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-unroll-count",
+    "value": 1
+   },
+   "conf_faster": 0,
+   "conf_slower": 2,
+   "screen_big": 19
+  },
+  {
+   "label": "del #108 instcombine",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 108
+   },
+   "conf_faster": 0,
+   "conf_slower": 2,
+   "screen_big": 10
+  },
+  {
+   "label": "EVERY simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=2",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 2,
+   "screen_big": 6
+  },
+  {
+   "label": "-inline-threshold=100",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-inline-threshold",
+    "value": 100
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 16
+  },
+  {
+   "label": "del #104 loop-unroll",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 104
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 15
+  },
+  {
+   "label": "-unroll-runtime=false",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-unroll-runtime",
+    "value": "false"
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 13
+  },
+  {
+   "label": "del #65 jump-threading",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 65
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 12
+  },
+  {
+   "label": "-force-vector-interleave=4",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-force-vector-interleave",
+    "value": 4
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 12
+  },
+  {
+   "label": "-inline-threshold=200",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-inline-threshold",
+    "value": 200
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 9
+  },
+  {
+   "label": "-jump-threading-threshold=12",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-jump-threading-threshold",
+    "value": 12
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 9
+  },
+  {
+   "label": "del #37 instcombine",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 37
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 8
+  },
+  {
+   "label": "del #40 tailcallelim",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 40
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 8
+  },
+  {
+   "label": "del EVERY globalopt",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "globalopt"
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 8
+  },
+  {
+   "label": "-unroll-threshold=0",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-unroll-threshold",
+    "value": 0
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 8
+  },
+  {
+   "label": "#18 simplifycfg no-switch-to-lookup->switch-to-lookup",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 18,
+    "tok": "no-switch-to-lookup",
+    "new": "switch-to-lookup"
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 7
+  },
+  {
+   "label": "#51 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 51,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 7
+  },
+  {
+   "label": "EVERY simplifycfg no-switch-to-lookup->switch-to-lookup",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "no-switch-to-lookup",
+    "new": "switch-to-lookup"
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 7
+  },
+  {
+   "label": "llc -O2",
+   "kind": "backend",
+   "edit": {
+    "op": "backend",
+    "value": 2
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 7
+  },
+  {
+   "label": "#36 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 36,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 6
+  },
+  {
+   "label": "#41 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 41,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 6
+  },
+  {
+   "label": "#51 simplifycfg keep-loops->no-keep-loops",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 51,
+    "tok": "keep-loops",
+    "new": "no-keep-loops"
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 6
+  },
+  {
+   "label": "del #54 loop-idiom",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 54
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 6
+  },
+  {
+   "label": "#74 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 74,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 6
+  },
+  {
+   "label": "-jump-threading-threshold=3",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-jump-threading-threshold",
+    "value": 3
+   },
+   "conf_faster": 0,
+   "conf_slower": 1,
+   "screen_big": 6
+  },
+  {
+   "label": "del EVERY tailcallelim",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "tailcallelim"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 13
+  },
+  {
+   "label": "llc:-enable-tail-merge=false",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "llc:-enable-tail-merge",
+    "value": "false"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 12
+  },
+  {
+   "label": "del #7 simplifycfg",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 7
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 11
+  },
+  {
+   "label": "EVERY simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=0",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=0"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 11
+  },
+  {
+   "label": "del #18 simplifycfg",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 18
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 10
+  },
+  {
+   "label": "del #110 licm",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 110
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 10
+  },
+  {
+   "label": "#110 licm allowspeculation->no-allowspeculation",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 110,
+    "tok": "allowspeculation",
+    "new": "no-allowspeculation"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 10
+  },
+  {
+   "label": "EVERY simplifycfg no-sink-common-insts->sink-common-insts",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "no-sink-common-insts",
+    "new": "sink-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 10
+  },
+  {
+   "label": "llc:-tail-dup-size=1",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "llc:-tail-dup-size",
+    "value": 1
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 10
+  },
+  {
+   "label": "llc:-min-jump-table-entries=2",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "llc:-min-jump-table-entries",
+    "value": 2
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 10
+  },
+  {
+   "label": "#18 simplifycfg speculate-blocks->no-speculate-blocks",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 18,
+    "tok": "speculate-blocks",
+    "new": "no-speculate-blocks"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "#36 simplifycfg no-hoist-common-insts->hoist-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 36,
+    "tok": "no-hoist-common-insts",
+    "new": "hoist-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "#47 licm no-allowspeculation->allowspeculation",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 47,
+    "tok": "no-allowspeculation",
+    "new": "allowspeculation"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "del #106 sroa",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 106
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "del EVERY correlated-propagation",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "correlated-propagation"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "del EVERY loop-deletion",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "loop-deletion"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "EVERY simplifycfg no-hoist-common-insts->hoist-common-insts",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "no-hoist-common-insts",
+    "new": "hoist-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "EVERY licm no-allowspeculation->allowspeculation",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "licm",
+    "tok": "no-allowspeculation",
+    "new": "allowspeculation"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "-slp-threshold=4",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-slp-threshold",
+    "value": 4
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 9
+  },
+  {
+   "label": "#7 simplifycfg keep-loops->no-keep-loops",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 7,
+    "tok": "keep-loops",
+    "new": "no-keep-loops"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "#7 simplifycfg no-hoist-common-insts->hoist-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 7,
+    "tok": "no-hoist-common-insts",
+    "new": "hoist-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "#7 simplifycfg no-sink-common-insts->sink-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 7,
+    "tok": "no-sink-common-insts",
+    "new": "sink-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "del #9 early-cse",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 9
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "#18 simplifycfg keep-loops->no-keep-loops",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 18,
+    "tok": "keep-loops",
+    "new": "no-keep-loops"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "#18 simplifycfg no-hoist-common-insts->hoist-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 18,
+    "tok": "no-hoist-common-insts",
+    "new": "hoist-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "#41 simplifycfg no-sink-common-insts->sink-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 41,
+    "tok": "no-sink-common-insts",
+    "new": "sink-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "del #49 licm",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 49
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "del #57 loop-unroll-full",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 57
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "del #64 instcombine",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 64
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "#96 loop-vectorize no-interleave-forced-only->interleave-forced-only",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 96,
+    "tok": "no-interleave-forced-only",
+    "new": "interleave-forced-only"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "del #101 slp-vectorizer",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 101
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "del #107 infer-alignment",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 107
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "del EVERY infer-alignment",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "infer-alignment"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "EVERY loop-vectorize no-interleave-forced-only->interleave-forced-only",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "loop-vectorize",
+    "tok": "no-interleave-forced-only",
+    "new": "interleave-forced-only"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "EVERY simplifycfg hoist-common-insts->no-hoist-common-insts",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "hoist-common-insts",
+    "new": "no-hoist-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "-inline-threshold=400",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-inline-threshold",
+    "value": 400
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "-unroll-threshold=1000",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-unroll-threshold",
+    "value": 1000
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "-force-vector-interleave=1",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-force-vector-interleave",
+    "value": 1
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "-force-vector-interleave=2",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-force-vector-interleave",
+    "value": 2
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "-simplifycfg-hoist-common=false",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-simplifycfg-hoist-common",
+    "value": "false"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 8
+  },
+  {
+   "label": "del #3 inferattrs",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 3
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "del #6 lower-expect",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 6
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "#7 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=0",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 7,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=0"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "#7 simplifycfg simplify-cond-branch->no-simplify-cond-branch",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 7,
+    "tok": "simplify-cond-branch",
+    "new": "no-simplify-cond-branch"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "#18 simplifycfg simplify-cond-branch->no-simplify-cond-branch",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 18,
+    "tok": "simplify-cond-branch",
+    "new": "no-simplify-cond-branch"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "del #20 require",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 20
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "del #32 early-cse",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 32
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "del #35 correlated-propagation",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 35
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "#36 simplifycfg no-switch-to-lookup->switch-to-lookup",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 36,
+    "tok": "no-switch-to-lookup",
+    "new": "switch-to-lookup"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "#37 instcombine max-iterations=1->max-iterations=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 37,
+    "tok": "max-iterations=1",
+    "new": "max-iterations=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "#41 simplifycfg no-switch-to-lookup->switch-to-lookup",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 41,
+    "tok": "no-switch-to-lookup",
+    "new": "switch-to-lookup"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "del #43 constraint-elimination",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 43
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "del #47 licm",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 47
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "#51 simplifycfg no-switch-to-lookup->switch-to-lookup",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 51,
+    "tok": "no-switch-to-lookup",
+    "new": "switch-to-lookup"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "del #72 licm",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 72
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "#72 licm allowspeculation->no-allowspeculation",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 72,
+    "tok": "allowspeculation",
+    "new": "no-allowspeculation"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "#74 simplifycfg sink-common-insts->no-sink-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 74,
+    "tok": "sink-common-insts",
+    "new": "no-sink-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "#74 simplifycfg no-switch-to-lookup->switch-to-lookup",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 74,
+    "tok": "no-switch-to-lookup",
+    "new": "switch-to-lookup"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "#74 simplifycfg keep-loops->no-keep-loops",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 74,
+    "tok": "keep-loops",
+    "new": "no-keep-loops"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "del #80 deadargelim",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 80
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "#92 loop-rotate no-prepare-for-lto->prepare-for-lto",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 92,
+    "tok": "no-prepare-for-lto",
+    "new": "prepare-for-lto"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "del #93 loop-deletion",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 93
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "del #100 simplifycfg",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 100
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "del #103 instcombine",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 103
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "del #114 div-rem-pairs",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 114
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "#116 simplifycfg no-hoist-common-insts->hoist-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 116,
+    "tok": "no-hoist-common-insts",
+    "new": "hoist-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "EVERY instcombine max-iterations=1->max-iterations=2",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "instcombine",
+    "tok": "max-iterations=1",
+    "new": "max-iterations=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "EVERY simplifycfg switch-range-to-icmp->no-switch-range-to-icmp",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "switch-range-to-icmp",
+    "new": "no-switch-range-to-icmp"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 7
+  },
+  {
+   "label": "del #1 annotation2metadata",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 1
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #2 forceattrs",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 2
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #4 coro-early",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 4
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#7 simplifycfg speculate-blocks->no-speculate-blocks",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 7,
+    "tok": "speculate-blocks",
+    "new": "no-speculate-blocks"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#7 simplifycfg no-forward-switch-cond->forward-switch-cond",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 7,
+    "tok": "no-forward-switch-cond",
+    "new": "forward-switch-cond"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#7 simplifycfg no-switch-to-lookup->switch-to-lookup",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 7,
+    "tok": "no-switch-to-lookup",
+    "new": "switch-to-lookup"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#8 sroa modify-cfg->preserve-cfg",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 8,
+    "tok": "modify-cfg",
+    "new": "preserve-cfg"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #10 callsite-splitting",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 10
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #11 openmp-opt",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 11
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #12 ipsccp",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 12
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #13 called-value-propagation",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 13
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #14 globalopt",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 14
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #16 mem2reg",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 16
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#17 instcombine max-iterations=1->max-iterations=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 17,
+    "tok": "max-iterations=1",
+    "new": "max-iterations=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#17 instcombine no-use-loop-info->use-loop-info",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 17,
+    "tok": "no-use-loop-info",
+    "new": "use-loop-info"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#18 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=0",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 18,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=0"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#18 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 18,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#18 simplifycfg switch-range-to-icmp->no-switch-range-to-icmp",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 18,
+    "tok": "switch-range-to-icmp",
+    "new": "no-switch-range-to-icmp"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#18 simplifycfg no-forward-switch-cond->forward-switch-cond",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 18,
+    "tok": "no-forward-switch-cond",
+    "new": "forward-switch-cond"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #19 always-inline",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 19
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #22 invalidate",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 22
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #23 require",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 23
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #27 function-attrs",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 27
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #28 argpromotion",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 28
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #29 openmp-opt-cgscc",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 29
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #31 sroa",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 31
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#31 sroa modify-cfg->preserve-cfg",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 31,
+    "tok": "modify-cfg",
+    "new": "preserve-cfg"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #33 speculative-execution",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 33
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #34 jump-threading",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 34
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #36 simplifycfg",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 36
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#36 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=0",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 36,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=0"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#36 simplifycfg switch-range-to-icmp->no-switch-range-to-icmp",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 36,
+    "tok": "switch-range-to-icmp",
+    "new": "no-switch-range-to-icmp"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#36 simplifycfg speculate-blocks->no-speculate-blocks",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 36,
+    "tok": "speculate-blocks",
+    "new": "no-speculate-blocks"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#36 simplifycfg no-forward-switch-cond->forward-switch-cond",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 36,
+    "tok": "no-forward-switch-cond",
+    "new": "forward-switch-cond"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#36 simplifycfg keep-loops->no-keep-loops",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 36,
+    "tok": "keep-loops",
+    "new": "no-keep-loops"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#37 instcombine no-use-loop-info->use-loop-info",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 37,
+    "tok": "no-use-loop-info",
+    "new": "use-loop-info"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #38 aggressive-instcombine",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 38
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #39 libcalls-shrinkwrap",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 39
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #41 simplifycfg",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 41
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#41 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=0",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 41,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=0"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#41 simplifycfg switch-range-to-icmp->no-switch-range-to-icmp",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 41,
+    "tok": "switch-range-to-icmp",
+    "new": "no-switch-range-to-icmp"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#41 simplifycfg speculate-blocks->no-speculate-blocks",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 41,
+    "tok": "speculate-blocks",
+    "new": "no-speculate-blocks"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#41 simplifycfg simplify-cond-branch->no-simplify-cond-branch",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 41,
+    "tok": "simplify-cond-branch",
+    "new": "no-simplify-cond-branch"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#41 simplifycfg no-forward-switch-cond->forward-switch-cond",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 41,
+    "tok": "no-forward-switch-cond",
+    "new": "forward-switch-cond"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #46 loop-simplifycfg",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 46
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#48 loop-rotate no-prepare-for-lto->prepare-for-lto",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 48,
+    "tok": "no-prepare-for-lto",
+    "new": "prepare-for-lto"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#50 simple-loop-unswitch trivial->no-trivial",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 50,
+    "tok": "trivial",
+    "new": "no-trivial"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #51 simplifycfg",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 51
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#51 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=0",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 51,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=0"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#51 simplifycfg switch-range-to-icmp->no-switch-range-to-icmp",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 51,
+    "tok": "switch-range-to-icmp",
+    "new": "no-switch-range-to-icmp"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#51 simplifycfg no-forward-switch-cond->forward-switch-cond",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 51,
+    "tok": "no-forward-switch-cond",
+    "new": "forward-switch-cond"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#52 instcombine max-iterations=1->max-iterations=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 52,
+    "tok": "max-iterations=1",
+    "new": "max-iterations=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#52 instcombine no-use-loop-info->use-loop-info",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 52,
+    "tok": "no-use-loop-info",
+    "new": "use-loop-info"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #56 loop-deletion",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 56
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #58 sroa",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 58
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#58 sroa modify-cfg->preserve-cfg",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 58,
+    "tok": "modify-cfg",
+    "new": "preserve-cfg"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #59 vector-combine",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 59
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#60 mldst-motion no-split-footer-bb->split-footer-bb",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 60,
+    "tok": "no-split-footer-bb",
+    "new": "split-footer-bb"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #63 bdce",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 63
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#64 instcombine max-iterations=1->max-iterations=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 64,
+    "tok": "max-iterations=1",
+    "new": "max-iterations=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#64 instcombine no-use-loop-info->use-loop-info",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 64,
+    "tok": "no-use-loop-info",
+    "new": "use-loop-info"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #67 adce",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 67
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #70 move-auto-init",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 70
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #73 coro-elide",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 73
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#74 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=0",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 74,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=0"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#74 simplifycfg switch-range-to-icmp->no-switch-range-to-icmp",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 74,
+    "tok": "switch-range-to-icmp",
+    "new": "no-switch-range-to-icmp"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#74 simplifycfg speculate-blocks->no-speculate-blocks",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 74,
+    "tok": "speculate-blocks",
+    "new": "no-speculate-blocks"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#74 simplifycfg simplify-cond-branch->no-simplify-cond-branch",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 74,
+    "tok": "simplify-cond-branch",
+    "new": "no-simplify-cond-branch"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#74 simplifycfg no-forward-switch-cond->forward-switch-cond",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 74,
+    "tok": "no-forward-switch-cond",
+    "new": "forward-switch-cond"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#75 instcombine max-iterations=1->max-iterations=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 75,
+    "tok": "max-iterations=1",
+    "new": "max-iterations=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#75 instcombine no-use-loop-info->use-loop-info",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 75,
+    "tok": "no-use-loop-info",
+    "new": "use-loop-info"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#75 instcombine no-verify-fixpoint->verify-fixpoint",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 75,
+    "tok": "no-verify-fixpoint",
+    "new": "verify-fixpoint"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #78 require",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 78
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #79 coro-split",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 79
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #81 coro-cleanup",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 81
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #82 globalopt",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 82
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #83 globaldce",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 83
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #84 elim-avail-extern",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 84
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #85 rpo-function-attrs",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 85
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #86 recompute-globalsaa",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 86
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #88 float2int",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 88
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #89 lower-constant-intrinsics",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 89
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #90 chr",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 90
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #92 loop-rotate",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 92
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#92 loop-rotate header-duplication->no-header-duplication",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 92,
+    "tok": "header-duplication",
+    "new": "no-header-duplication"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #94 loop-distribute",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 94
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #95 inject-tli-mappings",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 95
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #97 infer-alignment",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 97
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #98 loop-load-elim",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 98
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #99 instcombine",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 99
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#99 instcombine max-iterations=1->max-iterations=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 99,
+    "tok": "max-iterations=1",
+    "new": "max-iterations=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#99 instcombine no-use-loop-info->use-loop-info",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 99,
+    "tok": "no-use-loop-info",
+    "new": "use-loop-info"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#100 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=0",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 100,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=0"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#100 simplifycfg forward-switch-cond->no-forward-switch-cond",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 100,
+    "tok": "forward-switch-cond",
+    "new": "no-forward-switch-cond"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#100 simplifycfg switch-range-to-icmp->no-switch-range-to-icmp",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 100,
+    "tok": "switch-range-to-icmp",
+    "new": "no-switch-range-to-icmp"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#100 simplifycfg switch-to-lookup->no-switch-to-lookup",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 100,
+    "tok": "switch-to-lookup",
+    "new": "no-switch-to-lookup"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#100 simplifycfg no-keep-loops->keep-loops",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 100,
+    "tok": "no-keep-loops",
+    "new": "keep-loops"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#100 simplifycfg hoist-common-insts->no-hoist-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 100,
+    "tok": "hoist-common-insts",
+    "new": "no-hoist-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#100 simplifycfg speculate-blocks->no-speculate-blocks",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 100,
+    "tok": "speculate-blocks",
+    "new": "no-speculate-blocks"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#100 simplifycfg simplify-cond-branch->no-simplify-cond-branch",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 100,
+    "tok": "simplify-cond-branch",
+    "new": "no-simplify-cond-branch"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#103 instcombine max-iterations=1->max-iterations=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 103,
+    "tok": "max-iterations=1",
+    "new": "max-iterations=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#103 instcombine no-use-loop-info->use-loop-info",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 103,
+    "tok": "no-use-loop-info",
+    "new": "use-loop-info"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#103 instcombine no-verify-fixpoint->verify-fixpoint",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 103,
+    "tok": "no-verify-fixpoint",
+    "new": "verify-fixpoint"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #105 transform-warning",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 105
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#106 sroa preserve-cfg->modify-cfg",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 106,
+    "tok": "preserve-cfg",
+    "new": "modify-cfg"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#108 instcombine max-iterations=1->max-iterations=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 108,
+    "tok": "max-iterations=1",
+    "new": "max-iterations=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#108 instcombine no-use-loop-info->use-loop-info",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 108,
+    "tok": "no-use-loop-info",
+    "new": "use-loop-info"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#108 instcombine no-verify-fixpoint->verify-fixpoint",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 108,
+    "tok": "no-verify-fixpoint",
+    "new": "verify-fixpoint"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #111 alignment-from-assumptions",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 111
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #112 loop-sink",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 112
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #113 instsimplify",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 113
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #115 tailcallelim",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 115
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #116 simplifycfg",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 116
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#116 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=0",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 116,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=0"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#116 simplifycfg switch-range-to-icmp->no-switch-range-to-icmp",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 116,
+    "tok": "switch-range-to-icmp",
+    "new": "no-switch-range-to-icmp"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#116 simplifycfg no-forward-switch-cond->forward-switch-cond",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 116,
+    "tok": "no-forward-switch-cond",
+    "new": "forward-switch-cond"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#116 simplifycfg no-switch-to-lookup->switch-to-lookup",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 116,
+    "tok": "no-switch-to-lookup",
+    "new": "switch-to-lookup"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #118 constmerge",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 118
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #119 cg-profile",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 119
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #120 rel-lookup-table-converter",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 120
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #122 annotation-remarks",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 122
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "del #123 verify",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 123
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "EVERY instcombine no-use-loop-info->use-loop-info",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "instcombine",
+    "tok": "no-use-loop-info",
+    "new": "use-loop-info"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "EVERY simplifycfg forward-switch-cond->no-forward-switch-cond",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "forward-switch-cond",
+    "new": "no-forward-switch-cond"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "EVERY simplifycfg switch-to-lookup->no-switch-to-lookup",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "switch-to-lookup",
+    "new": "no-switch-to-lookup"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "EVERY simplifycfg no-keep-loops->keep-loops",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "no-keep-loops",
+    "new": "keep-loops"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "EVERY sroa preserve-cfg->modify-cfg",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "sroa",
+    "tok": "preserve-cfg",
+    "new": "modify-cfg"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "EVERY simplifycfg no-forward-switch-cond->forward-switch-cond",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "no-forward-switch-cond",
+    "new": "forward-switch-cond"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "EVERY sroa modify-cfg->preserve-cfg",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "sroa",
+    "tok": "modify-cfg",
+    "new": "preserve-cfg"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "EVERY mldst-motion no-split-footer-bb->split-footer-bb",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "mldst-motion",
+    "tok": "no-split-footer-bb",
+    "new": "split-footer-bb"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "EVERY simple-loop-unswitch trivial->no-trivial",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simple-loop-unswitch",
+    "tok": "trivial",
+    "new": "no-trivial"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "-inline-threshold=250",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-inline-threshold",
+    "value": 250
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "-inline-threshold=325",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-inline-threshold",
+    "value": 325
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "-unroll-threshold=100",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-unroll-threshold",
+    "value": 100
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "-slp-threshold=0",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-slp-threshold",
+    "value": 0
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "-vectorizer-min-trip-count=32",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-vectorizer-min-trip-count",
+    "value": 32
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "llc:-tail-dup-indirect-size=3",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "llc:-tail-dup-indirect-size",
+    "value": 3
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "llc:-tail-dup-indirect-size=50",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "llc:-tail-dup-indirect-size",
+    "value": 50
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 6
+  },
+  {
+   "label": "#7 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 7,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#7 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=4",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 7,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=4"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#7 simplifycfg no-switch-range-to-icmp->switch-range-to-icmp",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 7,
+    "tok": "no-switch-range-to-icmp",
+    "new": "switch-range-to-icmp"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#36 simplifycfg simplify-cond-branch->no-simplify-cond-branch",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 36,
+    "tok": "simplify-cond-branch",
+    "new": "no-simplify-cond-branch"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "del #45 loop-instsimplify",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 45
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#51 simplifycfg speculate-blocks->no-speculate-blocks",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 51,
+    "tok": "speculate-blocks",
+    "new": "no-speculate-blocks"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#51 simplifycfg simplify-cond-branch->no-simplify-cond-branch",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 51,
+    "tok": "simplify-cond-branch",
+    "new": "no-simplify-cond-branch"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#51 simplifycfg no-hoist-common-insts->hoist-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 51,
+    "tok": "no-hoist-common-insts",
+    "new": "hoist-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#51 simplifycfg no-sink-common-insts->sink-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 51,
+    "tok": "no-sink-common-insts",
+    "new": "sink-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "del #60 mldst-motion",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 60
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "del #62 sccp",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 62
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#64 instcombine no-verify-fixpoint->verify-fixpoint",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 64,
+    "tok": "no-verify-fixpoint",
+    "new": "verify-fixpoint"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "del #74 simplifycfg",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 74
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#74 simplifycfg hoist-common-insts->no-hoist-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 74,
+    "tok": "hoist-common-insts",
+    "new": "no-hoist-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "del #75 instcombine",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 75
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "del #76 function-attrs",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 76
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#99 instcombine no-verify-fixpoint->verify-fixpoint",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 99,
+    "tok": "no-verify-fixpoint",
+    "new": "verify-fixpoint"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#100 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 100,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#100 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=4",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 100,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=4"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#100 simplifycfg sink-common-insts->no-sink-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 100,
+    "tok": "sink-common-insts",
+    "new": "no-sink-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#104 loop-unroll O3->O1",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 104,
+    "tok": "O3",
+    "new": "O1"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#104 loop-unroll O3->O2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 104,
+    "tok": "O3",
+    "new": "O2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#116 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=2",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 116,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#116 simplifycfg speculate-blocks->no-speculate-blocks",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 116,
+    "tok": "speculate-blocks",
+    "new": "no-speculate-blocks"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#116 simplifycfg keep-loops->no-keep-loops",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 116,
+    "tok": "keep-loops",
+    "new": "no-keep-loops"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#116 simplifycfg no-sink-common-insts->sink-common-insts",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 116,
+    "tok": "no-sink-common-insts",
+    "new": "sink-common-insts"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "del #117 globaldce",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 117
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "del EVERY globaldce",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "globaldce"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "del EVERY vector-combine",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "vector-combine"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "EVERY loop-unroll O3->O1",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "loop-unroll",
+    "tok": "O3",
+    "new": "O1"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "EVERY loop-unroll O3->O2",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "loop-unroll",
+    "tok": "O3",
+    "new": "O2"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "EVERY simplifycfg no-switch-range-to-icmp->switch-range-to-icmp",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "simplifycfg",
+    "tok": "no-switch-range-to-icmp",
+    "new": "switch-range-to-icmp"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "-unroll-threshold=200",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-unroll-threshold",
+    "value": 200
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "-unroll-threshold=600",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-unroll-threshold",
+    "value": 600
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "-phi-node-folding-threshold=1",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-phi-node-folding-threshold",
+    "value": 1
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "-phi-node-folding-threshold=4",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-phi-node-folding-threshold",
+    "value": 4
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 5
+  },
+  {
+   "label": "#17 instcombine no-verify-fixpoint->verify-fixpoint",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 17,
+    "tok": "no-verify-fixpoint",
+    "new": "verify-fixpoint"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 4
+  },
+  {
+   "label": "#37 instcombine no-verify-fixpoint->verify-fixpoint",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 37,
+    "tok": "no-verify-fixpoint",
+    "new": "verify-fixpoint"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 4
+  },
+  {
+   "label": "del #52 instcombine",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 52
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 4
+  },
+  {
+   "label": "#52 instcombine no-verify-fixpoint->verify-fixpoint",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 52,
+    "tok": "no-verify-fixpoint",
+    "new": "verify-fixpoint"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 4
+  },
+  {
+   "label": "del #69 dse",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 69
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 4
+  },
+  {
+   "label": "del #102 vector-combine",
+   "kind": "loo",
+   "edit": {
+    "op": "del",
+    "id": 102
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 4
+  },
+  {
+   "label": "#116 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=4",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 116,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=4"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 4
+  },
+  {
+   "label": "#116 simplifycfg simplify-cond-branch->no-simplify-cond-branch",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 116,
+    "tok": "simplify-cond-branch",
+    "new": "no-simplify-cond-branch"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 4
+  },
+  {
+   "label": "del EVERY function-attrs",
+   "kind": "family",
+   "edit": {
+    "op": "del_all",
+    "pass": "function-attrs"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 4
+  },
+  {
+   "label": "EVERY loop-rotate no-prepare-for-lto->prepare-for-lto",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "loop-rotate",
+    "tok": "no-prepare-for-lto",
+    "new": "prepare-for-lto"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 4
+  },
+  {
+   "label": "-unroll-threshold=450",
+   "kind": "knob",
+   "edit": {
+    "op": "knob",
+    "name": "-unroll-threshold",
+    "value": 450
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 4
+  },
+  {
+   "label": "#18 simplifycfg bonus-inst-threshold=1->bonus-inst-threshold=4",
+   "kind": "flip",
+   "edit": {
+    "op": "param",
+    "id": 18,
+    "tok": "bonus-inst-threshold=1",
+    "new": "bonus-inst-threshold=4"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 3
+  },
+  {
+   "label": "EVERY instcombine no-verify-fixpoint->verify-fixpoint",
+   "kind": "family",
+   "edit": {
+    "op": "param_all",
+    "pass": "instcombine",
+    "tok": "no-verify-fixpoint",
+    "new": "verify-fixpoint"
+   },
+   "conf_faster": 0,
+   "conf_slower": 0,
+   "screen_big": 3
+  }
+ ]
+}

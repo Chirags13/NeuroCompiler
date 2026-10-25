@@ -1,0 +1,159 @@
+{
+ "created": "2026-10-24T14:29:51",
+ "rule": {
+  "min_speedup": 1.5,
+  "fold_ratio": 10.0
+ },
+ "rows": [
+  {
+   "program": "polybench/3mm",
+   "speedup": 1.5895300515890525,
+   "input_free": true,
+   "irefs_o3": 10039229840,
+   "irefs_winner": 9529603859,
+   "instr_ratio": 1.0534781915954141,
+   "same_output": true,
+   "suspect_compile_time_eval": false
+  },
+  {
+   "program": "ms/Benchmarks/TSVC/LoopRerolling-dbl",
+   "speedup": 2.3650117348243405,
+   "input_free": false,
+   "irefs_o3": 6784634234,
+   "irefs_winner": 8417509856,
+   "instr_ratio": 0.8060144092571407,
+   "same_output": true,
+   "suspect_compile_time_eval": false
+  },
+  {
+   "program": "ms/Benchmarks/TSVC/IndirectAddressing-dbl",
+   "speedup": 1.560873622115391,
+   "input_free": false,
+   "irefs_o3": 14167544211,
+   "irefs_winner": 12828172055,
+   "instr_ratio": 1.104408652320652,
+   "same_output": true,
+   "suspect_compile_time_eval": false
+  },
+  {
+   "program": "ms/Benchmarks/TSVC/Reductions-dbl",
+   "speedup": 2.002737233409237,
+   "input_free": false,
+   "irefs_o3": 5198993035,
+   "irefs_winner": 3441939757,
+   "instr_ratio": 1.5104834488827459,
+   "same_output": true,
+   "suspect_compile_time_eval": false
+  },
+  {
+   "program": "ms/Benchmarks/TSVC/Searching-flt",
+   "speedup": 1.7641269887941364,
+   "input_free": false,
+   "irefs_o3": 16640991822,
+   "irefs_winner": 10681460352,
+   "instr_ratio": 1.5579322745774304,
+   "same_output": true,
+   "suspect_compile_time_eval": false
+  },
+  {
+   "program": "ms/Benchmarks/TSVC/Reductions-flt",
+   "speedup": 2.4301948738764274,
+   "input_free": false,
+   "irefs_o3": 5171860340,
+   "irefs_winner": 5445142660,
+   "instr_ratio": 0.9498117244920815,
+   "same_output": true,
+   "suspect_compile_time_eval": false
+  },
+  {
+   "program": "ss/Misc/fp-convert",
+   "speedup": 5.1190951595200875,
+   "input_free": true,
+   "irefs_o3": 6380676530,
+   "irefs_winner": 1751176534,
+   "instr_ratio": 3.643651228825797,
+   "same_output": true,
+   "suspect_compile_time_eval": false
+  },
+  {
+   "program": "polybench/lu",
+   "speedup": 1.956660190207252,
+   "input_free": true,
+   "irefs_o3": 3751262805,
+   "irefs_winner": 2854844777,
+   "instr_ratio": 1.313998867897118,
+   "same_output": true,
+   "suspect_compile_time_eval": false
+  },
+  {
+   "program": "ms/Benchmarks/TSVC/StatementReordering-flt",
+   "speedup": 1.7291635679964492,
+   "input_free": false,
+   "irefs_o3": 12587396884,
+   "irefs_winner": 8962244224,
+   "instr_ratio": 1.4044916172103636,
+   "same_output": true,
+   "suspect_compile_time_eval": false
+  },
+  {
+   "program": "ms/Benchmarks/TSVC/ControlLoops-dbl",
+   "speedup": 1.5335115386709621,
+   "input_free": false,
+   "irefs_o3": 8351746675,
+   "irefs_winner": 10041695697,
+   "instr_ratio": 0.831706807994104,
+   "same_output": true,
+   "suspect_compile_time_eval": false
+  },
+  {
+   "program": "ms/Benchmarks/TSVC/ControlLoops-flt",
+   "speedup": 1.8633715182351758,
+   "input_free": false,
+   "irefs_o3": 5082246595,
+   "irefs_winner": 6147639157,
+   "instr_ratio": 0.8266989107864452,
+   "same_output": true,
+   "suspect_compile_time_eval": false
+  },
+  {
+   "program": "ss/Misc-C++/mandel-text",
+   "speedup": 130.3951321075273,
+   "input_free": true,
+   "irefs_o3": 3403939890,
+   "irefs_winner": 15678732,
+   "instr_ratio": 217.10555993941347,
+   "same_output": true,
+   "suspect_compile_time_eval": true
+  },
+  {
+   "program": "ss/BenchmarkGame/spectral-norm",
+   "speedup": 3.903875672346149,
+   "input_free": false,
+   "irefs_o3": 6005473407,
+   "irefs_winner": 2004427869,
+   "instr_ratio": 2.996103526537028,
+   "same_output": true,
+   "suspect_compile_time_eval": false
+  },
+  {
+   "program": "polybench/durbin",
+   "speedup": 2.866378169267222,
+   "input_free": true,
+   "irefs_o3": 6785300657,
+   "irefs_winner": 4994540421,
+   "instr_ratio": 1.3585435465634808,
+   "same_output": true,
+   "suspect_compile_time_eval": false
+  },
+  {
+   "program": "ss/Shootout/matrix",
+   "speedup": 1.7837027012090725,
+   "input_free": true,
+   "irefs_o3": 8454186334,
+   "irefs_winner": 4524186358,
+   "instr_ratio": 1.8686644768844864,
+   "same_output": true,
+   "suspect_compile_time_eval": false
+  }
+ ]
+}

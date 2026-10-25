@@ -1,0 +1,120 @@
+{
+ "tag": "final",
+ "programs": [
+  "ms/Applications/JM/lencod",
+  "ms/Applications/aha",
+  "ms/Applications/siod",
+  "ms/Benchmarks/BitBench/five11",
+  "ms/Benchmarks/NPB-serial/is",
+  "ms/Benchmarks/Ptrdist/ft",
+  "ms/Benchmarks/VersaBench/8b10b",
+  "ms/Benchmarks/VersaBench/beamformer",
+  "ms/Benchmarks/VersaBench/dbms",
+  "ms/Benchmarks/VersaBench/ecbdes",
+  "polybench/2mm",
+  "polybench/3mm",
+  "polybench/atax",
+  "polybench/bicg",
+  "polybench/cholesky",
+  "polybench/deriche",
+  "polybench/doitgen",
+  "polybench/durbin",
+  "polybench/floyd-warshall",
+  "polybench/gramschmidt",
+  "polybench/lu",
+  "polybench/ludcmp",
+  "polybench/mvt",
+  "polybench/nussinov",
+  "polybench/trisolv",
+  "ss/Shootout-C++/ackermann",
+  "ss/Shootout-C++/fibo",
+  "ss/Shootout-C++/hash2",
+  "ss/Shootout-C++/heapsort",
+  "ss/Shootout-C++/lists",
+  "ss/Shootout-C++/methcall",
+  "ss/Shootout-C++/random",
+  "ss/Shootout-C++/sieve"
+ ],
+ "summary": {
+  "O2": {
+   "geomean": 0.9921953650950845,
+   "ci": [
+    0.9804030385735735,
+    1.0007626834419971
+   ],
+   "excl_largest": 0.9906971146454033,
+   "regressions": 5,
+   "size": 0.9068635029644659
+  },
+  "Os": {
+   "geomean": 0.9660389068439297,
+   "ci": [
+    0.9387407777245572,
+    0.9888966145790397
+   ],
+   "excl_largest": 0.9645033281221248,
+   "regressions": 9,
+   "size": 0.7595857547144751
+  },
+  "topk": {
+   "geomean": 1.066652105366484,
+   "ci": [
+    1.018868171254806,
+    1.1461664731070096
+   ],
+   "excl_largest": 1.0340752803122064,
+   "regressions": 0,
+   "size": 0.8767876111451516
+  },
+  "topk_nodyn": {
+   "geomean": 1.062488074406043,
+   "ci": [
+    1.0164715683440682,
+    1.139390791300929
+   ],
+   "excl_largest": 1.0299025981792274,
+   "regressions": 0,
+   "size": 0.832946269969268
+  },
+  "ml_top1": {
+   "geomean": 1.0114303021961601,
+   "ci": [
+    0.950395683287337,
+    1.0963976847533272
+   ],
+   "excl_largest": 0.9790347089696806,
+   "regressions": 11,
+   "size": 0.804349238496771
+  },
+  "random_topk": {
+   "geomean": 1.0138601926472182,
+   "ci": [
+    1.0019984257746082,
+    1.0295110501127231
+   ],
+   "excl_largest": 1.008589712008382,
+   "regressions": 0,
+   "size": 0.9551468134765931
+  },
+  "ga@8": {
+   "geomean": 1.0186405499131708,
+   "ci": [
+    1.001129028387279,
+    1.0426320262169821
+   ],
+   "excl_largest": 1.0117858292168354,
+   "regressions": 1,
+   "size": 0.9309899383857454
+  },
+  "random@8": {
+   "geomean": 1.056162911564126,
+   "ci": [
+    1.0115500128253385,
+    1.1318784859837625
+   ],
+   "excl_largest": 1.0249617670596536,
+   "regressions": 0,
+   "size": 0.9124753926735253
+  }
+ }
+}

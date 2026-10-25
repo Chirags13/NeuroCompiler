@@ -1,0 +1,52 @@
+# NeuroCompiler configuration. Edit machine_id and timing_cpu for your setup.
+
+[machine]
+machine_id = "wsl2-ryzen9-270-v14"   # 14 vCPUs since 2026-10-23 (was wsl2-ryzen9-270 with 8); never mix machines in one table
+timing_cpu = 6                   # vCPU that benchmark binaries are pinned to (avoid 0; the harness itself runs elsewhere)
+
+[llvm]
+llvm_bin_dir = "/usr/lib/llvm-18/bin"   # pin ONE LLVM version for the whole project
+march = "native"                        # used for ALL builds incl. the -O3 baseline, so the comparison stays fair
+
+[timing]
+reps = 30            # interleaved rounds per measurement
+warmup = 5           # discarded rounds
+settle_s = 3.0       # busy warm-up before each measurement block (lets frequency/scheduling settle)
+no_aslr = true       # disable address randomization for benchmark children (reduces layout bias)
+timeout_s = 60.0     # per-run timeout
+
+[paths]
+work_dir = "work"
+results_dir = "results"
+corpus_dir = "corpus"
+
+[corpus]
+floor_s = 0.35     # min -O3 runtime (s). Set from the self-test: 220 ms was too noisy, 400 ms passed
+ceiling_s = 3.0    # max -O3 runtime (s); longer programs make search too expensive
+scan_reps = 3      # interleaved rounds for the O1/O2/O3/Os timing during the scan
+[search]
+db_path = "results/dataset.sqlite"
+budget = 60            # UNIQUE timed binaries per (program, method); identical IR/binaries are free
+batch = 8              # binaries screened together against the -O3 baseline
+screen_reps = 3        # interleaved rounds per screened binary (cheap, noisy)
+compile_workers = 4    # parallel compiles (never while timing)
+size_cap = 1.10        # soft penalty when .text grows beyond this factor of -O3
+confirm_top = 3        # winners re-measured with a full interleaved run + A/A control
+# speed: only SCREENING is cheaper; confirmation (30 rounds + A/A control) is unchanged
+screen_halving = true  # 1 round for everyone, 2 more only for candidates with 1-round speedup >= screen_keep
+screen_keep = 0.98    # from past data: keeps 64% for re-timing, retains ~95% of 3-round winners >= 3%
+screen_abort = 1.30    # screening runs slower than 1.3x -O3 are killed early (status 'slow')
+verify_parallel = true # output checks run on helper CPUs during the compile phase
+merged_confirm = true  # one confirmation run per program (all methods' shortlists + BASE + A/A control)
+validate = true        # program winner re-measured in a fresh, independent run (removes confirm-stage winner's curse)
+control_max_dev_pct = 1.0
+# environment guards
+isolate_sibling = false   # keep harness off timing_cpu's SMT sibling (vCPU 7). Changes conditions; re-run selftest if enabled
+quiet_max_busy = 0.6      # cores of OTHER load tolerated before a timing block starts; waits otherwise (0 = off)
+quiet_max_wait_s = 1800
+
+[selftest]
+max_ci_halfwidth_pct = 1.0   # 95% CI half-width of the median must be under this
+max_aa_bias_pct = 1.0        # identical binaries measured A vs B must agree within this
+max_drift_pct = 2.0          # first-half vs second-half median drift
+min_o0_o3_speedup = 1.2      # -O0 vs -O3 must show at least this gap on the test program
