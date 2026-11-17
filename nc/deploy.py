@@ -85,16 +85,26 @@ def select_topk(ps: ProgramSearch, scores: np.ndarray, lib: list[Genome], k: int
         if len(chosen_evs) >= k:
             break
     t_compile = time.time() - t0
+    ps.log(f"[compile] {n_compiled} pipelines compiled in ranked order -> {len(chosen_evs)} distinct binaries with verified output ({t_compile:.0f} s)")
     out = {"method": method, "n_compiled": n_compiled, "n_timed": len(chosen_evs), "compile_s": round(t_compile, 1)}
     if not chosen_evs:
         out.update(choice="O3", reason="no distinct verified candidate")
         return out
     t1 = time.time()
     bm = {"BASE": ps.base.bin_path, **{f"c{i}": b.bin_path for i, (_g, _m, b) in enumerate(chosen_evs)}}
+    ps.log(f"[timing] {len(chosen_evs)} candidates + -O3, interleaved on a pinned core, {reps} rounds ...")
     ser = ps._measure(bm, reps, 1, seed=3)
     best, best_sp = None, None
+    out["base_median_ms"] = float(np.nanmedian(ser["BASE"].wall_ms))
+    out["timed"] = []                                 # reporting only: every timed candidate vs -O3
     for i, (g, m, b) in enumerate(chosen_evs):
         sp = paired_speedup(ser["BASE"].wall_ms, ser[f"c{i}"].wall_ms) if ser[f"c{i}"].status == "ok" else {}
+        out["timed"].append({"genome": g.to_json(), "speedup": sp.get("speedup"), "ci": [sp.get("ci_lo"), sp.get("ci_hi")],
+                             "median_ms": float(np.nanmedian(ser[f"c{i}"].wall_ms)) if ser[f"c{i}"].wall_ms else None,
+                             "status": ser[f"c{i}"].status, "text_size": b.text_size})
+        ps.log(f"[timing]   candidate {i + 1}: {sp.get('speedup', float('nan')):.3f}x vs -O3 "
+               f"[{sp.get('ci_lo', float('nan')):.3f}, {sp.get('ci_hi', float('nan')):.3f}]  {out['timed'][-1]['median_ms'] or float('nan'):.1f} ms"
+               f"  (-O3 {out['base_median_ms']:.1f} ms)")
         if "speedup" in sp and (best_sp is None or sp["speedup"] > best_sp["speedup"]):
             best, best_sp = (g, m, b), sp
     if best is not None and best_sp.get("ci_lo", 0) > 1.0 and confirm_reps > 0:
@@ -102,13 +112,17 @@ def select_topk(ps: ProgramSearch, scores: np.ndarray, lib: list[Genome], k: int
         # run shipped at 0.979x). A fresh run (pick, -O3, byte-identical copy of -O3) must confirm it
         # with a margin and a clean A/A control, otherwise -O3 ships.
         g, m, b = best
+        ps.log(f"[confirm] best {best_sp['speedup']:.3f}x: fresh {confirm_reps}-round run vs -O3 with an A/A control ...")
         cs = ps._measure({"BASE": ps.base.bin_path, "CTRL": ps.ctrl_path, "PICK": b.bin_path},
                          confirm_reps, 1, seed=11)
         csp = paired_speedup(cs["BASE"].wall_ms, cs["PICK"].wall_ms) if cs["PICK"].status == "ok" else {}
         ctl = paired_speedup(cs["BASE"].wall_ms, cs["CTRL"].wall_ms)
         out["confirm"] = {"speedup": csp.get("speedup"), "ci": [csp.get("ci_lo"), csp.get("ci_hi")],
-                          "control": ctl.get("speedup")}
+                          "control": ctl.get("speedup"), "pick_median_ms": float(np.nanmedian(cs["PICK"].wall_ms)),
+                          "base_median_ms": float(np.nanmedian(cs["BASE"].wall_ms)), "rounds": confirm_reps}
         ok_ctl = abs(ctl.get("speedup", 2) - 1) * 100 <= ps.cfg.control_max_dev_pct
+        ps.log(f"[confirm] {csp.get('speedup', float('nan')):.3f}x [{csp.get('ci_lo', float('nan')):.3f}, {csp.get('ci_hi', float('nan')):.3f}], "
+               f"A/A control {ctl.get('speedup', float('nan')):.3f}x")
         if not (csp.get("ci_lo", 0) > 1.0 + margin and ok_ctl):
             out["timing_s"] = round(time.time() - t1, 1)
             out.update(choice="O3", reason=f"pick not confirmed (fresh run {csp.get('speedup', float('nan')):.3f}x, "
@@ -166,6 +180,7 @@ def deploy_source(tc: Toolchain, cfg: Config, src: list[str], args: list[str], s
     if ref.status != "ok":
         raise RuntimeError(f"-O0 reference run failed ({ref.status}); cannot verify candidates")
     rec["ref_output_hash"] = ref.out_hash
+    log(f"[reference] -O0 build ran OK ({ref.wall_ms:.0f} ms); its output is the reference every candidate must match")
     sur = Surrogate(meta_path)
     pfeat = {**static_features(tc, rec), **scan_features(quick_scan(tc, cfg, rec))}
     if dynamic and any(f.startswith("sim_") for f in sur.fnames):
@@ -177,6 +192,7 @@ def deploy_source(tc: Toolchain, cfg: Config, src: list[str], args: list[str], s
         pfeat.update(cachegrind(b.bin_path, spec, cfg.timing_cpu))
         l2 = cachegrind(b.bin_path, spec, cfg.timing_cpu, ll=L2_SIM)       # same two passes as training
         pfeat.update({"sim_l2d_mpki": l2["sim_lld_mpki"], "sim_l2d_miss_rate": l2["sim_lld_miss_rate"]})
+    log(f"[features] {len(pfeat)} program features (static IR + quick scan of -O0..-O3)")
     store = Store(Path(cfg.results_dir) / "deploy.sqlite")
     ps = ProgramSearch(tc, cfg, store, rec, log=log)
     lib = library(Store(cfg.db_path), ps, set(sur.meta["train_programs"]), n_random, Path(cfg.results_dir))
@@ -191,7 +207,9 @@ def deploy_source(tc: Toolchain, cfg: Config, src: list[str], args: list[str], s
         pi = rl.load_policy(Path(rl_policy), env)
         props = rl.propose(env, pi, rec["program_id"], 3 * k, 0)
     pool = props + lib
+    log(f"[rl] the RL agent proposed {len(props)} pipelines" if props else "[rl] no RL policy: SL only")
     scores = sur.predict(pfeat, pool, names)
+    log(f"[rank] the supervised model scored {len(pool)} pipelines ({len(props)} RL + {len(lib)} library); best predicted {float(np.exp(scores.max())):.2f}x")
     res = select_topk(ps, scores, pool, k, reps, "deploy_rl_sl" if props else "deploy_sl")
     # provenance for reporting: did the shipped pipeline come from the RL agent or from the library?
     rl_keys = {g.to_json() for g in props}
@@ -202,9 +220,16 @@ def deploy_source(tc: Toolchain, cfg: Config, src: list[str], args: list[str], s
     res["top_ranked"] = [{"rank": r + 1, "source": "RL" if pool[i].to_json() in rl_keys else "library",
                           "predicted_speedup": round(float(np.exp(scores[i])), 3), "n_edits": len(pool[i].edits)}
                          for r, i in enumerate(order[:10])]
+    for t in res.get("timed", []):
+        t["source"] = "RL" if t["genome"] in rl_keys else "library"
+        g = Genome.from_json(t.pop("genome"))
+        t["edits"], t["raw"] = g.edits, g.raw              # raw: a whole standard pipeline (level seed)
+    res["o3_pipeline"] = tc.pipeline_string("O3")
+    res["o3_text_size"] = ps.base.text_size
     if res.get("choice") == "candidate":
         res["shipped_from"] = "RL agent" if res.get("genome") in rl_keys else "library"
         res["shipped_edits"] = Genome.from_json(res["genome"]).edits
+        res["shipped_raw"] = Genome.from_json(res["genome"]).raw
     out.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(res["bin_path"] if res["choice"] == "candidate" else ps.base.bin_path, out)
     res.update(output=str(out), total_s=round(time.time() - t0, 1), library=len(lib), model=str(meta_path),

@@ -6,7 +6,7 @@ cd /home/chirag/neurocompiler || exit 1
 [ -e results/.phase5_stop ] && exit 0
 exec 9>/tmp/nc_phase5.lock
 flock -n 9 || exit 0
-pgrep -f '^(/usr/bin/|/bin/)?bash (/home/chirag/neurocompiler/)?scripts/(phase5|pipeline_rest|rl_eval)\.sh' >/dev/null && exit 0
+pgrep -f '^(/usr/bin/|/bin/)?bash (/home/chirag/neurocompiler/)?scripts/(phase5|pipeline_rest|rl_eval|predict_val|predict_test)\.sh' >/dev/null && exit 0
 T=$(date +%Y%m%d-%H%M)
 if [ ! -e results/.phase5_done ]; then
   echo "$(date '+%F %T') autoresume: starting phase 5 -> logs/phase5_$T.log" >> logs/autoresume.log
@@ -17,4 +17,10 @@ elif [ ! -e results/.rest_done ]; then
 elif [ -e results/.rl_requested ] && [ ! -e results/.rl_done ]; then
   echo "$(date '+%F %T') autoresume: starting RL evaluation -> logs/rl_$T.log" >> logs/autoresume.log
   scripts/rl_eval.sh > logs/rl_$T.log 2>&1
+elif [ -e results/.predict_val_requested ] && [ ! -e results/.predict_val_done ]; then
+  echo "$(date '+%F %T') autoresume: starting predict validation -> logs/predict_val_$T.log" >> logs/autoresume.log
+  scripts/predict_val.sh > logs/predict_val_$T.log 2>&1
+elif [ -e results/.predict_test_requested ] && [ ! -e results/.predict_test_done ]; then
+  echo "$(date '+%F %T') autoresume: starting predict test -> logs/predict_test_$T.log" >> logs/autoresume.log
+  scripts/predict_test.sh > logs/predict_test_$T.log 2>&1
 fi

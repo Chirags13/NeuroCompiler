@@ -1,0 +1,832 @@
+[reference] -O0 build ran OK (3200 ms); its output is the reference every candidate must match
+[features] 120 program features (static IR + quick scan of -O0..-O3)
+[rl] the RL agent proposed 24 pipelines
+[rank] the supervised model scored 937 pipelines (24 RL + 913 library); best predicted 1.27x
+[compile] 24 pipelines compiled in ranked order -> 8 distinct binaries with verified output (8 s)
+[timing] 8 candidates + -O3, interleaved on a pinned core, 10 rounds ...
+[timing]   candidate 1: 1.013x vs -O3 [0.960, 1.060]  932.7 ms  (-O3 938.6 ms)
+[timing]   candidate 2: 0.971x vs -O3 [0.940, 1.017]  951.1 ms  (-O3 938.6 ms)
+[timing]   candidate 3: 0.997x vs -O3 [0.968, 1.036]  953.8 ms  (-O3 938.6 ms)
+[timing]   candidate 4: 0.975x vs -O3 [0.935, 1.031]  962.3 ms  (-O3 938.6 ms)
+[timing]   candidate 5: 0.991x vs -O3 [0.930, 1.007]  976.8 ms  (-O3 938.6 ms)
+[timing]   candidate 6: 1.445x vs -O3 [1.341, 1.588]  662.0 ms  (-O3 938.6 ms)
+[timing]   candidate 7: 1.432x vs -O3 [1.401, 1.588]  649.9 ms  (-O3 938.6 ms)
+[timing]   candidate 8: 1.008x vs -O3 [0.944, 1.031]  959.4 ms  (-O3 938.6 ms)
+[confirm] best 1.445x: fresh 20-round run vs -O3 with an A/A control ...
+[confirm] 1.485x [1.384, 1.534], A/A control 1.009x
+{
+ "method": "deploy_rl_sl",
+ "n_compiled": 24,
+ "n_timed": 8,
+ "compile_s": 8.2,
+ "base_median_ms": 938.5565475000001,
+ "timed": [
+  {
+   "speedup": 1.0133946131164986,
+   "ci": [
+    0.9600335125154221,
+    1.0600000689547557
+   ],
+   "median_ms": 932.746931,
+   "status": "ok",
+   "text_size": 11222,
+   "source": "library",
+   "edits": [
+    {
+     "id": 89,
+     "op": "del"
+    },
+    {
+     "id": 12,
+     "op": "del"
+    },
+    {
+     "id": 11,
+     "op": "swap"
+    },
+    {
+     "after": 31,
+     "ctx": "function",
+     "nid": 240464745,
+     "op": "ins",
+     "pass": "jump-threading"
+    },
+    {
+     "id": 57,
+     "op": "del"
+    },
+    {
+     "id": 48,
+     "op": "del"
+    },
+    {
+     "id": 68,
+     "op": "del"
+    },
+    {
+     "after": 16,
+     "ctx": "function",
+     "nid": 562263807,
+     "op": "ins",
+     "pass": "coro-elide"
+    },
+    {
+     "after": 38,
+     "ctx": "function",
+     "nid": 730140686,
+     "op": "ins",
+     "pass": "mldst-motion<no-split-footer-bb>"
+    },
+    {
+     "id": 14,
+     "op": "del"
+    },
+    {
+     "name": "-unroll-count",
+     "op": "knob",
+     "value": 4
+    },
+    {
+     "after": 108,
+     "ctx": "function",
+     "nid": 300981010,
+     "op": "ins",
+     "pass": "mldst-motion<no-split-footer-bb>"
+    },
+    {
+     "after": 99,
+     "ctx": "function",
+     "nid": 545458267,
+     "op": "ins",
+     "pass": "loop-unroll<O3>"
+    }
+   ],
+   "raw": null
+  },
+  {
+   "speedup": 0.9706428042610905,
+   "ci": [
+    0.9397310040297162,
+    1.017175464282223
+   ],
+   "median_ms": 951.0825105,
+   "status": "ok",
+   "text_size": 12725,
+   "source": "library",
+   "edits": [
+    {
+     "id": 92,
+     "op": "del"
+    },
+    {
+     "id": 2,
+     "op": "swap"
+    },
+    {
+     "after": 104,
+     "ctx": "function",
+     "nid": 347546965,
+     "op": "ins",
+     "pass": "loop-unroll-and-jam"
+    },
+    {
+     "op": "backend",
+     "value": 1
+    },
+    {
+     "id": 70,
+     "op": "del"
+    },
+    {
+     "id": 120,
+     "nid": 341375921,
+     "op": "dup"
+    },
+    {
+     "id": 111,
+     "op": "del"
+    },
+    {
+     "name": "-slp-threshold",
+     "op": "knob",
+     "value": 4
+    },
+    {
+     "name": "-slp-threshold",
+     "op": "knob",
+     "value": 0
+    },
+    {
+     "after": 3,
+     "ctx": "module",
+     "nid": 79561628,
+     "op": "ins",
+     "pass": "always-inline"
+    },
+    {
+     "id": 75,
+     "op": "del"
+    },
+    {
+     "name": "-unroll-count",
+     "op": "knob",
+     "value": 4
+    },
+    {
+     "id": 8,
+     "op": "del"
+    },
+    {
+     "op": "backend",
+     "value": 3
+    }
+   ],
+   "raw": null
+  },
+  {
+   "speedup": 0.99677638443844,
+   "ci": [
+    0.9678291949968283,
+    1.0357573311018111
+   ],
+   "median_ms": 953.771808,
+   "status": "ok",
+   "text_size": 8661,
+   "source": "library",
+   "edits": [
+    {
+     "id": 92,
+     "op": "del"
+    },
+    {
+     "id": 2,
+     "op": "swap"
+    },
+    {
+     "after": 104,
+     "ctx": "function",
+     "nid": 347546965,
+     "op": "ins",
+     "pass": "loop-unroll-and-jam"
+    },
+    {
+     "op": "backend",
+     "value": 1
+    },
+    {
+     "id": 70,
+     "op": "del"
+    },
+    {
+     "id": 120,
+     "nid": 341375921,
+     "op": "dup"
+    },
+    {
+     "id": 111,
+     "op": "del"
+    },
+    {
+     "name": "-slp-threshold",
+     "op": "knob",
+     "value": 4
+    },
+    {
+     "name": "-slp-threshold",
+     "op": "knob",
+     "value": 0
+    },
+    {
+     "after": 3,
+     "ctx": "module",
+     "nid": 79561628,
+     "op": "ins",
+     "pass": "always-inline"
+    },
+    {
+     "id": 75,
+     "op": "del"
+    },
+    {
+     "name": "-unroll-count",
+     "op": "knob",
+     "value": 4
+    },
+    {
+     "id": 37,
+     "nid": 247990493,
+     "op": "dup"
+    },
+    {
+     "id": 113,
+     "op": "del"
+    }
+   ],
+   "raw": null
+  },
+  {
+   "speedup": 0.9751869425323254,
+   "ci": [
+    0.9346022914423991,
+    1.031294307016433
+   ],
+   "median_ms": 962.3437695,
+   "status": "ok",
+   "text_size": 8774,
+   "source": "library",
+   "edits": [
+    {
+     "id": 89,
+     "op": "del"
+    },
+    {
+     "id": 12,
+     "op": "del"
+    },
+    {
+     "id": 11,
+     "op": "swap"
+    },
+    {
+     "after": 31,
+     "ctx": "function",
+     "nid": 240464745,
+     "op": "ins",
+     "pass": "jump-threading"
+    },
+    {
+     "id": 57,
+     "op": "del"
+    },
+    {
+     "id": 48,
+     "op": "del"
+    },
+    {
+     "id": 68,
+     "op": "del"
+    },
+    {
+     "after": 16,
+     "ctx": "function",
+     "nid": 562263807,
+     "op": "ins",
+     "pass": "coro-elide"
+    },
+    {
+     "after": 38,
+     "ctx": "function",
+     "nid": 730140686,
+     "op": "ins",
+     "pass": "mldst-motion<no-split-footer-bb>"
+    },
+    {
+     "id": 14,
+     "op": "del"
+    },
+    {
+     "name": "-unroll-count",
+     "op": "knob",
+     "value": 4
+    },
+    {
+     "id": 47,
+     "op": "del"
+    },
+    {
+     "id": 88,
+     "op": "del"
+    }
+   ],
+   "raw": null
+  },
+  {
+   "speedup": 0.9906302160434407,
+   "ci": [
+    0.9304353509338301,
+    1.0072324113699813
+   ],
+   "median_ms": 976.813222,
+   "status": "ok",
+   "text_size": 8660,
+   "source": "library",
+   "edits": [
+    {
+     "id": 90,
+     "op": "del"
+    },
+    {
+     "id": 88,
+     "op": "del"
+    },
+    {
+     "after": 81,
+     "ctx": "module",
+     "nid": 422869484,
+     "op": "ins",
+     "pass": "rel-lookup-table-converter"
+    },
+    {
+     "after": 11,
+     "ctx": "module",
+     "nid": 381898507,
+     "op": "ins",
+     "pass": "elim-avail-extern"
+    },
+    {
+     "id": 22,
+     "nid": 674535033,
+     "op": "dup"
+    },
+    {
+     "name": "-unroll-count",
+     "op": "knob",
+     "value": 4
+    },
+    {
+     "id": 72,
+     "op": "del"
+    },
+    {
+     "after": 107,
+     "ctx": "function",
+     "nid": 530744646,
+     "op": "ins",
+     "pass": "loop-unroll<O3>"
+    },
+    {
+     "id": 20,
+     "nid": 370881093,
+     "op": "dup"
+    },
+    {
+     "id": 102,
+     "op": "swap"
+    },
+    {
+     "id": 63,
+     "op": "del"
+    },
+    {
+     "id": 48,
+     "op": "del"
+    }
+   ],
+   "raw": null
+  },
+  {
+   "speedup": 1.4454826570898502,
+   "ci": [
+    1.3411238581989868,
+    1.5878189677433203
+   ],
+   "median_ms": 661.9566405,
+   "status": "ok",
+   "text_size": 13470,
+   "source": "library",
+   "edits": [
+    {
+     "name": "-unroll-count",
+     "op": "knob",
+     "value": 4
+    },
+    {
+     "after": 23,
+     "ctx": "module",
+     "nid": 91479349,
+     "op": "ins",
+     "pass": "mergefunc"
+    },
+    {
+     "id": 83,
+     "op": "del"
+    },
+    {
+     "id": 118,
+     "nid": 233296561,
+     "op": "dup"
+    },
+    {
+     "new": "allowspeculation",
+     "op": "param_all",
+     "pass": "licm",
+     "tok": "no-allowspeculation"
+    },
+    {
+     "name": "-force-vector-width",
+     "op": "knob",
+     "value": 8
+    },
+    {
+     "id": 36,
+     "new": "forward-switch-cond",
+     "op": "param",
+     "tok": "no-forward-switch-cond"
+    },
+    {
+     "name": "-vectorizer-min-trip-count",
+     "op": "knob",
+     "value": 4
+    },
+    {
+     "after": 51,
+     "ctx": "function",
+     "nid": 734614122,
+     "op": "ins",
+     "pass": "chr"
+    },
+    {
+     "id": 84,
+     "op": "del"
+    },
+    {
+     "op": "del_all",
+     "pass": "early-cse"
+    }
+   ],
+   "raw": null
+  },
+  {
+   "speedup": 1.4321190025723844,
+   "ci": [
+    1.4010201226255146,
+    1.5884199529205876
+   ],
+   "median_ms": 649.9272014999999,
+   "status": "ok",
+   "text_size": 8192,
+   "source": "library",
+   "edits": [
+    {
+     "name": "-force-vector-width",
+     "op": "knob",
+     "value": 4
+    },
+    {
+     "after": 46,
+     "ctx": "loop-mssa",
+     "nid": 341771871,
+     "op": "ins",
+     "pass": "loop-instsimplify"
+    },
+    {
+     "name": "llc:-tail-dup-indirect-size",
+     "op": "knob",
+     "value": 3
+    },
+    {
+     "name": "llc:-align-loops",
+     "op": "knob",
+     "value": 1
+    },
+    {
+     "op": "del_all",
+     "pass": "vector-combine"
+    },
+    {
+     "id": 74,
+     "nid": 23382857,
+     "op": "dup"
+    },
+    {
+     "name": "-unroll-max-count",
+     "op": "knob",
+     "value": 2
+    },
+    {
+     "id": 8,
+     "op": "del"
+    },
+    {
+     "name": "-unroll-count",
+     "op": "knob",
+     "value": 2
+    },
+    {
+     "after": 120,
+     "ctx": "module",
+     "nid": 396071357,
+     "op": "ins",
+     "pass": "forceattrs"
+    },
+    {
+     "id": 34,
+     "nid": 335908525,
+     "op": "dup"
+    },
+    {
+     "id": 96,
+     "nid": 98729937,
+     "op": "dup"
+    },
+    {
+     "name": "llc:-enable-tail-merge",
+     "op": "knob",
+     "value": "false"
+    }
+   ],
+   "raw": null
+  },
+  {
+   "speedup": 1.0081558307906402,
+   "ci": [
+    0.9439774798643638,
+    1.0310187674920146
+   ],
+   "median_ms": 959.4182854999999,
+   "status": "ok",
+   "text_size": 13173,
+   "source": "library",
+   "edits": [
+    {
+     "id": 61,
+     "op": "del"
+    },
+    {
+     "after": 115,
+     "ctx": "function",
+     "nid": 52021280,
+     "op": "ins",
+     "pass": "vector-combine"
+    },
+    {
+     "name": "-force-vector-interleave",
+     "op": "knob",
+     "value": 2
+    },
+    {
+     "after": 52,
+     "ctx": "function",
+     "nid": 190597695,
+     "op": "ins",
+     "pass": "vector-combine"
+    },
+    {
+     "id": 7,
+     "op": "del"
+    },
+    {
+     "after": 56,
+     "ctx": "loop",
+     "nid": 463570958,
+     "op": "ins",
+     "pass": "loop-instsimplify"
+    },
+    {
+     "name": "-unroll-count",
+     "op": "knob",
+     "value": 4
+    },
+    {
+     "id": 67,
+     "op": "del"
+    },
+    {
+     "id": 84,
+     "nid": 781015600,
+     "op": "dup"
+    },
+    {
+     "id": 16,
+     "op": "swap"
+    },
+    {
+     "after": 122,
+     "ctx": "function",
+     "nid": 571000731,
+     "op": "ins",
+     "pass": "dse"
+    },
+    {
+     "op": "backend",
+     "value": 2
+    },
+    {
+     "after": 22,
+     "ctx": "function",
+     "nid": 540672359,
+     "op": "ins",
+     "pass": "loop-vectorize"
+    }
+   ],
+   "raw": null
+  }
+ ],
+ "confirm": {
+  "speedup": 1.4851413504388384,
+  "ci": [
+   1.3844056528800963,
+   1.534066424980558
+  ],
+  "control": 1.0094657769855584,
+  "pick_median_ms": 629.4627555,
+  "base_median_ms": 928.766824,
+  "rounds": 20
+ },
+ "timing_s": 150.1,
+ "choice": "candidate",
+ "flags": [
+  "-force-vector-width=8",
+  "-unroll-count=4",
+  "-vectorizer-min-trip-count=4"
+ ],
+ "backend": 3,
+ "bin_path": "/home/chirag/neurocompiler/work/bins/de6bc0fa50bf20ac81b8ca8b-O3/prog",
+ "text_size": 13470,
+ "select_speedup": 1.4454826570898502,
+ "select_ci": [
+  1.3411238581989868,
+  1.5878189677433203
+ ],
+ "mode": "RL + SL",
+ "rl_proposals": 24,
+ "rl_in_top20_ranked": 0,
+ "top_ranked": [
+  {
+   "rank": 1,
+   "source": "library",
+   "predicted_speedup": 1.27,
+   "n_edits": 13
+  },
+  {
+   "rank": 2,
+   "source": "library",
+   "predicted_speedup": 1.264,
+   "n_edits": 14
+  },
+  {
+   "rank": 3,
+   "source": "library",
+   "predicted_speedup": 1.256,
+   "n_edits": 14
+  },
+  {
+   "rank": 4,
+   "source": "library",
+   "predicted_speedup": 1.243,
+   "n_edits": 13
+  },
+  {
+   "rank": 5,
+   "source": "library",
+   "predicted_speedup": 1.239,
+   "n_edits": 12
+  },
+  {
+   "rank": 6,
+   "source": "library",
+   "predicted_speedup": 1.238,
+   "n_edits": 12
+  },
+  {
+   "rank": 7,
+   "source": "library",
+   "predicted_speedup": 1.227,
+   "n_edits": 11
+  },
+  {
+   "rank": 8,
+   "source": "library",
+   "predicted_speedup": 1.222,
+   "n_edits": 13
+  },
+  {
+   "rank": 9,
+   "source": "library",
+   "predicted_speedup": 1.21,
+   "n_edits": 13
+  },
+  {
+   "rank": 10,
+   "source": "library",
+   "predicted_speedup": 1.209,
+   "n_edits": 14
+  }
+ ],
+ "o3_pipeline": "annotation2metadata,forceattrs,inferattrs,coro-early,function<eager-inv>(lower-expect,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;no-switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,sroa<modify-cfg>,early-cse<>,callsite-splitting),openmp-opt,ipsccp,called-value-propagation,globalopt,function<eager-inv>(mem2reg,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),always-inline,require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,argpromotion,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,correlated-propagation,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto>,licm<allowspeculation>,simple-loop-unswitch<nontrivial;trivial>),simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop(loop-idiom,indvars,loop-deletion,loop-unroll-full),sroa<modify-cfg>,vector-combine,mldst-motion<no-split-footer-bb>,gvn<>,sccp,bdce,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,jump-threading,correlated-propagation,adce,memcpyopt,dse,move-auto-init,loop-mssa(licm<allowspeculation>),coro-elide,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>),function-attrs,function(require<should-not-run-function-passes>),coro-split)),deadargelim,coro-cleanup,globalopt,globaldce,elim-avail-extern,rpo-function-attrs,recompute-globalsaa,function<eager-inv>(float2int,lower-constant-intrinsics,chr,loop(loop-rotate<header-duplication;no-prepare-for-lto>,loop-deletion),loop-distribute,inject-tli-mappings,loop-vectorize<no-interleave-forced-only;no-vectorize-forced-only;>,infer-alignment,loop-load-elim,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;forward-switch-cond;switch-range-to-icmp;switch-to-lookup;no-keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,slp-vectorizer,vector-combine,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-unroll<O3>,transform-warning,sroa<preserve-cfg>,infer-alignment,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-mssa(licm<allowspeculation>),alignment-from-assumptions,loop-sink,instsimplify,div-rem-pairs,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),globaldce,constmerge,cg-profile,rel-lookup-table-converter,function(annotation-remarks),verify",
+ "o3_text_size": 8173,
+ "shipped_from": "library",
+ "shipped_edits": [
+  {
+   "name": "-unroll-count",
+   "op": "knob",
+   "value": 4
+  },
+  {
+   "after": 23,
+   "ctx": "module",
+   "nid": 91479349,
+   "op": "ins",
+   "pass": "mergefunc"
+  },
+  {
+   "id": 83,
+   "op": "del"
+  },
+  {
+   "id": 118,
+   "nid": 233296561,
+   "op": "dup"
+  },
+  {
+   "new": "allowspeculation",
+   "op": "param_all",
+   "pass": "licm",
+   "tok": "no-allowspeculation"
+  },
+  {
+   "name": "-force-vector-width",
+   "op": "knob",
+   "value": 8
+  },
+  {
+   "id": 36,
+   "new": "forward-switch-cond",
+   "op": "param",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "name": "-vectorizer-min-trip-count",
+   "op": "knob",
+   "value": 4
+  },
+  {
+   "after": 51,
+   "ctx": "function",
+   "nid": 734614122,
+   "op": "ins",
+   "pass": "chr"
+  },
+  {
+   "id": 84,
+   "op": "del"
+  },
+  {
+   "op": "del_all",
+   "pass": "early-cse"
+  }
+ ],
+ "shipped_raw": null,
+ "output": "/tmp/claude-1000/-home-chirag-neurocompiler/665cc20e-c0aa-4124-96ae-ca184db5dedf/scratchpad/demo/matmul",
+ "total_s": 175.5,
+ "library": 913,
+ "model": "results/models/surrogate_latest.json",
+ "rl_policy": "results/models/rl_policy_latest.npz"
+}
+
+== neurocompiler (RL + SL) ==
+candidates: 24 RL proposals + 913 library pipelines, ranked by the supervised model; 0 RL proposals in its top 20; 8 timed
+top of the ranking: #1 library (pred 1.27x), #2 library (pred 1.26x), #3 library (pred 1.26x), #4 library (pred 1.24x), #5 library (pred 1.24x), #6 library (pred 1.24x), #7 library (pred 1.23x), #8 library (pred 1.22x)
+shipped: pipeline from the library, selection 1.445x vs -O3, confirmed 1.485x [1.384,1.534]
+   edit: {"name": "-unroll-count", "op": "knob", "value": 4}
+   edit: {"after": 23, "ctx": "module", "op": "ins", "pass": "mergefunc"}
+   edit: {"id": 83, "op": "del"}
+   edit: {"id": 118, "op": "dup"}
+   edit: {"new": "allowspeculation", "op": "param_all", "pass": "licm", "tok": "no-allowspeculation"}
+   edit: {"name": "-force-vector-width", "op": "knob", "value": 8}
+   edit: {"id": 36, "new": "forward-switch-cond", "op": "param", "tok": "no-forward-switch-cond"}
+   edit: {"name": "-vectorizer-min-trip-count", "op": "knob", "value": 4}
+   edit: {"after": 51, "ctx": "function", "op": "ins", "pass": "chr"}
+   edit: {"id": 84, "op": "del"}
+   edit: {"op": "del_all", "pass": "early-cse"}
+binary: /tmp/claude-1000/-home-chirag-neurocompiler/665cc20e-c0aa-4124-96ae-ca184db5dedf/scratchpad/demo/matmul   total 175.5 s

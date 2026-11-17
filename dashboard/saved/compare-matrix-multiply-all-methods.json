@@ -1,0 +1,415 @@
+{
+ "id": "355447a935d9",
+ "mode": "compare",
+ "status": "done",
+ "created": 1792998278.3173027,
+ "example": "matmul",
+ "inputs": {
+  "files": [
+   "matmul.c"
+  ],
+  "args": "800",
+  "cflags": "",
+  "k": 8,
+  "no_rl": false,
+  "dynamic": false,
+  "verify": false,
+  "stdin": null
+ },
+ "started": 1792998734.4151542,
+ "command": [
+  "/home/chirag/neurocompiler/.venv/bin/python",
+  "-u",
+  "-m",
+  "nc.cli",
+  "compare",
+  "/home/chirag/neurocompiler/work/dashboard/jobs/355447a935d9/src/matmul.c",
+  "--cflags=-I/home/chirag/neurocompiler/work/dashboard/jobs/355447a935d9/src",
+  "--args=800",
+  "--k",
+  "8",
+  "--cwd",
+  "/home/chirag/neurocompiler/work/dashboard/jobs/355447a935d9/src",
+  "--json-out",
+  "/home/chirag/neurocompiler/work/dashboard/jobs/355447a935d9/compare.json"
+ ],
+ "finished": 1792999093.716118,
+ "returncode": 0,
+ "result": {
+  "program": "user/matmul",
+  "rows": [
+   {
+    "method": "O2",
+    "speedup": 0.9967294088118508,
+    "ci": [
+     0.992204982177691,
+     0.9999092407644762
+    ],
+    "median_ms": 423.4741185
+   },
+   {
+    "method": "Os",
+    "speedup": 0.9986676976775503,
+    "ci": [
+     0.9944029502732609,
+     1.0008522469883077
+    ],
+    "median_ms": 422.1962475
+   },
+   {
+    "method": "predict",
+    "speedup": 1.0,
+    "ci": null,
+    "note": "kept -O3 (no change shipped)"
+   },
+   {
+    "method": "tune",
+    "speedup": 1.6569070545156943,
+    "ci": [
+     1.6478959296765094,
+     1.66279470294692
+    ],
+    "median_ms": 254.25511999999998
+   },
+   {
+    "method": "random@8",
+    "speedup": 1.6529155660293582,
+    "ci": [
+     1.6406456302297963,
+     1.6646709806489721
+    ],
+    "median_ms": 255.059378
+   },
+   {
+    "method": "ga@8",
+    "speedup": 1.0,
+    "ci": null,
+    "note": "kept -O3 (no change shipped)"
+   },
+   {
+    "method": "A/A control",
+    "speedup": 1.0003989247879694,
+    "ci": [
+     0.9953290335270577,
+     1.0034587527698426
+    ],
+    "median_ms": 421.225393
+   }
+  ],
+  "notes": {
+   "predict": {
+    "genome": "{\"edits\": [{\"name\": \"llc:-tail-dup-size\", \"op\": \"knob\", \"value\": 6}, {\"id\": 96, \"new\": \"vectorize-forced-only\", \"op\": \"param\", \"tok\": \"no-vectorize-forced-only\"}], \"raw\": null}",
+    "source": "safe pool",
+    "predicted_speedup": 1.0087,
+    "range": [
+     0.9869,
+     1.0293
+    ],
+    "member_agreement": 0.0,
+    "p_harmful": 0.381,
+    "ship": false,
+    "top": [
+     {
+      "edits": [
+       {
+        "name": "llc:-tail-dup-size",
+        "op": "knob",
+        "value": 6
+       },
+       {
+        "id": 96,
+        "new": "vectorize-forced-only",
+        "op": "param",
+        "tok": "no-vectorize-forced-only"
+       }
+      ],
+      "source": "safe pool",
+      "predicted_speedup": 1.0087,
+      "range": [
+       0.9869,
+       1.0293
+      ],
+      "agreement": 0.0,
+      "p_harmful": 0.381,
+      "checks": {
+       "pessimistic": false,
+       "agreement": false,
+       "harm": true
+      }
+     },
+     {
+      "edits": [
+       {
+        "name": "llc:-align-loops",
+        "op": "knob",
+        "value": 32
+       },
+       {
+        "id": 54,
+        "op": "del"
+       }
+      ],
+      "source": "safe pool",
+      "predicted_speedup": 0.9937,
+      "range": [
+       0.9866,
+       1.005
+      ],
+      "agreement": 0.0,
+      "p_harmful": 0.298,
+      "checks": {
+       "pessimistic": false,
+       "agreement": false,
+       "harm": true
+      }
+     },
+     {
+      "edits": [
+       {
+        "name": "llc:-tail-dup-size",
+        "op": "knob",
+        "value": 6
+       },
+       {
+        "name": "llc:-align-loops",
+        "op": "knob",
+        "value": 32
+       }
+      ],
+      "source": "safe pool",
+      "predicted_speedup": 1.007,
+      "range": [
+       0.9865,
+       1.0356
+      ],
+      "agreement": 0.14,
+      "p_harmful": 0.31,
+      "checks": {
+       "pessimistic": false,
+       "agreement": false,
+       "harm": true
+      }
+     },
+     {
+      "edits": [
+       {
+        "name": "llc:-align-loops",
+        "op": "knob",
+        "value": 32
+       },
+       {
+        "id": 104,
+        "new": "O1",
+        "op": "param",
+        "tok": "O3"
+       }
+      ],
+      "source": "safe pool",
+      "predicted_speedup": 0.9909,
+      "range": [
+       0.9855,
+       0.9979
+      ],
+      "agreement": 0.0,
+      "p_harmful": 0.282,
+      "checks": {
+       "pessimistic": false,
+       "agreement": false,
+       "harm": true
+      }
+     },
+     {
+      "edits": [
+       {
+        "name": "llc:-tail-dup-size",
+        "op": "knob",
+        "value": 4
+       }
+      ],
+      "source": "safe pool",
+      "predicted_speedup": 1.0011,
+      "range": [
+       0.9852,
+       1.0223
+      ],
+      "agreement": 0.0,
+      "p_harmful": 0.288,
+      "checks": {
+       "pessimistic": false,
+       "agreement": false,
+       "harm": true
+      }
+     },
+     {
+      "edits": [
+       {
+        "name": "llc:-align-loops",
+        "op": "knob",
+        "value": 32
+       },
+       {
+        "name": "-unroll-threshold",
+        "op": "knob",
+        "value": 100
+       }
+      ],
+      "source": "safe pool",
+      "predicted_speedup": 0.9898,
+      "range": [
+       0.9842,
+       0.9959
+      ],
+      "agreement": 0.0,
+      "p_harmful": 0.279,
+      "checks": {
+       "pessimistic": false,
+       "agreement": false,
+       "harm": true
+      }
+     },
+     {
+      "edits": [
+       {
+        "name": "llc:-align-loops",
+        "op": "knob",
+        "value": 32
+       },
+       {
+        "name": "-unroll-threshold",
+        "op": "knob",
+        "value": 0
+       }
+      ],
+      "source": "safe pool",
+      "predicted_speedup": 0.9897,
+      "range": [
+       0.9841,
+       0.9959
+      ],
+      "agreement": 0.0,
+      "p_harmful": 0.284,
+      "checks": {
+       "pessimistic": false,
+       "agreement": false,
+       "harm": true
+      }
+     },
+     {
+      "edits": [
+       {
+        "name": "llc:-align-loops",
+        "op": "knob",
+        "value": 32
+       },
+       {
+        "id": 37,
+        "new": "max-iterations=2",
+        "op": "param",
+        "tok": "max-iterations=1"
+       }
+      ],
+      "source": "safe pool",
+      "predicted_speedup": 0.9897,
+      "range": [
+       0.9839,
+       0.9959
+      ],
+      "agreement": 0.0,
+      "p_harmful": 0.159,
+      "checks": {
+       "pessimistic": false,
+       "agreement": false,
+       "harm": true
+      }
+     },
+     {
+      "edits": [
+       {
+        "name": "llc:-align-loops",
+        "op": "knob",
+        "value": 32
+       },
+       {
+        "id": 8,
+        "op": "del"
+       }
+      ],
+      "source": "safe pool",
+      "predicted_speedup": 0.9894,
+      "range": [
+       0.9839,
+       0.9952
+      ],
+      "agreement": 0.0,
+      "p_harmful": 0.266,
+      "checks": {
+       "pessimistic": false,
+       "agreement": false,
+       "harm": true
+      }
+     },
+     {
+      "edits": [
+       {
+        "id": 96,
+        "new": "vectorize-forced-only",
+        "op": "param",
+        "tok": "no-vectorize-forced-only"
+       },
+       {
+        "name": "llc:-align-loops",
+        "op": "knob",
+        "value": 32
+       }
+      ],
+      "source": "safe pool",
+      "predicted_speedup": 0.9967,
+      "range": [
+       0.9837,
+       1.0104
+      ],
+      "agreement": 0.0,
+      "p_harmful": 0.335,
+      "checks": {
+       "pessimistic": false,
+       "agreement": false,
+       "harm": true
+      }
+     }
+    ],
+    "gate": {
+     "margin": 0.03,
+     "tau": 0.5,
+     "agree": 0.8
+    },
+    "confidence": "low",
+    "reason": "kept -O3: pessimistic estimate too low, models disagree",
+    "mode": "RL + SL",
+    "rl_proposals": 24
+   },
+   "tune": {
+    "confirm": {
+     "speedup": 1.6579650592690527,
+     "ci": [
+      1.6522134944220948,
+      1.66293500316301
+     ],
+     "control": 0.9980630692542694,
+     "pick_median_ms": 253.6406255,
+     "base_median_ms": 421.0827835,
+     "rounds": 20
+    },
+    "choice": "candidate",
+    "select_speedup": 1.6510211623462316,
+    "shipped_from": "library"
+   }
+  },
+  "o3_median_ms": 421.259859,
+  "o3_pipeline": "annotation2metadata,forceattrs,inferattrs,coro-early,function<eager-inv>(lower-expect,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;no-switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,sroa<modify-cfg>,early-cse<>,callsite-splitting),openmp-opt,ipsccp,called-value-propagation,globalopt,function<eager-inv>(mem2reg,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),always-inline,require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,argpromotion,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,correlated-propagation,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto>,licm<allowspeculation>,simple-loop-unswitch<nontrivial;trivial>),simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop(loop-idiom,indvars,loop-deletion,loop-unroll-full),sroa<modify-cfg>,vector-combine,mldst-motion<no-split-footer-bb>,gvn<>,sccp,bdce,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,jump-threading,correlated-propagation,adce,memcpyopt,dse,move-auto-init,loop-mssa(licm<allowspeculation>),coro-elide,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>),function-attrs,function(require<should-not-run-function-passes>),coro-split)),deadargelim,coro-cleanup,globalopt,globaldce,elim-avail-extern,rpo-function-attrs,recompute-globalsaa,function<eager-inv>(float2int,lower-constant-intrinsics,chr,loop(loop-rotate<header-duplication;no-prepare-for-lto>,loop-deletion),loop-distribute,inject-tli-mappings,loop-vectorize<no-interleave-forced-only;no-vectorize-forced-only;>,infer-alignment,loop-load-elim,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;forward-switch-cond;switch-range-to-icmp;switch-to-lookup;no-keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,slp-vectorizer,vector-combine,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-unroll<O3>,transform-warning,sroa<preserve-cfg>,infer-alignment,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-mssa(licm<allowspeculation>),alignment-from-assumptions,loop-sink,instsimplify,div-rem-pairs,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),globaldce,constmerge,cg-profile,rel-lookup-table-converter,function(annotation-remarks),verify"
+ },
+ "sources": {
+  "matmul.c": "/* Dense matrix multiply (naive ijk). Regular loops: responds strongly to\n * vectorization, unrolling, and loop passes. Usage: ./matmul [N]  (default 640) */\n#include <stdio.h>\n#include <stdlib.h>\n\nint main(int argc, char **argv) {\n    int n = argc > 1 ? atoi(argv[1]) : 640;\n    double *A = malloc(sizeof(double) * (size_t)n * n);\n    double *B = malloc(sizeof(double) * (size_t)n * n);\n    double *C = malloc(sizeof(double) * (size_t)n * n);\n    if (!A || !B || !C) return 2;\n    for (int i = 0; i < n; i++)\n        for (int j = 0; j < n; j++) {\n            A[(size_t)i * n + j] = (double)((i * 7 + j * 3) % 11);\n            B[(size_t)i * n + j] = (double)((i * 5 + j * 2) % 13);\n        }\n    for (int i = 0; i < n; i++)\n        for (int j = 0; j < n; j++) {\n            double s = 0.0;\n            for (int k = 0; k < n; k++) s += A[(size_t)i * n + k] * B[(size_t)k * n + j];\n            C[(size_t)i * n + j] = s;\n        }\n    /* integer-valued doubles keep every sum exact, so output is identical across builds */\n    long long chk = 0;\n    for (size_t idx = 0; idx < (size_t)n * n; idx++) chk = (chk * 31 + (long long)C[idx]) % 1000000007LL;\n    printf(\"%lld\\n\", chk);\n    free(A); free(B); free(C);\n    return 0;\n}\n"
+ },
+ "saved_name": "Compare \u00b7 matrix multiply (all methods)",
+ "log": "$ /home/chirag/neurocompiler/.venv/bin/python -u -m nc.cli compare /home/chirag/neurocompiler/work/dashboard/jobs/355447a935d9/src/matmul.c --cflags=-I/home/chirag/neurocompiler/work/dashboard/jobs/355447a935d9/src --args=800 --k 8 --cwd /home/chirag/neurocompiler/work/dashboard/jobs/355447a935d9/src --json-out /home/chirag/neurocompiler/work/dashboard/jobs/355447a935d9/compare.json\n\n[reference] -O0 build ran OK (1441 ms); its output is the reference every candidate must match\n[features] 120 program features (static IR + quick scan of -O0..-O3)\n[rl] the RL agent proposed 24 pipelines\n[rank] the supervised model scored 937 pipelines (24 RL + 913 library); best predicted 1.29x\n[compile] 24 pipelines compiled in ranked order -> 8 distinct binaries with verified output (3 s)\n[timing] 8 candidates + -O3, interleaved on a pinned core, 10 rounds ...\n[timing]   candidate 1: 0.982x vs -O3 [0.980, 0.984]  429.0 ms  (-O3 421.3 ms)\n[timing]   candidate 2: 0.981x vs -O3 [0.928, 0.984]  429.4 ms  (-O3 421.3 ms)\n[timing]   candidate 3: 0.983x vs -O3 [0.982, 0.985]  428.0 ms  (-O3 421.3 ms)\n[timing]   candidate 4: 0.983x vs -O3 [0.981, 0.985]  428.7 ms  (-O3 421.3 ms)\n[timing]   candidate 5: 0.982x vs -O3 [0.981, 0.984]  428.9 ms  (-O3 421.3 ms)\n[timing]   candidate 6: 1.647x vs -O3 [1.527, 1.654]  256.0 ms  (-O3 421.3 ms)\n[timing]   candidate 7: 1.651x vs -O3 [1.633, 1.663]  255.1 ms  (-O3 421.3 ms)\n[timing]   candidate 8: 1.621x vs -O3 [1.601, 1.629]  259.9 ms  (-O3 421.3 ms)\n[confirm] best 1.651x: fresh 20-round run vs -O3 with an A/A control ...\n  [quiet-guard] 2.31 cores busy (limit 0.6); waiting up to 1800s before timing\n[confirm] 1.658x [1.652, 1.663], A/A control 0.998x\n  [quiet-guard] 1.00 cores busy (limit 0.6); waiting up to 1800s before timing\n  [quiet-guard] 0.71 cores busy (limit 0.6); waiting up to 1800s before timing\n\n== neurocompiler compare: user/matmul (one serial interleaved run, speedup vs -O3, 95% CI) ==\nmethod          speedup   95% CI\nO2               0.997x   [0.992, 1.000]\nOs               0.999x   [0.994, 1.001]\npredict          1.000x   kept -O3 (no change shipped)\ntune             1.657x   [1.648, 1.663]\nrandom@8         1.653x   [1.641, 1.665]\nga@8             1.000x   kept -O3 (no change shipped)\nA/A control      1.000x   [0.995, 1.003]\nsaved /home/chirag/neurocompiler/work/dashboard/jobs/355447a935d9/compare.json\n"
+}

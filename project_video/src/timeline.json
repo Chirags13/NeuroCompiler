@@ -1,0 +1,280 @@
+{
+ "fps": 30,
+ "total": 102.91,
+ "scenes": [
+  {
+   "id": "hook",
+   "start": 0.0,
+   "dur": 11.36,
+   "voice": 0.5,
+   "phrases": [
+    {
+     "text": "Compile with -O3,",
+     "say": "Compile with dash O three,",
+     "start": 0.593,
+     "end": 2.086
+    },
+    {
+     "text": "and 109 passes run",
+     "say": "and one hundred nine passes run",
+     "start": 2.363,
+     "end": 3.926
+    },
+    {
+     "text": "in the same order, for every program.",
+     "say": "in the same order, for every program.",
+     "start": 3.938,
+     "end": 5.836
+    },
+    {
+     "text": "NeuroCompiler looks for a faster recipe per program,",
+     "say": "Neuro Compiler looks for a faster recipe per program,",
+     "start": 6.218,
+     "end": 8.856
+    },
+    {
+     "text": "and proves it with a stopwatch.",
+     "say": "and proves it with a stopwatch.",
+     "start": 9.204,
+     "end": 10.593
+    }
+   ]
+  },
+  {
+   "id": "problem",
+   "start": 11.16,
+   "dur": 12.52,
+   "voice": 11.36,
+   "phrases": [
+    {
+     "text": "That recipe is a compromise.",
+     "say": "That recipe is a compromise.",
+     "start": 11.464,
+     "end": 12.98
+    },
+    {
+     "text": "One edit speeds some programs up and slows others down.",
+     "say": "One edit speeds some programs up and slows others down.",
+     "start": 13.374,
+     "end": 16.059
+    },
+    {
+     "text": "And the easy metric is a trap:",
+     "say": "And the easy metric is a trap:",
+     "start": 16.441,
+     "end": 18.096
+    },
+    {
+     "text": "across 18,000 timed candidates,",
+     "say": "across eighteen thousand candidates,",
+     "start": 18.385,
+     "end": 20.226
+    },
+    {
+     "text": "IR instruction count barely predicted speed.",
+     "say": "I R instruction count barely predicted speed.",
+     "start": 20.492,
+     "end": 22.911
+    }
+   ]
+  },
+  {
+   "id": "measure",
+   "start": 23.48,
+   "dur": 13.82,
+   "voice": 23.68,
+   "phrases": [
+    {
+     "text": "So, one rule: only measured runtime counts.",
+     "say": "So, one rule: only measured runtime counts.",
+     "start": 23.773,
+     "end": 26.724
+    },
+    {
+     "text": "Candidates race -O3 in shuffled rounds on a pinned core,",
+     "say": "Candidates race dash O three in shuffled rounds on a pinned core,",
+     "start": 27.106,
+     "end": 30.671
+    },
+    {
+     "text": "beside an identical copy that exposes noise.",
+     "say": "beside an identical copy that exposes noise.",
+     "start": 30.949,
+     "end": 33.483
+    },
+    {
+     "text": "If the output changes, the candidate is rejected.",
+     "say": "If the output changes, the candidate is rejected.",
+     "start": 33.865,
+     "end": 36.527
+    }
+   ]
+  },
+  {
+   "id": "learn",
+   "start": 37.1,
+   "dur": 15.26,
+   "voice": 37.3,
+   "phrases": [
+    {
+     "text": "We searched 146 real programs,",
+     "say": "We searched one hundred forty six real programs,",
+     "start": 37.404,
+     "end": 39.881
+    },
+    {
+     "text": "building over 70,000 candidates.",
+     "say": "building over seventy thousand candidates.",
+     "start": 40.089,
+     "end": 42.173
+    },
+    {
+     "text": "That data trains two models.",
+     "say": "That data trains two models.",
+     "start": 42.566,
+     "end": 43.99
+    },
+    {
+     "text": "LightGBM predicts a pipeline's speedup.",
+     "say": "Light G B M predicts a pipeline's speedup.",
+     "start": 44.372,
+     "end": 46.617
+    },
+    {
+     "text": "PPO, a reinforcement learning agent, invents new ones, edit by edit.",
+     "say": "P P O, a reinforcement learning agent, invents new ones, edit by edit.",
+     "start": 47.011,
+     "end": 51.594
+    }
+   ]
+  },
+  {
+   "id": "tune",
+   "start": 52.16,
+   "dur": 17.76,
+   "voice": 52.36,
+   "phrases": [
+    {
+     "text": "For a new program, PPO proposes 24 pipelines.",
+     "say": "For a new program, P P O proposes twenty four pipelines.",
+     "start": 52.487,
+     "end": 56.017
+    },
+    {
+     "text": "LightGBM ranks them with about 900 more.",
+     "say": "Light G B M ranks them with about nine hundred more.",
+     "start": 56.399,
+     "end": 59.096
+    },
+    {
+     "text": "The top 8 are compiled, verified and timed.",
+     "say": "The top eight are compiled, verified and timed.",
+     "start": 59.49,
+     "end": 61.99
+    },
+    {
+     "text": "The fastest must win again in a fresh run,",
+     "say": "The fastest must win again in a fresh run,",
+     "start": 62.383,
+     "end": 64.409
+    },
+    {
+     "text": "or -O3 ships.",
+     "say": "or dash O three ships.",
+     "start": 64.767,
+     "end": 66.249
+    },
+    {
+     "text": "The models shortlist. The stopwatch decides.",
+     "say": "The models shortlist. The stopwatch decides.",
+     "start": 66.642,
+     "end": 69.142
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "start": 69.72,
+   "dur": 15.26,
+   "voice": 69.92,
+   "phrases": [
+    {
+     "text": "On 33 programs from unseen families,",
+     "say": "On thirty three programs from unseen families,",
+     "start": 70.013,
+     "end": 72.536
+    },
+    {
+     "text": "it averages 8% faster than -O3,",
+     "say": "it averages eight percent faster than dash O three,",
+     "start": 72.767,
+     "end": 75.418
+    },
+    {
+     "text": "about 5% without its biggest win,",
+     "say": "about five without its biggest win,",
+     "start": 75.719,
+     "end": 77.385
+    },
+    {
+     "text": "and none got measurably slower.",
+     "say": "and none got measurably slower.",
+     "start": 77.756,
+     "end": 79.283
+    },
+    {
+     "text": "On one interpreter demo, runtime fell from 850 ms to 220.",
+     "say": "On one interpreter demo, runtime fell from eight fifty milliseconds to two twenty.",
+     "start": 79.665,
+     "end": 84.202
+    }
+   ]
+  },
+  {
+   "id": "stack",
+   "start": 84.78,
+   "dur": 11.52,
+   "voice": 84.98,
+   "phrases": [
+    {
+     "text": "Built on LLVM 18,",
+     "say": "Built on LLVM eighteen,",
+     "start": 85.084,
+     "end": 86.589
+    },
+    {
+     "text": "with a live dashboard showing every changed pass.",
+     "say": "with a live dashboard showing every changed pass.",
+     "start": 86.878,
+     "end": 89.656
+    },
+    {
+     "text": "The lesson: alone, the models are weak, and RL added little.",
+     "say": "The lesson: alone, the models are weak, and R L added little.",
+     "start": 90.049,
+     "end": 93.869
+    },
+    {
+     "text": "Measurement makes it reliable.",
+     "say": "Measurement makes it reliable.",
+     "start": 94.251,
+     "end": 95.536
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "start": 96.1,
+   "dur": 6.81,
+   "voice": 96.3,
+   "phrases": [
+    {
+     "text": "NeuroCompiler. Faster code, measured, not guessed.",
+     "say": "Neuro Compiler. Faster code, measured, not guessed.",
+     "start": 96.393,
+     "end": 99.737
+    }
+   ]
+  }
+ ]
+}

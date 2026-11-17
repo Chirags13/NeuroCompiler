@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-# neurocompiler <source.c> [more sources] --out prog [--args "..."] [--cflags "..."] [--k 8] [--no-rl]
+# neurocompiler [tune|predict|compare] <source.c> [more sources] --out prog [--args "..."] [--cflags "..."]
+#   tune (default): RL + SL, candidates timed against -O3 (frozen models, results/models/tune/MANIFEST.json)
+#   predict: no program run; own models (results/models/predict); ships a change only when confident
+#   compare: one serial interleaved run of -O3/-O2/-Os/predict/tune/random/GA with an A/A control
+# Tune details:
 # RL + SL: the RL agent proposes pipelines for this program, the supervised model ranks them together with
 # the pipeline library, the top-k are compiled, verified against the -O0 output and timed with -O3 (always
 # a candidate); the fastest ships only if a fresh confirmation run beats -O3 by >1%, else -O3 ships.
@@ -7,4 +11,8 @@
 # NC_CONFIG=path selects another config (default: the repo's config.toml).
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 export NC_CALLER_CWD="$PWD"
-cd "$here" && exec "$here/.venv/bin/python" -m nc.cli --config "${NC_CONFIG:-$here/config.toml}" deploy "$@"
+case "${1:-}" in
+  tune|deploy|predict|compare) sub="$1"; shift ;;
+  *) sub=tune ;;                       # backward compatible: `neurocompiler prog.c ...` = tune
+esac
+cd "$here" && exec "$here/.venv/bin/python" -m nc.cli --config "${NC_CONFIG:-$here/config.toml}" "$sub" "$@"

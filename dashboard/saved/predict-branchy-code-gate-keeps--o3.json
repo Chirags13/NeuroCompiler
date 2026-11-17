@@ -1,0 +1,371 @@
+{
+ "id": "f23ac71f639c",
+ "mode": "predict",
+ "status": "done",
+ "created": 1793000865.1562657,
+ "example": "branchy",
+ "inputs": {
+  "files": [
+   "branchy.c"
+  ],
+  "args": "3000000",
+  "cflags": "",
+  "k": 8,
+  "no_rl": false,
+  "dynamic": false,
+  "verify": false,
+  "no_measure": false,
+  "stdin": null
+ },
+ "started": 1793001016.902508,
+ "command": [
+  "/home/chirag/neurocompiler/.venv/bin/python",
+  "-u",
+  "-m",
+  "nc.cli",
+  "predict",
+  "/home/chirag/neurocompiler/work/dashboard/jobs/f23ac71f639c/src/branchy.c",
+  "--out",
+  "/home/chirag/neurocompiler/work/dashboard/jobs/f23ac71f639c/prog",
+  "--cflags=-I/home/chirag/neurocompiler/work/dashboard/jobs/f23ac71f639c/src",
+  "--args=3000000",
+  "--cwd",
+  "/home/chirag/neurocompiler/work/dashboard/jobs/f23ac71f639c/src"
+ ],
+ "finished": 1793001051.715356,
+ "returncode": 0,
+ "result": {
+  "source": "safe pool",
+  "predicted_speedup": 1.0318,
+  "range": [
+   1.0137,
+   1.0539
+  ],
+  "member_agreement": 0.43,
+  "p_harmful": 0.362,
+  "ship": false,
+  "top": [
+   {
+    "edits": [
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     },
+     {
+      "name": "llc:-align-loops",
+      "op": "knob",
+      "value": 32
+     }
+    ],
+    "source": "safe pool",
+    "predicted_speedup": 1.0318,
+    "range": [
+     1.0137,
+     1.0539
+    ],
+    "agreement": 0.43,
+    "p_harmful": 0.362,
+    "checks": {
+     "pessimistic": false,
+     "agreement": false,
+     "harm": true
+    }
+   },
+   {
+    "edits": [
+     {
+      "name": "-simplifycfg-sink-common",
+      "op": "knob",
+      "value": "false"
+     },
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     }
+    ],
+    "source": "safe pool",
+    "predicted_speedup": 1.0202,
+    "range": [
+     1.0108,
+     1.032
+    ],
+    "agreement": 0.14,
+    "p_harmful": 0.32,
+    "checks": {
+     "pessimistic": false,
+     "agreement": false,
+     "harm": true
+    }
+   },
+   {
+    "edits": [
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     },
+     {
+      "id": 104,
+      "new": "O1",
+      "op": "param",
+      "tok": "O3"
+     }
+    ],
+    "source": "safe pool",
+    "predicted_speedup": 1.0193,
+    "range": [
+     1.0097,
+     1.0292
+    ],
+    "agreement": 0.0,
+    "p_harmful": 0.351,
+    "checks": {
+     "pessimistic": false,
+     "agreement": false,
+     "harm": true
+    }
+   },
+   {
+    "edits": [
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     },
+     {
+      "name": "llc:-align-loops",
+      "op": "knob",
+      "value": 1
+     }
+    ],
+    "source": "safe pool",
+    "predicted_speedup": 1.0187,
+    "range": [
+     1.0085,
+     1.032
+    ],
+    "agreement": 0.14,
+    "p_harmful": 0.516,
+    "checks": {
+     "pessimistic": false,
+     "agreement": false,
+     "harm": false
+    }
+   },
+   {
+    "edits": [
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     },
+     {
+      "id": 101,
+      "op": "del"
+     }
+    ],
+    "source": "safe pool",
+    "predicted_speedup": 1.0194,
+    "range": [
+     1.0082,
+     1.0356
+    ],
+    "agreement": 0.14,
+    "p_harmful": 0.358,
+    "checks": {
+     "pessimistic": false,
+     "agreement": false,
+     "harm": true
+    }
+   },
+   {
+    "edits": [
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     }
+    ],
+    "source": "safe pool",
+    "predicted_speedup": 1.0205,
+    "range": [
+     1.0082,
+     1.0339
+    ],
+    "agreement": 0.29,
+    "p_harmful": 0.366,
+    "checks": {
+     "pessimistic": false,
+     "agreement": false,
+     "harm": true
+    }
+   },
+   {
+    "edits": [
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     },
+     {
+      "id": 54,
+      "op": "del"
+     }
+    ],
+    "source": "safe pool",
+    "predicted_speedup": 1.0184,
+    "range": [
+     1.0081,
+     1.0307
+    ],
+    "agreement": 0.14,
+    "p_harmful": 0.421,
+    "checks": {
+     "pessimistic": false,
+     "agreement": false,
+     "harm": true
+    }
+   },
+   {
+    "edits": [
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     },
+     {
+      "id": 65,
+      "op": "del"
+     }
+    ],
+    "source": "safe pool",
+    "predicted_speedup": 1.0183,
+    "range": [
+     1.008,
+     1.0309
+    ],
+    "agreement": 0.14,
+    "p_harmful": 0.358,
+    "checks": {
+     "pessimistic": false,
+     "agreement": false,
+     "harm": true
+    }
+   },
+   {
+    "edits": [
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     },
+     {
+      "id": 100,
+      "op": "del"
+     }
+    ],
+    "source": "safe pool",
+    "predicted_speedup": 1.0183,
+    "range": [
+     1.008,
+     1.0309
+    ],
+    "agreement": 0.14,
+    "p_harmful": 0.358,
+    "checks": {
+     "pessimistic": false,
+     "agreement": false,
+     "harm": true
+    }
+   },
+   {
+    "edits": [
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     },
+     {
+      "id": 40,
+      "op": "del"
+     }
+    ],
+    "source": "safe pool",
+    "predicted_speedup": 1.0183,
+    "range": [
+     1.0078,
+     1.032
+    ],
+    "agreement": 0.14,
+    "p_harmful": 0.375,
+    "checks": {
+     "pessimistic": false,
+     "agreement": false,
+     "harm": true
+    }
+   }
+  ],
+  "gate": {
+   "margin": 0.03,
+   "tau": 0.5,
+   "agree": 0.8
+  },
+  "confidence": "low",
+  "reason": "kept -O3: pessimistic estimate too low, models disagree",
+  "mode": "RL + SL",
+  "rl_proposals": 24,
+  "recommended": false,
+  "applied": false,
+  "output": "/home/chirag/neurocompiler/work/dashboard/jobs/f23ac71f639c/prog",
+  "verified": false,
+  "o3_build_s": 0.23,
+  "predict_total_s": 0.87,
+  "added_over_o3_s": 0.65,
+  "o3_pipeline": "annotation2metadata,forceattrs,inferattrs,coro-early,function<eager-inv>(lower-expect,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;no-switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,sroa<modify-cfg>,early-cse<>,callsite-splitting),openmp-opt,ipsccp,called-value-propagation,globalopt,function<eager-inv>(mem2reg,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),always-inline,require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,argpromotion,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,correlated-propagation,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto>,licm<allowspeculation>,simple-loop-unswitch<nontrivial;trivial>),simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop(loop-idiom,indvars,loop-deletion,loop-unroll-full),sroa<modify-cfg>,vector-combine,mldst-motion<no-split-footer-bb>,gvn<>,sccp,bdce,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,jump-threading,correlated-propagation,adce,memcpyopt,dse,move-auto-init,loop-mssa(licm<allowspeculation>),coro-elide,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>),function-attrs,function(require<should-not-run-function-passes>),coro-split)),deadargelim,coro-cleanup,globalopt,globaldce,elim-avail-extern,rpo-function-attrs,recompute-globalsaa,function<eager-inv>(float2int,lower-constant-intrinsics,chr,loop(loop-rotate<header-duplication;no-prepare-for-lto>,loop-deletion),loop-distribute,inject-tli-mappings,loop-vectorize<no-interleave-forced-only;no-vectorize-forced-only;>,infer-alignment,loop-load-elim,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;forward-switch-cond;switch-range-to-icmp;switch-to-lookup;no-keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,slp-vectorizer,vector-combine,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-unroll<O3>,transform-warning,sroa<preserve-cfg>,infer-alignment,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-mssa(licm<allowspeculation>),alignment-from-assumptions,loop-sink,instsimplify,div-rem-pairs,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),globaldce,constmerge,cg-profile,rel-lookup-table-converter,function(annotation-remarks),verify",
+  "o3_text_size": 4482,
+  "measured": {
+   "edits": [
+    {
+     "name": "llc:-tail-dup-size",
+     "op": "knob",
+     "value": 6
+    },
+    {
+     "name": "llc:-align-loops",
+     "op": "knob",
+     "value": 32
+    }
+   ],
+   "raw": null,
+   "pipeline": "annotation2metadata,forceattrs,inferattrs,coro-early,function<eager-inv>(lower-expect,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;no-switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,sroa<modify-cfg>,early-cse<>,callsite-splitting),openmp-opt,ipsccp,called-value-propagation,globalopt,function<eager-inv>(mem2reg,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),always-inline,require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,argpromotion,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,correlated-propagation,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto>,licm<allowspeculation>,simple-loop-unswitch<nontrivial;trivial>),simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop(loop-idiom,indvars,loop-deletion,loop-unroll-full),sroa<modify-cfg>,vector-combine,mldst-motion<no-split-footer-bb>,gvn<>,sccp,bdce,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,jump-threading,correlated-propagation,adce,memcpyopt,dse,move-auto-init,loop-mssa(licm<allowspeculation>),coro-elide,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>),function-attrs,function(require<should-not-run-function-passes>),coro-split)),deadargelim,coro-cleanup,globalopt,globaldce,elim-avail-extern,rpo-function-attrs,recompute-globalsaa,function<eager-inv>(float2int,lower-constant-intrinsics,chr,loop(loop-rotate<header-duplication;no-prepare-for-lto>,loop-deletion),loop-distribute,inject-tli-mappings,loop-vectorize<no-interleave-forced-only;no-vectorize-forced-only;>,infer-alignment,loop-load-elim,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;forward-switch-cond;switch-range-to-icmp;switch-to-lookup;no-keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,slp-vectorizer,vector-combine,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-unroll<O3>,transform-warning,sroa<preserve-cfg>,infer-alignment,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-mssa(licm<allowspeculation>),alignment-from-assumptions,loop-sink,instsimplify,div-rem-pairs,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),globaldce,constmerge,cg-profile,rel-lookup-table-converter,function(annotation-remarks),verify",
+   "flags": [
+    "llc:-align-loops=32",
+    "llc:-tail-dup-size=6"
+   ],
+   "backend": 3,
+   "rounds": 20,
+   "text_size": 4754,
+   "status": "ok",
+   "speedup": 1.010898655431326,
+   "ci": [
+    0.9990404874410462,
+    1.0194656548727188
+   ],
+   "control": 1.0034472510174592,
+   "control_ok": true,
+   "o3_median_ms": 425.992142,
+   "pick_median_ms": 420.9648545,
+   "measure_s": 32.9,
+   "verdict": "no measurable difference",
+   "which": "top prediction (did not pass the gate)",
+   "predicted_speedup": 1.0318
+  }
+ },
+ "sources": {
+  "branchy.c": "/* Integer, branch- and data-dependent workload: quicksort + binary search + Collatz.\n * Behaves very differently from matmul under optimization. Usage: ./branchy [N] (default 3000000) */\n#include <stdio.h>\n#include <stdlib.h>\n\nstatic unsigned state = 12345u;\nstatic inline unsigned rnd(void) { state = state * 1664525u + 1013904223u; return state >> 8; }\n\nstatic void isort(unsigned *a, long lo, long hi) {\n    for (long i = lo + 1; i <= hi; i++) {\n        unsigned v = a[i]; long j = i - 1;\n        while (j >= lo && a[j] > v) { a[j + 1] = a[j]; j--; }\n        a[j + 1] = v;\n    }\n}\n\nstatic void qsort_u(unsigned *a, long lo, long hi) {\n    while (hi - lo > 16) {\n        unsigned p = a[lo + (hi - lo) / 2];\n        long i = lo, j = hi;\n        while (i <= j) {\n            while (a[i] < p) i++;\n            while (a[j] > p) j--;\n            if (i <= j) { unsigned t = a[i]; a[i] = a[j]; a[j] = t; i++; j--; }\n        }\n        if (j - lo < hi - i) { qsort_u(a, lo, j); lo = i; }\n        else { qsort_u(a, i, hi); hi = j; }\n    }\n    isort(a, lo, hi);\n}\n\nstatic long bsearch_u(const unsigned *a, long n, unsigned key) {\n    long lo = 0, hi = n - 1;\n    while (lo <= hi) {\n        long mid = lo + (hi - lo) / 2;\n        if (a[mid] == key) return mid;\n        if (a[mid] < key) lo = mid + 1; else hi = mid - 1;\n    }\n    return -1;\n}\n\nint main(int argc, char **argv) {\n    long n = argc > 1 ? atol(argv[1]) : 3000000;\n    unsigned *a = malloc(sizeof(unsigned) * n);\n    if (!a) return 2;\n    for (long i = 0; i < n; i++) a[i] = rnd();\n    qsort_u(a, 0, n - 1);\n    unsigned long long chk = 0;\n    for (long i = 1; i < n; i++) if (a[i - 1] > a[i]) return 3;   /* self-check */\n    for (long q = 0; q < n / 2; q++) {\n        long r = bsearch_u(a, n, a[(unsigned long long)rnd() % n] + (rnd() & 1));\n        chk = chk * 1099511628211ULL + (unsigned long long)(r + 1);\n    }\n    unsigned long long steps = 0;\n    for (unsigned long long s = 1; s < 400000ULL; s++) {\n        unsigned long long x = s;\n        while (x != 1) { x = (x & 1) ? 3 * x + 1 : x >> 1; steps++; }\n    }\n    printf(\"%llu %llu\\n\", chk, steps);\n    free(a);\n    return 0;\n}\n"
+ },
+ "saved_name": "Predict \u00b7 branchy code (gate keeps -O3",
+ "log": "$ /home/chirag/neurocompiler/.venv/bin/python -u -m nc.cli predict /home/chirag/neurocompiler/work/dashboard/jobs/f23ac71f639c/src/branchy.c --out /home/chirag/neurocompiler/work/dashboard/jobs/f23ac71f639c/prog --cflags=-I/home/chirag/neurocompiler/work/dashboard/jobs/f23ac71f639c/src --args=3000000 --cwd /home/chirag/neurocompiler/work/dashboard/jobs/f23ac71f639c/src\n\n[measure] checking the pick's output against the -O0 build ...\n[measure] timing the pick vs -O3: 20 interleaved rounds on a pinned core, with an A/A control ...\n[measure] pick 1.011x vs -O3 [0.999, 1.019]  421.0 ms vs 426.0 ms; A/A control 1.003x\n{\n \"source\": \"safe pool\",\n \"predicted_speedup\": 1.0318,\n \"range\": [\n  1.0137,\n  1.0539\n ],\n \"member_agreement\": 0.43,\n \"p_harmful\": 0.362,\n \"ship\": false,\n \"top\": [\n  {\n   \"edits\": [\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    },\n    {\n     \"name\": \"llc:-align-loops\",\n     \"op\": \"knob\",\n     \"value\": 32\n    }\n   ],\n   \"source\": \"safe pool\",\n   \"predicted_speedup\": 1.0318,\n   \"range\": [\n    1.0137,\n    1.0539\n   ],\n   \"agreement\": 0.43,\n   \"p_harmful\": 0.362,\n   \"checks\": {\n    \"pessimistic\": false,\n    \"agreement\": false,\n    \"harm\": true\n   }\n  },\n  {\n   \"edits\": [\n    {\n     \"name\": \"-simplifycfg-sink-common\",\n     \"op\": \"knob\",\n     \"value\": \"false\"\n    },\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    }\n   ],\n   \"source\": \"safe pool\",\n   \"predicted_speedup\": 1.0202,\n   \"range\": [\n    1.0108,\n    1.032\n   ],\n   \"agreement\": 0.14,\n   \"p_harmful\": 0.32,\n   \"checks\": {\n    \"pessimistic\": false,\n    \"agreement\": false,\n    \"harm\": true\n   }\n  },\n  {\n   \"edits\": [\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    },\n    {\n     \"id\": 104,\n     \"new\": \"O1\",\n     \"op\": \"param\",\n     \"tok\": \"O3\"\n    }\n   ],\n   \"source\": \"safe pool\",\n   \"predicted_speedup\": 1.0193,\n   \"range\": [\n    1.0097,\n    1.0292\n   ],\n   \"agreement\": 0.0,\n   \"p_harmful\": 0.351,\n   \"checks\": {\n    \"pessimistic\": false,\n    \"agreement\": false,\n    \"harm\": true\n   }\n  },\n  {\n   \"edits\": [\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    },\n    {\n     \"name\": \"llc:-align-loops\",\n     \"op\": \"knob\",\n     \"value\": 1\n    }\n   ],\n   \"source\": \"safe pool\",\n   \"predicted_speedup\": 1.0187,\n   \"range\": [\n    1.0085,\n    1.032\n   ],\n   \"agreement\": 0.14,\n   \"p_harmful\": 0.516,\n   \"checks\": {\n    \"pessimistic\": false,\n    \"agreement\": false,\n    \"harm\": false\n   }\n  },\n  {\n   \"edits\": [\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    },\n    {\n     \"id\": 101,\n     \"op\": \"del\"\n    }\n   ],\n   \"source\": \"safe pool\",\n   \"predicted_speedup\": 1.0194,\n   \"range\": [\n    1.0082,\n    1.0356\n   ],\n   \"agreement\": 0.14,\n   \"p_harmful\": 0.358,\n   \"checks\": {\n    \"pessimistic\": false,\n    \"agreement\": false,\n    \"harm\": true\n   }\n  },\n  {\n   \"edits\": [\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    }\n   ],\n   \"source\": \"safe pool\",\n   \"predicted_speedup\": 1.0205,\n   \"range\": [\n    1.0082,\n    1.0339\n   ],\n   \"agreement\": 0.29,\n   \"p_harmful\": 0.366,\n   \"checks\": {\n    \"pessimistic\": false,\n    \"agreement\": false,\n    \"harm\": true\n   }\n  },\n  {\n   \"edits\": [\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    },\n    {\n     \"id\": 54,\n     \"op\": \"del\"\n    }\n   ],\n   \"source\": \"safe pool\",\n   \"predicted_speedup\": 1.0184,\n   \"range\": [\n    1.0081,\n    1.0307\n   ],\n   \"agreement\": 0.14,\n   \"p_harmful\": 0.421,\n   \"checks\": {\n    \"pessimistic\": false,\n    \"agreement\": false,\n    \"harm\": true\n   }\n  },\n  {\n   \"edits\": [\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    },\n    {\n     \"id\": 65,\n     \"op\": \"del\"\n    }\n   ],\n   \"source\": \"safe pool\",\n   \"predicted_speedup\": 1.0183,\n   \"range\": [\n    1.008,\n    1.0309\n   ],\n   \"agreement\": 0.14,\n   \"p_harmful\": 0.358,\n   \"checks\": {\n    \"pessimistic\": false,\n    \"agreement\": false,\n    \"harm\": true\n   }\n  },\n  {\n   \"edits\": [\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    },\n    {\n     \"id\": 100,\n     \"op\": \"del\"\n    }\n   ],\n   \"source\": \"safe pool\",\n   \"predicted_speedup\": 1.0183,\n   \"range\": [\n    1.008,\n    1.0309\n   ],\n   \"agreement\": 0.14,\n   \"p_harmful\": 0.358,\n   \"checks\": {\n    \"pessimistic\": false,\n    \"agreement\": false,\n    \"harm\": true\n   }\n  },\n  {\n   \"edits\": [\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    },\n    {\n     \"id\": 40,\n     \"op\": \"del\"\n    }\n   ],\n   \"source\": \"safe pool\",\n   \"predicted_speedup\": 1.0183,\n   \"range\": [\n    1.0078,\n    1.032\n   ],\n   \"agreement\": 0.14,\n   \"p_harmful\": 0.375,\n   \"checks\": {\n    \"pessimistic\": false,\n    \"agreement\": false,\n    \"harm\": true\n   }\n  }\n ],\n \"gate\": {\n  \"margin\": 0.03,\n  \"tau\": 0.5,\n  \"agree\": 0.8\n },\n \"confidence\": \"low\",\n \"reason\": \"kept -O3: pessimistic estimate too low, models disagree\",\n \"mode\": \"RL + SL\",\n \"rl_proposals\": 24,\n \"recommended\": false,\n \"applied\": false,\n \"output\": \"/home/chirag/neurocompiler/work/dashboard/jobs/f23ac71f639c/prog\",\n \"verified\": false,\n \"o3_build_s\": 0.23,\n \"predict_total_s\": 0.87,\n \"added_over_o3_s\": 0.65,\n \"o3_pipeline\": \"annotation2metadata,forceattrs,inferattrs,coro-early,function<eager-inv>(lower-expect,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;no-switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,sroa<modify-cfg>,early-cse<>,callsite-splitting),openmp-opt,ipsccp,called-value-propagation,globalopt,function<eager-inv>(mem2reg,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),always-inline,require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,argpromotion,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,correlated-propagation,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto>,licm<allowspeculation>,simple-loop-unswitch<nontrivial;trivial>),simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop(loop-idiom,indvars,loop-deletion,loop-unroll-full),sroa<modify-cfg>,vector-combine,mldst-motion<no-split-footer-bb>,gvn<>,sccp,bdce,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,jump-threading,correlated-propagation,adce,memcpyopt,dse,move-auto-init,loop-mssa(licm<allowspeculation>),coro-elide,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>),function-attrs,function(require<should-not-run-function-passes>),coro-split)),deadargelim,coro-cleanup,globalopt,globaldce,elim-avail-extern,rpo-function-attrs,recompute-globalsaa,function<eager-inv>(float2int,lower-constant-intrinsics,chr,loop(loop-rotate<header-duplication;no-prepare-for-lto>,loop-deletion),loop-distribute,inject-tli-mappings,loop-vectorize<no-interleave-forced-only;no-vectorize-forced-only;>,infer-alignment,loop-load-elim,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;forward-switch-cond;switch-range-to-icmp;switch-to-lookup;no-keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,slp-vectorizer,vector-combine,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-unroll<O3>,transform-warning,sroa<preserve-cfg>,infer-alignment,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-mssa(licm<allowspeculation>),alignment-from-assumptions,loop-sink,instsimplify,div-rem-pairs,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),globaldce,constmerge,cg-profile,rel-lookup-table-converter,function(annotation-remarks),verify\",\n \"o3_text_size\": 4482,\n \"measured\": {\n  \"edits\": [\n   {\n    \"name\": \"llc:-tail-dup-size\",\n    \"op\": \"knob\",\n    \"value\": 6\n   },\n   {\n    \"name\": \"llc:-align-loops\",\n    \"op\": \"knob\",\n    \"value\": 32\n   }\n  ],\n  \"raw\": null,\n  \"pipeline\": \"annotation2metadata,forceattrs,inferattrs,coro-early,function<eager-inv>(lower-expect,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;no-switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,sroa<modify-cfg>,early-cse<>,callsite-splitting),openmp-opt,ipsccp,called-value-propagation,globalopt,function<eager-inv>(mem2reg,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),always-inline,require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,argpromotion,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,correlated-propagation,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto>,licm<allowspeculation>,simple-loop-unswitch<nontrivial;trivial>),simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop(loop-idiom,indvars,loop-deletion,loop-unroll-full),sroa<modify-cfg>,vector-combine,mldst-motion<no-split-footer-bb>,gvn<>,sccp,bdce,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,jump-threading,correlated-propagation,adce,memcpyopt,dse,move-auto-init,loop-mssa(licm<allowspeculation>),coro-elide,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>),function-attrs,function(require<should-not-run-function-passes>),coro-split)),deadargelim,coro-cleanup,globalopt,globaldce,elim-avail-extern,rpo-function-attrs,recompute-globalsaa,function<eager-inv>(float2int,lower-constant-intrinsics,chr,loop(loop-rotate<header-duplication;no-prepare-for-lto>,loop-deletion),loop-distribute,inject-tli-mappings,loop-vectorize<no-interleave-forced-only;no-vectorize-forced-only;>,infer-alignment,loop-load-elim,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;forward-switch-cond;switch-range-to-icmp;switch-to-lookup;no-keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,slp-vectorizer,vector-combine,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-unroll<O3>,transform-warning,sroa<preserve-cfg>,infer-alignment,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-mssa(licm<allowspeculation>),alignment-from-assumptions,loop-sink,instsimplify,div-rem-pairs,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),globaldce,constmerge,cg-profile,rel-lookup-table-converter,function(annotation-remarks),verify\",\n  \"flags\": [\n   \"llc:-align-loops=32\",\n   \"llc:-tail-dup-size=6\"\n  ],\n  \"backend\": 3,\n  \"rounds\": 20,\n  \"text_size\": 4754,\n  \"status\": \"ok\",\n  \"speedup\": 1.010898655431326,\n  \"ci\": [\n   0.9990404874410462,\n   1.0194656548727188\n  ],\n  \"control\": 1.0034472510174592,\n  \"control_ok\": true,\n  \"o3_median_ms\": 425.992142,\n  \"pick_median_ms\": 420.9648545,\n  \"measure_s\": 32.9,\n  \"verdict\": \"no measurable difference\",\n  \"which\": \"top prediction (did not pass the gate)\",\n  \"predicted_speedup\": 1.0318\n }\n}\n\n== neurocompiler predict (RL + SL) ==\nrecommendation: keep -O3\nreason: kept -O3: pessimistic estimate too low, models disagree\ntime: predict 0.87 s vs plain -O3 build 0.23 s (added +0.65 s); output NOT verified (use --verify)\nmeasured (top prediction (did not pass the gate)): 1.011x vs -O3 [0.999, 1.019], 421.0 ms vs -O3 426.0 ms, 20 rounds, A/A control 1.003x -> no measurable difference (predicted 1.032x)\nbinary: /home/chirag/neurocompiler/work/dashboard/jobs/f23ac71f639c/prog\n"
+}

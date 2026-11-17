@@ -1,0 +1,1051 @@
+{
+ "mode": "predict",
+ "reward": "ensemble pessimistic estimate (mean - 1.28 std)",
+ "margin": 0.03,
+ "programs": 113,
+ "actions": [
+  {
+   "new": "no-sink-common-insts",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "sink-common-insts"
+  },
+  {
+   "name": "-simplifycfg-sink-common",
+   "op": "knob",
+   "value": "false"
+  },
+  {
+   "name": "llc:-tail-dup-size",
+   "op": "knob",
+   "value": 6
+  },
+  {
+   "id": 100,
+   "op": "del"
+  },
+  {
+   "id": 100,
+   "new": "bonus-inst-threshold=4",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "new": "sink-common-insts",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "no-sink-common-insts"
+  },
+  {
+   "id": 96,
+   "new": "vectorize-forced-only",
+   "op": "param",
+   "tok": "no-vectorize-forced-only"
+  },
+  {
+   "new": "vectorize-forced-only",
+   "op": "param_all",
+   "pass": "loop-vectorize",
+   "tok": "no-vectorize-forced-only"
+  },
+  {
+   "id": 7,
+   "new": "bonus-inst-threshold=4",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "new": "interleave-forced-only",
+   "op": "param_all",
+   "pass": "loop-vectorize",
+   "tok": "no-interleave-forced-only"
+  },
+  {
+   "op": "del_all",
+   "pass": "tailcallelim"
+  },
+  {
+   "name": "-unroll-threshold",
+   "op": "knob",
+   "value": 600
+  },
+  {
+   "id": 18,
+   "new": "no-keep-loops",
+   "op": "param",
+   "tok": "keep-loops"
+  },
+  {
+   "id": 100,
+   "new": "keep-loops",
+   "op": "param",
+   "tok": "no-keep-loops"
+  },
+  {
+   "new": "keep-loops",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "no-keep-loops"
+  },
+  {
+   "id": 18,
+   "new": "sink-common-insts",
+   "op": "param",
+   "tok": "no-sink-common-insts"
+  },
+  {
+   "new": "bonus-inst-threshold=0",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "name": "llc:-align-loops",
+   "op": "knob",
+   "value": 32
+  },
+  {
+   "id": 41,
+   "new": "no-keep-loops",
+   "op": "param",
+   "tok": "keep-loops"
+  },
+  {
+   "id": 40,
+   "op": "del"
+  },
+  {
+   "id": 7,
+   "new": "no-speculate-blocks",
+   "op": "param",
+   "tok": "speculate-blocks"
+  },
+  {
+   "id": 18,
+   "new": "bonus-inst-threshold=4",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "name": "llc:-align-loops",
+   "op": "knob",
+   "value": 1
+  },
+  {
+   "id": 101,
+   "op": "del"
+  },
+  {
+   "name": "-unroll-threshold",
+   "op": "knob",
+   "value": 100
+  },
+  {
+   "id": 65,
+   "op": "del"
+  },
+  {
+   "id": 18,
+   "new": "no-switch-range-to-icmp",
+   "op": "param",
+   "tok": "switch-range-to-icmp"
+  },
+  {
+   "new": "no-simplify-cond-branch",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "simplify-cond-branch"
+  },
+  {
+   "id": 104,
+   "new": "O1",
+   "op": "param",
+   "tok": "O3"
+  },
+  {
+   "new": "O2",
+   "op": "param_all",
+   "pass": "loop-unroll",
+   "tok": "O3"
+  },
+  {
+   "id": 7,
+   "new": "hoist-common-insts",
+   "op": "param",
+   "tok": "no-hoist-common-insts"
+  },
+  {
+   "op": "del_all",
+   "pass": "loop-rotate"
+  },
+  {
+   "id": 8,
+   "op": "del"
+  },
+  {
+   "id": 7,
+   "new": "no-simplify-cond-branch",
+   "op": "param",
+   "tok": "simplify-cond-branch"
+  },
+  {
+   "id": 100,
+   "new": "bonus-inst-threshold=2",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "name": "-unroll-threshold",
+   "op": "knob",
+   "value": 0
+  },
+  {
+   "id": 54,
+   "op": "del"
+  },
+  {
+   "id": 36,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "new": "no-header-duplication",
+   "op": "param_all",
+   "pass": "loop-rotate",
+   "tok": "header-duplication"
+  },
+  {
+   "id": 37,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 60,
+   "new": "split-footer-bb",
+   "op": "param",
+   "tok": "no-split-footer-bb"
+  },
+  {
+   "id": 116,
+   "new": "sink-common-insts",
+   "op": "param",
+   "tok": "no-sink-common-insts"
+  },
+  {
+   "id": 41,
+   "new": "sink-common-insts",
+   "op": "param",
+   "tok": "no-sink-common-insts"
+  },
+  {
+   "id": 36,
+   "new": "no-keep-loops",
+   "op": "param",
+   "tok": "keep-loops"
+  },
+  {
+   "id": 7,
+   "new": "sink-common-insts",
+   "op": "param",
+   "tok": "no-sink-common-insts"
+  },
+  {
+   "id": 35,
+   "op": "del"
+  },
+  {
+   "id": 116,
+   "new": "no-speculate-blocks",
+   "op": "param",
+   "tok": "speculate-blocks"
+  },
+  {
+   "id": 18,
+   "new": "hoist-common-insts",
+   "op": "param",
+   "tok": "no-hoist-common-insts"
+  },
+  {
+   "name": "-jump-threading-threshold",
+   "op": "knob",
+   "value": 12
+  },
+  {
+   "op": "del_all",
+   "pass": "loop-deletion"
+  },
+  {
+   "id": 103,
+   "op": "del"
+  },
+  {
+   "id": 9,
+   "op": "del"
+  },
+  {
+   "id": 100,
+   "new": "no-hoist-common-insts",
+   "op": "param",
+   "tok": "hoist-common-insts"
+  },
+  {
+   "id": 74,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "name": "llc:-tail-dup-size",
+   "op": "knob",
+   "value": 4
+  },
+  {
+   "op": "del_all",
+   "pass": "globaldce"
+  },
+  {
+   "name": "-phi-node-folding-threshold",
+   "op": "knob",
+   "value": 4
+  },
+  {
+   "id": 74,
+   "op": "del"
+  },
+  {
+   "id": 116,
+   "new": "no-keep-loops",
+   "op": "param",
+   "tok": "keep-loops"
+  },
+  {
+   "id": 7,
+   "new": "switch-range-to-icmp",
+   "op": "param",
+   "tok": "no-switch-range-to-icmp"
+  },
+  {
+   "new": "switch-range-to-icmp",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "no-switch-range-to-icmp"
+  },
+  {
+   "id": 17,
+   "op": "del"
+  },
+  {
+   "id": 36,
+   "op": "del"
+  },
+  {
+   "id": 36,
+   "new": "no-speculate-blocks",
+   "op": "param",
+   "tok": "speculate-blocks"
+  },
+  {
+   "id": 64,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 99,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 7,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "id": 38,
+   "op": "del"
+  },
+  {
+   "id": 7,
+   "new": "forward-switch-cond",
+   "op": "param",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "id": 7,
+   "new": "switch-to-lookup",
+   "op": "param",
+   "tok": "no-switch-to-lookup"
+  },
+  {
+   "id": 8,
+   "new": "preserve-cfg",
+   "op": "param",
+   "tok": "modify-cfg"
+  },
+  {
+   "id": 11,
+   "op": "del"
+  },
+  {
+   "id": 13,
+   "op": "del"
+  },
+  {
+   "id": 17,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 17,
+   "new": "use-loop-info",
+   "op": "param",
+   "tok": "no-use-loop-info"
+  },
+  {
+   "id": 18,
+   "new": "forward-switch-cond",
+   "op": "param",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "id": 29,
+   "op": "del"
+  },
+  {
+   "id": 31,
+   "new": "preserve-cfg",
+   "op": "param",
+   "tok": "modify-cfg"
+  },
+  {
+   "id": 36,
+   "new": "no-switch-range-to-icmp",
+   "op": "param",
+   "tok": "switch-range-to-icmp"
+  },
+  {
+   "id": 36,
+   "new": "forward-switch-cond",
+   "op": "param",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "id": 37,
+   "new": "use-loop-info",
+   "op": "param",
+   "tok": "no-use-loop-info"
+  },
+  {
+   "id": 41,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "id": 41,
+   "new": "no-switch-range-to-icmp",
+   "op": "param",
+   "tok": "switch-range-to-icmp"
+  },
+  {
+   "id": 41,
+   "new": "no-speculate-blocks",
+   "op": "param",
+   "tok": "speculate-blocks"
+  },
+  {
+   "id": 41,
+   "new": "forward-switch-cond",
+   "op": "param",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "id": 51,
+   "new": "no-switch-range-to-icmp",
+   "op": "param",
+   "tok": "switch-range-to-icmp"
+  },
+  {
+   "id": 51,
+   "new": "forward-switch-cond",
+   "op": "param",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "id": 52,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 52,
+   "new": "use-loop-info",
+   "op": "param",
+   "tok": "no-use-loop-info"
+  },
+  {
+   "id": 58,
+   "new": "preserve-cfg",
+   "op": "param",
+   "tok": "modify-cfg"
+  },
+  {
+   "id": 59,
+   "op": "del"
+  },
+  {
+   "id": 64,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 64,
+   "new": "use-loop-info",
+   "op": "param",
+   "tok": "no-use-loop-info"
+  },
+  {
+   "id": 73,
+   "op": "del"
+  },
+  {
+   "id": 74,
+   "new": "no-switch-range-to-icmp",
+   "op": "param",
+   "tok": "switch-range-to-icmp"
+  },
+  {
+   "id": 74,
+   "new": "forward-switch-cond",
+   "op": "param",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "id": 75,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 75,
+   "new": "use-loop-info",
+   "op": "param",
+   "tok": "no-use-loop-info"
+  },
+  {
+   "id": 75,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 81,
+   "op": "del"
+  },
+  {
+   "id": 85,
+   "op": "del"
+  },
+  {
+   "id": 86,
+   "op": "del"
+  },
+  {
+   "id": 94,
+   "op": "del"
+  },
+  {
+   "id": 98,
+   "op": "del"
+  },
+  {
+   "id": 99,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 100,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "id": 100,
+   "new": "no-forward-switch-cond",
+   "op": "param",
+   "tok": "forward-switch-cond"
+  },
+  {
+   "id": 100,
+   "new": "no-switch-range-to-icmp",
+   "op": "param",
+   "tok": "switch-range-to-icmp"
+  },
+  {
+   "id": 103,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 103,
+   "new": "use-loop-info",
+   "op": "param",
+   "tok": "no-use-loop-info"
+  },
+  {
+   "id": 103,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 106,
+   "new": "modify-cfg",
+   "op": "param",
+   "tok": "preserve-cfg"
+  },
+  {
+   "id": 108,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 108,
+   "new": "use-loop-info",
+   "op": "param",
+   "tok": "no-use-loop-info"
+  },
+  {
+   "id": 108,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 111,
+   "op": "del"
+  },
+  {
+   "id": 116,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "id": 116,
+   "new": "switch-to-lookup",
+   "op": "param",
+   "tok": "no-switch-to-lookup"
+  },
+  {
+   "new": "no-forward-switch-cond",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "forward-switch-cond"
+  },
+  {
+   "new": "forward-switch-cond",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "new": "preserve-cfg",
+   "op": "param_all",
+   "pass": "sroa",
+   "tok": "modify-cfg"
+  },
+  {
+   "new": "no-trivial",
+   "op": "param_all",
+   "pass": "simple-loop-unswitch",
+   "tok": "trivial"
+  },
+  {
+   "name": "-inline-threshold",
+   "op": "knob",
+   "value": 250
+  },
+  {
+   "id": 84,
+   "op": "del"
+  },
+  {
+   "id": 36,
+   "new": "switch-to-lookup",
+   "op": "param",
+   "tok": "no-switch-to-lookup"
+  },
+  {
+   "id": 41,
+   "new": "switch-to-lookup",
+   "op": "param",
+   "tok": "no-switch-to-lookup"
+  },
+  {
+   "id": 51,
+   "new": "switch-to-lookup",
+   "op": "param",
+   "tok": "no-switch-to-lookup"
+  },
+  {
+   "id": 74,
+   "new": "switch-to-lookup",
+   "op": "param",
+   "tok": "no-switch-to-lookup"
+  },
+  {
+   "id": 92,
+   "op": "del"
+  },
+  {
+   "id": 18,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "name": "llc:-min-jump-table-entries",
+   "op": "knob",
+   "value": 16
+  },
+  {
+   "id": 10,
+   "op": "del"
+  },
+  {
+   "id": 74,
+   "new": "no-hoist-common-insts",
+   "op": "param",
+   "tok": "hoist-common-insts"
+  },
+  {
+   "id": 58,
+   "op": "del"
+  },
+  {
+   "id": 36,
+   "new": "hoist-common-insts",
+   "op": "param",
+   "tok": "no-hoist-common-insts"
+  },
+  {
+   "id": 56,
+   "op": "del"
+  },
+  {
+   "id": 92,
+   "new": "prepare-for-lto",
+   "op": "param",
+   "tok": "no-prepare-for-lto"
+  },
+  {
+   "id": 63,
+   "op": "del"
+  },
+  {
+   "id": 41,
+   "new": "hoist-common-insts",
+   "op": "param",
+   "tok": "no-hoist-common-insts"
+  },
+  {
+   "id": 14,
+   "op": "del"
+  },
+  {
+   "id": 64,
+   "op": "del"
+  },
+  {
+   "op": "del_all",
+   "pass": "infer-alignment"
+  },
+  {
+   "id": 100,
+   "new": "no-sink-common-insts",
+   "op": "param",
+   "tok": "sink-common-insts"
+  },
+  {
+   "id": 51,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "id": 74,
+   "new": "no-simplify-cond-branch",
+   "op": "param",
+   "tok": "simplify-cond-branch"
+  },
+  {
+   "id": 74,
+   "new": "no-keep-loops",
+   "op": "param",
+   "tok": "keep-loops"
+  },
+  {
+   "name": "-inline-threshold",
+   "op": "knob",
+   "value": 100
+  },
+  {
+   "id": 41,
+   "op": "del"
+  },
+  {
+   "id": 41,
+   "new": "no-simplify-cond-branch",
+   "op": "param",
+   "tok": "simplify-cond-branch"
+  },
+  {
+   "id": 7,
+   "new": "no-keep-loops",
+   "op": "param",
+   "tok": "keep-loops"
+  },
+  {
+   "id": 68,
+   "op": "del"
+  },
+  {
+   "id": 113,
+   "op": "del"
+  },
+  {
+   "id": 57,
+   "op": "del"
+  },
+  {
+   "id": 100,
+   "new": "no-simplify-cond-branch",
+   "op": "param",
+   "tok": "simplify-cond-branch"
+  },
+  {
+   "id": 17,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 18,
+   "new": "no-speculate-blocks",
+   "op": "param",
+   "tok": "speculate-blocks"
+  },
+  {
+   "id": 37,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 52,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "new": "verify-fixpoint",
+   "op": "param_all",
+   "pass": "instcombine",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 100,
+   "new": "no-speculate-blocks",
+   "op": "param",
+   "tok": "speculate-blocks"
+  },
+  {
+   "id": 110,
+   "new": "no-allowspeculation",
+   "op": "param",
+   "tok": "allowspeculation"
+  },
+  {
+   "id": 48,
+   "new": "prepare-for-lto",
+   "op": "param",
+   "tok": "no-prepare-for-lto"
+  },
+  {
+   "id": 49,
+   "new": "no-allowspeculation",
+   "op": "param",
+   "tok": "allowspeculation"
+  },
+  {
+   "id": 50,
+   "new": "no-nontrivial",
+   "op": "param",
+   "tok": "nontrivial"
+  }
+ ],
+ "horizon": 3,
+ "history": [
+  -0.0028690483615915903,
+  -0.0027118028706097854,
+  -0.005242381089081707,
+  -0.0038896710276926537,
+  -0.002349346783132836,
+  -0.00340588533235431,
+  -0.0012267046661760942,
+  -0.0007448151850484427,
+  -0.004500473661796562,
+  -0.00018588891228287982,
+  -0.002016183877661894,
+  0.0032285635760413976,
+  0.0005852032364271632,
+  0.003851178442567268,
+  0.0016752932045422152,
+  0.0004680290534188373,
+  0.00751138774141037,
+  0.002931777445864326,
+  0.0045896981183320106,
+  0.005560523824467307,
+  0.011723210091789418,
+  0.006470704966697189,
+  0.010403058696942892,
+  0.02113158190431526,
+  0.0004902984292067304,
+  0.009137735130674509,
+  0.017151196743486044,
+  0.015059048104172228,
+  0.007488514970539052,
+  0.01691996357878328,
+  0.01883558297082039,
+  0.01052015736195955,
+  0.004504736669583892,
+  0.012493401987978721,
+  0.006425517214614546,
+  0.00972758174328012,
+  0.013145030919094677,
+  0.01688186511387363,
+  0.020637818966172013,
+  0.012239419707942522,
+  0.012311796475023042,
+  0.008324071019191146,
+  0.009871815131665632,
+  0.011057853151447158,
+  0.018166797674514363,
+  0.009021896124061313,
+  0.009174412581058498,
+  0.008451603927877823,
+  0.018414788015570102,
+  0.011265684495176865,
+  0.004497472598001232,
+  0.02506656727026156,
+  0.023995290383168763,
+  0.01827485984855629,
+  0.015314542239980864,
+  0.013593426266451852,
+  0.013501595400015234,
+  0.016334674892910992,
+  0.009202660957247224,
+  0.025453463732873927,
+  0.007258772664077743,
+  0.015370795025533086,
+  0.02144393551930509,
+  0.017408948091417492,
+  0.01513425704715671,
+  0.010523447622453812,
+  0.015783371700858535,
+  0.016756975724905206,
+  0.013575811784216879,
+  0.01443538558882736,
+  0.01659051729602428,
+  0.018663966272836327,
+  0.01617166970359842,
+  0.02019690468948725,
+  0.01828441827489703,
+  0.014657414046651867,
+  0.01568750500127203,
+  0.014478280194980972,
+  0.009118898097660193,
+  0.01653452289504449,
+  0.032239797574841536,
+  0.0282305437425585,
+  0.01716292781742568,
+  0.006512261245460629,
+  0.01698843285732127,
+  0.014743889281531482,
+  0.02449282261493929,
+  0.01737166618926278,
+  0.01343598987112291,
+  0.019071841644765455,
+  0.007460378354549883,
+  0.028482351886119667,
+  0.02314908478039643,
+  0.021696086856320893,
+  0.0162154501026478,
+  0.015085552331177685,
+  0.02208323189381844,
+  0.011756689340323537,
+  0.008242112996611425,
+  0.008444616064724974,
+  0.018670777354876725,
+  0.020475949470763408,
+  0.016592021320919772,
+  0.01598757308005924,
+  0.017208720371305733,
+  0.017519221716824202,
+  0.015325945540310817,
+  0.009672018417960396,
+  0.014842451998878339,
+  0.015415682394290118,
+  0.028198057382786162,
+  0.01479756643769409,
+  0.02501993226824748,
+  0.02257378738787085,
+  0.011512150034333934,
+  0.021928014130247434,
+  0.012063052368693424,
+  0.026796056388719455,
+  0.02114194292451564,
+  0.019097233556268856,
+  0.019244456038839897,
+  0.029602784004782955,
+  0.02670263091851827,
+  0.01911148480772035,
+  0.015094138378604864,
+  0.018586335461759904,
+  0.015683305030801602,
+  0.02332200301050407,
+  0.017290938553224965,
+  0.011341079433508948,
+  0.018601605192390326,
+  0.013198799235838578,
+  0.014457050883296423,
+  0.02118500381070545,
+  0.024333944293481173,
+  0.02335052335897951,
+  0.016402486512141174,
+  0.01685689303106499,
+  0.015871465037505812,
+  0.019063195351943823,
+  0.028800795418235305,
+  0.016775316299633206,
+  0.01617789395919578,
+  0.016516165961050815,
+  0.023502251790194936,
+  0.024861166780345736,
+  0.015170661672096828,
+  0.023434222438900386,
+  0.01569927199071188,
+  0.018308912164801558
+ ],
+ "created": "20261025-164101"
+}

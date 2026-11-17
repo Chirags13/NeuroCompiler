@@ -1,0 +1,59 @@
+{
+ "tag": "predict_val_serial",
+ "programs": [
+  "ms/Applications/obsequi",
+  "ms/Benchmarks/ASC_Sequoia/AMGmk",
+  "ms/Benchmarks/ASC_Sequoia/CrystalMk",
+  "ms/Benchmarks/ASC_Sequoia/IRSmk",
+  "ms/Benchmarks/Fhourstones-3.1",
+  "polybench/adi",
+  "polybench/fdtd-2d",
+  "polybench/heat-3d",
+  "polybench/jacobi-1d",
+  "polybench/jacobi-2d",
+  "polybench/seidel-2d",
+  "ss/Misc/evalloop",
+  "ss/Misc/fbench",
+  "ss/Misc/flops",
+  "ss/Misc/fp-convert",
+  "ss/Misc/himenobmtxpa",
+  "ss/Misc/mandel-2",
+  "ss/Misc/oourafft",
+  "ss/Misc/perlin",
+  "ss/Misc/richards_benchmark",
+  "ss/Misc/salsa20",
+  "ss/Misc/whetstone"
+ ],
+ "summary": {
+  "predict": {
+   "geomean": 1.0,
+   "ci": [
+    1.0,
+    1.0
+   ],
+   "excl_largest": 1.0,
+   "regressions": 0,
+   "size": 1.0
+  },
+  "predict_sl": {
+   "geomean": 1.0,
+   "ci": [
+    1.0,
+    1.0
+   ],
+   "excl_largest": 1.0,
+   "regressions": 0,
+   "size": 1.0
+  },
+  "predict_ungated": {
+   "geomean": 0.9766962668613912,
+   "ci": [
+    0.9264306959817772,
+    1.0041090487937583
+   ],
+   "excl_largest": 0.9745934568081883,
+   "regressions": 2,
+   "size": 1.0150736012632375
+  }
+ }
+}

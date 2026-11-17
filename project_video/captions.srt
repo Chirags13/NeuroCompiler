@@ -1,0 +1,139 @@
+1
+00:00:00,593 --> 00:00:02,186
+Compile with -O3,
+
+2
+00:00:02,363 --> 00:00:04,026
+and 109 passes run
+
+3
+00:00:03,938 --> 00:00:05,936
+in the same order, for every program.
+
+4
+00:00:06,218 --> 00:00:08,956
+NeuroCompiler looks for a faster recipe per program,
+
+5
+00:00:09,204 --> 00:00:10,693
+and proves it with a stopwatch.
+
+6
+00:00:11,464 --> 00:00:13,080
+That recipe is a compromise.
+
+7
+00:00:13,374 --> 00:00:16,159
+One edit speeds some programs up and slows others down.
+
+8
+00:00:16,441 --> 00:00:18,196
+And the easy metric is a trap:
+
+9
+00:00:18,385 --> 00:00:20,326
+across 18,000 timed candidates,
+
+10
+00:00:20,492 --> 00:00:23,011
+IR instruction count barely predicted speed.
+
+11
+00:00:23,773 --> 00:00:26,824
+So, one rule: only measured runtime counts.
+
+12
+00:00:27,106 --> 00:00:30,771
+Candidates race -O3 in shuffled rounds on a pinned core,
+
+13
+00:00:30,949 --> 00:00:33,583
+beside an identical copy that exposes noise.
+
+14
+00:00:33,865 --> 00:00:36,627
+If the output changes, the candidate is rejected.
+
+15
+00:00:37,404 --> 00:00:39,981
+We searched 146 real programs,
+
+16
+00:00:40,089 --> 00:00:42,273
+building over 70,000 candidates.
+
+17
+00:00:42,566 --> 00:00:44,090
+That data trains two models.
+
+18
+00:00:44,372 --> 00:00:46,717
+LightGBM predicts a pipeline's speedup.
+
+19
+00:00:47,011 --> 00:00:51,694
+PPO, a reinforcement learning agent, invents new ones, edit by edit.
+
+20
+00:00:52,487 --> 00:00:56,117
+For a new program, PPO proposes 24 pipelines.
+
+21
+00:00:56,399 --> 00:00:59,196
+LightGBM ranks them with about 900 more.
+
+22
+00:00:59,490 --> 00:01:02,090
+The top 8 are compiled, verified and timed.
+
+23
+00:01:02,383 --> 00:01:04,509
+The fastest must win again in a fresh run,
+
+24
+00:01:04,767 --> 00:01:06,349
+or -O3 ships.
+
+25
+00:01:06,642 --> 00:01:09,242
+The models shortlist. The stopwatch decides.
+
+26
+00:01:10,013 --> 00:01:12,636
+On 33 programs from unseen families,
+
+27
+00:01:12,767 --> 00:01:15,518
+it averages 8% faster than -O3,
+
+28
+00:01:15,719 --> 00:01:17,485
+about 5% without its biggest win,
+
+29
+00:01:17,756 --> 00:01:19,383
+and none got measurably slower.
+
+30
+00:01:19,665 --> 00:01:24,302
+On one interpreter demo, runtime fell from 850 ms to 220.
+
+31
+00:01:25,084 --> 00:01:26,689
+Built on LLVM 18,
+
+32
+00:01:26,878 --> 00:01:29,756
+with a live dashboard showing every changed pass.
+
+33
+00:01:30,049 --> 00:01:33,969
+The lesson: alone, the models are weak, and RL added little.
+
+34
+00:01:34,251 --> 00:01:35,636
+Measurement makes it reliable.
+
+35
+00:01:36,393 --> 00:01:39,837
+NeuroCompiler. Faster code, measured, not guessed.

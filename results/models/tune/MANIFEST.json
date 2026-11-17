@@ -1,0 +1,45 @@
+{
+ "created": "2026-10-25T15:51:02",
+ "mode": "tune",
+ "llvm": "18.1.8",
+ "files": {
+  "surrogate": {
+   "path": "results/models/surrogate_latest.json",
+   "sha256": "77d5775931e605c8b6abc3679d80872f0f7787ad39bb1bb0e4ba55d3eefed181"
+  },
+  "surrogate_model": {
+   "path": "results/models/surrogate_gbr_20261024-171249.txt",
+   "sha256": "09a26f1e257420dba81bdb3cc6add66443eca74db793248ec040f6d2509cb8f3"
+  },
+  "nodyn": {
+   "path": "results/models/surrogate_nodyn.json",
+   "sha256": "57b8719325c9038922387e5bf88e89b9be9f82ac6adcd2da96234eff8b97cc0b"
+  },
+  "nodyn_model": {
+   "path": "results/models/surrogate_gbr_20261024-171245.txt",
+   "sha256": "461a6b891b6d01a65d0e9cb616fe61a6aa42b6ce28c0886f95565244dc70bf43"
+  },
+  "rl_policy": {
+   "path": "results/models/rl_policy_latest.npz",
+   "sha256": "d9640b94e5b1efcfe57a1024d1ee40a67bb25f8ed0d6a9a225cc49d6995bbe79"
+  },
+  "rl_policy_meta": {
+   "path": "results/models/rl_policy_latest.json",
+   "sha256": "d5eabb4c3b02abd6be06d02b50f5d996856b4c441e7c6909a41ad34c6e5e79d7"
+  },
+  "passkb_actions": {
+   "path": "results/passkb_actions.json",
+   "sha256": "04bb9bf8a5d755a5ea46f73f5a717dec44a1d215631cbe09073c97bfa251afb4"
+  },
+  "pools_cache": {
+   "path": "work/pools_llvm18.1.8.json",
+   "sha256": "aafe9579289e320fc3167c787e3731031ef6866e630fafdb562d4ed1a2b795c6"
+  },
+  "space_cache": {
+   "path": "work/space_v2_llvm18.1.8.json",
+   "sha256": "f8c4df3d420941136a32ba4e0c084d6701f9898ea347f22be14585d5ab3aa0ff"
+  }
+ },
+ "db_winners_sha256": "1464ddfe60a6d6ff063d04aa4e70fd6fdb76e4c150719906b8dc851a1c374b83",
+ "note": "Tune mode loads only these files and refuses to run if a hash differs."
+}

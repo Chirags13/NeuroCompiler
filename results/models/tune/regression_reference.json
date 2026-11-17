@@ -1,0 +1,128 @@
+{
+ "polybench/3mm": [
+  {
+   "genome": "{\"edits\": [{\"name\": \"-force-vector-width\", \"op\": \"knob\", \"value\": 4}, {\"after\": 46, \"ctx\": \"loop-mssa\", \"nid\": 341771871, \"op\": \"ins\", \"pass\": \"loop-instsimplify\"}, {\"name\": \"llc:-tail-dup-indirect-size\", \"op\": \"knob\", \"value\": 3}, {\"name\": \"llc:-align-loops\", \"op\": \"knob\", \"value\": 1}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"id\": 74, \"nid\": 23382857, \"op\": \"dup\"}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 2}, {\"id\": 8, \"op\": \"del\"}, {\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"after\": 120, \"ctx\": \"module\", \"nid\": 396071357, \"op\": \"ins\", \"pass\": \"forceattrs\"}, {\"id\": 34, \"nid\": 335908525, \"op\": \"dup\"}, {\"id\": 96, \"nid\": 98729937, \"op\": \"dup\"}, {\"name\": \"llc:-enable-tail-merge\", \"op\": \"knob\", \"value\": \"false\"}], \"raw\": null}",
+   "score": 0.215769,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"-force-vector-width\", \"op\": \"knob\", \"value\": 4}, {\"after\": 46, \"ctx\": \"loop-mssa\", \"nid\": 341771871, \"op\": \"ins\", \"pass\": \"loop-instsimplify\"}, {\"name\": \"llc:-tail-dup-indirect-size\", \"op\": \"knob\", \"value\": 3}, {\"name\": \"llc:-align-loops\", \"op\": \"knob\", \"value\": 1}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"id\": 74, \"nid\": 23382857, \"op\": \"dup\"}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 2}, {\"id\": 8, \"op\": \"del\"}, {\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"after\": 120, \"ctx\": \"module\", \"nid\": 396071357, \"op\": \"ins\", \"pass\": \"forceattrs\"}, {\"name\": \"llc:-enable-misched\", \"op\": \"knob\", \"value\": \"false\"}], \"raw\": null}",
+   "score": 0.204243,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"-force-vector-width\", \"op\": \"knob\", \"value\": 4}, {\"after\": 46, \"ctx\": \"loop-mssa\", \"nid\": 341771871, \"op\": \"ins\", \"pass\": \"loop-instsimplify\"}, {\"name\": \"llc:-tail-dup-indirect-size\", \"op\": \"knob\", \"value\": 3}, {\"name\": \"llc:-align-loops\", \"op\": \"knob\", \"value\": 1}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"id\": 74, \"nid\": 23382857, \"op\": \"dup\"}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 2}, {\"id\": 8, \"op\": \"del\"}, {\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"name\": \"llc:-x86-cmov-converter\", \"op\": \"knob\", \"value\": \"false\"}], \"raw\": null}",
+   "score": 0.202173,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"id\": 55, \"op\": \"del\"}, {\"new\": \"bonus-inst-threshold=4\", \"op\": \"param_all\", \"pass\": \"simplifycfg\", \"tok\": \"bonus-inst-threshold=1\"}, {\"name\": \"llc:-align-loops\", \"op\": \"knob\", \"value\": 64}, {\"after\": 49, \"ctx\": \"loop-mssa\", \"nid\": 905570048, \"op\": \"ins\", \"pass\": \"loop-rotate<header-duplication;no-prepare-for-lto>\"}], \"raw\": null}",
+   "score": 0.174046,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"id\": 55, \"op\": \"del\"}, {\"new\": \"bonus-inst-threshold=4\", \"op\": \"param_all\", \"pass\": \"simplifycfg\", \"tok\": \"bonus-inst-threshold=1\"}, {\"name\": \"llc:-align-loops\", \"op\": \"knob\", \"value\": 64}, {\"name\": \"-force-vector-interleave\", \"op\": \"knob\", \"value\": 2}], \"raw\": null}",
+   "score": 0.17373,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}], \"raw\": null}",
+   "score": 0.168955,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 8}], \"raw\": null}",
+   "score": 0.137678,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 4}, {\"id\": 79, \"nid\": 864556431, \"op\": \"dup\"}, {\"id\": 31, \"new\": \"preserve-cfg\", \"op\": \"param\", \"tok\": \"modify-cfg\"}, {\"new\": \"allowspeculation\", \"op\": \"param_all\", \"pass\": \"licm\", \"tok\": \"no-allowspeculation\"}, {\"op\": \"del_all\", \"pass\": \"simplifycfg\"}, {\"id\": 96, \"new\": \"vectorize-forced-only\", \"op\": \"param\", \"tok\": \"no-vectorize-forced-only\"}, {\"after\": 111, \"ctx\": \"function\", \"nid\": 904776475, \"op\": \"ins\", \"pass\": \"lower-constant-intrinsics\"}, {\"id\": 56, \"op\": \"del\"}], \"raw\": null}",
+   "score": 0.106428,
+   "source": "library"
+  }
+ ],
+ "ss/Shootout-C++/fibo": [
+  {
+   "genome": "{\"edits\": [{\"name\": \"-force-vector-width\", \"op\": \"knob\", \"value\": 4}, {\"after\": 46, \"ctx\": \"loop-mssa\", \"nid\": 341771871, \"op\": \"ins\", \"pass\": \"loop-instsimplify\"}, {\"name\": \"llc:-tail-dup-indirect-size\", \"op\": \"knob\", \"value\": 3}, {\"name\": \"llc:-align-loops\", \"op\": \"knob\", \"value\": 1}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"id\": 74, \"nid\": 23382857, \"op\": \"dup\"}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 2}, {\"id\": 8, \"op\": \"del\"}, {\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"after\": 120, \"ctx\": \"module\", \"nid\": 396071357, \"op\": \"ins\", \"pass\": \"forceattrs\"}, {\"id\": 34, \"nid\": 335908525, \"op\": \"dup\"}, {\"id\": 96, \"nid\": 98729937, \"op\": \"dup\"}, {\"name\": \"llc:-enable-tail-merge\", \"op\": \"knob\", \"value\": \"false\"}], \"raw\": null}",
+   "score": 0.210919,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"llc:-tail-dup-size\", \"op\": \"knob\", \"value\": 6}, {\"op\": \"del_all\", \"pass\": \"simplifycfg\"}, {\"name\": \"-inline-threshold\", \"op\": \"knob\", \"value\": 1000}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 4}], \"raw\": null}",
+   "score": 0.204687,
+   "source": "RL"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"llc:-tail-dup-size\", \"op\": \"knob\", \"value\": 6}, {\"op\": \"del_all\", \"pass\": \"simplifycfg\"}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 4}, {\"op\": \"del_all\", \"pass\": \"instcombine\"}], \"raw\": null}",
+   "score": 0.201695,
+   "source": "RL"
+  },
+  {
+   "genome": "{\"edits\": [{\"op\": \"del_all\", \"pass\": \"simplifycfg\"}, {\"name\": \"llc:-tail-dup-size\", \"op\": \"knob\", \"value\": 6}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 4}, {\"op\": \"del_all\", \"pass\": \"instcombine\"}], \"raw\": null}",
+   "score": 0.201695,
+   "source": "RL"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"llc:-tail-dup-size\", \"op\": \"knob\", \"value\": 6}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 4}, {\"op\": \"del_all\", \"pass\": \"instcombine\"}, {\"op\": \"del_all\", \"pass\": \"simplifycfg\"}], \"raw\": null}",
+   "score": 0.201695,
+   "source": "RL"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"llc:-tail-dup-size\", \"op\": \"knob\", \"value\": 6}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 4}, {\"op\": \"del_all\", \"pass\": \"simplifycfg\"}, {\"op\": \"del_all\", \"pass\": \"instcombine\"}], \"raw\": null}",
+   "score": 0.201695,
+   "source": "RL"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"llc:-tail-dup-size\", \"op\": \"knob\", \"value\": 6}, {\"op\": \"del_all\", \"pass\": \"simplifycfg\"}, {\"op\": \"del_all\", \"pass\": \"instcombine\"}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 4}], \"raw\": null}",
+   "score": 0.201695,
+   "source": "RL"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"-force-vector-width\", \"op\": \"knob\", \"value\": 4}, {\"after\": 46, \"ctx\": \"loop-mssa\", \"nid\": 341771871, \"op\": \"ins\", \"pass\": \"loop-instsimplify\"}, {\"name\": \"llc:-tail-dup-indirect-size\", \"op\": \"knob\", \"value\": 3}, {\"name\": \"llc:-align-loops\", \"op\": \"knob\", \"value\": 1}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"id\": 74, \"nid\": 23382857, \"op\": \"dup\"}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 2}, {\"id\": 8, \"op\": \"del\"}, {\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"after\": 120, \"ctx\": \"module\", \"nid\": 396071357, \"op\": \"ins\", \"pass\": \"forceattrs\"}, {\"name\": \"llc:-enable-misched\", \"op\": \"knob\", \"value\": \"false\"}], \"raw\": null}",
+   "score": 0.198475,
+   "source": "library"
+  }
+ ],
+ "ms/Benchmarks/Ptrdist/ft": [
+  {
+   "genome": "{\"edits\": [{\"name\": \"-force-vector-width\", \"op\": \"knob\", \"value\": 4}, {\"after\": 46, \"ctx\": \"loop-mssa\", \"nid\": 341771871, \"op\": \"ins\", \"pass\": \"loop-instsimplify\"}, {\"name\": \"llc:-tail-dup-indirect-size\", \"op\": \"knob\", \"value\": 3}, {\"name\": \"llc:-align-loops\", \"op\": \"knob\", \"value\": 1}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"id\": 74, \"nid\": 23382857, \"op\": \"dup\"}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 2}, {\"id\": 8, \"op\": \"del\"}, {\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"after\": 120, \"ctx\": \"module\", \"nid\": 396071357, \"op\": \"ins\", \"pass\": \"forceattrs\"}, {\"id\": 34, \"nid\": 335908525, \"op\": \"dup\"}, {\"id\": 96, \"nid\": 98729937, \"op\": \"dup\"}, {\"name\": \"llc:-enable-tail-merge\", \"op\": \"knob\", \"value\": \"false\"}], \"raw\": null}",
+   "score": 0.222367,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"id\": 55, \"op\": \"del\"}, {\"new\": \"bonus-inst-threshold=4\", \"op\": \"param_all\", \"pass\": \"simplifycfg\", \"tok\": \"bonus-inst-threshold=1\"}, {\"name\": \"llc:-align-loops\", \"op\": \"knob\", \"value\": 64}, {\"after\": 49, \"ctx\": \"loop-mssa\", \"nid\": 905570048, \"op\": \"ins\", \"pass\": \"loop-rotate<header-duplication;no-prepare-for-lto>\"}], \"raw\": null}",
+   "score": 0.219442,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"id\": 55, \"op\": \"del\"}, {\"new\": \"bonus-inst-threshold=4\", \"op\": \"param_all\", \"pass\": \"simplifycfg\", \"tok\": \"bonus-inst-threshold=1\"}, {\"name\": \"llc:-align-loops\", \"op\": \"knob\", \"value\": 64}, {\"name\": \"-force-vector-interleave\", \"op\": \"knob\", \"value\": 2}], \"raw\": null}",
+   "score": 0.218756,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"-force-vector-width\", \"op\": \"knob\", \"value\": 4}, {\"after\": 46, \"ctx\": \"loop-mssa\", \"nid\": 341771871, \"op\": \"ins\", \"pass\": \"loop-instsimplify\"}, {\"name\": \"llc:-tail-dup-indirect-size\", \"op\": \"knob\", \"value\": 3}, {\"name\": \"llc:-align-loops\", \"op\": \"knob\", \"value\": 1}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"id\": 74, \"nid\": 23382857, \"op\": \"dup\"}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 2}, {\"id\": 8, \"op\": \"del\"}, {\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"after\": 120, \"ctx\": \"module\", \"nid\": 396071357, \"op\": \"ins\", \"pass\": \"forceattrs\"}, {\"name\": \"llc:-enable-misched\", \"op\": \"knob\", \"value\": \"false\"}], \"raw\": null}",
+   "score": 0.21258,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"-force-vector-width\", \"op\": \"knob\", \"value\": 4}, {\"after\": 46, \"ctx\": \"loop-mssa\", \"nid\": 341771871, \"op\": \"ins\", \"pass\": \"loop-instsimplify\"}, {\"name\": \"llc:-tail-dup-indirect-size\", \"op\": \"knob\", \"value\": 3}, {\"name\": \"llc:-align-loops\", \"op\": \"knob\", \"value\": 1}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"id\": 74, \"nid\": 23382857, \"op\": \"dup\"}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 2}, {\"id\": 8, \"op\": \"del\"}, {\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"name\": \"llc:-x86-cmov-converter\", \"op\": \"knob\", \"value\": \"false\"}], \"raw\": null}",
+   "score": 0.21051,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 8}], \"raw\": null}",
+   "score": 0.197989,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}], \"raw\": null}",
+   "score": 0.186672,
+   "source": "library"
+  },
+  {
+   "genome": "{\"edits\": [{\"id\": 41, \"new\": \"no-keep-loops\", \"op\": \"param\", \"tok\": \"keep-loops\"}, {\"name\": \"-force-vector-width\", \"op\": \"knob\", \"value\": 8}, {\"id\": 56, \"op\": \"del\"}, {\"op\": \"del_all\", \"pass\": \"instcombine\"}, {\"id\": 74, \"new\": \"switch-to-lookup\", \"op\": \"param\", \"tok\": \"no-switch-to-lookup\"}, {\"id\": 96, \"new\": \"interleave-forced-only\", \"op\": \"param\", \"tok\": \"no-interleave-forced-only\"}, {\"id\": 92, \"op\": \"del\"}, {\"id\": 100, \"new\": \"keep-loops\", \"op\": \"param\", \"tok\": \"no-keep-loops\"}], \"raw\": null}",
+   "score": 0.139411,
+   "source": "library"
+  }
+ ]
+}

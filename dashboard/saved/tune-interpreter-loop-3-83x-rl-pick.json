@@ -1,0 +1,446 @@
+{
+ "id": "8af051e0836f",
+ "mode": "tune",
+ "status": "done",
+ "created": 1792999300.2971375,
+ "example": "evalloop",
+ "inputs": {
+  "files": [
+   "evalloop.c"
+  ],
+  "args": "",
+  "cflags": "-Wno-error=implicit-int -Wno-error=implicit-function-declaration -Wno-error=int-conversion -Wno-error=incompatible-pointer-types",
+  "k": 8,
+  "no_rl": false,
+  "dynamic": false,
+  "verify": false,
+  "stdin": null
+ },
+ "started": 1792999589.232466,
+ "command": [
+  "/home/chirag/neurocompiler/.venv/bin/python",
+  "-u",
+  "-m",
+  "nc.cli",
+  "tune",
+  "/home/chirag/neurocompiler/work/dashboard/jobs/8af051e0836f/src/evalloop.c",
+  "--out",
+  "/home/chirag/neurocompiler/work/dashboard/jobs/8af051e0836f/prog",
+  "--cflags=-Wno-error=implicit-int -Wno-error=implicit-function-declaration -Wno-error=int-conversion -Wno-error=incompatible-pointer-types -I/home/chirag/neurocompiler/work/dashboard/jobs/8af051e0836f/src",
+  "--args=",
+  "--k",
+  "8",
+  "--cwd",
+  "/home/chirag/neurocompiler/work/dashboard/jobs/8af051e0836f/src"
+ ],
+ "finished": 1792999679.8844278,
+ "returncode": 0,
+ "result": {
+  "method": "deploy_rl_sl",
+  "n_compiled": 48,
+  "n_timed": 8,
+  "compile_s": 2.9,
+  "base_median_ms": 849.0558135,
+  "timed": [
+   {
+    "speedup": 3.3585285901959137,
+    "ci": [
+     3.2409721072213973,
+     3.365858302503331
+    ],
+    "median_ms": 252.7317175,
+    "status": "ok",
+    "text_size": 3924,
+    "source": "library",
+    "edits": [
+     {
+      "op": "backend",
+      "value": 3
+     }
+    ],
+    "raw": "default<O0>"
+   },
+   {
+    "speedup": 3.819872391231976,
+    "ci": [
+     3.803711257208453,
+     3.8393407611858454
+    ],
+    "median_ms": 222.4183825,
+    "status": "ok",
+    "text_size": 6691,
+    "source": "RL",
+    "edits": [
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     },
+     {
+      "name": "-unroll-max-count",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "op": "del_all",
+      "pass": "simplifycfg"
+     },
+     {
+      "new": "no-speculate-blocks",
+      "op": "param_all",
+      "pass": "simplifycfg",
+      "tok": "speculate-blocks"
+     }
+    ],
+    "raw": null
+   },
+   {
+    "speedup": 3.818781918825428,
+    "ci": [
+     3.804350036858269,
+     3.835587771728748
+    ],
+    "median_ms": 222.573302,
+    "status": "ok",
+    "text_size": 5635,
+    "source": "RL",
+    "edits": [
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     },
+     {
+      "name": "-unroll-max-count",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "op": "del_all",
+      "pass": "simplifycfg"
+     },
+     {
+      "name": "-unroll-max-count",
+      "op": "knob",
+      "value": 2
+     }
+    ],
+    "raw": null
+   },
+   {
+    "speedup": 3.831250867417396,
+    "ci": [
+     3.8005742310751773,
+     3.8344135861502857
+    ],
+    "median_ms": 221.877929,
+    "status": "ok",
+    "text_size": 6464,
+    "source": "RL",
+    "edits": [
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     },
+     {
+      "name": "-unroll-max-count",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "op": "del_all",
+      "pass": "simplifycfg"
+     },
+     {
+      "op": "del_all",
+      "pass": "instcombine"
+     }
+    ],
+    "raw": null
+   },
+   {
+    "speedup": 2.706722863743541,
+    "ci": [
+     2.560800935983584,
+     2.721149560671299
+    ],
+    "median_ms": 313.1000065,
+    "status": "ok",
+    "text_size": 4415,
+    "source": "library",
+    "edits": [
+     {
+      "op": "backend",
+      "value": 0
+     }
+    ],
+    "raw": "default<O0>"
+   },
+   {
+    "speedup": 3.821070185486785,
+    "ci": [
+     3.8135373134175325,
+     3.8321985872455624
+    ],
+    "median_ms": 222.2036605,
+    "status": "ok",
+    "text_size": 6300,
+    "source": "library",
+    "edits": [
+     {
+      "name": "llc:-min-jump-table-entries",
+      "op": "knob",
+      "value": 2
+     },
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     },
+     {
+      "op": "del_all",
+      "pass": "simplifycfg"
+     },
+     {
+      "name": "-force-vector-width",
+      "op": "knob",
+      "value": 1
+     },
+     {
+      "id": 94,
+      "op": "del"
+     },
+     {
+      "id": 49,
+      "op": "del"
+     }
+    ],
+    "raw": null
+   },
+   {
+    "speedup": 3.5033140963010347,
+    "ci": [
+     3.4938539924097034,
+     3.5178055497007024
+    ],
+    "median_ms": 242.2246,
+    "status": "ok",
+    "text_size": 7270,
+    "source": "RL",
+    "edits": [
+     {
+      "name": "llc:-tail-dup-size",
+      "op": "knob",
+      "value": 6
+     },
+     {
+      "name": "-unroll-max-count",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "op": "del_all",
+      "pass": "simplifycfg"
+     },
+     {
+      "name": "-unroll-count",
+      "op": "knob",
+      "value": 4
+     }
+    ],
+    "raw": null
+   },
+   {
+    "speedup": 3.8007082633921745,
+    "ci": [
+     3.6930660546249,
+     3.8175052912379113
+    ],
+    "median_ms": 223.661342,
+    "status": "ok",
+    "text_size": 5635,
+    "source": "library",
+    "edits": [
+     {
+      "name": "-jump-threading-threshold",
+      "op": "knob",
+      "value": 3
+     },
+     {
+      "new": "no-simplify-cond-branch",
+      "op": "param_all",
+      "pass": "simplifycfg",
+      "tok": "simplify-cond-branch"
+     },
+     {
+      "id": 7,
+      "new": "switch-range-to-icmp",
+      "op": "param",
+      "tok": "no-switch-range-to-icmp"
+     },
+     {
+      "op": "del_all",
+      "pass": "simplifycfg"
+     },
+     {
+      "id": 18,
+      "op": "del"
+     },
+     {
+      "name": "-unroll-max-count",
+      "op": "knob",
+      "value": 2
+     },
+     {
+      "id": 110,
+      "nid": 923446400,
+      "op": "dup"
+     },
+     {
+      "op": "del_all",
+      "pass": "globalopt"
+     },
+     {
+      "id": 20,
+      "nid": 605843095,
+      "op": "dup"
+     },
+     {
+      "new": "use-loop-info",
+      "op": "param_all",
+      "pass": "instcombine",
+      "tok": "no-use-loop-info"
+     }
+    ],
+    "raw": null
+   }
+  ],
+  "confirm": {
+   "speedup": 3.8302210344880687,
+   "ci": [
+    3.820247974924568,
+    3.837768969468563
+   ],
+   "control": 1.0007876896514505,
+   "pick_median_ms": 221.86375099999998,
+   "base_median_ms": 848.4213585,
+   "rounds": 20
+  },
+  "timing_s": 80.4,
+  "choice": "candidate",
+  "genome": "{\"edits\": [{\"name\": \"llc:-tail-dup-size\", \"op\": \"knob\", \"value\": 6}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 4}, {\"op\": \"del_all\", \"pass\": \"simplifycfg\"}, {\"op\": \"del_all\", \"pass\": \"instcombine\"}], \"raw\": null}",
+  "pipeline": "annotation2metadata,forceattrs,inferattrs,coro-early,function<eager-inv>(lower-expect,sroa<modify-cfg>,early-cse<>,callsite-splitting),openmp-opt,ipsccp,called-value-propagation,globalopt,function<eager-inv>(mem2reg),always-inline,require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,argpromotion,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,correlated-propagation,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto>,licm<allowspeculation>,simple-loop-unswitch<nontrivial;trivial>),loop(loop-idiom,indvars,loop-deletion,loop-unroll-full),sroa<modify-cfg>,vector-combine,mldst-motion<no-split-footer-bb>,gvn<>,sccp,bdce,jump-threading,correlated-propagation,adce,memcpyopt,dse,move-auto-init,loop-mssa(licm<allowspeculation>),coro-elide),function-attrs,function(require<should-not-run-function-passes>),coro-split)),deadargelim,coro-cleanup,globalopt,globaldce,elim-avail-extern,rpo-function-attrs,recompute-globalsaa,function<eager-inv>(float2int,lower-constant-intrinsics,chr,loop(loop-rotate<header-duplication;no-prepare-for-lto>,loop-deletion),loop-distribute,inject-tli-mappings,loop-vectorize<no-interleave-forced-only;no-vectorize-forced-only;>,infer-alignment,loop-load-elim,slp-vectorizer,vector-combine,loop-unroll<O3>,transform-warning,sroa<preserve-cfg>,infer-alignment,loop-mssa(licm<allowspeculation>),alignment-from-assumptions,loop-sink,instsimplify,div-rem-pairs,tailcallelim),globaldce,constmerge,cg-profile,rel-lookup-table-converter,function(annotation-remarks),verify",
+  "flags": [
+   "-unroll-max-count=4",
+   "llc:-tail-dup-size=6"
+  ],
+  "backend": 3,
+  "bin_path": "/home/chirag/neurocompiler/work/bins/1642d7f290967c2b85980773-O3-Le6d241b0/prog",
+  "text_size": 6464,
+  "select_speedup": 3.831250867417396,
+  "select_ci": [
+   3.8005742310751773,
+   3.8344135861502857
+  ],
+  "mode": "RL + SL",
+  "rl_proposals": 22,
+  "rl_in_top20_ranked": 19,
+  "top_ranked": [
+   {
+    "rank": 1,
+    "source": "library",
+    "predicted_speedup": 2.784,
+    "n_edits": 1
+   },
+   {
+    "rank": 2,
+    "source": "RL",
+    "predicted_speedup": 2.365,
+    "n_edits": 4
+   },
+   {
+    "rank": 3,
+    "source": "RL",
+    "predicted_speedup": 2.365,
+    "n_edits": 4
+   },
+   {
+    "rank": 4,
+    "source": "RL",
+    "predicted_speedup": 2.365,
+    "n_edits": 4
+   },
+   {
+    "rank": 5,
+    "source": "RL",
+    "predicted_speedup": 2.365,
+    "n_edits": 4
+   },
+   {
+    "rank": 6,
+    "source": "RL",
+    "predicted_speedup": 2.365,
+    "n_edits": 4
+   },
+   {
+    "rank": 7,
+    "source": "RL",
+    "predicted_speedup": 2.365,
+    "n_edits": 4
+   },
+   {
+    "rank": 8,
+    "source": "RL",
+    "predicted_speedup": 2.208,
+    "n_edits": 4
+   },
+   {
+    "rank": 9,
+    "source": "RL",
+    "predicted_speedup": 2.208,
+    "n_edits": 4
+   },
+   {
+    "rank": 10,
+    "source": "RL",
+    "predicted_speedup": 2.147,
+    "n_edits": 4
+   }
+  ],
+  "o3_pipeline": "annotation2metadata,forceattrs,inferattrs,coro-early,function<eager-inv>(lower-expect,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;no-switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,sroa<modify-cfg>,early-cse<>,callsite-splitting),openmp-opt,ipsccp,called-value-propagation,globalopt,function<eager-inv>(mem2reg,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),always-inline,require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,argpromotion,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,correlated-propagation,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto>,licm<allowspeculation>,simple-loop-unswitch<nontrivial;trivial>),simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop(loop-idiom,indvars,loop-deletion,loop-unroll-full),sroa<modify-cfg>,vector-combine,mldst-motion<no-split-footer-bb>,gvn<>,sccp,bdce,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,jump-threading,correlated-propagation,adce,memcpyopt,dse,move-auto-init,loop-mssa(licm<allowspeculation>),coro-elide,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>),function-attrs,function(require<should-not-run-function-passes>),coro-split)),deadargelim,coro-cleanup,globalopt,globaldce,elim-avail-extern,rpo-function-attrs,recompute-globalsaa,function<eager-inv>(float2int,lower-constant-intrinsics,chr,loop(loop-rotate<header-duplication;no-prepare-for-lto>,loop-deletion),loop-distribute,inject-tli-mappings,loop-vectorize<no-interleave-forced-only;no-vectorize-forced-only;>,infer-alignment,loop-load-elim,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;forward-switch-cond;switch-range-to-icmp;switch-to-lookup;no-keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,slp-vectorizer,vector-combine,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-unroll<O3>,transform-warning,sroa<preserve-cfg>,infer-alignment,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-mssa(licm<allowspeculation>),alignment-from-assumptions,loop-sink,instsimplify,div-rem-pairs,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),globaldce,constmerge,cg-profile,rel-lookup-table-converter,function(annotation-remarks),verify",
+  "o3_text_size": 6719,
+  "shipped_from": "RL agent",
+  "shipped_edits": [
+   {
+    "name": "llc:-tail-dup-size",
+    "op": "knob",
+    "value": 6
+   },
+   {
+    "name": "-unroll-max-count",
+    "op": "knob",
+    "value": 4
+   },
+   {
+    "op": "del_all",
+    "pass": "simplifycfg"
+   },
+   {
+    "op": "del_all",
+    "pass": "instcombine"
+   }
+  ],
+  "shipped_raw": null,
+  "output": "/home/chirag/neurocompiler/work/dashboard/jobs/8af051e0836f/prog",
+  "total_s": 90.3,
+  "library": 913,
+  "model": "results/models/surrogate_latest.json",
+  "rl_policy": "results/models/rl_policy_latest.npz"
+ },
+ "sources": {
+  "evalloop.c": "/* \n * A performance regression test for using the GCC \"labels as values\" extension\n * and computed gotos to optimize the interpreter loop. This is a trick that has\n * been used by, at least, python, webkit, ruby and dalvik. See:\n * http://eli.thegreenplace.net/2012/07/12/computed-goto-for-efficient-dispatch-tables\n * for a detailed description.\n * \n * Some uses of this trick, notably python's, can create critical edges in the\n * control flow graph which we must break to achieve reasonable performance.\n */\n\n#include <stdio.h>\n#include <stdint.h>\n\n#define TARGET(op) \\\n        L##op: \\\n        opcode = op; \\\n        case op:\n\nuint32_t sum = 0;\n\nvoid execute(int code) __attribute__((noinline));\nvoid eval(int *p)  __attribute__((noinline));\n\nvoid execute(int code) {\n  sum += code;\n}\n\nvoid eval(int *p)  {\n  static void *dispatch[32] = {\n   &&L0,\n   &&L1,\n   &&L2,\n   &&L3,\n   &&L4,\n   &&L5,\n   &&L6,\n   &&L7,\n   &&L8,\n   &&L9,\n   &&L10,\n   &&L11,\n   &&L12,\n   &&L13,\n   &&L14,\n   &&L15,\n   &&L16,\n   &&L17,\n   &&L18,\n   &&L19,\n   &&L20,\n   &&L21,\n   &&L22,\n   &&L23,\n   &&L24,\n   &&L25,\n   &&L26,\n   &&L27,\n   &&L28,\n   &&L29,\n   &&L30,\n   &&L31   \n  };\n\n  int opcode = 0;\n  while (1) {    \n    switch(*p++) {\n      TARGET(0) { return; }\n      TARGET(1) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(2) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(3) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(4) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(5) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(6) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(7) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(8) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(9) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(10) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(11) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(12) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(13) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(14) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(15) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(16) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(17) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(18) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(19) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(20) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(21) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(22) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(23) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(24) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(25) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(26) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(27) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(28) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(29) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(30) { execute (opcode); goto *dispatch[*p++]; }\n      TARGET(31) { execute (opcode); goto *dispatch[*p++]; }\n    }\n  }\n}\n\nint main() {\n  const int BUFSIZE = 2048;\n  // Initialize the command buffer. This must end with a 0, which is the\n  // \"exit\" command for the interpreter loop.\n  int cmds[BUFSIZE];\n  for (int i = 0; i < BUFSIZE - 1; ++i)\n    cmds[i] = i % 31 + 1;\n  cmds[BUFSIZE - 1] = 0;\n\n  // Run the interpreter loop over the buffer enough times to get a performance\n  // estimate.\n  for (int i = 0; i < 100000; ++i) {\n    eval(cmds);\n  }\n  \n  printf(\"Sum: %u\\n\", sum);\n  return 0;\n}\n"
+ },
+ "saved_name": "Tune \u00b7 interpreter loop (3.83x, RL pick)",
+ "log": "$ /home/chirag/neurocompiler/.venv/bin/python -u -m nc.cli tune /home/chirag/neurocompiler/work/dashboard/jobs/8af051e0836f/src/evalloop.c --out /home/chirag/neurocompiler/work/dashboard/jobs/8af051e0836f/prog --cflags=-Wno-error=implicit-int -Wno-error=implicit-function-declaration -Wno-error=int-conversion -Wno-error=incompatible-pointer-types -I/home/chirag/neurocompiler/work/dashboard/jobs/8af051e0836f/src --args= --k 8 --cwd /home/chirag/neurocompiler/work/dashboard/jobs/8af051e0836f/src\n\n[reference] -O0 build ran OK (315 ms); its output is the reference every candidate must match\n[features] 120 program features (static IR + quick scan of -O0..-O3)\n[rl] the RL agent proposed 22 pipelines\n[rank] the supervised model scored 935 pipelines (22 RL + 913 library); best predicted 2.78x\n[compile] 48 pipelines compiled in ranked order -> 8 distinct binaries with verified output (3 s)\n[timing] 8 candidates + -O3, interleaved on a pinned core, 10 rounds ...\n[timing]   candidate 1: 3.359x vs -O3 [3.241, 3.366]  252.7 ms  (-O3 849.1 ms)\n[timing]   candidate 2: 3.820x vs -O3 [3.804, 3.839]  222.4 ms  (-O3 849.1 ms)\n[timing]   candidate 3: 3.819x vs -O3 [3.804, 3.836]  222.6 ms  (-O3 849.1 ms)\n[timing]   candidate 4: 3.831x vs -O3 [3.801, 3.834]  221.9 ms  (-O3 849.1 ms)\n[timing]   candidate 5: 2.707x vs -O3 [2.561, 2.721]  313.1 ms  (-O3 849.1 ms)\n[timing]   candidate 6: 3.821x vs -O3 [3.814, 3.832]  222.2 ms  (-O3 849.1 ms)\n[timing]   candidate 7: 3.503x vs -O3 [3.494, 3.518]  242.2 ms  (-O3 849.1 ms)\n[timing]   candidate 8: 3.801x vs -O3 [3.693, 3.818]  223.7 ms  (-O3 849.1 ms)\n[confirm] best 3.831x: fresh 20-round run vs -O3 with an A/A control ...\n[confirm] 3.830x [3.820, 3.838], A/A control 1.001x\n{\n \"method\": \"deploy_rl_sl\",\n \"n_compiled\": 48,\n \"n_timed\": 8,\n \"compile_s\": 2.9,\n \"base_median_ms\": 849.0558135,\n \"timed\": [\n  {\n   \"speedup\": 3.3585285901959137,\n   \"ci\": [\n    3.2409721072213973,\n    3.365858302503331\n   ],\n   \"median_ms\": 252.7317175,\n   \"status\": \"ok\",\n   \"text_size\": 3924,\n   \"source\": \"library\",\n   \"edits\": [\n    {\n     \"op\": \"backend\",\n     \"value\": 3\n    }\n   ],\n   \"raw\": \"default<O0>\"\n  },\n  {\n   \"speedup\": 3.819872391231976,\n   \"ci\": [\n    3.803711257208453,\n    3.8393407611858454\n   ],\n   \"median_ms\": 222.4183825,\n   \"status\": \"ok\",\n   \"text_size\": 6691,\n   \"source\": \"RL\",\n   \"edits\": [\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    },\n    {\n     \"name\": \"-unroll-max-count\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"op\": \"del_all\",\n     \"pass\": \"simplifycfg\"\n    },\n    {\n     \"new\": \"no-speculate-blocks\",\n     \"op\": \"param_all\",\n     \"pass\": \"simplifycfg\",\n     \"tok\": \"speculate-blocks\"\n    }\n   ],\n   \"raw\": null\n  },\n  {\n   \"speedup\": 3.818781918825428,\n   \"ci\": [\n    3.804350036858269,\n    3.835587771728748\n   ],\n   \"median_ms\": 222.573302,\n   \"status\": \"ok\",\n   \"text_size\": 5635,\n   \"source\": \"RL\",\n   \"edits\": [\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    },\n    {\n     \"name\": \"-unroll-max-count\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"op\": \"del_all\",\n     \"pass\": \"simplifycfg\"\n    },\n    {\n     \"name\": \"-unroll-max-count\",\n     \"op\": \"knob\",\n     \"value\": 2\n    }\n   ],\n   \"raw\": null\n  },\n  {\n   \"speedup\": 3.831250867417396,\n   \"ci\": [\n    3.8005742310751773,\n    3.8344135861502857\n   ],\n   \"median_ms\": 221.877929,\n   \"status\": \"ok\",\n   \"text_size\": 6464,\n   \"source\": \"RL\",\n   \"edits\": [\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    },\n    {\n     \"name\": \"-unroll-max-count\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"op\": \"del_all\",\n     \"pass\": \"simplifycfg\"\n    },\n    {\n     \"op\": \"del_all\",\n     \"pass\": \"instcombine\"\n    }\n   ],\n   \"raw\": null\n  },\n  {\n   \"speedup\": 2.706722863743541,\n   \"ci\": [\n    2.560800935983584,\n    2.721149560671299\n   ],\n   \"median_ms\": 313.1000065,\n   \"status\": \"ok\",\n   \"text_size\": 4415,\n   \"source\": \"library\",\n   \"edits\": [\n    {\n     \"op\": \"backend\",\n     \"value\": 0\n    }\n   ],\n   \"raw\": \"default<O0>\"\n  },\n  {\n   \"speedup\": 3.821070185486785,\n   \"ci\": [\n    3.8135373134175325,\n    3.8321985872455624\n   ],\n   \"median_ms\": 222.2036605,\n   \"status\": \"ok\",\n   \"text_size\": 6300,\n   \"source\": \"library\",\n   \"edits\": [\n    {\n     \"name\": \"llc:-min-jump-table-entries\",\n     \"op\": \"knob\",\n     \"value\": 2\n    },\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    },\n    {\n     \"op\": \"del_all\",\n     \"pass\": \"simplifycfg\"\n    },\n    {\n     \"name\": \"-force-vector-width\",\n     \"op\": \"knob\",\n     \"value\": 1\n    },\n    {\n     \"id\": 94,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 49,\n     \"op\": \"del\"\n    }\n   ],\n   \"raw\": null\n  },\n  {\n   \"speedup\": 3.5033140963010347,\n   \"ci\": [\n    3.4938539924097034,\n    3.5178055497007024\n   ],\n   \"median_ms\": 242.2246,\n   \"status\": \"ok\",\n   \"text_size\": 7270,\n   \"source\": \"RL\",\n   \"edits\": [\n    {\n     \"name\": \"llc:-tail-dup-size\",\n     \"op\": \"knob\",\n     \"value\": 6\n    },\n    {\n     \"name\": \"-unroll-max-count\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"op\": \"del_all\",\n     \"pass\": \"simplifycfg\"\n    },\n    {\n     \"name\": \"-unroll-count\",\n     \"op\": \"knob\",\n     \"value\": 4\n    }\n   ],\n   \"raw\": null\n  },\n  {\n   \"speedup\": 3.8007082633921745,\n   \"ci\": [\n    3.6930660546249,\n    3.8175052912379113\n   ],\n   \"median_ms\": 223.661342,\n   \"status\": \"ok\",\n   \"text_size\": 5635,\n   \"source\": \"library\",\n   \"edits\": [\n    {\n     \"name\": \"-jump-threading-threshold\",\n     \"op\": \"knob\",\n     \"value\": 3\n    },\n    {\n     \"new\": \"no-simplify-cond-branch\",\n     \"op\": \"param_all\",\n     \"pass\": \"simplifycfg\",\n     \"tok\": \"simplify-cond-branch\"\n    },\n    {\n     \"id\": 7,\n     \"new\": \"switch-range-to-icmp\",\n     \"op\": \"param\",\n     \"tok\": \"no-switch-range-to-icmp\"\n    },\n    {\n     \"op\": \"del_all\",\n     \"pass\": \"simplifycfg\"\n    },\n    {\n     \"id\": 18,\n     \"op\": \"del\"\n    },\n    {\n     \"name\": \"-unroll-max-count\",\n     \"op\": \"knob\",\n     \"value\": 2\n    },\n    {\n     \"id\": 110,\n     \"nid\": 923446400,\n     \"op\": \"dup\"\n    },\n    {\n     \"op\": \"del_all\",\n     \"pass\": \"globalopt\"\n    },\n    {\n     \"id\": 20,\n     \"nid\": 605843095,\n     \"op\": \"dup\"\n    },\n    {\n     \"new\": \"use-loop-info\",\n     \"op\": \"param_all\",\n     \"pass\": \"instcombine\",\n     \"tok\": \"no-use-loop-info\"\n    }\n   ],\n   \"raw\": null\n  }\n ],\n \"confirm\": {\n  \"speedup\": 3.8302210344880687,\n  \"ci\": [\n   3.820247974924568,\n   3.837768969468563\n  ],\n  \"control\": 1.0007876896514505,\n  \"pick_median_ms\": 221.86375099999998,\n  \"base_median_ms\": 848.4213585,\n  \"rounds\": 20\n },\n \"timing_s\": 80.4,\n \"choice\": \"candidate\",\n \"flags\": [\n  \"-unroll-max-count=4\",\n  \"llc:-tail-dup-size=6\"\n ],\n \"backend\": 3,\n \"bin_path\": \"/home/chirag/neurocompiler/work/bins/1642d7f290967c2b85980773-O3-Le6d241b0/prog\",\n \"text_size\": 6464,\n \"select_speedup\": 3.831250867417396,\n \"select_ci\": [\n  3.8005742310751773,\n  3.8344135861502857\n ],\n \"mode\": \"RL + SL\",\n \"rl_proposals\": 22,\n \"rl_in_top20_ranked\": 19,\n \"top_ranked\": [\n  {\n   \"rank\": 1,\n   \"source\": \"library\",\n   \"predicted_speedup\": 2.784,\n   \"n_edits\": 1\n  },\n  {\n   \"rank\": 2,\n   \"source\": \"RL\",\n   \"predicted_speedup\": 2.365,\n   \"n_edits\": 4\n  },\n  {\n   \"rank\": 3,\n   \"source\": \"RL\",\n   \"predicted_speedup\": 2.365,\n   \"n_edits\": 4\n  },\n  {\n   \"rank\": 4,\n   \"source\": \"RL\",\n   \"predicted_speedup\": 2.365,\n   \"n_edits\": 4\n  },\n  {\n   \"rank\": 5,\n   \"source\": \"RL\",\n   \"predicted_speedup\": 2.365,\n   \"n_edits\": 4\n  },\n  {\n   \"rank\": 6,\n   \"source\": \"RL\",\n   \"predicted_speedup\": 2.365,\n   \"n_edits\": 4\n  },\n  {\n   \"rank\": 7,\n   \"source\": \"RL\",\n   \"predicted_speedup\": 2.365,\n   \"n_edits\": 4\n  },\n  {\n   \"rank\": 8,\n   \"source\": \"RL\",\n   \"predicted_speedup\": 2.208,\n   \"n_edits\": 4\n  },\n  {\n   \"rank\": 9,\n   \"source\": \"RL\",\n   \"predicted_speedup\": 2.208,\n   \"n_edits\": 4\n  },\n  {\n   \"rank\": 10,\n   \"source\": \"RL\",\n   \"predicted_speedup\": 2.147,\n   \"n_edits\": 4\n  }\n ],\n \"o3_pipeline\": \"annotation2metadata,forceattrs,inferattrs,coro-early,function<eager-inv>(lower-expect,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;no-switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,sroa<modify-cfg>,early-cse<>,callsite-splitting),openmp-opt,ipsccp,called-value-propagation,globalopt,function<eager-inv>(mem2reg,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),always-inline,require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,argpromotion,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,correlated-propagation,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto>,licm<allowspeculation>,simple-loop-unswitch<nontrivial;trivial>),simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop(loop-idiom,indvars,loop-deletion,loop-unroll-full),sroa<modify-cfg>,vector-combine,mldst-motion<no-split-footer-bb>,gvn<>,sccp,bdce,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,jump-threading,correlated-propagation,adce,memcpyopt,dse,move-auto-init,loop-mssa(licm<allowspeculation>),coro-elide,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>),function-attrs,function(require<should-not-run-function-passes>),coro-split)),deadargelim,coro-cleanup,globalopt,globaldce,elim-avail-extern,rpo-function-attrs,recompute-globalsaa,function<eager-inv>(float2int,lower-constant-intrinsics,chr,loop(loop-rotate<header-duplication;no-prepare-for-lto>,loop-deletion),loop-distribute,inject-tli-mappings,loop-vectorize<no-interleave-forced-only;no-vectorize-forced-only;>,infer-alignment,loop-load-elim,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;forward-switch-cond;switch-range-to-icmp;switch-to-lookup;no-keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,slp-vectorizer,vector-combine,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-unroll<O3>,transform-warning,sroa<preserve-cfg>,infer-alignment,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-mssa(licm<allowspeculation>),alignment-from-assumptions,loop-sink,instsimplify,div-rem-pairs,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),globaldce,constmerge,cg-profile,rel-lookup-table-converter,function(annotation-remarks),verify\",\n \"o3_text_size\": 6719,\n \"shipped_from\": \"RL agent\",\n \"shipped_edits\": [\n  {\n   \"name\": \"llc:-tail-dup-size\",\n   \"op\": \"knob\",\n   \"value\": 6\n  },\n  {\n   \"name\": \"-unroll-max-count\",\n   \"op\": \"knob\",\n   \"value\": 4\n  },\n  {\n   \"op\": \"del_all\",\n   \"pass\": \"simplifycfg\"\n  },\n  {\n   \"op\": \"del_all\",\n   \"pass\": \"instcombine\"\n  }\n ],\n \"shipped_raw\": null,\n \"output\": \"/home/chirag/neurocompiler/work/dashboard/jobs/8af051e0836f/prog\",\n \"total_s\": 90.3,\n \"library\": 913,\n \"model\": \"results/models/surrogate_latest.json\",\n \"rl_policy\": \"results/models/rl_policy_latest.npz\"\n}\n\n== neurocompiler (RL + SL) ==\ncandidates: 22 RL proposals + 913 library pipelines, ranked by the supervised model; 19 RL proposals in its top 20; 8 timed\ntop of the ranking: #1 library (pred 2.78x), #2 RL (pred 2.37x), #3 RL (pred 2.37x), #4 RL (pred 2.37x), #5 RL (pred 2.37x), #6 RL (pred 2.37x), #7 RL (pred 2.37x), #8 RL (pred 2.21x)\nshipped: pipeline from the RL agent, selection 3.831x vs -O3, confirmed 3.830x [3.820,3.838]\n   edit: {\"name\": \"llc:-tail-dup-size\", \"op\": \"knob\", \"value\": 6}\n   edit: {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 4}\n   edit: {\"op\": \"del_all\", \"pass\": \"simplifycfg\"}\n   edit: {\"op\": \"del_all\", \"pass\": \"instcombine\"}\nbinary: /home/chirag/neurocompiler/work/dashboard/jobs/8af051e0836f/prog   total 90.3 s\n"
+}

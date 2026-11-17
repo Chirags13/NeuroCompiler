@@ -1,0 +1,856 @@
+{
+ "id": "917814203078",
+ "mode": "tune",
+ "status": "done",
+ "created": 1792999300.2603447,
+ "example": "matmul",
+ "inputs": {
+  "files": [
+   "matmul.c"
+  ],
+  "args": "800",
+  "cflags": "",
+  "k": 8,
+  "no_rl": false,
+  "dynamic": false,
+  "verify": false,
+  "stdin": null
+ },
+ "started": 1792999300.2989445,
+ "command": [
+  "/home/chirag/neurocompiler/.venv/bin/python",
+  "-u",
+  "-m",
+  "nc.cli",
+  "tune",
+  "/home/chirag/neurocompiler/work/dashboard/jobs/917814203078/src/matmul.c",
+  "--out",
+  "/home/chirag/neurocompiler/work/dashboard/jobs/917814203078/prog",
+  "--cflags=-I/home/chirag/neurocompiler/work/dashboard/jobs/917814203078/src",
+  "--args=800",
+  "--k",
+  "8",
+  "--cwd",
+  "/home/chirag/neurocompiler/work/dashboard/jobs/917814203078/src"
+ ],
+ "finished": 1792999382.1836038,
+ "returncode": 0,
+ "result": {
+  "method": "deploy_rl_sl",
+  "n_compiled": 24,
+  "n_timed": 8,
+  "compile_s": 3.4,
+  "base_median_ms": 423.6022025,
+  "timed": [
+   {
+    "speedup": 0.9853422366549007,
+    "ci": [
+     0.964601821701903,
+     1.067084069718921
+    ],
+    "median_ms": 431.30927399999996,
+    "status": "ok",
+    "text_size": 11222,
+    "source": "library",
+    "edits": [
+     {
+      "id": 89,
+      "op": "del"
+     },
+     {
+      "id": 12,
+      "op": "del"
+     },
+     {
+      "id": 11,
+      "op": "swap"
+     },
+     {
+      "after": 31,
+      "ctx": "function",
+      "nid": 240464745,
+      "op": "ins",
+      "pass": "jump-threading"
+     },
+     {
+      "id": 57,
+      "op": "del"
+     },
+     {
+      "id": 48,
+      "op": "del"
+     },
+     {
+      "id": 68,
+      "op": "del"
+     },
+     {
+      "after": 16,
+      "ctx": "function",
+      "nid": 562263807,
+      "op": "ins",
+      "pass": "coro-elide"
+     },
+     {
+      "after": 38,
+      "ctx": "function",
+      "nid": 730140686,
+      "op": "ins",
+      "pass": "mldst-motion<no-split-footer-bb>"
+     },
+     {
+      "id": 14,
+      "op": "del"
+     },
+     {
+      "name": "-unroll-count",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "after": 108,
+      "ctx": "function",
+      "nid": 300981010,
+      "op": "ins",
+      "pass": "mldst-motion<no-split-footer-bb>"
+     },
+     {
+      "after": 99,
+      "ctx": "function",
+      "nid": 545458267,
+      "op": "ins",
+      "pass": "loop-unroll<O3>"
+     }
+    ],
+    "raw": null
+   },
+   {
+    "speedup": 0.9880065530240121,
+    "ci": [
+     0.9810999400260155,
+     1.03386655905621
+    ],
+    "median_ms": 428.7289235,
+    "status": "ok",
+    "text_size": 12725,
+    "source": "library",
+    "edits": [
+     {
+      "id": 92,
+      "op": "del"
+     },
+     {
+      "id": 2,
+      "op": "swap"
+     },
+     {
+      "after": 104,
+      "ctx": "function",
+      "nid": 347546965,
+      "op": "ins",
+      "pass": "loop-unroll-and-jam"
+     },
+     {
+      "op": "backend",
+      "value": 1
+     },
+     {
+      "id": 70,
+      "op": "del"
+     },
+     {
+      "id": 120,
+      "nid": 341375921,
+      "op": "dup"
+     },
+     {
+      "id": 111,
+      "op": "del"
+     },
+     {
+      "name": "-slp-threshold",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "name": "-slp-threshold",
+      "op": "knob",
+      "value": 0
+     },
+     {
+      "after": 3,
+      "ctx": "module",
+      "nid": 79561628,
+      "op": "ins",
+      "pass": "always-inline"
+     },
+     {
+      "id": 75,
+      "op": "del"
+     },
+     {
+      "name": "-unroll-count",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "id": 8,
+      "op": "del"
+     },
+     {
+      "op": "backend",
+      "value": 3
+     }
+    ],
+    "raw": null
+   },
+   {
+    "speedup": 0.987524394945077,
+    "ci": [
+     0.9746191234156192,
+     1.0336273114237131
+    ],
+    "median_ms": 428.759923,
+    "status": "ok",
+    "text_size": 8661,
+    "source": "library",
+    "edits": [
+     {
+      "id": 92,
+      "op": "del"
+     },
+     {
+      "id": 2,
+      "op": "swap"
+     },
+     {
+      "after": 104,
+      "ctx": "function",
+      "nid": 347546965,
+      "op": "ins",
+      "pass": "loop-unroll-and-jam"
+     },
+     {
+      "op": "backend",
+      "value": 1
+     },
+     {
+      "id": 70,
+      "op": "del"
+     },
+     {
+      "id": 120,
+      "nid": 341375921,
+      "op": "dup"
+     },
+     {
+      "id": 111,
+      "op": "del"
+     },
+     {
+      "name": "-slp-threshold",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "name": "-slp-threshold",
+      "op": "knob",
+      "value": 0
+     },
+     {
+      "after": 3,
+      "ctx": "module",
+      "nid": 79561628,
+      "op": "ins",
+      "pass": "always-inline"
+     },
+     {
+      "id": 75,
+      "op": "del"
+     },
+     {
+      "name": "-unroll-count",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "id": 37,
+      "nid": 247990493,
+      "op": "dup"
+     },
+     {
+      "id": 113,
+      "op": "del"
+     }
+    ],
+    "raw": null
+   },
+   {
+    "speedup": 0.9910396046853183,
+    "ci": [
+     0.9860990461024447,
+     1.0325981407010634
+    ],
+    "median_ms": 428.469555,
+    "status": "ok",
+    "text_size": 8774,
+    "source": "library",
+    "edits": [
+     {
+      "id": 89,
+      "op": "del"
+     },
+     {
+      "id": 12,
+      "op": "del"
+     },
+     {
+      "id": 11,
+      "op": "swap"
+     },
+     {
+      "after": 31,
+      "ctx": "function",
+      "nid": 240464745,
+      "op": "ins",
+      "pass": "jump-threading"
+     },
+     {
+      "id": 57,
+      "op": "del"
+     },
+     {
+      "id": 48,
+      "op": "del"
+     },
+     {
+      "id": 68,
+      "op": "del"
+     },
+     {
+      "after": 16,
+      "ctx": "function",
+      "nid": 562263807,
+      "op": "ins",
+      "pass": "coro-elide"
+     },
+     {
+      "after": 38,
+      "ctx": "function",
+      "nid": 730140686,
+      "op": "ins",
+      "pass": "mldst-motion<no-split-footer-bb>"
+     },
+     {
+      "id": 14,
+      "op": "del"
+     },
+     {
+      "name": "-unroll-count",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "id": 47,
+      "op": "del"
+     },
+     {
+      "id": 88,
+      "op": "del"
+     }
+    ],
+    "raw": null
+   },
+   {
+    "speedup": 0.9892043216654064,
+    "ci": [
+     0.9853395742397831,
+     1.0297057723665373
+    ],
+    "median_ms": 428.45092450000004,
+    "status": "ok",
+    "text_size": 8660,
+    "source": "library",
+    "edits": [
+     {
+      "id": 90,
+      "op": "del"
+     },
+     {
+      "id": 88,
+      "op": "del"
+     },
+     {
+      "after": 81,
+      "ctx": "module",
+      "nid": 422869484,
+      "op": "ins",
+      "pass": "rel-lookup-table-converter"
+     },
+     {
+      "after": 11,
+      "ctx": "module",
+      "nid": 381898507,
+      "op": "ins",
+      "pass": "elim-avail-extern"
+     },
+     {
+      "id": 22,
+      "nid": 674535033,
+      "op": "dup"
+     },
+     {
+      "name": "-unroll-count",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "id": 72,
+      "op": "del"
+     },
+     {
+      "after": 107,
+      "ctx": "function",
+      "nid": 530744646,
+      "op": "ins",
+      "pass": "loop-unroll<O3>"
+     },
+     {
+      "id": 20,
+      "nid": 370881093,
+      "op": "dup"
+     },
+     {
+      "id": 102,
+      "op": "swap"
+     },
+     {
+      "id": 63,
+      "op": "del"
+     },
+     {
+      "id": 48,
+      "op": "del"
+     }
+    ],
+    "raw": null
+   },
+   {
+    "speedup": 1.6320875794856813,
+    "ci": [
+     1.5954031655093714,
+     1.7106180252188743
+    ],
+    "median_ms": 258.777019,
+    "status": "ok",
+    "text_size": 13470,
+    "source": "library",
+    "edits": [
+     {
+      "name": "-unroll-count",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "after": 23,
+      "ctx": "module",
+      "nid": 91479349,
+      "op": "ins",
+      "pass": "mergefunc"
+     },
+     {
+      "id": 83,
+      "op": "del"
+     },
+     {
+      "id": 118,
+      "nid": 233296561,
+      "op": "dup"
+     },
+     {
+      "new": "allowspeculation",
+      "op": "param_all",
+      "pass": "licm",
+      "tok": "no-allowspeculation"
+     },
+     {
+      "name": "-force-vector-width",
+      "op": "knob",
+      "value": 8
+     },
+     {
+      "id": 36,
+      "new": "forward-switch-cond",
+      "op": "param",
+      "tok": "no-forward-switch-cond"
+     },
+     {
+      "name": "-vectorizer-min-trip-count",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "after": 51,
+      "ctx": "function",
+      "nid": 734614122,
+      "op": "ins",
+      "pass": "chr"
+     },
+     {
+      "id": 84,
+      "op": "del"
+     },
+     {
+      "op": "del_all",
+      "pass": "early-cse"
+     }
+    ],
+    "raw": null
+   },
+   {
+    "speedup": 1.6511009153869591,
+    "ci": [
+     1.6485055912881745,
+     1.7580257572328126
+    ],
+    "median_ms": 256.194278,
+    "status": "ok",
+    "text_size": 8192,
+    "source": "library",
+    "edits": [
+     {
+      "name": "-force-vector-width",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "after": 46,
+      "ctx": "loop-mssa",
+      "nid": 341771871,
+      "op": "ins",
+      "pass": "loop-instsimplify"
+     },
+     {
+      "name": "llc:-tail-dup-indirect-size",
+      "op": "knob",
+      "value": 3
+     },
+     {
+      "name": "llc:-align-loops",
+      "op": "knob",
+      "value": 1
+     },
+     {
+      "op": "del_all",
+      "pass": "vector-combine"
+     },
+     {
+      "id": 74,
+      "nid": 23382857,
+      "op": "dup"
+     },
+     {
+      "name": "-unroll-max-count",
+      "op": "knob",
+      "value": 2
+     },
+     {
+      "id": 8,
+      "op": "del"
+     },
+     {
+      "name": "-unroll-count",
+      "op": "knob",
+      "value": 2
+     },
+     {
+      "after": 120,
+      "ctx": "module",
+      "nid": 396071357,
+      "op": "ins",
+      "pass": "forceattrs"
+     },
+     {
+      "id": 34,
+      "nid": 335908525,
+      "op": "dup"
+     },
+     {
+      "id": 96,
+      "nid": 98729937,
+      "op": "dup"
+     },
+     {
+      "name": "llc:-enable-tail-merge",
+      "op": "knob",
+      "value": "false"
+     }
+    ],
+    "raw": null
+   },
+   {
+    "speedup": 0.9948380278448145,
+    "ci": [
+     0.9840517381607718,
+     1.0489449051018567
+    ],
+    "median_ms": 427.629282,
+    "status": "ok",
+    "text_size": 13173,
+    "source": "library",
+    "edits": [
+     {
+      "id": 61,
+      "op": "del"
+     },
+     {
+      "after": 115,
+      "ctx": "function",
+      "nid": 52021280,
+      "op": "ins",
+      "pass": "vector-combine"
+     },
+     {
+      "name": "-force-vector-interleave",
+      "op": "knob",
+      "value": 2
+     },
+     {
+      "after": 52,
+      "ctx": "function",
+      "nid": 190597695,
+      "op": "ins",
+      "pass": "vector-combine"
+     },
+     {
+      "id": 7,
+      "op": "del"
+     },
+     {
+      "after": 56,
+      "ctx": "loop",
+      "nid": 463570958,
+      "op": "ins",
+      "pass": "loop-instsimplify"
+     },
+     {
+      "name": "-unroll-count",
+      "op": "knob",
+      "value": 4
+     },
+     {
+      "id": 67,
+      "op": "del"
+     },
+     {
+      "id": 84,
+      "nid": 781015600,
+      "op": "dup"
+     },
+     {
+      "id": 16,
+      "op": "swap"
+     },
+     {
+      "after": 122,
+      "ctx": "function",
+      "nid": 571000731,
+      "op": "ins",
+      "pass": "dse"
+     },
+     {
+      "op": "backend",
+      "value": 2
+     },
+     {
+      "after": 22,
+      "ctx": "function",
+      "nid": 540672359,
+      "op": "ins",
+      "pass": "loop-vectorize"
+     }
+    ],
+    "raw": null
+   }
+  ],
+  "confirm": {
+   "speedup": 1.6560829821059375,
+   "ci": [
+    1.653365846227058,
+    1.6635875560359454
+   ],
+   "control": 1.00128967934474,
+   "pick_median_ms": 254.08820400000002,
+   "base_median_ms": 421.6074145,
+   "rounds": 20
+  },
+  "timing_s": 71.0,
+  "choice": "candidate",
+  "genome": "{\"edits\": [{\"name\": \"-force-vector-width\", \"op\": \"knob\", \"value\": 4}, {\"after\": 46, \"ctx\": \"loop-mssa\", \"nid\": 341771871, \"op\": \"ins\", \"pass\": \"loop-instsimplify\"}, {\"name\": \"llc:-tail-dup-indirect-size\", \"op\": \"knob\", \"value\": 3}, {\"name\": \"llc:-align-loops\", \"op\": \"knob\", \"value\": 1}, {\"op\": \"del_all\", \"pass\": \"vector-combine\"}, {\"id\": 74, \"nid\": 23382857, \"op\": \"dup\"}, {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 2}, {\"id\": 8, \"op\": \"del\"}, {\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}, {\"after\": 120, \"ctx\": \"module\", \"nid\": 396071357, \"op\": \"ins\", \"pass\": \"forceattrs\"}, {\"id\": 34, \"nid\": 335908525, \"op\": \"dup\"}, {\"id\": 96, \"nid\": 98729937, \"op\": \"dup\"}, {\"name\": \"llc:-enable-tail-merge\", \"op\": \"knob\", \"value\": \"false\"}], \"raw\": null}",
+  "pipeline": "annotation2metadata,forceattrs,inferattrs,coro-early,function<eager-inv>(lower-expect,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;no-switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,early-cse<>,callsite-splitting),openmp-opt,ipsccp,called-value-propagation,globalopt,function<eager-inv>(mem2reg,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),always-inline,require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,argpromotion,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,jump-threading,correlated-propagation,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,loop-instsimplify,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto>,licm<allowspeculation>,simple-loop-unswitch<nontrivial;trivial>),simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop(loop-idiom,indvars,loop-deletion,loop-unroll-full),sroa<modify-cfg>,mldst-motion<no-split-footer-bb>,gvn<>,sccp,bdce,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,jump-threading,correlated-propagation,adce,memcpyopt,dse,move-auto-init,loop-mssa(licm<allowspeculation>),coro-elide,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>),function-attrs,function(require<should-not-run-function-passes>),coro-split)),deadargelim,coro-cleanup,globalopt,globaldce,elim-avail-extern,rpo-function-attrs,recompute-globalsaa,function<eager-inv>(float2int,lower-constant-intrinsics,chr,loop(loop-rotate<header-duplication;no-prepare-for-lto>,loop-deletion),loop-distribute,inject-tli-mappings,loop-vectorize<no-interleave-forced-only;no-vectorize-forced-only;>,loop-vectorize<no-interleave-forced-only;no-vectorize-forced-only;>,infer-alignment,loop-load-elim,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;forward-switch-cond;switch-range-to-icmp;switch-to-lookup;no-keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,slp-vectorizer,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-unroll<O3>,transform-warning,sroa<preserve-cfg>,infer-alignment,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-mssa(licm<allowspeculation>),alignment-from-assumptions,loop-sink,instsimplify,div-rem-pairs,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),globaldce,constmerge,cg-profile,rel-lookup-table-converter,forceattrs,function(annotation-remarks),verify",
+  "flags": [
+   "-force-vector-width=4",
+   "-unroll-count=2",
+   "-unroll-max-count=2",
+   "llc:-align-loops=1",
+   "llc:-enable-tail-merge=false",
+   "llc:-tail-dup-indirect-size=3"
+  ],
+  "backend": 3,
+  "bin_path": "/home/chirag/neurocompiler/work/bins/82a8b1023079e8cccf4d2ab2-O3-Lb264315a/prog",
+  "text_size": 8192,
+  "select_speedup": 1.6511009153869591,
+  "select_ci": [
+   1.6485055912881745,
+   1.7580257572328126
+  ],
+  "mode": "RL + SL",
+  "rl_proposals": 24,
+  "rl_in_top20_ranked": 0,
+  "top_ranked": [
+   {
+    "rank": 1,
+    "source": "library",
+    "predicted_speedup": 1.271,
+    "n_edits": 13
+   },
+   {
+    "rank": 2,
+    "source": "library",
+    "predicted_speedup": 1.264,
+    "n_edits": 14
+   },
+   {
+    "rank": 3,
+    "source": "library",
+    "predicted_speedup": 1.256,
+    "n_edits": 14
+   },
+   {
+    "rank": 4,
+    "source": "library",
+    "predicted_speedup": 1.244,
+    "n_edits": 13
+   },
+   {
+    "rank": 5,
+    "source": "library",
+    "predicted_speedup": 1.24,
+    "n_edits": 12
+   },
+   {
+    "rank": 6,
+    "source": "library",
+    "predicted_speedup": 1.238,
+    "n_edits": 12
+   },
+   {
+    "rank": 7,
+    "source": "library",
+    "predicted_speedup": 1.227,
+    "n_edits": 11
+   },
+   {
+    "rank": 8,
+    "source": "library",
+    "predicted_speedup": 1.217,
+    "n_edits": 13
+   },
+   {
+    "rank": 9,
+    "source": "library",
+    "predicted_speedup": 1.21,
+    "n_edits": 13
+   },
+   {
+    "rank": 10,
+    "source": "library",
+    "predicted_speedup": 1.209,
+    "n_edits": 14
+   }
+  ],
+  "o3_pipeline": "annotation2metadata,forceattrs,inferattrs,coro-early,function<eager-inv>(lower-expect,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;no-switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,sroa<modify-cfg>,early-cse<>,callsite-splitting),openmp-opt,ipsccp,called-value-propagation,globalopt,function<eager-inv>(mem2reg,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),always-inline,require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,argpromotion,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,correlated-propagation,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto>,licm<allowspeculation>,simple-loop-unswitch<nontrivial;trivial>),simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop(loop-idiom,indvars,loop-deletion,loop-unroll-full),sroa<modify-cfg>,vector-combine,mldst-motion<no-split-footer-bb>,gvn<>,sccp,bdce,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,jump-threading,correlated-propagation,adce,memcpyopt,dse,move-auto-init,loop-mssa(licm<allowspeculation>),coro-elide,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>),function-attrs,function(require<should-not-run-function-passes>),coro-split)),deadargelim,coro-cleanup,globalopt,globaldce,elim-avail-extern,rpo-function-attrs,recompute-globalsaa,function<eager-inv>(float2int,lower-constant-intrinsics,chr,loop(loop-rotate<header-duplication;no-prepare-for-lto>,loop-deletion),loop-distribute,inject-tli-mappings,loop-vectorize<no-interleave-forced-only;no-vectorize-forced-only;>,infer-alignment,loop-load-elim,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;forward-switch-cond;switch-range-to-icmp;switch-to-lookup;no-keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,slp-vectorizer,vector-combine,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-unroll<O3>,transform-warning,sroa<preserve-cfg>,infer-alignment,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-mssa(licm<allowspeculation>),alignment-from-assumptions,loop-sink,instsimplify,div-rem-pairs,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),globaldce,constmerge,cg-profile,rel-lookup-table-converter,function(annotation-remarks),verify",
+  "o3_text_size": 8173,
+  "shipped_from": "library",
+  "shipped_edits": [
+   {
+    "name": "-force-vector-width",
+    "op": "knob",
+    "value": 4
+   },
+   {
+    "after": 46,
+    "ctx": "loop-mssa",
+    "nid": 341771871,
+    "op": "ins",
+    "pass": "loop-instsimplify"
+   },
+   {
+    "name": "llc:-tail-dup-indirect-size",
+    "op": "knob",
+    "value": 3
+   },
+   {
+    "name": "llc:-align-loops",
+    "op": "knob",
+    "value": 1
+   },
+   {
+    "op": "del_all",
+    "pass": "vector-combine"
+   },
+   {
+    "id": 74,
+    "nid": 23382857,
+    "op": "dup"
+   },
+   {
+    "name": "-unroll-max-count",
+    "op": "knob",
+    "value": 2
+   },
+   {
+    "id": 8,
+    "op": "del"
+   },
+   {
+    "name": "-unroll-count",
+    "op": "knob",
+    "value": 2
+   },
+   {
+    "after": 120,
+    "ctx": "module",
+    "nid": 396071357,
+    "op": "ins",
+    "pass": "forceattrs"
+   },
+   {
+    "id": 34,
+    "nid": 335908525,
+    "op": "dup"
+   },
+   {
+    "id": 96,
+    "nid": 98729937,
+    "op": "dup"
+   },
+   {
+    "name": "llc:-enable-tail-merge",
+    "op": "knob",
+    "value": "false"
+   }
+  ],
+  "shipped_raw": null,
+  "output": "/home/chirag/neurocompiler/work/dashboard/jobs/917814203078/prog",
+  "total_s": 81.6,
+  "library": 913,
+  "model": "results/models/surrogate_latest.json",
+  "rl_policy": "results/models/rl_policy_latest.npz"
+ },
+ "sources": {
+  "matmul.c": "/* Dense matrix multiply (naive ijk). Regular loops: responds strongly to\n * vectorization, unrolling, and loop passes. Usage: ./matmul [N]  (default 640) */\n#include <stdio.h>\n#include <stdlib.h>\n\nint main(int argc, char **argv) {\n    int n = argc > 1 ? atoi(argv[1]) : 640;\n    double *A = malloc(sizeof(double) * (size_t)n * n);\n    double *B = malloc(sizeof(double) * (size_t)n * n);\n    double *C = malloc(sizeof(double) * (size_t)n * n);\n    if (!A || !B || !C) return 2;\n    for (int i = 0; i < n; i++)\n        for (int j = 0; j < n; j++) {\n            A[(size_t)i * n + j] = (double)((i * 7 + j * 3) % 11);\n            B[(size_t)i * n + j] = (double)((i * 5 + j * 2) % 13);\n        }\n    for (int i = 0; i < n; i++)\n        for (int j = 0; j < n; j++) {\n            double s = 0.0;\n            for (int k = 0; k < n; k++) s += A[(size_t)i * n + k] * B[(size_t)k * n + j];\n            C[(size_t)i * n + j] = s;\n        }\n    /* integer-valued doubles keep every sum exact, so output is identical across builds */\n    long long chk = 0;\n    for (size_t idx = 0; idx < (size_t)n * n; idx++) chk = (chk * 31 + (long long)C[idx]) % 1000000007LL;\n    printf(\"%lld\\n\", chk);\n    free(A); free(B); free(C);\n    return 0;\n}\n"
+ },
+ "saved_name": "Tune \u00b7 matrix multiply (1.66x)",
+ "log": "$ /home/chirag/neurocompiler/.venv/bin/python -u -m nc.cli tune /home/chirag/neurocompiler/work/dashboard/jobs/917814203078/src/matmul.c --out /home/chirag/neurocompiler/work/dashboard/jobs/917814203078/prog --cflags=-I/home/chirag/neurocompiler/work/dashboard/jobs/917814203078/src --args=800 --k 8 --cwd /home/chirag/neurocompiler/work/dashboard/jobs/917814203078/src\n\n[reference] -O0 build ran OK (1439 ms); its output is the reference every candidate must match\n[features] 120 program features (static IR + quick scan of -O0..-O3)\n[rl] the RL agent proposed 24 pipelines\n[rank] the supervised model scored 937 pipelines (24 RL + 913 library); best predicted 1.27x\n[compile] 24 pipelines compiled in ranked order -> 8 distinct binaries with verified output (3 s)\n[timing] 8 candidates + -O3, interleaved on a pinned core, 10 rounds ...\n[timing]   candidate 1: 0.985x vs -O3 [0.965, 1.067]  431.3 ms  (-O3 423.6 ms)\n[timing]   candidate 2: 0.988x vs -O3 [0.981, 1.034]  428.7 ms  (-O3 423.6 ms)\n[timing]   candidate 3: 0.988x vs -O3 [0.975, 1.034]  428.8 ms  (-O3 423.6 ms)\n[timing]   candidate 4: 0.991x vs -O3 [0.986, 1.033]  428.5 ms  (-O3 423.6 ms)\n[timing]   candidate 5: 0.989x vs -O3 [0.985, 1.030]  428.5 ms  (-O3 423.6 ms)\n[timing]   candidate 6: 1.632x vs -O3 [1.595, 1.711]  258.8 ms  (-O3 423.6 ms)\n[timing]   candidate 7: 1.651x vs -O3 [1.649, 1.758]  256.2 ms  (-O3 423.6 ms)\n[timing]   candidate 8: 0.995x vs -O3 [0.984, 1.049]  427.6 ms  (-O3 423.6 ms)\n[confirm] best 1.651x: fresh 20-round run vs -O3 with an A/A control ...\n[confirm] 1.656x [1.653, 1.664], A/A control 1.001x\n{\n \"method\": \"deploy_rl_sl\",\n \"n_compiled\": 24,\n \"n_timed\": 8,\n \"compile_s\": 3.4,\n \"base_median_ms\": 423.6022025,\n \"timed\": [\n  {\n   \"speedup\": 0.9853422366549007,\n   \"ci\": [\n    0.964601821701903,\n    1.067084069718921\n   ],\n   \"median_ms\": 431.30927399999996,\n   \"status\": \"ok\",\n   \"text_size\": 11222,\n   \"source\": \"library\",\n   \"edits\": [\n    {\n     \"id\": 89,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 12,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 11,\n     \"op\": \"swap\"\n    },\n    {\n     \"after\": 31,\n     \"ctx\": \"function\",\n     \"nid\": 240464745,\n     \"op\": \"ins\",\n     \"pass\": \"jump-threading\"\n    },\n    {\n     \"id\": 57,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 48,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 68,\n     \"op\": \"del\"\n    },\n    {\n     \"after\": 16,\n     \"ctx\": \"function\",\n     \"nid\": 562263807,\n     \"op\": \"ins\",\n     \"pass\": \"coro-elide\"\n    },\n    {\n     \"after\": 38,\n     \"ctx\": \"function\",\n     \"nid\": 730140686,\n     \"op\": \"ins\",\n     \"pass\": \"mldst-motion<no-split-footer-bb>\"\n    },\n    {\n     \"id\": 14,\n     \"op\": \"del\"\n    },\n    {\n     \"name\": \"-unroll-count\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"after\": 108,\n     \"ctx\": \"function\",\n     \"nid\": 300981010,\n     \"op\": \"ins\",\n     \"pass\": \"mldst-motion<no-split-footer-bb>\"\n    },\n    {\n     \"after\": 99,\n     \"ctx\": \"function\",\n     \"nid\": 545458267,\n     \"op\": \"ins\",\n     \"pass\": \"loop-unroll<O3>\"\n    }\n   ],\n   \"raw\": null\n  },\n  {\n   \"speedup\": 0.9880065530240121,\n   \"ci\": [\n    0.9810999400260155,\n    1.03386655905621\n   ],\n   \"median_ms\": 428.7289235,\n   \"status\": \"ok\",\n   \"text_size\": 12725,\n   \"source\": \"library\",\n   \"edits\": [\n    {\n     \"id\": 92,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 2,\n     \"op\": \"swap\"\n    },\n    {\n     \"after\": 104,\n     \"ctx\": \"function\",\n     \"nid\": 347546965,\n     \"op\": \"ins\",\n     \"pass\": \"loop-unroll-and-jam\"\n    },\n    {\n     \"op\": \"backend\",\n     \"value\": 1\n    },\n    {\n     \"id\": 70,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 120,\n     \"nid\": 341375921,\n     \"op\": \"dup\"\n    },\n    {\n     \"id\": 111,\n     \"op\": \"del\"\n    },\n    {\n     \"name\": \"-slp-threshold\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"name\": \"-slp-threshold\",\n     \"op\": \"knob\",\n     \"value\": 0\n    },\n    {\n     \"after\": 3,\n     \"ctx\": \"module\",\n     \"nid\": 79561628,\n     \"op\": \"ins\",\n     \"pass\": \"always-inline\"\n    },\n    {\n     \"id\": 75,\n     \"op\": \"del\"\n    },\n    {\n     \"name\": \"-unroll-count\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"id\": 8,\n     \"op\": \"del\"\n    },\n    {\n     \"op\": \"backend\",\n     \"value\": 3\n    }\n   ],\n   \"raw\": null\n  },\n  {\n   \"speedup\": 0.987524394945077,\n   \"ci\": [\n    0.9746191234156192,\n    1.0336273114237131\n   ],\n   \"median_ms\": 428.759923,\n   \"status\": \"ok\",\n   \"text_size\": 8661,\n   \"source\": \"library\",\n   \"edits\": [\n    {\n     \"id\": 92,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 2,\n     \"op\": \"swap\"\n    },\n    {\n     \"after\": 104,\n     \"ctx\": \"function\",\n     \"nid\": 347546965,\n     \"op\": \"ins\",\n     \"pass\": \"loop-unroll-and-jam\"\n    },\n    {\n     \"op\": \"backend\",\n     \"value\": 1\n    },\n    {\n     \"id\": 70,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 120,\n     \"nid\": 341375921,\n     \"op\": \"dup\"\n    },\n    {\n     \"id\": 111,\n     \"op\": \"del\"\n    },\n    {\n     \"name\": \"-slp-threshold\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"name\": \"-slp-threshold\",\n     \"op\": \"knob\",\n     \"value\": 0\n    },\n    {\n     \"after\": 3,\n     \"ctx\": \"module\",\n     \"nid\": 79561628,\n     \"op\": \"ins\",\n     \"pass\": \"always-inline\"\n    },\n    {\n     \"id\": 75,\n     \"op\": \"del\"\n    },\n    {\n     \"name\": \"-unroll-count\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"id\": 37,\n     \"nid\": 247990493,\n     \"op\": \"dup\"\n    },\n    {\n     \"id\": 113,\n     \"op\": \"del\"\n    }\n   ],\n   \"raw\": null\n  },\n  {\n   \"speedup\": 0.9910396046853183,\n   \"ci\": [\n    0.9860990461024447,\n    1.0325981407010634\n   ],\n   \"median_ms\": 428.469555,\n   \"status\": \"ok\",\n   \"text_size\": 8774,\n   \"source\": \"library\",\n   \"edits\": [\n    {\n     \"id\": 89,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 12,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 11,\n     \"op\": \"swap\"\n    },\n    {\n     \"after\": 31,\n     \"ctx\": \"function\",\n     \"nid\": 240464745,\n     \"op\": \"ins\",\n     \"pass\": \"jump-threading\"\n    },\n    {\n     \"id\": 57,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 48,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 68,\n     \"op\": \"del\"\n    },\n    {\n     \"after\": 16,\n     \"ctx\": \"function\",\n     \"nid\": 562263807,\n     \"op\": \"ins\",\n     \"pass\": \"coro-elide\"\n    },\n    {\n     \"after\": 38,\n     \"ctx\": \"function\",\n     \"nid\": 730140686,\n     \"op\": \"ins\",\n     \"pass\": \"mldst-motion<no-split-footer-bb>\"\n    },\n    {\n     \"id\": 14,\n     \"op\": \"del\"\n    },\n    {\n     \"name\": \"-unroll-count\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"id\": 47,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 88,\n     \"op\": \"del\"\n    }\n   ],\n   \"raw\": null\n  },\n  {\n   \"speedup\": 0.9892043216654064,\n   \"ci\": [\n    0.9853395742397831,\n    1.0297057723665373\n   ],\n   \"median_ms\": 428.45092450000004,\n   \"status\": \"ok\",\n   \"text_size\": 8660,\n   \"source\": \"library\",\n   \"edits\": [\n    {\n     \"id\": 90,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 88,\n     \"op\": \"del\"\n    },\n    {\n     \"after\": 81,\n     \"ctx\": \"module\",\n     \"nid\": 422869484,\n     \"op\": \"ins\",\n     \"pass\": \"rel-lookup-table-converter\"\n    },\n    {\n     \"after\": 11,\n     \"ctx\": \"module\",\n     \"nid\": 381898507,\n     \"op\": \"ins\",\n     \"pass\": \"elim-avail-extern\"\n    },\n    {\n     \"id\": 22,\n     \"nid\": 674535033,\n     \"op\": \"dup\"\n    },\n    {\n     \"name\": \"-unroll-count\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"id\": 72,\n     \"op\": \"del\"\n    },\n    {\n     \"after\": 107,\n     \"ctx\": \"function\",\n     \"nid\": 530744646,\n     \"op\": \"ins\",\n     \"pass\": \"loop-unroll<O3>\"\n    },\n    {\n     \"id\": 20,\n     \"nid\": 370881093,\n     \"op\": \"dup\"\n    },\n    {\n     \"id\": 102,\n     \"op\": \"swap\"\n    },\n    {\n     \"id\": 63,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 48,\n     \"op\": \"del\"\n    }\n   ],\n   \"raw\": null\n  },\n  {\n   \"speedup\": 1.6320875794856813,\n   \"ci\": [\n    1.5954031655093714,\n    1.7106180252188743\n   ],\n   \"median_ms\": 258.777019,\n   \"status\": \"ok\",\n   \"text_size\": 13470,\n   \"source\": \"library\",\n   \"edits\": [\n    {\n     \"name\": \"-unroll-count\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"after\": 23,\n     \"ctx\": \"module\",\n     \"nid\": 91479349,\n     \"op\": \"ins\",\n     \"pass\": \"mergefunc\"\n    },\n    {\n     \"id\": 83,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 118,\n     \"nid\": 233296561,\n     \"op\": \"dup\"\n    },\n    {\n     \"new\": \"allowspeculation\",\n     \"op\": \"param_all\",\n     \"pass\": \"licm\",\n     \"tok\": \"no-allowspeculation\"\n    },\n    {\n     \"name\": \"-force-vector-width\",\n     \"op\": \"knob\",\n     \"value\": 8\n    },\n    {\n     \"id\": 36,\n     \"new\": \"forward-switch-cond\",\n     \"op\": \"param\",\n     \"tok\": \"no-forward-switch-cond\"\n    },\n    {\n     \"name\": \"-vectorizer-min-trip-count\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"after\": 51,\n     \"ctx\": \"function\",\n     \"nid\": 734614122,\n     \"op\": \"ins\",\n     \"pass\": \"chr\"\n    },\n    {\n     \"id\": 84,\n     \"op\": \"del\"\n    },\n    {\n     \"op\": \"del_all\",\n     \"pass\": \"early-cse\"\n    }\n   ],\n   \"raw\": null\n  },\n  {\n   \"speedup\": 1.6511009153869591,\n   \"ci\": [\n    1.6485055912881745,\n    1.7580257572328126\n   ],\n   \"median_ms\": 256.194278,\n   \"status\": \"ok\",\n   \"text_size\": 8192,\n   \"source\": \"library\",\n   \"edits\": [\n    {\n     \"name\": \"-force-vector-width\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"after\": 46,\n     \"ctx\": \"loop-mssa\",\n     \"nid\": 341771871,\n     \"op\": \"ins\",\n     \"pass\": \"loop-instsimplify\"\n    },\n    {\n     \"name\": \"llc:-tail-dup-indirect-size\",\n     \"op\": \"knob\",\n     \"value\": 3\n    },\n    {\n     \"name\": \"llc:-align-loops\",\n     \"op\": \"knob\",\n     \"value\": 1\n    },\n    {\n     \"op\": \"del_all\",\n     \"pass\": \"vector-combine\"\n    },\n    {\n     \"id\": 74,\n     \"nid\": 23382857,\n     \"op\": \"dup\"\n    },\n    {\n     \"name\": \"-unroll-max-count\",\n     \"op\": \"knob\",\n     \"value\": 2\n    },\n    {\n     \"id\": 8,\n     \"op\": \"del\"\n    },\n    {\n     \"name\": \"-unroll-count\",\n     \"op\": \"knob\",\n     \"value\": 2\n    },\n    {\n     \"after\": 120,\n     \"ctx\": \"module\",\n     \"nid\": 396071357,\n     \"op\": \"ins\",\n     \"pass\": \"forceattrs\"\n    },\n    {\n     \"id\": 34,\n     \"nid\": 335908525,\n     \"op\": \"dup\"\n    },\n    {\n     \"id\": 96,\n     \"nid\": 98729937,\n     \"op\": \"dup\"\n    },\n    {\n     \"name\": \"llc:-enable-tail-merge\",\n     \"op\": \"knob\",\n     \"value\": \"false\"\n    }\n   ],\n   \"raw\": null\n  },\n  {\n   \"speedup\": 0.9948380278448145,\n   \"ci\": [\n    0.9840517381607718,\n    1.0489449051018567\n   ],\n   \"median_ms\": 427.629282,\n   \"status\": \"ok\",\n   \"text_size\": 13173,\n   \"source\": \"library\",\n   \"edits\": [\n    {\n     \"id\": 61,\n     \"op\": \"del\"\n    },\n    {\n     \"after\": 115,\n     \"ctx\": \"function\",\n     \"nid\": 52021280,\n     \"op\": \"ins\",\n     \"pass\": \"vector-combine\"\n    },\n    {\n     \"name\": \"-force-vector-interleave\",\n     \"op\": \"knob\",\n     \"value\": 2\n    },\n    {\n     \"after\": 52,\n     \"ctx\": \"function\",\n     \"nid\": 190597695,\n     \"op\": \"ins\",\n     \"pass\": \"vector-combine\"\n    },\n    {\n     \"id\": 7,\n     \"op\": \"del\"\n    },\n    {\n     \"after\": 56,\n     \"ctx\": \"loop\",\n     \"nid\": 463570958,\n     \"op\": \"ins\",\n     \"pass\": \"loop-instsimplify\"\n    },\n    {\n     \"name\": \"-unroll-count\",\n     \"op\": \"knob\",\n     \"value\": 4\n    },\n    {\n     \"id\": 67,\n     \"op\": \"del\"\n    },\n    {\n     \"id\": 84,\n     \"nid\": 781015600,\n     \"op\": \"dup\"\n    },\n    {\n     \"id\": 16,\n     \"op\": \"swap\"\n    },\n    {\n     \"after\": 122,\n     \"ctx\": \"function\",\n     \"nid\": 571000731,\n     \"op\": \"ins\",\n     \"pass\": \"dse\"\n    },\n    {\n     \"op\": \"backend\",\n     \"value\": 2\n    },\n    {\n     \"after\": 22,\n     \"ctx\": \"function\",\n     \"nid\": 540672359,\n     \"op\": \"ins\",\n     \"pass\": \"loop-vectorize\"\n    }\n   ],\n   \"raw\": null\n  }\n ],\n \"confirm\": {\n  \"speedup\": 1.6560829821059375,\n  \"ci\": [\n   1.653365846227058,\n   1.6635875560359454\n  ],\n  \"control\": 1.00128967934474,\n  \"pick_median_ms\": 254.08820400000002,\n  \"base_median_ms\": 421.6074145,\n  \"rounds\": 20\n },\n \"timing_s\": 71.0,\n \"choice\": \"candidate\",\n \"flags\": [\n  \"-force-vector-width=4\",\n  \"-unroll-count=2\",\n  \"-unroll-max-count=2\",\n  \"llc:-align-loops=1\",\n  \"llc:-enable-tail-merge=false\",\n  \"llc:-tail-dup-indirect-size=3\"\n ],\n \"backend\": 3,\n \"bin_path\": \"/home/chirag/neurocompiler/work/bins/82a8b1023079e8cccf4d2ab2-O3-Lb264315a/prog\",\n \"text_size\": 8192,\n \"select_speedup\": 1.6511009153869591,\n \"select_ci\": [\n  1.6485055912881745,\n  1.7580257572328126\n ],\n \"mode\": \"RL + SL\",\n \"rl_proposals\": 24,\n \"rl_in_top20_ranked\": 0,\n \"top_ranked\": [\n  {\n   \"rank\": 1,\n   \"source\": \"library\",\n   \"predicted_speedup\": 1.271,\n   \"n_edits\": 13\n  },\n  {\n   \"rank\": 2,\n   \"source\": \"library\",\n   \"predicted_speedup\": 1.264,\n   \"n_edits\": 14\n  },\n  {\n   \"rank\": 3,\n   \"source\": \"library\",\n   \"predicted_speedup\": 1.256,\n   \"n_edits\": 14\n  },\n  {\n   \"rank\": 4,\n   \"source\": \"library\",\n   \"predicted_speedup\": 1.244,\n   \"n_edits\": 13\n  },\n  {\n   \"rank\": 5,\n   \"source\": \"library\",\n   \"predicted_speedup\": 1.24,\n   \"n_edits\": 12\n  },\n  {\n   \"rank\": 6,\n   \"source\": \"library\",\n   \"predicted_speedup\": 1.238,\n   \"n_edits\": 12\n  },\n  {\n   \"rank\": 7,\n   \"source\": \"library\",\n   \"predicted_speedup\": 1.227,\n   \"n_edits\": 11\n  },\n  {\n   \"rank\": 8,\n   \"source\": \"library\",\n   \"predicted_speedup\": 1.217,\n   \"n_edits\": 13\n  },\n  {\n   \"rank\": 9,\n   \"source\": \"library\",\n   \"predicted_speedup\": 1.21,\n   \"n_edits\": 13\n  },\n  {\n   \"rank\": 10,\n   \"source\": \"library\",\n   \"predicted_speedup\": 1.209,\n   \"n_edits\": 14\n  }\n ],\n \"o3_pipeline\": \"annotation2metadata,forceattrs,inferattrs,coro-early,function<eager-inv>(lower-expect,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;no-switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,sroa<modify-cfg>,early-cse<>,callsite-splitting),openmp-opt,ipsccp,called-value-propagation,globalopt,function<eager-inv>(mem2reg,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),always-inline,require<globals-aa>,function(invalidate<aa>),require<profile-summary>,cgscc(devirt<4>(inline,function-attrs<skip-non-recursive-function-attrs>,argpromotion,openmp-opt-cgscc,function<eager-inv;no-rerun>(sroa<modify-cfg>,early-cse<memssa>,speculative-execution<only-if-divergent-target>,jump-threading,correlated-propagation,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,aggressive-instcombine,libcalls-shrinkwrap,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,reassociate,constraint-elimination,loop-mssa(loop-instsimplify,loop-simplifycfg,licm<no-allowspeculation>,loop-rotate<header-duplication;no-prepare-for-lto>,licm<allowspeculation>,simple-loop-unswitch<nontrivial;trivial>),simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop(loop-idiom,indvars,loop-deletion,loop-unroll-full),sroa<modify-cfg>,vector-combine,mldst-motion<no-split-footer-bb>,gvn<>,sccp,bdce,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,jump-threading,correlated-propagation,adce,memcpyopt,dse,move-auto-init,loop-mssa(licm<allowspeculation>),coro-elide,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>),function-attrs,function(require<should-not-run-function-passes>),coro-split)),deadargelim,coro-cleanup,globalopt,globaldce,elim-avail-extern,rpo-function-attrs,recompute-globalsaa,function<eager-inv>(float2int,lower-constant-intrinsics,chr,loop(loop-rotate<header-duplication;no-prepare-for-lto>,loop-deletion),loop-distribute,inject-tli-mappings,loop-vectorize<no-interleave-forced-only;no-vectorize-forced-only;>,infer-alignment,loop-load-elim,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,simplifycfg<bonus-inst-threshold=1;forward-switch-cond;switch-range-to-icmp;switch-to-lookup;no-keep-loops;hoist-common-insts;sink-common-insts;speculate-blocks;simplify-cond-branch>,slp-vectorizer,vector-combine,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-unroll<O3>,transform-warning,sroa<preserve-cfg>,infer-alignment,instcombine<max-iterations=1;no-use-loop-info;no-verify-fixpoint>,loop-mssa(licm<allowspeculation>),alignment-from-assumptions,loop-sink,instsimplify,div-rem-pairs,tailcallelim,simplifycfg<bonus-inst-threshold=1;no-forward-switch-cond;switch-range-to-icmp;no-switch-to-lookup;keep-loops;no-hoist-common-insts;no-sink-common-insts;speculate-blocks;simplify-cond-branch>),globaldce,constmerge,cg-profile,rel-lookup-table-converter,function(annotation-remarks),verify\",\n \"o3_text_size\": 8173,\n \"shipped_from\": \"library\",\n \"shipped_edits\": [\n  {\n   \"name\": \"-force-vector-width\",\n   \"op\": \"knob\",\n   \"value\": 4\n  },\n  {\n   \"after\": 46,\n   \"ctx\": \"loop-mssa\",\n   \"nid\": 341771871,\n   \"op\": \"ins\",\n   \"pass\": \"loop-instsimplify\"\n  },\n  {\n   \"name\": \"llc:-tail-dup-indirect-size\",\n   \"op\": \"knob\",\n   \"value\": 3\n  },\n  {\n   \"name\": \"llc:-align-loops\",\n   \"op\": \"knob\",\n   \"value\": 1\n  },\n  {\n   \"op\": \"del_all\",\n   \"pass\": \"vector-combine\"\n  },\n  {\n   \"id\": 74,\n   \"nid\": 23382857,\n   \"op\": \"dup\"\n  },\n  {\n   \"name\": \"-unroll-max-count\",\n   \"op\": \"knob\",\n   \"value\": 2\n  },\n  {\n   \"id\": 8,\n   \"op\": \"del\"\n  },\n  {\n   \"name\": \"-unroll-count\",\n   \"op\": \"knob\",\n   \"value\": 2\n  },\n  {\n   \"after\": 120,\n   \"ctx\": \"module\",\n   \"nid\": 396071357,\n   \"op\": \"ins\",\n   \"pass\": \"forceattrs\"\n  },\n  {\n   \"id\": 34,\n   \"nid\": 335908525,\n   \"op\": \"dup\"\n  },\n  {\n   \"id\": 96,\n   \"nid\": 98729937,\n   \"op\": \"dup\"\n  },\n  {\n   \"name\": \"llc:-enable-tail-merge\",\n   \"op\": \"knob\",\n   \"value\": \"false\"\n  }\n ],\n \"shipped_raw\": null,\n \"output\": \"/home/chirag/neurocompiler/work/dashboard/jobs/917814203078/prog\",\n \"total_s\": 81.6,\n \"library\": 913,\n \"model\": \"results/models/surrogate_latest.json\",\n \"rl_policy\": \"results/models/rl_policy_latest.npz\"\n}\n\n== neurocompiler (RL + SL) ==\ncandidates: 24 RL proposals + 913 library pipelines, ranked by the supervised model; 0 RL proposals in its top 20; 8 timed\ntop of the ranking: #1 library (pred 1.27x), #2 library (pred 1.26x), #3 library (pred 1.26x), #4 library (pred 1.24x), #5 library (pred 1.24x), #6 library (pred 1.24x), #7 library (pred 1.23x), #8 library (pred 1.22x)\nshipped: pipeline from the library, selection 1.651x vs -O3, confirmed 1.656x [1.653,1.664]\n   edit: {\"name\": \"-force-vector-width\", \"op\": \"knob\", \"value\": 4}\n   edit: {\"after\": 46, \"ctx\": \"loop-mssa\", \"op\": \"ins\", \"pass\": \"loop-instsimplify\"}\n   edit: {\"name\": \"llc:-tail-dup-indirect-size\", \"op\": \"knob\", \"value\": 3}\n   edit: {\"name\": \"llc:-align-loops\", \"op\": \"knob\", \"value\": 1}\n   edit: {\"op\": \"del_all\", \"pass\": \"vector-combine\"}\n   edit: {\"id\": 74, \"op\": \"dup\"}\n   edit: {\"name\": \"-unroll-max-count\", \"op\": \"knob\", \"value\": 2}\n   edit: {\"id\": 8, \"op\": \"del\"}\n   edit: {\"name\": \"-unroll-count\", \"op\": \"knob\", \"value\": 2}\n   edit: {\"after\": 120, \"ctx\": \"module\", \"op\": \"ins\", \"pass\": \"forceattrs\"}\n   edit: {\"id\": 34, \"op\": \"dup\"}\n   edit: {\"id\": 96, \"op\": \"dup\"}\n   edit: {\"name\": \"llc:-enable-tail-merge\", \"op\": \"knob\", \"value\": \"false\"}\nbinary: /home/chirag/neurocompiler/work/dashboard/jobs/917814203078/prog   total 81.6 s\n"
+}

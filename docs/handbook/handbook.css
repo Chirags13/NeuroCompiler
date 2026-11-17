@@ -1,0 +1,9 @@
+body{font:10.5pt/1.5 'Segoe UI',sans-serif;color:#15191f;max-width:none;margin:0}
+h1{font:600 18pt Bahnschrift,'Segoe UI';border-bottom:2pt solid #e09a10;padding-bottom:1mm;margin-top:9mm;break-after:avoid}
+h1.title{border:0;font-size:28pt;margin-top:0} p.subtitle{color:#556;font-size:13pt}
+h2{font:600 13pt Bahnschrift,'Segoe UI';margin-top:6mm;break-after:avoid} h3{font-size:11pt;break-after:avoid}
+table{border-collapse:collapse;width:100%;margin:2mm 0 4mm;font-size:9pt} th,td{border:.5pt solid #ccd;padding:1.2mm 2mm;vertical-align:top}
+th{background:#f3f4f7;text-align:left} tr{break-inside:avoid} img{max-width:100%;break-inside:avoid;border:.5pt solid #ccd}
+code{font:9pt Consolas,monospace;background:#f3f4f7;padding:0 1mm} pre{background:#f3f4f7;padding:3mm;font-size:9pt;white-space:pre-wrap;break-inside:avoid}
+nav#TOC{break-after:page} nav#TOC ul{list-style:none;padding-left:5mm} figure{margin:3mm 0;break-inside:avoid} figcaption{font-size:9pt;color:#556}
+@page{size:A4;margin:16mm 15mm;@bottom-right{content:counter(page);font:9pt 'Segoe UI';color:#667}@bottom-left{content:"NeuroCompiler: Project Handbook";font:9pt 'Segoe UI';color:#667}}

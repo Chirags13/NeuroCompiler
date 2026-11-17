@@ -1,0 +1,89 @@
+{
+ "program": "user/matmul",
+ "rows": [
+  {
+   "method": "O2",
+   "speedup": 0.99851256249232,
+   "ci": [
+    0.997180805476231,
+    1.0017668965821773
+   ]
+  },
+  {
+   "method": "Os",
+   "speedup": 0.9995874806297134,
+   "ci": [
+    0.9974147801617799,
+    1.0005759712948428
+   ]
+  },
+  {
+   "method": "predict",
+   "speedup": 1.0,
+   "ci": null,
+   "note": "kept -O3 (identical binary)"
+  },
+  {
+   "method": "tune",
+   "speedup": 1.657947514703583,
+   "ci": [
+    1.651176037040464,
+    1.6648827035702238
+   ]
+  },
+  {
+   "method": "random@8",
+   "speedup": 1.66213550396586,
+   "ci": [
+    1.6544320531832655,
+    1.6674844670366271
+   ]
+  },
+  {
+   "method": "ga@8",
+   "speedup": 1.0,
+   "ci": null,
+   "note": "kept -O3 (identical binary)"
+  },
+  {
+   "method": "A/A control",
+   "speedup": 0.9983824233803482,
+   "ci": [
+    0.9964497235384198,
+    1.000570008573682
+   ]
+  }
+ ],
+ "notes": {
+  "predict": {
+   "genome": "{\"edits\": [{\"name\": \"llc:-tail-dup-size\", \"op\": \"knob\", \"value\": 6}, {\"id\": 96, \"new\": \"vectorize-forced-only\", \"op\": \"param\", \"tok\": \"no-vectorize-forced-only\"}], \"raw\": null}",
+   "source": "safe pool",
+   "predicted_speedup": 1.0087,
+   "range": [
+    0.9869,
+    1.0293
+   ],
+   "member_agreement": 0.0,
+   "p_harmful": 0.381,
+   "ship": false,
+   "confidence": "low",
+   "reason": "kept -O3: pessimistic estimate too low, models disagree",
+   "mode": "RL + SL",
+   "rl_proposals": 24
+  },
+  "tune": {
+   "confirm": {
+    "speedup": 1.6515111350440534,
+    "ci": [
+     1.6359487726191586,
+     1.660493152990855
+    ],
+    "control": 1.002135714943171
+   },
+   "choice": "candidate",
+   "select_speedup": 1.666810228486126,
+   "shipped_from": "library"
+  }
+ },
+ "o3_median_ms": 420.7068795
+}

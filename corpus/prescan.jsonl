@@ -1,0 +1,246 @@
+{"program_id": "ss/Adobe-C++/functionobjects", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ss/Adobe-C++/loop_unroll", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ss/Adobe-C++/simple_types_constant_folding", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ss/Adobe-C++/simple_types_loop_invariant", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ss/Adobe-C++/stepanov_abstraction", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ss/Adobe-C++/stepanov_vector", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ss/CoyoteBench/fftbench", "reject": "", "detail": "", "start": 0, "rough_s": 1.003}
+{"program_id": "ss/Misc-C++/Large/ray", "reject": "", "detail": "", "start": 0, "rough_s": 1.294}
+{"program_id": "ss/Misc-C++/Large/sphereflake", "reject": "", "detail": "", "start": 0, "rough_s": 1.618}
+{"program_id": "ss/Misc-C++/bigfib", "reject": "", "detail": "", "start": 0, "rough_s": 0.273}
+{"program_id": "ss/Misc-C++/mandel-text", "reject": "", "detail": "", "start": 0, "rough_s": 1.393}
+{"program_id": "ss/Misc-C++/oopack_v1p8", "reject": "too_fast", "detail": "rough 0.129s under load at largest input (prescan)", "start": 0, "rough_s": 0.129}
+{"program_id": "ss/Misc-C++/stepanov_container", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ss/Misc-C++/stepanov_v1p2", "reject": "run_timeout", "detail": "", "start": 0, "rough_s": null}
+{"program_id": "ss/Misc-C++-EH/spirit", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ss/Shootout-C++/EH/except", "reject": "too_fast", "detail": "rough 0.044s under load at largest input (prescan)", "start": 0, "rough_s": 0.044}
+{"program_id": "ss/Shootout-C++/ackermann", "reject": "", "detail": "", "start": 0, "rough_s": 0.971}
+{"program_id": "ss/Shootout-C++/ary", "reject": "too_fast", "detail": "rough 0.046s under load at largest input (prescan)", "start": 0, "rough_s": 0.046}
+{"program_id": "ss/Shootout-C++/ary2", "reject": "too_fast", "detail": "rough 0.061s under load at largest input (prescan)", "start": 0, "rough_s": 0.061}
+{"program_id": "ss/Shootout-C++/ary3", "reject": "", "detail": "", "start": 0, "rough_s": 0.393}
+{"program_id": "ss/Shootout-C++/fibo", "reject": "", "detail": "", "start": 0, "rough_s": 2.003}
+{"program_id": "ss/Shootout-C++/hash", "reject": "", "detail": "", "start": 0, "rough_s": 0.272}
+{"program_id": "ss/Shootout-C++/hash2", "reject": "", "detail": "", "start": 0, "rough_s": 1.337}
+{"program_id": "ss/Shootout-C++/heapsort", "reject": "", "detail": "", "start": 0, "rough_s": 1.933}
+{"program_id": "ss/Shootout-C++/hello", "reject": "too_fast", "detail": "rough 0.001s under load at largest input (prescan)", "start": 0, "rough_s": 0.001}
+{"program_id": "ss/Shootout-C++/lists", "reject": "", "detail": "", "start": 0, "rough_s": 3.65}
+{"program_id": "ss/Shootout-C++/lists1", "reject": "", "detail": "", "start": 0, "rough_s": 0.353}
+{"program_id": "ss/Shootout-C++/matrix", "reject": "", "detail": "", "start": 0, "rough_s": 0.186}
+{"program_id": "ss/Shootout-C++/methcall", "reject": "", "detail": "", "start": 0, "rough_s": 5.052}
+{"program_id": "ss/Shootout-C++/moments", "reject": "too_fast", "detail": "rough 0.085s under load at largest input (prescan)", "start": 0, "rough_s": 0.085}
+{"program_id": "ss/Shootout-C++/nestedloop", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ss/Shootout-C++/objinst", "reject": "too_fast", "detail": "rough 0.006s under load at largest input (prescan)", "start": 0, "rough_s": 0.006}
+{"program_id": "ss/Shootout-C++/random", "reject": "", "detail": "", "start": 0, "rough_s": 1.251}
+{"program_id": "ss/Shootout-C++/reversefile", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ss/Shootout-C++/sieve", "reject": "", "detail": "", "start": 0, "rough_s": 0.823}
+{"program_id": "ss/Shootout-C++/spellcheck", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ss/Shootout-C++/strcat", "reject": "too_fast", "detail": "rough 0.064s under load at largest input (prescan)", "start": 0, "rough_s": 0.064}
+{"program_id": "ss/Shootout-C++/sumcol", "reject": "too_fast", "detail": "rough 0.009s under load at largest input (prescan)", "start": 0, "rough_s": 0.009}
+{"program_id": "ss/Shootout-C++/wc", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ss/Shootout-C++/wordfreq", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ss/SmallPT/smallpt", "reject": "build_fail", "detail": "frontend_fail: /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/SingleSource/Benchmarks/SmallPT/smallpt.cpp:84:41: error: non-constant-expression cannot be narrowed from type 'int' to 'unsigned short' in ini", "start": 0, "rough_s": null}
+{"program_id": "ms/Applications/ALAC/decode", "reject": "build_fail", "detail": "frontend_fail: ALACEncoder.cpp: /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Applications/ALAC/decode/ALACEncoder.cpp:962:20: error: use of undeclared identifier 'ALAC_noERr'; did you mean 'A", "start": 0, "rough_s": null}
+{"program_id": "ms/Applications/ALAC/encode", "reject": "build_fail", "detail": "frontend_fail: ALACEncoder.cpp: /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Applications/ALAC/encode/ALACEncoder.cpp:962:20: error: use of undeclared identifier 'ALAC_noERr'; did you mean 'A", "start": 0, "rough_s": null}
+{"program_id": "ms/Applications/Burg", "reject": "unsupported", "detail": "UNSUPPORTED cmake:include_directories", "start": 0, "rough_s": null}
+{"program_id": "ms/Applications/ClamAV", "reject": "unsupported", "detail": "UNSUPPORTED cmake:target_link_libraries", "start": 0, "rough_s": null}
+{"program_id": "ms/Applications/JM/ldecod", "reject": "too_fast", "detail": "rough 0.038s under load at largest input (prescan)", "start": 0, "rough_s": 0.038}
+{"program_id": "ms/Applications/JM/lencod", "reject": "", "detail": "", "start": 1, "rough_s": 4.359}
+{"program_id": "ms/Applications/SIBsim4", "reject": "", "detail": "", "start": 1, "rough_s": 1.203}
+{"program_id": "ms/Applications/SPASS", "reject": "", "detail": "", "start": 1, "rough_s": 6.622}
+{"program_id": "ms/Applications/aha", "reject": "", "detail": "", "start": 0, "rough_s": 1.609}
+{"program_id": "ms/Applications/d", "reject": "too_fast", "detail": "rough 0.01s under load at largest input (prescan)", "start": 0, "rough_s": 0.01}
+{"program_id": "ms/Applications/hbd", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Applications/hexxagon", "reject": "build_fail", "detail": "frontend_fail: hexxagonboard.cpp: /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Applications/hexxagon/hexxagonboard.cpp:254:10: error: reference to 'empty' is ambiguous\n  254 |                ", "start": 0, "rough_s": null}
+{"program_id": "ms/Applications/kimwitu++", "reject": "build_fail", "detail": "frontend_fail: kimwl.cc: r/corpus/suites/llvm-test-suite/MultiSource/Applications/kimwitu++/kimwl.cc:1919:2: error: ISO C++17 does not allow 'register' storage class specifier [-Wregister]\n 1919 |         register i", "start": 0, "rough_s": null}
+{"program_id": "ms/Applications/lambda-0.1.3", "reject": "build_fail", "detail": "frontend_fail: token_stream.cc: /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Applications/lambda-0.1.3/token_stream.cc:192:2: error: ISO C++17 does not allow 'register' storage class specifie", "start": 0, "rough_s": null}
+{"program_id": "ms/Applications/lemon", "reject": "unsupported", "detail": "UNSUPPORTED no target", "start": 0, "rough_s": null}
+{"program_id": "ms/Applications/lua", "reject": "unsupported", "detail": "UNSUPPORTED cmake:add_custom_command", "start": 0, "rough_s": null}
+{"program_id": "ms/Applications/minisat", "reject": "", "detail": "", "start": 0, "rough_s": 0.723}
+{"program_id": "ms/Applications/obsequi", "reject": "", "detail": "", "start": 0, "rough_s": 1.749}
+{"program_id": "ms/Applications/oggenc", "reject": "too_fast", "detail": "rough 0.042s under load at largest input (prescan)", "start": 0, "rough_s": 0.042}
+{"program_id": "ms/Applications/sgefa", "reject": "too_fast", "detail": "rough 0.048s under load at largest input (prescan)", "start": 1, "rough_s": 0.048}
+{"program_id": "ms/Applications/siod", "reject": "", "detail": "", "start": 0, "rough_s": 0.605}
+{"program_id": "ms/Applications/spiff", "reject": "run_nonzero_exit", "detail": "DEFAULT", "start": 0, "rough_s": null}
+{"program_id": "ms/Applications/sqlite3", "reject": "unsupported", "detail": "UNSUPPORTED cmake:add_custom_command", "start": 0, "rough_s": null}
+{"program_id": "ms/Applications/treecc", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ms/Applications/viterbi", "reject": "build_fail", "detail": "frontend_fail: test.c: /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Applications/viterbi/test.c:36:31: error: expected expression\n   36 |     read_dmatrix(&Dist_demux, INPUT_FILE);\n      |   ", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/7zip", "reject": "unsupported", "detail": "UNSUPPORTED ldflags -pthread", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/ASCI_Purple/SMG2000", "reject": "too_fast", "detail": "rough 0.009s under load at largest input (prescan)", "start": 1, "rough_s": 0.009}
+{"program_id": "ms/Benchmarks/ASC_Sequoia/AMGmk", "reject": "", "detail": "", "start": 0, "rough_s": 3.65}
+{"program_id": "ms/Benchmarks/ASC_Sequoia/CrystalMk", "reject": "", "detail": "", "start": 0, "rough_s": 1.424}
+{"program_id": "ms/Benchmarks/ASC_Sequoia/IRSmk", "reject": "", "detail": "", "start": 0, "rough_s": 2.582}
+{"program_id": "ms/Benchmarks/BitBench/drop3", "reject": "too_fast", "detail": "rough 0.09s under load at largest input (prescan)", "start": 0, "rough_s": 0.09}
+{"program_id": "ms/Benchmarks/BitBench/five11", "reject": "", "detail": "", "start": 0, "rough_s": 1.553}
+{"program_id": "ms/Benchmarks/BitBench/uudecode", "reject": "too_fast", "detail": "rough 0.01s under load at largest input (prescan)", "start": 0, "rough_s": 0.01}
+{"program_id": "ms/Benchmarks/BitBench/uuencode", "reject": "too_fast", "detail": "rough 0.005s under load at largest input (prescan)", "start": 0, "rough_s": 0.005}
+{"program_id": "ms/Benchmarks/Bullet", "reject": "build_fail", "detail": "frontend_fail: btSoftBodyHelpers.cpp:  cannot be narrowed from type 'unsigned int' to 'int' in initializer list [-Wc++11-narrowing]\n  868 |                 const int idx[]={       hres.m_Indices[i*3+0],\n      |     ", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/DOE-ProxyApps-C/CoMD", "reject": "", "detail": "", "start": 0, "rough_s": 0.629}
+{"program_id": "ms/Benchmarks/DOE-ProxyApps-C/Pathfinder", "reject": "", "detail": "", "start": 0, "rough_s": 0.669}
+{"program_id": "ms/Benchmarks/DOE-ProxyApps-C/RSBench", "reject": "", "detail": "", "start": 0, "rough_s": 0.177}
+{"program_id": "ms/Benchmarks/DOE-ProxyApps-C/SimpleMOC", "reject": "", "detail": "", "start": 0, "rough_s": 0.684}
+{"program_id": "ms/Benchmarks/DOE-ProxyApps-C/XSBench", "reject": "", "detail": "", "start": 0, "rough_s": 1.323}
+{"program_id": "ms/Benchmarks/DOE-ProxyApps-C/miniAMR", "reject": "", "detail": "", "start": 0, "rough_s": 0.414}
+{"program_id": "ms/Benchmarks/DOE-ProxyApps-C/miniGMG", "reject": "output_mismatch", "detail": "O3 vs O0 (prescan)", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/DOE-ProxyApps-C++/CLAMR", "reject": "unsupported", "detail": "UNSUPPORTED no target", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/DOE-ProxyApps-C++/HACCKernels", "reject": "output_mismatch", "detail": "O3 vs O0 (prescan)", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/DOE-ProxyApps-C++/HPCCG", "reject": "", "detail": "", "start": 0, "rough_s": 0.409}
+{"program_id": "ms/Benchmarks/DOE-ProxyApps-C++/PENNANT", "reject": "", "detail": "", "start": 0, "rough_s": 0.32}
+{"program_id": "ms/Benchmarks/DOE-ProxyApps-C++/miniFE", "reject": "", "detail": "", "start": 0, "rough_s": 1.457}
+{"program_id": "ms/Benchmarks/Fhourstones", "reject": "", "detail": "", "start": 0, "rough_s": 0.617}
+{"program_id": "ms/Benchmarks/Fhourstones-3.1", "reject": "", "detail": "", "start": 0, "rough_s": 0.801}
+{"program_id": "ms/Benchmarks/FreeBench/analyzer", "reject": "build_fail", "detail": "frontend_fail: analyzer.c: In file included from /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Benchmarks/FreeBench/analyzer/analyzer.c:6:\n/home/chirag/neurocompiler/corpus/suites/llvm-test-su", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/FreeBench/distray", "reject": "build_fail", "detail": "frontend_fail: /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Benchmarks/FreeBench/distray/distray.c:417:40: error: use of undeclared identifier 'today'\n  417 |   fprintf(stderr,\"Compile date: ", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/FreeBench/fourinarow", "reject": "build_fail", "detail": "frontend_fail: /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Benchmarks/FreeBench/fourinarow/fourinarow.c:654:40: error: use of undeclared identifier 'today'\n  654 |   fprintf(stderr,\"Compile ", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/FreeBench/mason", "reject": "build_fail", "detail": "frontend_fail: /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Benchmarks/FreeBench/mason/mason.c:248:40: error: use of undeclared identifier 'today'\n  248 |   fprintf(stderr,\"Compile date: %s\\n", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/FreeBench/neural", "reject": "build_fail", "detail": "frontend_fail: /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Benchmarks/FreeBench/neural/neural.c:107:40: error: use of undeclared identifier 'today'\n  107 |   fprintf(stderr,\"Compile date: %s", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/FreeBench/pcompress2", "reject": "build_fail", "detail": "frontend_fail: pcompress2.c: /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Benchmarks/FreeBench/pcompress2/pcompress2.c:34:40: error: use of undeclared identifier 'today'\n   34 |   fprintf(std", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/FreeBench/pifft", "reject": "build_fail", "detail": "frontend_fail: pifft.c: /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Benchmarks/FreeBench/pifft/pifft.c:71:42: error: use of undeclared identifier 'today'\n   71 |     fprintf(stderr,\"Compile ", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/MallocBench/cfrac", "reject": "", "detail": "", "start": 1, "rough_s": 0.811}
+{"program_id": "ms/Benchmarks/MallocBench/espresso", "reject": "build_fail", "detail": "frontend_fail: unate.c: hmarks/MallocBench/espresso/espresso.h:152:21: note: expanded from macro 'set_free'\n  152 | #define set_free(r)     FREE(r)\n      |                         ^\n/home/chirag/neurocompiler/corpus", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/MallocBench/gawk", "reject": "run_nonzero_exit", "detail": "DEFAULT", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/MallocBench/gs", "reject": "build_fail", "detail": "frontend_fail: gs.c: /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Benchmarks/MallocBench/gs/gs.c:38:37: error: expected expression\n   38 | private char *gs_lib_default_path = GS_LIB_DEFAULT; ", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/MallocBench/make", "reject": "build_fail", "detail": "frontend_fail: misc.c: /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Benchmarks/MallocBench/make/misc.c:284:15: error: use of undeclared identifier 'sys_nerr'\n  284 |   if (errno < sys_nerr)\n ", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/MallocBench/p2c", "reject": "build_fail", "detail": "frontend_fail: citmods.c: In file included from /home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSource/Benchmarks/MallocBench/p2c/citmods.c:21:\n/home/chirag/neurocompiler/corpus/suites/llvm-test-suite/", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/MallocBench/perl", "reject": "unsupported", "detail": "UNSUPPORTED ldflags -lcrypt", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/McCat/01-qbsort", "reject": "too_fast", "detail": "rough 0.027s under load at largest input (prescan)", "start": 0, "rough_s": 0.027}
+{"program_id": "ms/Benchmarks/McCat/03-testtrie", "reject": "too_fast", "detail": "rough 0.005s under load at largest input (prescan)", "start": 0, "rough_s": 0.005}
+{"program_id": "ms/Benchmarks/McCat/04-bisect", "reject": "too_fast", "detail": "rough 0.045s under load at largest input (prescan)", "start": 0, "rough_s": 0.045}
+{"program_id": "ms/Benchmarks/McCat/05-eks", "reject": "too_fast", "detail": "rough 0.004s under load at largest input (prescan)", "start": 0, "rough_s": 0.004}
+{"program_id": "ms/Benchmarks/McCat/08-main", "reject": "too_fast", "detail": "rough 0.011s under load at largest input (prescan)", "start": 0, "rough_s": 0.011}
+{"program_id": "ms/Benchmarks/McCat/09-vor", "reject": "too_fast", "detail": "rough 0.093s under load at largest input (prescan)", "start": 0, "rough_s": 0.093}
+{"program_id": "ms/Benchmarks/McCat/12-IOtest", "reject": "too_fast", "detail": "rough 0.06s under load at largest input (prescan)", "start": 0, "rough_s": 0.06}
+{"program_id": "ms/Benchmarks/McCat/15-trie", "reject": "too_fast", "detail": "rough 0.001s under load at largest input (prescan)", "start": 0, "rough_s": 0.001}
+{"program_id": "ms/Benchmarks/McCat/17-bintr", "reject": "too_fast", "detail": "rough 0.048s under load at largest input (prescan)", "start": 0, "rough_s": 0.048}
+{"program_id": "ms/Benchmarks/McCat/18-imp", "reject": "too_fast", "detail": "rough 0.02s under load at largest input (prescan)", "start": 0, "rough_s": 0.02}
+{"program_id": "ms/Benchmarks/MiBench/automotive-basicmath", "reject": "too_fast", "detail": "rough 0.095s under load at largest input (prescan)", "start": 0, "rough_s": 0.095}
+{"program_id": "ms/Benchmarks/MiBench/automotive-bitcount", "reject": "too_fast", "detail": "rough 0.019s under load at largest input (prescan)", "start": 0, "rough_s": 0.019}
+{"program_id": "ms/Benchmarks/MiBench/automotive-susan", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/MiBench/consumer-jpeg", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/MiBench/consumer-lame", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/MiBench/consumer-typeset", "reject": "build_fail", "detail": "frontend_fail: z01.c:                                                                      ^\n<command line>:10:18: note: expanded from macro 'MAPS_DIR'\n   10 | #define MAPS_DIR maps\n      |                  ^\n/home/", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/MiBench/network-dijkstra", "reject": "too_fast", "detail": "rough 0.016s under load at largest input (prescan)", "start": 0, "rough_s": 0.016}
+{"program_id": "ms/Benchmarks/MiBench/network-patricia", "reject": "too_fast", "detail": "rough 0.053s under load at largest input (prescan)", "start": 0, "rough_s": 0.053}
+{"program_id": "ms/Benchmarks/MiBench/office-ispell", "reject": "run_nonzero_exit", "detail": "DEFAULT", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/MiBench/office-stringsearch", "reject": "too_fast", "detail": "rough 0.004s under load at largest input (prescan)", "start": 0, "rough_s": 0.004}
+{"program_id": "ms/Benchmarks/MiBench/security-blowfish", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Benchmarks/MiBench/security-rijndael", "reject": "too_fast", "detail": "rough 0.018s under load at largest input (prescan)", "start": 0, "rough_s": 0.018}
+{"program_id": "ms/Benchmarks/MiBench/security-sha", "reject": "too_fast", "detail": "rough 0.031s under load at largest input (prescan)", "start": 0, "rough_s": 0.031}
+{"program_id": "ms/Benchmarks/MiBench/telecomm-CRC32", "reject": "too_fast", "detail": "rough 0.071s under load at largest input (prescan)", "start": 0, "rough_s": 0.071}
+{"program_id": "ms/Benchmarks/MiBench/telecomm-FFT", "reject": "too_fast", "detail": "rough 0.014s under load at largest input (prescan)", "start": 0, "rough_s": 0.014}
+{"program_id": "ms/Benchmarks/MiBench/telecomm-adpcm", "reject": "too_fast", "detail": "rough 0.072s under load at largest input (prescan)", "start": 0, "rough_s": 0.072}
+{"program_id": "ms/Benchmarks/MiBench/telecomm-gsm", "reject": "too_fast", "detail": "rough 0.04s under load at largest input (prescan)", "start": 0, "rough_s": 0.04}
+{"program_id": "ms/Benchmarks/NPB-serial/dc", "reject": "run_nonzero_exit", "detail": "SMALL", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/NPB-serial/is", "reject": "", "detail": "", "start": 1, "rough_s": 2.618}
+{"program_id": "ms/Benchmarks/Olden/bh", "reject": "", "detail": "", "start": 1, "rough_s": 0.855}
+{"program_id": "ms/Benchmarks/Olden/bisort", "reject": "", "detail": "", "start": 1, "rough_s": 1.987}
+{"program_id": "ms/Benchmarks/Olden/em3d", "reject": "", "detail": "", "start": 1, "rough_s": 1.015}
+{"program_id": "ms/Benchmarks/Olden/health", "reject": "", "detail": "", "start": 2, "rough_s": 2.013}
+{"program_id": "ms/Benchmarks/Olden/mst", "reject": "", "detail": "", "start": 1, "rough_s": 1.142}
+{"program_id": "ms/Benchmarks/Olden/perimeter", "reject": "", "detail": "", "start": 1, "rough_s": 0.307}
+{"program_id": "ms/Benchmarks/Olden/power", "reject": "", "detail": "", "start": 0, "rough_s": 0.322}
+{"program_id": "ms/Benchmarks/Olden/treeadd", "reject": "too_fast", "detail": "rough 0.137s under load at largest input (prescan)", "start": 1, "rough_s": 0.137}
+{"program_id": "ms/Benchmarks/Olden/tsp", "reject": "", "detail": "", "start": 1, "rough_s": 0.492}
+{"program_id": "ms/Benchmarks/Olden/voronoi", "reject": "", "detail": "", "start": 2, "rough_s": 1.742}
+{"program_id": "ms/Benchmarks/OptimizerEval", "reject": "output_mismatch", "detail": "O3 vs O0 (prescan)", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/PAQ8p", "reject": "too_fast", "detail": "rough 0.087s under load at largest input (prescan)", "start": 0, "rough_s": 0.087}
+{"program_id": "ms/Benchmarks/Prolangs-C/TimberWolfMC", "reject": "too_fast", "detail": "rough 0.001s under load at largest input (prescan)", "start": 0, "rough_s": 0.001}
+{"program_id": "ms/Benchmarks/Prolangs-C/agrep", "reject": "too_fast", "detail": "rough 0.003s under load at largest input (prescan)", "start": 0, "rough_s": 0.003}
+{"program_id": "ms/Benchmarks/Prolangs-C/allroots", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Benchmarks/Prolangs-C/archie-client", "reject": "unsupported", "detail": "UNSUPPORTED no target", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/Prolangs-C/assembler", "reject": "too_fast", "detail": "rough 0.001s under load at largest input (prescan)", "start": 0, "rough_s": 0.001}
+{"program_id": "ms/Benchmarks/Prolangs-C/bison", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Benchmarks/Prolangs-C/cdecl", "reject": "build_fail", "detail": "frontend_fail: cted ';' at end of declaration\n  221 |     register int i, j, restrict;\n      |                       ^\n      |                       ;\n/home/chirag/neurocompiler/corpus/suites/llvm-test-suite/MultiSo", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/Prolangs-C/compiler", "reject": "too_fast", "detail": "rough 0.001s under load at largest input (prescan)", "start": 0, "rough_s": 0.001}
+{"program_id": "ms/Benchmarks/Prolangs-C/fixoutput", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Benchmarks/Prolangs-C/football", "reject": "run_nonzero_exit", "detail": "DEFAULT", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/Prolangs-C/gnugo", "reject": "run_nonzero_exit", "detail": "DEFAULT", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/Prolangs-C/loader", "reject": "too_fast", "detail": "rough 0.001s under load at largest input (prescan)", "start": 0, "rough_s": 0.001}
+{"program_id": "ms/Benchmarks/Prolangs-C/plot2fig", "reject": "unsupported", "detail": "UNSUPPORTED no target", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/Prolangs-C/simulator", "reject": "too_fast", "detail": "rough 0.001s under load at largest input (prescan)", "start": 0, "rough_s": 0.001}
+{"program_id": "ms/Benchmarks/Prolangs-C/unix-smail", "reject": "too_fast", "detail": "rough 0.003s under load at largest input (prescan)", "start": 0, "rough_s": 0.003}
+{"program_id": "ms/Benchmarks/Prolangs-C/unix-tbl", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/Prolangs-C++/NP", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Benchmarks/Prolangs-C++/city", "reject": "too_fast", "detail": "rough 0.003s under load at largest input (prescan)", "start": 0, "rough_s": 0.003}
+{"program_id": "ms/Benchmarks/Prolangs-C++/deriv1", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Benchmarks/Prolangs-C++/deriv2", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Benchmarks/Prolangs-C++/employ", "reject": "too_fast", "detail": "rough 0.005s under load at largest input (prescan)", "start": 0, "rough_s": 0.005}
+{"program_id": "ms/Benchmarks/Prolangs-C++/family", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Benchmarks/Prolangs-C++/fsm", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Benchmarks/Prolangs-C++/garage", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Benchmarks/Prolangs-C++/life", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/Prolangs-C++/objects", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/Prolangs-C++/ocean", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/Prolangs-C++/office", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Benchmarks/Prolangs-C++/primes", "reject": "too_fast", "detail": "rough 0.118s under load at largest input (prescan)", "start": 0, "rough_s": 0.118}
+{"program_id": "ms/Benchmarks/Prolangs-C++/shapes", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Benchmarks/Prolangs-C++/simul", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/Prolangs-C++/trees", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/Prolangs-C++/vcirc", "reject": "no_output", "detail": "empty output cannot serve as a correctness oracle", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/Ptrdist/anagram", "reject": "", "detail": "", "start": 0, "rough_s": 0.344}
+{"program_id": "ms/Benchmarks/Ptrdist/bc", "reject": "too_fast", "detail": "rough 0.125s under load at largest input (prescan)", "start": 0, "rough_s": 0.125}
+{"program_id": "ms/Benchmarks/Ptrdist/ft", "reject": "", "detail": "", "start": 0, "rough_s": 2.321}
+{"program_id": "ms/Benchmarks/Ptrdist/ks", "reject": "", "detail": "", "start": 0, "rough_s": 0.368}
+{"program_id": "ms/Benchmarks/Ptrdist/yacr2", "reject": "", "detail": "", "start": 0, "rough_s": 0.219}
+{"program_id": "ms/Benchmarks/Rodinia/backprop", "reject": "too_fast", "detail": "rough 0.173s under load at largest input (prescan)", "start": 0, "rough_s": 0.173}
+{"program_id": "ms/Benchmarks/Rodinia/hotspot", "reject": "too_fast", "detail": "rough 0.063s under load at largest input (prescan)", "start": 0, "rough_s": 0.063}
+{"program_id": "ms/Benchmarks/Rodinia/pathfinder", "reject": "", "detail": "", "start": 0, "rough_s": 0.196}
+{"program_id": "ms/Benchmarks/Rodinia/srad", "reject": "", "detail": "", "start": 0, "rough_s": 0.283}
+{"program_id": "ms/Benchmarks/SciMark2-C", "reject": "run_timeout", "detail": "SMALL", "start": 0, "rough_s": null}
+{"program_id": "ms/Benchmarks/TSVC/ControlFlow-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 0.988}
+{"program_id": "ms/Benchmarks/TSVC/ControlFlow-flt", "reject": "", "detail": "", "start": 0, "rough_s": 0.704}
+{"program_id": "ms/Benchmarks/TSVC/ControlLoops-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 0.901}
+{"program_id": "ms/Benchmarks/TSVC/ControlLoops-flt", "reject": "", "detail": "", "start": 0, "rough_s": 0.715}
+{"program_id": "ms/Benchmarks/TSVC/CrossingThresholds-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 2.058}
+{"program_id": "ms/Benchmarks/TSVC/CrossingThresholds-flt", "reject": "", "detail": "", "start": 0, "rough_s": 1.241}
+{"program_id": "ms/Benchmarks/TSVC/Equivalencing-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 0.32}
+{"program_id": "ms/Benchmarks/TSVC/Equivalencing-flt", "reject": "too_fast", "detail": "rough 0.169s under load at largest input (prescan)", "start": 0, "rough_s": 0.169}
+{"program_id": "ms/Benchmarks/TSVC/Expansion-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 0.787}
+{"program_id": "ms/Benchmarks/TSVC/Expansion-flt", "reject": "", "detail": "", "start": 0, "rough_s": 0.417}
+{"program_id": "ms/Benchmarks/TSVC/GlobalDataFlow-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 1.859}
+{"program_id": "ms/Benchmarks/TSVC/GlobalDataFlow-flt", "reject": "", "detail": "", "start": 0, "rough_s": 0.791}
+{"program_id": "ms/Benchmarks/TSVC/IndirectAddressing-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 1.478}
+{"program_id": "ms/Benchmarks/TSVC/IndirectAddressing-flt", "reject": "", "detail": "", "start": 0, "rough_s": 1.613}
+{"program_id": "ms/Benchmarks/TSVC/InductionVariable-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 1.343}
+{"program_id": "ms/Benchmarks/TSVC/InductionVariable-flt", "reject": "", "detail": "", "start": 0, "rough_s": 1.105}
+{"program_id": "ms/Benchmarks/TSVC/LinearDependence-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 1.319}
+{"program_id": "ms/Benchmarks/TSVC/LinearDependence-flt", "reject": "", "detail": "", "start": 0, "rough_s": 0.745}
+{"program_id": "ms/Benchmarks/TSVC/LoopRerolling-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 1.937}
+{"program_id": "ms/Benchmarks/TSVC/LoopRerolling-flt", "reject": "", "detail": "", "start": 0, "rough_s": 1.627}
+{"program_id": "ms/Benchmarks/TSVC/LoopRestructuring-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 1.845}
+{"program_id": "ms/Benchmarks/TSVC/LoopRestructuring-flt", "reject": "", "detail": "", "start": 0, "rough_s": 1.255}
+{"program_id": "ms/Benchmarks/TSVC/NodeSplitting-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 1.174}
+{"program_id": "ms/Benchmarks/TSVC/NodeSplitting-flt", "reject": "", "detail": "", "start": 0, "rough_s": 0.967}
+{"program_id": "ms/Benchmarks/TSVC/Packing-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 1.673}
+{"program_id": "ms/Benchmarks/TSVC/Packing-flt", "reject": "", "detail": "", "start": 0, "rough_s": 1.627}
+{"program_id": "ms/Benchmarks/TSVC/Recurrences-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 1.839}
+{"program_id": "ms/Benchmarks/TSVC/Recurrences-flt", "reject": "", "detail": "", "start": 0, "rough_s": 1.843}
+{"program_id": "ms/Benchmarks/TSVC/Reductions-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 1.267}
+{"program_id": "ms/Benchmarks/TSVC/Reductions-flt", "reject": "", "detail": "", "start": 0, "rough_s": 1.287}
+{"program_id": "ms/Benchmarks/TSVC/Searching-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 1.272}
+{"program_id": "ms/Benchmarks/TSVC/Searching-flt", "reject": "", "detail": "", "start": 0, "rough_s": 1.35}
+{"program_id": "ms/Benchmarks/TSVC/StatementReordering-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 1.005}
+{"program_id": "ms/Benchmarks/TSVC/StatementReordering-flt", "reject": "", "detail": "", "start": 0, "rough_s": 0.989}
+{"program_id": "ms/Benchmarks/TSVC/Symbolics-dbl", "reject": "", "detail": "", "start": 0, "rough_s": 0.61}
+{"program_id": "ms/Benchmarks/TSVC/Symbolics-flt", "reject": "", "detail": "", "start": 0, "rough_s": 0.303}
+{"program_id": "ms/Benchmarks/Trimaran/enc-3des", "reject": "", "detail": "", "start": 1, "rough_s": 0.934}
+{"program_id": "ms/Benchmarks/Trimaran/enc-md5", "reject": "", "detail": "", "start": 1, "rough_s": 0.784}
+{"program_id": "ms/Benchmarks/Trimaran/enc-pc1", "reject": "", "detail": "", "start": 1, "rough_s": 0.331}
+{"program_id": "ms/Benchmarks/Trimaran/enc-rc4", "reject": "", "detail": "", "start": 1, "rough_s": 0.464}
+{"program_id": "ms/Benchmarks/Trimaran/netbench-crc", "reject": "", "detail": "", "start": 1, "rough_s": 1.275}
+{"program_id": "ms/Benchmarks/Trimaran/netbench-url", "reject": "", "detail": "", "start": 0, "rough_s": 0.489}
+{"program_id": "ms/Benchmarks/VersaBench/8b10b", "reject": "", "detail": "", "start": 1, "rough_s": 0.578}
+{"program_id": "ms/Benchmarks/VersaBench/beamformer", "reject": "", "detail": "", "start": 1, "rough_s": 0.317}
+{"program_id": "ms/Benchmarks/VersaBench/bmm", "reject": "", "detail": "", "start": 1, "rough_s": 4.407}
+{"program_id": "ms/Benchmarks/VersaBench/dbms", "reject": "", "detail": "", "start": 1, "rough_s": 0.611}
+{"program_id": "ms/Benchmarks/VersaBench/ecbdes", "reject": "", "detail": "", "start": 1, "rough_s": 1.035}
+{"program_id": "ms/Benchmarks/llubenchmark", "reject": "", "detail": "", "start": 0, "rough_s": 1.451}
+{"program_id": "ms/Benchmarks/mafft", "reject": "", "detail": "", "start": 0, "rough_s": 9.117}
+{"program_id": "ms/Benchmarks/mediabench/adpcm/rawcaudio", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Benchmarks/mediabench/adpcm/rawdaudio", "reject": "too_fast", "detail": "rough 0.002s under load at largest input (prescan)", "start": 0, "rough_s": 0.002}
+{"program_id": "ms/Benchmarks/mediabench/g721/g721encode", "reject": "too_fast", "detail": "rough 0.017s under load at largest input (prescan)", "start": 0, "rough_s": 0.017}
+{"program_id": "ms/Benchmarks/mediabench/gsm/toast", "reject": "too_fast", "detail": "rough 0.007s under load at largest input (prescan)", "start": 0, "rough_s": 0.007}
+{"program_id": "ms/Benchmarks/mediabench/jpeg/jpeg-6a", "reject": "too_fast", "detail": "rough 0.003s under load at largest input (prescan)", "start": 0, "rough_s": 0.003}
+{"program_id": "ms/Benchmarks/mediabench/mpeg2/mpeg2dec", "reject": "too_fast", "detail": "rough 0.007s under load at largest input (prescan)", "start": 0, "rough_s": 0.007}
+{"program_id": "ms/Benchmarks/nbench", "reject": "", "detail": "", "start": 0, "rough_s": 0.629}
+{"program_id": "ms/Benchmarks/sim", "reject": "", "detail": "", "start": 0, "rough_s": 1.502}
+{"program_id": "ms/Benchmarks/tramp3d-v4", "reject": "too_fast", "detail": "rough 0.058s under load at largest input (prescan)", "start": 1, "rough_s": 0.058}

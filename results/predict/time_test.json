@@ -1,0 +1,239 @@
+{
+ "on": "test",
+ "rows": [
+  {
+   "program": "ms/Applications/JM/lencod",
+   "o3_build_s": 16.74,
+   "predict_total_s": 34.54,
+   "added_over_o3_s": 17.8,
+   "ship": true
+  },
+  {
+   "program": "ms/Applications/aha",
+   "o3_build_s": 0.29,
+   "predict_total_s": 0.92,
+   "added_over_o3_s": 0.63,
+   "ship": false
+  },
+  {
+   "program": "ms/Applications/siod",
+   "o3_build_s": 2.38,
+   "predict_total_s": 3.27,
+   "added_over_o3_s": 0.89,
+   "ship": false
+  },
+  {
+   "program": "ms/Benchmarks/BitBench/five11",
+   "o3_build_s": 0.21,
+   "predict_total_s": 1.0,
+   "added_over_o3_s": 0.79,
+   "ship": true
+  },
+  {
+   "program": "ms/Benchmarks/NPB-serial/is",
+   "o3_build_s": 0.29,
+   "predict_total_s": 0.87,
+   "added_over_o3_s": 0.57,
+   "ship": false
+  },
+  {
+   "program": "ms/Benchmarks/Ptrdist/ft",
+   "o3_build_s": 0.4,
+   "predict_total_s": 1.03,
+   "added_over_o3_s": 0.63,
+   "ship": false
+  },
+  {
+   "program": "ms/Benchmarks/VersaBench/8b10b",
+   "o3_build_s": 0.29,
+   "predict_total_s": 0.91,
+   "added_over_o3_s": 0.62,
+   "ship": false
+  },
+  {
+   "program": "ms/Benchmarks/VersaBench/beamformer",
+   "o3_build_s": 7.64,
+   "predict_total_s": 1.55,
+   "added_over_o3_s": -6.09,
+   "ship": false
+  },
+  {
+   "program": "ms/Benchmarks/VersaBench/dbms",
+   "o3_build_s": 1.58,
+   "predict_total_s": 2.2,
+   "added_over_o3_s": 0.63,
+   "ship": false
+  },
+  {
+   "program": "ms/Benchmarks/VersaBench/ecbdes",
+   "o3_build_s": 0.42,
+   "predict_total_s": 1.3,
+   "added_over_o3_s": 0.88,
+   "ship": true
+  },
+  {
+   "program": "polybench/2mm",
+   "o3_build_s": 0.3,
+   "predict_total_s": 0.9,
+   "added_over_o3_s": 0.59,
+   "ship": false
+  },
+  {
+   "program": "polybench/3mm",
+   "o3_build_s": 0.32,
+   "predict_total_s": 0.91,
+   "added_over_o3_s": 0.59,
+   "ship": false
+  },
+  {
+   "program": "polybench/atax",
+   "o3_build_s": 0.26,
+   "predict_total_s": 0.88,
+   "added_over_o3_s": 0.62,
+   "ship": false
+  },
+  {
+   "program": "polybench/bicg",
+   "o3_build_s": 0.27,
+   "predict_total_s": 0.88,
+   "added_over_o3_s": 0.61,
+   "ship": false
+  },
+  {
+   "program": "polybench/cholesky",
+   "o3_build_s": 0.31,
+   "predict_total_s": 0.91,
+   "added_over_o3_s": 0.6,
+   "ship": false
+  },
+  {
+   "program": "polybench/deriche",
+   "o3_build_s": 0.32,
+   "predict_total_s": 0.92,
+   "added_over_o3_s": 0.6,
+   "ship": false
+  },
+  {
+   "program": "polybench/doitgen",
+   "o3_build_s": 0.29,
+   "predict_total_s": 0.9,
+   "added_over_o3_s": 0.61,
+   "ship": false
+  },
+  {
+   "program": "polybench/durbin",
+   "o3_build_s": 0.26,
+   "predict_total_s": 0.87,
+   "added_over_o3_s": 0.61,
+   "ship": false
+  },
+  {
+   "program": "polybench/floyd-warshall",
+   "o3_build_s": 0.26,
+   "predict_total_s": 0.88,
+   "added_over_o3_s": 0.61,
+   "ship": false
+  },
+  {
+   "program": "polybench/gramschmidt",
+   "o3_build_s": 0.33,
+   "predict_total_s": 0.9,
+   "added_over_o3_s": 0.57,
+   "ship": false
+  },
+  {
+   "program": "polybench/lu",
+   "o3_build_s": 0.33,
+   "predict_total_s": 0.91,
+   "added_over_o3_s": 0.58,
+   "ship": false
+  },
+  {
+   "program": "polybench/ludcmp",
+   "o3_build_s": 0.35,
+   "predict_total_s": 0.92,
+   "added_over_o3_s": 0.57,
+   "ship": false
+  },
+  {
+   "program": "polybench/mvt",
+   "o3_build_s": 0.27,
+   "predict_total_s": 0.9,
+   "added_over_o3_s": 0.62,
+   "ship": false
+  },
+  {
+   "program": "polybench/nussinov",
+   "o3_build_s": 0.26,
+   "predict_total_s": 0.88,
+   "added_over_o3_s": 0.62,
+   "ship": false
+  },
+  {
+   "program": "polybench/trisolv",
+   "o3_build_s": 0.26,
+   "predict_total_s": 0.87,
+   "added_over_o3_s": 0.62,
+   "ship": false
+  },
+  {
+   "program": "ss/Shootout-C++/ackermann",
+   "o3_build_s": 0.48,
+   "predict_total_s": 1.19,
+   "added_over_o3_s": 0.71,
+   "ship": true
+  },
+  {
+   "program": "ss/Shootout-C++/fibo",
+   "o3_build_s": 0.36,
+   "predict_total_s": 1.14,
+   "added_over_o3_s": 0.78,
+   "ship": true
+  },
+  {
+   "program": "ss/Shootout-C++/hash2",
+   "o3_build_s": 0.58,
+   "predict_total_s": 1.23,
+   "added_over_o3_s": 0.65,
+   "ship": false
+  },
+  {
+   "program": "ss/Shootout-C++/heapsort",
+   "o3_build_s": 0.46,
+   "predict_total_s": 1.23,
+   "added_over_o3_s": 0.77,
+   "ship": true
+  },
+  {
+   "program": "ss/Shootout-C++/lists",
+   "o3_build_s": 0.42,
+   "predict_total_s": 1.25,
+   "added_over_o3_s": 0.83,
+   "ship": true
+  },
+  {
+   "program": "ss/Shootout-C++/methcall",
+   "o3_build_s": 0.37,
+   "predict_total_s": 1.16,
+   "added_over_o3_s": 0.79,
+   "ship": true
+  },
+  {
+   "program": "ss/Shootout-C++/random",
+   "o3_build_s": 0.46,
+   "predict_total_s": 1.21,
+   "added_over_o3_s": 0.75,
+   "ship": true
+  },
+  {
+   "program": "ss/Shootout-C++/sieve",
+   "o3_build_s": 0.42,
+   "predict_total_s": 1.27,
+   "added_over_o3_s": 0.85,
+   "ship": true
+  }
+ ],
+ "added_median_s": 0.62,
+ "added_max_s": 17.8,
+ "o3_build_median_s": 0.33
+}

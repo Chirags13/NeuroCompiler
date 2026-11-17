@@ -49,6 +49,48 @@ request for demonstration; the measured gain from it is nil, which the presentat
 Demo runs (held-out programs): polybench/3mm shipped a library pipeline confirmed at 1.194x; fibo shipped a
 library pipeline at 1.147x with RL proposals ranked #7-8 of the pool (in the evaluation run RL's won at 1.231x).
 
+## Modes: tune vs predict (2026-10-26)
+
+| | **tune** (default; frozen) | **predict** (new; advisory) |
+|---|---|---|
+| runs the program? | yes: top-8 timed against -O3, fresh confirmation, -O3 fallback | no: compile + analysis only |
+| models | LightGBM surrogate + PPO policy (results/models/tune, MANIFEST-pinned) | own 7-member LightGBM ensemble + harm classifier + own PPO (pessimistic reward), results/models/predict |
+| features | static IR, simulated cache, scan (needs runs) | static IR + LLVM optimization remarks (no runs) |
+| test geomean vs -O3 | **+7.51%** (+2.15..+16.12); RL + SL +8.09% | **+0.64%** (-0.16..+2.05) |
+| excl. largest | +4.30% | +0.02% |
+| programs >= +5% / measurably slower | 8 / 1 | 1 / 1 |
+| time per program | median ~139 s compiling + timing (selection run) | median **+0.62 s** over a plain -O3 build (max +17.8 s, lencod) |
+
+All on the same 33 frozen test programs, serially re-measured (`scripts/modes_paired.py` ->
+`results/predict/modes_paired.txt`; predict: `results/predict/eval_predict_test_serial.md`, timing:
+`results/predict/time_test.json`). Paired vs predict: tune top-8 +6.8% (+1.6..+15.2), tune RL + SL +7.4%
+(+2.0..+16.3), random@8 +4.6% (-0.1..+12.2), GA@8 +1.4% (-0.4..+4.3), ML-only top-1 +1.7% (-4.3..+10.4).
+
+**Predict did not meet its success criteria** (recorded in CLAUDE.md before building): geomean >= +1.5% with
+CI above 0 NOT MET (+0.64%, CI -0.16..+2.05); at most 2 programs measurably slower MET (1: lencod 0.971x);
+added time <= 10 s MET (median +0.62 s). By the pre-recorded rule predict ships as **advisory, -O3 by default**:
+`neurocompiler predict` writes the -O3 binary and reports its recommendation (pipeline, predicted range,
+confidence, reason); `--apply` writes the recommendation, `--verify` checks its output against -O0 once.
+
+What predict did: the gate (pessimistic estimate > +3%, >= 80% of 7 models agree, harm probability <= 0.5,
+thresholds chosen out-of-fold on train+val) proposed a change on 10 of 33 programs; 5 compiled to the same
+binary as -O3; of the other 5: fibo 1.225x, methcall 1.026x, heapsort 1.012x, ecbdes 0.999x, lencod 0.971x.
+All picks came from the safe pool (164 knowledge-base edits that never appeared in a wrong-output candidate
+and are harmful on <= 10% of programs, plus pairs), none from its RL policy: predict and predict_sl are
+identical (+0.01%, CI -0.01..+0.02). Without the gate predict is worse than -O3 (ungated -0.69%, 8 programs
+measurably slower, and 2 picks with WRONG OUTPUT: polybench/deriche, polybench/doitgen). Validation
+(22 programs, train-only models) showed the same: gated 0 changes, ungated -2.33%.
+
+Why: the compile-time view does not contain what decides an edit's effect (trip counts, data size, cache and
+branch behaviour). The predict model orders a program's candidates with within-program Spearman +0.42 on its
+training programs but only +0.11 on held-out families; out-of-fold the gated policy was +-0.0% (13 of 107
+programs changed). Tune succeeds with similar models because it uses them only to shortlist and lets timing
+decide.
+
+Separation checks: tune MANIFEST hashes unchanged and tune's top-8 order IDENTICAL on 3 programs before and
+after the predict work (`scripts/tune_regression_check.py`, `results/predict/tune_regression_after.txt`);
+predict reads the shared data read-only and writes only to results/predict.sqlite and results/models/predict.
+
 ## What the earlier attempt got wrong
 
 Across 18,637 measured candidates, the change in IR instruction count vs -O3 and the runtime change are
