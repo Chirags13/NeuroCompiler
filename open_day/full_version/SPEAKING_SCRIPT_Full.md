@@ -1,0 +1,187 @@
+# NeuroCompiler Open Day: speaking script
+
+Full talk: about 14 minutes. The script for each slide is also in that slide's speaker notes.
+
+## 60-second pitch
+
+Every program you compile with -O3 gets the same 109-step recipe. That's a great default, but it isn't tailored to your program. NeuroCompiler finds a faster recipe for each program, without changing your code. An AI agent proposes recipes, a second model ranks them, and then real timing decides: if a recipe can't prove itself twice, you simply get -O3. On 33 programs it had never seen, it ran 8.09% faster than -O3 on average, 4.92% without the largest win, and none were measurably slower. Our best demo ran 3.8 times faster, and we can show you exactly why. Want to race your own code?
+
+## 3-minute stall tour
+
+1. **Slide 1 (30 s):** the two bars, and the promise of a fair number later.
+2. **Slide 7 (45 s):** models shortlist, the stopwatch decides.
+3. **Slide 14 (45 s):** why the demo got 3.83x.
+4. **Slide 16 (40 s):** the 33-program result, with caveats.
+5. **Slide 19 (20 s):** where it could be used, then offer the live demo.
+
+## Full talk
+
+### Slide 1: Same code. 3.83× faster. (30 s)
+
+Look at these two bars. Same program, same C source code. The top one takes 848 milliseconds. The bottom one takes 222. We did not change a single line of the program. Pause here and let people read it. I'll be honest straight away: this is our best demo, not our average. The fair number comes later.
+
+*Evidence: dashboard/saved/tune-interpreter-loop-3-83x-rl-pick.json. Confirmed 3.830x, CI 3.820-3.838, A/A control 1.001x. evalloop is in the validation split, so RL trained on it; not in the 33 test programs.*
+
+### Slide 2: NeuroCompiler (20 s)
+
+This is NeuroCompiler, our major project. It finds a faster compiler recipe for each individual program, and it only believes what a stopwatch can prove. Those ticks are real: each one is a step in the compiler's -O3 pipeline.
+
+*Evidence: Strip built from opt -print-pipeline-passes, LLVM 18.1.8, in execution order.*
+
+### Slide 3: Every program gets the same 109-step recipe (45 s)
+
+When you compile code, the compiler does not translate it in one go. It applies a chain of small transformations called passes. The highest standard setting, -O3, is a recipe of 109 steps. And here is the key point: it is the same recipe for every program. A matrix multiply and a web parser get identical treatment. It is a very good recipe, tuned by experts, but it is tailored to nothing.
+
+*Evidence: open_day/assets/o3_pipeline_llvm18.txt: 109 steps, 76 distinct; simplifycfg 8, instcombine 8. Grouping into colours is ours, for readability.*
+
+### Slide 4: The same edit helps one program, hurts another (45 s)
+
+Does the recipe suit everyone? No. Here are six real edits we tried on 31 programs. Green is how much the luckiest program sped up. Red is how much the unluckiest slowed down. Vectorizing eight lanes wide made one program over six times faster, and made another 17 percent slower. Forcing a 2x unroll: confirmed faster on 4 programs, and slower on 6. There is no universally better setting.
+
+*Evidence: research.json kb.top, from results/passkb_attribution_20261024-192004.csv. Ranges are from screening, counts from confirmation.*
+
+### Slide 5: Why not just try everything? (40 s)
+
+So why not try everything? We catalogued 346 single edits. Pairs: about sixty thousand. Four at a time: 587 million. At one second each, that is over eighteen years, and one run is not even enough to trust. Researchers have called this an open problem for decades.
+
+*Evidence: C(346,k), calculated. 586,862,710 s = 18.6 years. Ashouri et al., ACM CSUR 2018.*
+
+### Slide 6: The easy scoreboard lies (45 s)
+
+Could we use a shortcut, like picking the recipe that gives the smallest code? Each dot is a real candidate. Left is smaller code, up is faster. If smaller meant faster, you would see a slope. You see a cloud. The correlation is minus 0.08. An earlier attempt at this project made exactly that mistake: it improved code size and runtime did not move. That is why we judge exactly one thing: time.
+
+*Evidence: research.json ir: n = 18,637, rho -0.0797; candidates with >1% fewer IR instructions were faster 56.9% of the time. Chart plots 700 points from a stored sample, clipped to the central range.*
+
+### Slide 7: Models shortlist. The stopwatch decides. (45 s)
+
+Here is our idea, and it is the one sentence to remember: models shortlist, the stopwatch decides. Think of scouts and a race. Scouts suggest who deserves a place on the track. But only the race picks a winner. We start with about 935 candidate recipes. Models cut that down. Eight actually race against -O3. One must then win again, on a fresh run. If nothing proves itself, you simply get -O3.
+
+*Evidence: Interpreter demo: 22 RL + 913 library, 48 compiled, 8 timed. RL can propose up to 24; fresh runs on 2026-10-30 had 24. nc/deploy.py select_topk.*
+
+### Slide 8: The whole system (60 s)
+
+This is the real system. The top lane is the lab. We gathered programs, searched recipes, timed them and stored the results, then trained two models. Those models are frozen and hash-checked. The amber lane is what happens to your program. We extract features, the RL agent proposes recipes, LightGBM ranks them, the best are compiled and checked, then timed against -O3, and you get a binary plus a proof report. You can use it from the command line or a web dashboard.
+
+*Evidence: nc/deploy.py deploy_source, nc/tunelock.py. Median about 139 s compile + timing on the test set.*
+
+### Slide 9: 70,409 recipes, measured the hard way (40 s)
+
+The models are only as good as their data. We scanned 347 programs and kept 146 that build, behave identically at every optimization level, and run long enough to time well. We recorded over seventy thousand candidate recipes. And critically, we split by family. Programs in a family share code, so if one went into training and its sibling into test, we would be cheating. The 33 test programs come from 11 families the models never saw, and the split was frozen before modelling.
+
+*Evidence: corpus report; dataset.sqlite candidates 70,409, measurements 19,534; split seed 0, 91/22/33. Same benchmark suites appear on both sides; families do not.*
+
+### Slide 10: A recipe becomes a short list of edits (45 s)
+
+How do you describe a recipe to a machine? As a short list of edits to -O3. An empty list is exactly -O3. Our demo win has just four edits. Removing every simplifycfg and instcombine takes out those 16 amber steps. This representation is powerful: edits carry over between programs, they stay valid pipelines, and you can remove an edit to find out which one mattered.
+
+*Evidence: nc/pipeline.py Genome. Shipped edits in saved run. Dashboard diff: 109 steps to 93, 16 removed.*
+
+### Slide 11: A stopwatch you can trust (60 s)
+
+If you take one engineering lesson from this stall, take this: measuring speed is hard. A well-known paper showed that things as harmless as environment size can produce wrong conclusions. So every comparison is interleaved: all binaries take turns, in a shuffled order, on one pinned core. And we plant a spy. A byte-identical copy of -O3 races as if it were a candidate. If the spy reads anything but 1.00, the measurement is suspect. Our uncertainty is about a tenth of a percent. We even tested the tester: running on five cores at once made noise far worse, so we rejected it.
+
+*Evidence: selftest PASS 2026-10-23: CI half-width 0.12%, A/A bias 0.01%. 3-core A/A bias <= 0.46%. 5 cores: noise 5-40x larger. The round diagram is schematic.*
+
+### Slide 12: Two models, two jobs (60 s)
+
+So who picks what to time? Two models with two jobs. PPO is a reinforcement-learning agent, which we wrote from scratch in NumPy. It learns which edits to try for a kind of program. LightGBM is a gradient-boosted model trained on real timings, and it ranks everything. Note that the curve is the model's own prediction, not a measurement. And look at the plus 0.11. That is honest and weak. On unseen programs, the model's ranking is only slightly better than chance. That is exactly why neither model picks the winner.
+
+*Evidence: PPO 200 iterations x 64 episodes, return +0.01 to +0.22 (predicted). LightGBM Spearman +0.111 [+0.06, +0.15], gain@5 1.107x vs random 1.091x. Gate 7B narrowly met after Phase 4 data; not met before.*
+
+### Slide 13: Nothing ships without proof (50 s)
+
+Here is what makes it safe. Three gates. Does it produce the same answer as the unoptimized build? Does it win the race? Does it win again on a brand-new run, by more than one percent, with a clean control? Fail and it is out. If nothing survives, you get -O3. 21 of 33 test programs kept -O3, and that is the system working. Gate three exists because an early run shipped one program 2 percent slower. And in a fresh run on our branchy example the best pick read 1.014, just short of the bar, so -O3 shipped.
+
+*Evidence: deploy.py: margin 0.01, confirm_reps 20. lencod 0.979x was the SL run before the rule; a re-run ships -O3 (post-hoc illustration, not re-scored). Branchy run 2026-10-30: fresh 1.014x, CI lower bound 1.008.*
+
+### Slide 14: The mystery solved: one jump for everything (60 s)
+
+Back to our mystery. Why 3.8 times? The program is an interpreter: it reads an instruction, runs it, then jumps to the next one. A clean-up pass in -O3 noticed all those jumps looked identical and merged them into one. Tidy, but disastrous: the processor predicts where each jump goes, and now one jump has to predict everything. With the merge undone, there are 63 jumps and each can learn its own pattern. This is not a toy: the same kind of change hit CPython with Clang 19.
+
+*Evidence: Measured 2026-10-30 with llvm-objdump: 2 at -O3; 63 with -simplifycfg-sink-common=false and also 63 with the RL pipeline, which removes every simplifycfg. Cachegrind's simple predictor shows 100% vs 96.7% and cannot model history-based prediction, so it is not quoted. CPython: Elhage 2025, 332 vs 3 jumps, 9-12%; fixed by LLVM PR 114990.*
+
+### Slide 15: It runs. Ask us to show you. (60-120 s)
+
+This is a running tool, not a mock-up. On the left is a real run from 30 October on matrix multiply: 1.49 times faster, verified. On the right is the dashboard. If time allows, run a live example now: choose Matrix multiply or Fibonacci, press run, and narrate the log. Keep the saved runs ready in case the machine is busy.
+
+*Evidence: open_day/assets/runs/tune_matmul_2026-10-30.log: confirmed 1.485x [1.384, 1.534], A/A 1.009x, 175.5 s. An earlier saved run read 1.66x; matmul is noisier than most. Dashboard: localhost:8000, dashboard/run.sh.*
+
+### Slide 16: 33 programs it had never seen: +8.09% over -O3 (60 s)
+
+One program is a story. Here is the evidence: 33 programs from families the system never saw. NeuroCompiler is 8.09 percent faster than -O3 on average, 4.92 without the largest win, and none measurably slower. Look at the ladder of methods: ML with no timing, random, genetic. Two honest caveats: the confidence interval is wide, and our lead over random search at equal budget is not statistically significant. The clearest wins are against random top-8 and the genetic algorithm.
+
+*Evidence: research.json eval.summary. Paired (LightGBM + timing): vs random top-8 +5.8% (CI +1.0..+13.9), GA +5.3% (+0.3..+13.4), random search +2.1% (-0.6..+5.8, n.s.). The project's 'good' tier is met. CIs differ slightly between bootstrap runs; see PROJECT_ANALYSIS.md.*
+
+### Slide 17: Inside the average: a few big wins, most stay safe (40 s)
+
+An average can hide things, so here is every program. A few big wins on the left, then a long flat line: 21 programs where the system said no improvement proven, and kept -O3. The median program gets no gain. So we are not claiming every program gets faster. We are claiming you can find the ones that do, safely.
+
+*Evidence: research.json eval.programs. durbin 2.81x, 3mm 1.43x, ft 1.36x, fibo 1.23x, heapsort 1.20x, ackermann 1.19x.*
+
+### Slide 18: We put it to the test. Here is what we learned. (60 s)
+
+We tested this as hard as we could, because the tests taught us the most. Start on the left: an ML pick on its own made 16 of 33 programs slower. Add the stopwatch and that drops to zero. That is the whole project in one picture. Then three questions we asked ourselves. How much room is there above -O3? Our first sample fell short of the goal, so we reset the target openly, searched wider, and found far more. Does RL beat LightGBM? Not yet: 0.2 percent, not significant, and we say that plainly. Can we skip running the program? Partly: it is very fast, but the gain missed the goal we wrote down first, so it ships as advice only. Everything here was measured on one machine, and we list that scope too.
+
+*Evidence: ML-only top-1 16 slower; RL + SL 0 slower. gate_by_sample: +4.00%, 4/15 = 26.7%, target 30%, re-scoped to the good tier. Phase 5: +15.6% (CI +10.2..+22.1), +14.1% excl. largest, 115 programs. RL +0.2% (CI -0.2..+0.7), shipped on 1/33 (fibo); kept by team decision. Predict +0.64%, target +1.5%, median +0.62 s.*
+
+### Slide 19: Where this could matter (60 s)
+
+So where does this matter? We sorted the uses by how far along they are. Green is what we have shown: numerical kernels that run thousands of times, and pinpointing where a compiler hurts. Amber needs engineering: language runtimes and release builds. Grey is a long way off: data centres. Others' figures are shown to explain why small gains matter at scale. They are not our results, and we have not deployed this in production.
+
+*Evidence: PROJECT blueprint, real-world applications section. External: Elhage 2025; AutoFDO geomean 10.5%; MLGO 0.3-1.5% QPS.*
+
+### Slide 20: It pays off where a program runs again and again (40 s)
+
+When does it pay off? Tuning takes about two minutes, once. If a job takes one second and gets the average gain, you save about 75 milliseconds per run, so you break even after about 1,860 runs. So this suits programs that run often and stay the same. To reach production it needs more input coverage, multi-threading and more machines. The right-hand list is future work, and none of it is built yet.
+
+*Evidence: Calculated: 1 - 1/1.0809 = 7.49%; 139 s / 0.0749 = 1,857 runs. Illustrative: the median program gains nothing, and a win is known only after tuning.*
+
+### Slide 21: -O3 is a great default. Now it has to prove it. (30 s)
+
+-O3 is a fantastic default, and most of the time it stays the right answer. But it no longer has to be the last word. For individual programs, we can find something faster, and prove it. Models shortlist, the stopwatch decides. If you have a C program, bring it over and let's race it.
+
+*Evidence: Summary of slides 14 to 17.*
+
+### Slide 22: References (reference)
+
+Reference slide. Show it if someone asks about the sources.
+
+*Evidence: open_day/PROJECT_ANALYSIS.md lists full URLs.*
+
+## Likely questions
+
+**Is 3.83x your typical result?**
+
+No. It is the best demo, on a validation program the RL trained on. The fair result is +8.09% on 33 unseen programs, +4.92% without the largest win. The median program gains nothing.
+
+**Why not just use PGO?**
+
+PGO is a different and proven technique. We did not compare against it, and the two could combine. We change the pass recipe; PGO feeds runtime profiles to the same recipe. Combining them is future work.
+
+**Does the AI matter, or is it all the stopwatch?**
+
+Both matter, unevenly. LightGBM + timing beat random top-8 by 5.8% and the GA by 5.3%, but its lead over random search at equal budget is not significant. RL added +0.2%, not significant. Timing is the essential part: without it, 16 of 33 programs got slower.
+
+**Why keep RL if it adds nothing?**
+
+It is in the final version by team decision, as a demonstration, and we state the measured effect. An RL proposal shipped on 1 of 33 test programs.
+
+**How do you know the output is still correct?**
+
+Each candidate's output hash must match the -O0 build on the given input. That is strong evidence, not proof: other inputs are not checked.
+
+**Will it work on my machine?**
+
+We measured one CPU, a Zen 4 Ryzen 9 270 under WSL2. Because tuning times your program on your hardware, it can be re-run, but the models were trained here and gains may differ.
+
+**Why not delete those passes from -O3 for everyone?**
+
+Because that edit hurts other programs. Deleting every simplifycfg ranged from 0.86x to 3.82x. That is the point of per-program tuning.
+
+**Isn't this overfitting to benchmarks?**
+
+A tuned binary is tuned for the input used. That is a real limitation, and multi-input verification is on the production list. The models themselves are tested on families they never saw.
+
+**What about multi-threaded programs?**
+
+Not supported in this study. The corpus is deterministic and single-threaded, with visible output.

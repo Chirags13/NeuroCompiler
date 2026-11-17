@@ -543,15 +543,119 @@ def cmd_rl(cfg, tc, a):
     return 0
 
 
+def cmd_predict_train(cfg, tc, a):
+    from . import predict
+    r = predict.train_all(tc, cfg, _manifest(cfg), _split(cfg), rl_iters=a.rl_iters)
+    print(json.dumps(r["cv"]["chosen"], indent=1))
+    return 0
+
+
+def cmd_predict_eval(cfg, tc, a):
+    from . import evaluate, predict
+    sp, m = _split(cfg), _manifest(cfg)
+    want = {"val": "val", "test": "test"}[a.on]
+    if a.on == "test" and a.which != "final":
+        sys.exit("the test set is evaluated with the final predict models only")
+    recs = [m[p] for p, t in sorted(sp["program_split"].items()) if t == want and p in m]
+    tag = f"predict_{a.on}"
+    if a.timing_cpus:
+        from .parallel import run_parallel
+        run_parallel("predict_eval", a.config, recs, _cpus(a.timing_cpus), {"tag": tag, "which": a.which})
+    else:
+        for r in recs:
+            predict.eval_program(tc, cfg, r, tag, a.which)
+    ps_ = predict.pstore()
+    if a.serial:
+        print(evaluate.repro(tc, cfg, ps_, m, tag))
+        tag = tag + "_serial"
+    print(evaluate.report_eval(ps_, tag, Path(cfg.results_dir) / "predict"))
+    return 0
+
+
+def cmd_predict_time(cfg, tc, a):
+    from . import predict
+    sp, m = _split(cfg), _manifest(cfg)
+    recs = [m[p] for p, t in sorted(sp["program_split"].items()) if t == a.on and p in m]
+    rows = predict.time_check(tc, cfg, recs)
+    added = sorted(r["added_over_o3_s"] for r in rows)
+    out = {"on": a.on, "rows": rows, "added_median_s": added[len(added) // 2], "added_max_s": added[-1],
+           "o3_build_median_s": sorted(r["o3_build_s"] for r in rows)[len(rows) // 2]}
+    pth = Path(cfg.results_dir) / "predict" / f"time_{a.on}.json"
+    pth.parent.mkdir(parents=True, exist_ok=True)
+    pth.write_text(json.dumps(out, indent=1))
+    print(f"predict added time over a plain -O3 build: median {out['added_median_s']:+.2f} s, max {out['added_max_s']:+.2f} s "
+          f"(-O3 build median {out['o3_build_median_s']:.2f} s) -> {pth}")
+    return 0
+
+
+def cmd_predict(cfg, tc, a):
+    from . import predict
+    base = Path(os.environ.get("NC_CALLER_CWD", "."))
+    fix = lambda x: str((base / x).resolve()) if x else x
+    res = predict.predict_source(tc, cfg, [fix(x) for x in a.src], shlex.split(a.cflags), Path(fix(a.out)),
+                                 use_rl=not a.no_rl, verify_args=shlex.split(a.args), verify=a.verify,
+                                 apply=True if a.apply else None, measure=not a.no_measure,
+                                 stdin=fix(a.stdin), cwd=fix(a.cwd))
+    print(json.dumps({k: v for k, v in res.items() if k != "genome"}, indent=1, default=str))
+    print(f"\n== neurocompiler predict ({res.get('mode')}) ==")
+    if res.get("recommended"):
+        print(f"recommendation: pipeline from the {res['source']}, predicted {res['predicted_speedup']:.3f}x vs -O3 "
+              f"(range {res['range'][0]:.3f}..{res['range'][1]:.3f}), confidence {res['confidence']}")
+        print("binary: " + ("recommended pipeline (--apply)" if res.get("applied") else
+                            "-O3 (predict is advisory: it missed its test-set criteria; add --apply to use the recommendation)"))
+    else:
+        print("recommendation: keep -O3")
+    print(f"reason: {res['reason']}")
+    print(f"time: predict {res['predict_total_s']} s vs plain -O3 build {res['o3_build_s']} s "
+          f"(added {res['added_over_o3_s']:+} s); output {'verified' if res.get('verified') else 'NOT verified (use --verify)'}")
+    m = res.get("measured")
+    if m:
+        print(f"measured ({m['which']}): " + (f"{m['speedup']:.3f}x vs -O3 [{m['ci'][0]:.3f}, {m['ci'][1]:.3f}], "
+              f"{m['pick_median_ms']:.1f} ms vs -O3 {m['o3_median_ms']:.1f} ms, {m['rounds']} rounds, A/A control "
+              f"{m['control']:.3f}x -> {m['verdict']} (predicted {m['predicted_speedup']:.3f}x)"
+              if m.get("status") == "ok" else m.get("note", m.get("status"))))
+    print(f"binary: {res['output']}")
+    return 0
+
+
+def cmd_compare(cfg, tc, a):
+    from . import predict
+    base = Path(os.environ.get("NC_CALLER_CWD", "."))
+    fix = lambda x: str((base / x).resolve()) if x else x
+    res = predict.compare(tc, cfg, [fix(x) for x in a.src], shlex.split(a.args), fix(a.stdin), fix(a.cwd),
+                          shlex.split(a.cflags), k=a.k, json_out=Path(fix(a.json_out)) if a.json_out else None)
+    print(f"\n== neurocompiler compare: {res['program']} (one serial interleaved run, speedup vs -O3, 95% CI) ==")
+    print(f"{'method':<14s} {'speedup':>8s}   95% CI")
+    for r in res["rows"]:
+        ci = f"[{r['ci'][0]:.3f}, {r['ci'][1]:.3f}]" if r.get("ci") and r["ci"][0] else (r.get("note") or "")
+        print(f"{r['method']:<14s} {r['speedup']:>7.3f}x   {ci}")
+    print(f"saved {res['saved']}")
+    return 0
+
+
+def cmd_tune_freeze(cfg, tc, a):
+    from . import tunelock
+    m = Path(cfg.results_dir) / "models"
+    files = tunelock.tune_files(m / "surrogate_latest.json", m / "surrogate_nodyn.json", m / "rl_policy_latest.npz",
+                                Path(cfg.results_dir), Path(cfg.work_dir), tc.version())
+    man = tunelock.write_manifest(files, cfg.db_path, tc.version())
+    print(json.dumps(man, indent=1))
+    return 0
+
+
 def cmd_deploy(cfg, tc, a):
     from . import deploy
     base = Path(os.environ.get("NC_CALLER_CWD", "."))
     fix = lambda x: str((base / x).resolve()) if x else x
     a.src, a.out, a.stdin, a.cwd = [fix(x) for x in a.src], fix(a.out), fix(a.stdin), fix(a.cwd)
-    meta = Path(a.model) if a.model else Path(cfg.results_dir) / "models" / "surrogate_latest.json"
+    # Tune is frozen: unless a model/policy is given explicitly, files come from the verified MANIFEST
+    # (same files as before the freeze; tune refuses to run if any hash changed).
+    from . import tunelock
+    frozen = tunelock.load_verified(cfg.db_path) if not (a.model or a.rl_policy) else {}
+    meta = Path(a.model) if a.model else frozen["surrogate"]
     if not meta.exists():
         sys.exit(f"No surrogate at {meta}; run `model train` first.")
-    pol = None if a.no_rl else Path(a.rl_policy)
+    pol = None if a.no_rl else (Path(a.rl_policy) if a.rl_policy else frozen.get("rl_policy"))
     if pol is not None and not pol.exists():
         print(f"note: no RL policy at {pol}; running SL only (train one with `python -m nc.cli rl train`)")
         pol = None
@@ -682,7 +786,7 @@ def main(argv=None):
     rp.add_argument("--horizon", type=int, default=4)
     rp.add_argument("--seed", type=int, default=0)
     rp.add_argument("--force", action="store_true")
-    de = sub.add_parser("deploy")
+    de = sub.add_parser("tune", aliases=["deploy"], help="tune mode: RL + SL, top-k timed against -O3 (frozen)")
     de.add_argument("src", nargs="+")
     de.add_argument("--out", required=True)
     de.add_argument("--args", default="")
@@ -693,7 +797,7 @@ def main(argv=None):
     de.add_argument("--k", type=int, default=8)
     de.add_argument("--reps", type=int, default=10)
     de.add_argument("--dynamic", action="store_true", help="also compute simulated (cachegrind) features")
-    de.add_argument("--rl-policy", default="results/models/rl_policy_latest.npz", help="RL policy used for RL + SL")
+    de.add_argument("--rl-policy", default="", help="RL policy for RL + SL (default: the frozen one from the tune MANIFEST)")
     de.add_argument("--no-rl", action="store_true", help="SL only: the supervised model ranks the library")
     ev = sub.add_parser("evaluate")
     ev.add_argument("action", choices=["run", "report", "repro"])
@@ -706,7 +810,39 @@ def main(argv=None):
     ev.add_argument("--timing-cpus", default="", help="parallel selection (final numbers come from `evaluate repro`)")
     ev.add_argument("--methods", default="", help="only these methods, e.g. topk,rl_topk,rl_lib_topk (default: all)")
     ev.add_argument("--confirm-reps", type=int, default=0, help="selection confirmation rounds (0 = procedure of tag 'final')")
+    sub.add_parser("tune-freeze", help="write results/models/tune/MANIFEST.json (pins tune's files)")
+    pt = sub.add_parser("predict-train", help="train predict mode's own models (results/models/predict)")
+    pt.add_argument("--rl-iters", type=int, default=150)
+    pe = sub.add_parser("predict-eval", help="evaluate predict on the validation or test programs")
+    pe.add_argument("--on", choices=["val", "test"], required=True)
+    pe.add_argument("--which", choices=["trainonly", "final"], default="final")
+    pe.add_argument("--timing-cpus", default="")
+    pe.add_argument("--serial", action="store_true", help="also re-measure every shipped binary serially")
+    ptm = sub.add_parser("predict-time", help="predict's added time over -O3 builds (fresh caches)")
+    ptm.add_argument("--on", choices=["val", "test"], default="test")
+    pr = sub.add_parser("predict", help="predict mode: choose a pipeline WITHOUT running the program")
+    pr.add_argument("src", nargs="+")
+    pr.add_argument("--out", required=True)
+    pr.add_argument("--cflags", default="")
+    pr.add_argument("--no-rl", action="store_true", help="SL only (no RL proposals)")
+    pr.add_argument("--verify", action="store_true", help="run -O0 and the pick once to compare outputs (with --apply)")
+    pr.add_argument("--apply", action="store_true", help="write the recommended pipeline instead of -O3 (advisory mode)")
+    pr.add_argument("--args", default="", help="program arguments (for --verify and the measurement)")
+    pr.add_argument("--stdin", default=None)
+    pr.add_argument("--cwd", default=None)
+    pr.add_argument("--no-measure", action="store_true",
+                    help="compile-only: skip compiling + timing the top prediction against -O3 after predicting")
+    cm = sub.add_parser("compare", help="measure -O3/-O2/-Os/predict/tune/random/GA on one program")
+    cm.add_argument("src", nargs="+")
+    for o in ("--args", "--cflags"):
+        cm.add_argument(o, default="")
+    cm.add_argument("--stdin", default=None)
+    cm.add_argument("--cwd", default=None)
+    cm.add_argument("--k", type=int, default=8)
+    cm.add_argument("--json-out", default="", help="write the result JSON here (default: results/compare/)")
     a = ap.parse_args(argv)
+    if a.cmd == "deploy":
+        a.cmd = "tune"
     cfg = load_config(a.config)
     tc = Toolchain(cfg)
     configure(no_aslr=cfg.no_aslr, settle_s=cfg.settle_s, isolate_sibling=cfg.isolate_sibling,
@@ -715,7 +851,9 @@ def main(argv=None):
     fn = {"env": cmd_env, "o3pipeline": cmd_o3pipeline, "baselines": cmd_baselines,
           "selftest": cmd_selftest, "cpusweep": cmd_cpusweep, "corpus": cmd_corpus, "search": cmd_search,
           "passkb": cmd_passkb, "collect": cmd_collect, "features": cmd_features, "model": cmd_model,
-          "rl": cmd_rl, "deploy": cmd_deploy, "evaluate": cmd_evaluate, "aatest": cmd_aatest}[a.cmd]
+          "rl": cmd_rl, "tune": cmd_deploy, "evaluate": cmd_evaluate, "aatest": cmd_aatest,
+          "tune-freeze": cmd_tune_freeze, "predict-train": cmd_predict_train, "predict-eval": cmd_predict_eval,
+          "predict": cmd_predict, "compare": cmd_compare, "predict-time": cmd_predict_time}[a.cmd]
     sys.exit(fn(cfg, tc, a) or 0)
 
 

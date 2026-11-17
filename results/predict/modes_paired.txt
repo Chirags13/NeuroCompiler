@@ -1,0 +1,30 @@
+Modes on 33 test programs (serial re-measurements; speedups vs -O3 measured in the same run)
+
+method                   geomean (95% CI)           excl. largest   >=5%  slower*  changed
+predict (RL+SL, gated)    +0.64% (-0.16..+2.05)    +0.02%      1        1        5
+predict_sl (gated)        +0.64% (-0.14..+1.97)    +0.03%      1        1        5
+predict_ungated           -0.69% (-3.02..+1.44)    -1.34%      2        8       24
+tune top-8 (SL)           +7.51% (+2.15..+16.12)    +4.30%      8        1       13
+tune RL + SL              +8.09% (+2.47..+16.40)    +4.92%      9        0       12
+ML-only top-1             +2.36% (-3.79..+10.96)    -0.85%      6       16       31
+GA@8                      +2.08% (-0.12..+5.20)    +0.90%      4        6       22
+random@8                  +5.28% (+0.75..+13.06)    +2.23%      7        6       29
+* measurably slower: serial 95% CI upper bound < 1.0
+predict picks with WRONG OUTPUT (caught only by the evaluation's output check): 2 ['polybench/deriche', 'polybench/doitgen']
+
+Paired vs predict (RL+SL, gated), per program:
+  predict_sl (gated)     vs predict:  +0.01% (95% CI -0.01..+0.02)  better 0 / worse 0
+  predict_ungated        vs predict:  -1.32% (95% CI -3.35..+0.25)  better 2 / worse 5
+  tune top-8 (SL)        vs predict:  +6.83% (95% CI +1.55..+15.18)  better 10 / worse 1
+  tune RL + SL           vs predict:  +7.41% (95% CI +1.96..+16.28)  better 11 / worse 0
+  ML-only top-1          vs predict:  +1.71% (95% CI -4.33..+10.35)  better 9 / worse 12
+  GA@8                   vs predict:  +1.43% (95% CI -0.38..+4.27)  better 6 / worse 2
+  random@8               vs predict:  +4.61% (95% CI -0.06..+12.18)  better 8 / worse 2
+
+Time per program: predict adds median +0.62 s (max +17.80 s) over a plain -O3 build (median 0.33 s); tune: median 139 s of compiling + timing per program in the selection run (plus confirmation in the current version).
+
+PREDICT SUCCESS CRITERIA (recorded before building):
+  geomean >= +1.5% with CI above 0: NOT MET
+  at most 2 programs measurably slower: MET
+  added time <= 10 s (median): MET
+  => predict ships as ADVISORY, -O3 by default (criteria not met)

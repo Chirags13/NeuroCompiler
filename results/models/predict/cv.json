@@ -1,0 +1,197 @@
+{
+ "chosen": {
+  "margin": 0.03,
+  "tau": 0.5,
+  "programs": 107,
+  "shipped": 13,
+  "regressions": 2,
+  "mean_log_gain": -1.913634366295279e-06,
+  "geomean_pct": -0.0001913632535321952
+ },
+ "grid": [
+  {
+   "margin": 0.005,
+   "tau": 0.2,
+   "programs": 107,
+   "shipped": 18,
+   "regressions": 4,
+   "mean_log_gain": -0.0005194522656795542,
+   "geomean_pct": -0.05193173737090273
+  },
+  {
+   "margin": 0.005,
+   "tau": 0.3,
+   "programs": 107,
+   "shipped": 19,
+   "regressions": 4,
+   "mean_log_gain": -0.0005194522656795542,
+   "geomean_pct": -0.05193173737090273
+  },
+  {
+   "margin": 0.005,
+   "tau": 0.5,
+   "programs": 107,
+   "shipped": 23,
+   "regressions": 6,
+   "mean_log_gain": -0.0007297754092734095,
+   "geomean_pct": -0.07295091879639948
+  },
+  {
+   "margin": 0.005,
+   "tau": 1.01,
+   "programs": 107,
+   "shipped": 23,
+   "regressions": 6,
+   "mean_log_gain": -0.0007297754092734095,
+   "geomean_pct": -0.07295091879639948
+  },
+  {
+   "margin": 0.01,
+   "tau": 0.2,
+   "programs": 107,
+   "shipped": 14,
+   "regressions": 3,
+   "mean_log_gain": -0.0002806021863229772,
+   "geomean_pct": -0.028056282121158294
+  },
+  {
+   "margin": 0.01,
+   "tau": 0.3,
+   "programs": 107,
+   "shipped": 15,
+   "regressions": 3,
+   "mean_log_gain": -0.0002806021863229772,
+   "geomean_pct": -0.028056282121158294
+  },
+  {
+   "margin": 0.01,
+   "tau": 0.5,
+   "programs": 107,
+   "shipped": 19,
+   "regressions": 5,
+   "mean_log_gain": -0.0004909253299168324,
+   "geomean_pct": -0.049080484579411277
+  },
+  {
+   "margin": 0.01,
+   "tau": 1.01,
+   "programs": 107,
+   "shipped": 19,
+   "regressions": 5,
+   "mean_log_gain": -0.0004909253299168324,
+   "geomean_pct": -0.049080484579411277
+  },
+  {
+   "margin": 0.02,
+   "tau": 0.2,
+   "programs": 107,
+   "shipped": 12,
+   "regressions": 2,
+   "mean_log_gain": -0.00019215563295343812,
+   "geomean_pct": -0.019213717224231264
+  },
+  {
+   "margin": 0.02,
+   "tau": 0.3,
+   "programs": 107,
+   "shipped": 13,
+   "regressions": 2,
+   "mean_log_gain": -0.00019215563295343812,
+   "geomean_pct": -0.019213717224231264
+  },
+  {
+   "margin": 0.02,
+   "tau": 0.5,
+   "programs": 107,
+   "shipped": 16,
+   "regressions": 3,
+   "mean_log_gain": -0.00022086297076068617,
+   "geomean_pct": -0.022083858233024056
+  },
+  {
+   "margin": 0.02,
+   "tau": 1.01,
+   "programs": 107,
+   "shipped": 16,
+   "regressions": 3,
+   "mean_log_gain": -0.00022086297076068617,
+   "geomean_pct": -0.022083858233024056
+  },
+  {
+   "margin": 0.03,
+   "tau": 0.2,
+   "programs": 107,
+   "shipped": 11,
+   "regressions": 2,
+   "mean_log_gain": -0.00019215563295343812,
+   "geomean_pct": -0.019213717224231264
+  },
+  {
+   "margin": 0.03,
+   "tau": 0.3,
+   "programs": 107,
+   "shipped": 12,
+   "regressions": 2,
+   "mean_log_gain": -0.00019215563295343812,
+   "geomean_pct": -0.019213717224231264
+  },
+  {
+   "margin": 0.03,
+   "tau": 0.5,
+   "programs": 107,
+   "shipped": 13,
+   "regressions": 2,
+   "mean_log_gain": -1.913634366295279e-06,
+   "geomean_pct": -0.0001913632535321952
+  },
+  {
+   "margin": 0.03,
+   "tau": 1.01,
+   "programs": 107,
+   "shipped": 13,
+   "regressions": 2,
+   "mean_log_gain": -1.913634366295279e-06,
+   "geomean_pct": -0.0001913632535321952
+  },
+  {
+   "margin": 0.05,
+   "tau": 0.2,
+   "programs": 107,
+   "shipped": 8,
+   "regressions": 1,
+   "mean_log_gain": -3.0488860113414665e-05,
+   "geomean_pct": -0.003048839533281722
+  },
+  {
+   "margin": 0.05,
+   "tau": 0.3,
+   "programs": 107,
+   "shipped": 9,
+   "regressions": 1,
+   "mean_log_gain": -3.0488860113414665e-05,
+   "geomean_pct": -0.003048839533281722
+  },
+  {
+   "margin": 0.05,
+   "tau": 0.5,
+   "programs": 107,
+   "shipped": 9,
+   "regressions": 1,
+   "mean_log_gain": -3.0488860113414665e-05,
+   "geomean_pct": -0.003048839533281722
+  },
+  {
+   "margin": 0.05,
+   "tau": 1.01,
+   "programs": 107,
+   "shipped": 9,
+   "regressions": 1,
+   "mean_log_gain": -3.0488860113414665e-05,
+   "geomean_pct": -0.003048839533281722
+  }
+ ],
+ "oof_programs": 107,
+ "oof_ungated_geomean_pct": 0.0491003891398778,
+ "oof_ungated_regressions": 14,
+ "objective": "max mean log gain subject to OOF regression rate <= 2/33 (regression: label < 0.99x or harmful)"
+}

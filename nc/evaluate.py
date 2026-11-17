@@ -224,7 +224,9 @@ def report_eval(store: Store, tag: str, out_dir: Path) -> str:
              "| method | geomean (95% CI) | excl. largest | >=3% | >=5% | regressions | size (geomean) | compiled | timed |",
              "|---|---|---|---|---|---|---|---|---|"]
     summ = {}
-    for m in ["O2", "Os", "topk", "topk_nodyn", "ml_top1", "random_topk", "rl_topk", "rl_lib_topk"] + sorted(k for k in by if "@" in k):
+    fixed = ["O2", "Os", "topk", "topk_nodyn", "ml_top1", "random_topk", "rl_topk", "rl_lib_topk"]
+    extra = sorted(k for k in by if k not in fixed and "@" not in k and k != "O3")
+    for m in fixed + sorted(k for k in by if "@" in k) + extra:
         if m not in by:
             continue
         rs = by[m]

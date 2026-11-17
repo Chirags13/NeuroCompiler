@@ -1,0 +1,438 @@
+[
+{
+"name": "annotation2metadata",
+"group": "other"
+},
+{
+"name": "forceattrs",
+"group": "inter"
+},
+{
+"name": "inferattrs",
+"group": "inter"
+},
+{
+"name": "coro-early",
+"group": "other"
+},
+{
+"name": "lower-expect",
+"group": "other"
+},
+{
+"name": "simplifycfg",
+"group": "cleanup"
+},
+{
+"name": "sroa",
+"group": "cleanup"
+},
+{
+"name": "early-cse",
+"group": "cleanup"
+},
+{
+"name": "callsite-splitting",
+"group": "other"
+},
+{
+"name": "openmp-opt",
+"group": "inter"
+},
+{
+"name": "ipsccp",
+"group": "inter"
+},
+{
+"name": "called-value-propagation",
+"group": "inter"
+},
+{
+"name": "globalopt",
+"group": "inter"
+},
+{
+"name": "mem2reg",
+"group": "cleanup"
+},
+{
+"name": "instcombine",
+"group": "cleanup"
+},
+{
+"name": "simplifycfg",
+"group": "cleanup"
+},
+{
+"name": "always-inline",
+"group": "inter"
+},
+{
+"name": "require",
+"group": "other"
+},
+{
+"name": "invalidate",
+"group": "other"
+},
+{
+"name": "require",
+"group": "other"
+},
+{
+"name": "inline",
+"group": "inter"
+},
+{
+"name": "function-attrs",
+"group": "inter"
+},
+{
+"name": "argpromotion",
+"group": "inter"
+},
+{
+"name": "openmp-opt-cgscc",
+"group": "inter"
+},
+{
+"name": "sroa",
+"group": "cleanup"
+},
+{
+"name": "early-cse",
+"group": "cleanup"
+},
+{
+"name": "speculative-execution",
+"group": "cleanup"
+},
+{
+"name": "jump-threading",
+"group": "cleanup"
+},
+{
+"name": "correlated-propagation",
+"group": "cleanup"
+},
+{
+"name": "simplifycfg",
+"group": "cleanup"
+},
+{
+"name": "instcombine",
+"group": "cleanup"
+},
+{
+"name": "aggressive-instcombine",
+"group": "cleanup"
+},
+{
+"name": "libcalls-shrinkwrap",
+"group": "other"
+},
+{
+"name": "tailcallelim",
+"group": "cleanup"
+},
+{
+"name": "simplifycfg",
+"group": "cleanup"
+},
+{
+"name": "reassociate",
+"group": "cleanup"
+},
+{
+"name": "constraint-elimination",
+"group": "cleanup"
+},
+{
+"name": "loop-instsimplify",
+"group": "loop"
+},
+{
+"name": "loop-simplifycfg",
+"group": "loop"
+},
+{
+"name": "licm",
+"group": "loop"
+},
+{
+"name": "loop-rotate",
+"group": "loop"
+},
+{
+"name": "licm",
+"group": "loop"
+},
+{
+"name": "simple-loop-unswitch",
+"group": "loop"
+},
+{
+"name": "simplifycfg",
+"group": "cleanup"
+},
+{
+"name": "instcombine",
+"group": "cleanup"
+},
+{
+"name": "loop-idiom",
+"group": "loop"
+},
+{
+"name": "indvars",
+"group": "loop"
+},
+{
+"name": "loop-deletion",
+"group": "loop"
+},
+{
+"name": "loop-unroll-full",
+"group": "loop"
+},
+{
+"name": "sroa",
+"group": "cleanup"
+},
+{
+"name": "vector-combine",
+"group": "vector"
+},
+{
+"name": "mldst-motion",
+"group": "cleanup"
+},
+{
+"name": "gvn",
+"group": "cleanup"
+},
+{
+"name": "sccp",
+"group": "cleanup"
+},
+{
+"name": "bdce",
+"group": "cleanup"
+},
+{
+"name": "instcombine",
+"group": "cleanup"
+},
+{
+"name": "jump-threading",
+"group": "cleanup"
+},
+{
+"name": "correlated-propagation",
+"group": "cleanup"
+},
+{
+"name": "adce",
+"group": "cleanup"
+},
+{
+"name": "memcpyopt",
+"group": "cleanup"
+},
+{
+"name": "dse",
+"group": "cleanup"
+},
+{
+"name": "move-auto-init",
+"group": "other"
+},
+{
+"name": "licm",
+"group": "loop"
+},
+{
+"name": "coro-elide",
+"group": "other"
+},
+{
+"name": "simplifycfg",
+"group": "cleanup"
+},
+{
+"name": "instcombine",
+"group": "cleanup"
+},
+{
+"name": "function-attrs",
+"group": "inter"
+},
+{
+"name": "require",
+"group": "other"
+},
+{
+"name": "coro-split",
+"group": "other"
+},
+{
+"name": "deadargelim",
+"group": "inter"
+},
+{
+"name": "coro-cleanup",
+"group": "other"
+},
+{
+"name": "globalopt",
+"group": "inter"
+},
+{
+"name": "globaldce",
+"group": "inter"
+},
+{
+"name": "elim-avail-extern",
+"group": "inter"
+},
+{
+"name": "rpo-function-attrs",
+"group": "inter"
+},
+{
+"name": "recompute-globalsaa",
+"group": "inter"
+},
+{
+"name": "float2int",
+"group": "other"
+},
+{
+"name": "lower-constant-intrinsics",
+"group": "other"
+},
+{
+"name": "chr",
+"group": "other"
+},
+{
+"name": "loop-rotate",
+"group": "loop"
+},
+{
+"name": "loop-deletion",
+"group": "loop"
+},
+{
+"name": "loop-distribute",
+"group": "loop"
+},
+{
+"name": "inject-tli-mappings",
+"group": "vector"
+},
+{
+"name": "loop-vectorize",
+"group": "vector"
+},
+{
+"name": "infer-alignment",
+"group": "vector"
+},
+{
+"name": "loop-load-elim",
+"group": "loop"
+},
+{
+"name": "instcombine",
+"group": "cleanup"
+},
+{
+"name": "simplifycfg",
+"group": "cleanup"
+},
+{
+"name": "slp-vectorizer",
+"group": "vector"
+},
+{
+"name": "vector-combine",
+"group": "vector"
+},
+{
+"name": "instcombine",
+"group": "cleanup"
+},
+{
+"name": "loop-unroll",
+"group": "loop"
+},
+{
+"name": "transform-warning",
+"group": "other"
+},
+{
+"name": "sroa",
+"group": "cleanup"
+},
+{
+"name": "infer-alignment",
+"group": "vector"
+},
+{
+"name": "instcombine",
+"group": "cleanup"
+},
+{
+"name": "licm",
+"group": "loop"
+},
+{
+"name": "alignment-from-assumptions",
+"group": "other"
+},
+{
+"name": "loop-sink",
+"group": "loop"
+},
+{
+"name": "instsimplify",
+"group": "cleanup"
+},
+{
+"name": "div-rem-pairs",
+"group": "cleanup"
+},
+{
+"name": "tailcallelim",
+"group": "cleanup"
+},
+{
+"name": "simplifycfg",
+"group": "cleanup"
+},
+{
+"name": "globaldce",
+"group": "inter"
+},
+{
+"name": "constmerge",
+"group": "inter"
+},
+{
+"name": "cg-profile",
+"group": "other"
+},
+{
+"name": "rel-lookup-table-converter",
+"group": "other"
+},
+{
+"name": "annotation-remarks",
+"group": "other"
+},
+{
+"name": "verify",
+"group": "other"
+}
+]

@@ -91,6 +91,9 @@ def _worker(job: str, cfg_path: str, cpu: int, timing_cpus: list[int], pool, mem
             if job in ("search", "collect"):
                 from .search import run_program
                 run_program(tc, cfg, store, rec, kw["methods"], kw["budget"], kw["seed"], kw.get("force", False), log=log)
+            if job == "predict_eval":
+                from .predict import eval_program
+                eval_program(tc, cfg, rec, kw["tag"], kw["which"], log=log)
             if job == "evaluate":
                 from .evaluate import run_eval
                 run_eval(tc, cfg, store, [rec], Path(kw["meta"]), kw["k"], kw["tag"],

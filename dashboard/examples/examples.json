@@ -1,0 +1,19 @@
+[
+ {"id": "matmul", "name": "Matrix multiply (C)", "dir": "matmul", "files": ["matmul.c"], "args": "800", "cflags": "",
+  "kind": "dense loops", "o3_ms": 420,
+  "story": "Triple loop over doubles. Tune found a pipeline with vector width 4 and smaller unroll counts: 1.66x faster than -O3, confirmed."},
+ {"id": "fibo", "name": "Recursive Fibonacci (C++)", "dir": "fibo", "files": ["fibo.cpp"], "args": "", "cflags": "",
+  "kind": "recursion, C++", "o3_ms": 924,
+  "story": "Deep recursion. Tune ships 1.14-1.23x; predict recommends a change here (predicted 1.17x, measured 1.225x on the test set)."},
+ {"id": "evalloop", "name": "Interpreter loop (C)", "dir": "evalloop", "files": ["evalloop.c"], "args": "",
+  "cflags": "-Wno-error=implicit-int -Wno-error=implicit-function-declaration -Wno-error=int-conversion -Wno-error=incompatible-pointer-types",
+  "kind": "computed-goto dispatch", "o3_ms": 848,
+  "story": "An interpreter. -O3's SimplifyCFG merges the 31 dispatch jumps into one, so branch prediction fails; turning off sink-common-insts restores them (up to 3.7x in the search)."},
+ {"id": "heapsort", "name": "Heapsort (C)", "dir": "heapsort", "files": ["heapsort.c"], "args": "",
+  "cflags": "-Wno-error=implicit-int -Wno-error=implicit-function-declaration -Wno-error=int-conversion -Wno-error=incompatible-pointer-types",
+  "kind": "integer, memory access", "o3_ms": 2348,
+  "story": "Longer-running program (~2.3 s at -O3). The Phase 5 search validated 1.30x. Takes a few minutes in tune."},
+ {"id": "branchy", "name": "Branchy integer code (C)", "dir": "branchy", "files": ["branchy.c"], "args": "3000000", "cflags": "",
+  "kind": "branches, integer", "o3_ms": null,
+  "story": "Branch-heavy integer code. Often nothing beats -O3 here; the run shows the -O3 fallback working."}
+]

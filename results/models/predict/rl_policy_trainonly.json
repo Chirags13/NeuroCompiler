@@ -1,0 +1,1051 @@
+{
+ "mode": "predict",
+ "reward": "ensemble pessimistic estimate (mean - 1.28 std)",
+ "margin": 0.03,
+ "programs": 91,
+ "actions": [
+  {
+   "new": "no-sink-common-insts",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "sink-common-insts"
+  },
+  {
+   "name": "-simplifycfg-sink-common",
+   "op": "knob",
+   "value": "false"
+  },
+  {
+   "name": "llc:-tail-dup-size",
+   "op": "knob",
+   "value": 6
+  },
+  {
+   "id": 100,
+   "op": "del"
+  },
+  {
+   "id": 100,
+   "new": "bonus-inst-threshold=4",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "new": "sink-common-insts",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "no-sink-common-insts"
+  },
+  {
+   "id": 96,
+   "new": "vectorize-forced-only",
+   "op": "param",
+   "tok": "no-vectorize-forced-only"
+  },
+  {
+   "new": "vectorize-forced-only",
+   "op": "param_all",
+   "pass": "loop-vectorize",
+   "tok": "no-vectorize-forced-only"
+  },
+  {
+   "id": 7,
+   "new": "bonus-inst-threshold=4",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "new": "interleave-forced-only",
+   "op": "param_all",
+   "pass": "loop-vectorize",
+   "tok": "no-interleave-forced-only"
+  },
+  {
+   "op": "del_all",
+   "pass": "tailcallelim"
+  },
+  {
+   "name": "-unroll-threshold",
+   "op": "knob",
+   "value": 600
+  },
+  {
+   "id": 18,
+   "new": "no-keep-loops",
+   "op": "param",
+   "tok": "keep-loops"
+  },
+  {
+   "id": 100,
+   "new": "keep-loops",
+   "op": "param",
+   "tok": "no-keep-loops"
+  },
+  {
+   "new": "keep-loops",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "no-keep-loops"
+  },
+  {
+   "id": 18,
+   "new": "sink-common-insts",
+   "op": "param",
+   "tok": "no-sink-common-insts"
+  },
+  {
+   "new": "bonus-inst-threshold=0",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "name": "llc:-align-loops",
+   "op": "knob",
+   "value": 32
+  },
+  {
+   "id": 41,
+   "new": "no-keep-loops",
+   "op": "param",
+   "tok": "keep-loops"
+  },
+  {
+   "id": 40,
+   "op": "del"
+  },
+  {
+   "id": 7,
+   "new": "no-speculate-blocks",
+   "op": "param",
+   "tok": "speculate-blocks"
+  },
+  {
+   "id": 18,
+   "new": "bonus-inst-threshold=4",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "name": "llc:-align-loops",
+   "op": "knob",
+   "value": 1
+  },
+  {
+   "id": 101,
+   "op": "del"
+  },
+  {
+   "name": "-unroll-threshold",
+   "op": "knob",
+   "value": 100
+  },
+  {
+   "id": 65,
+   "op": "del"
+  },
+  {
+   "id": 18,
+   "new": "no-switch-range-to-icmp",
+   "op": "param",
+   "tok": "switch-range-to-icmp"
+  },
+  {
+   "new": "no-simplify-cond-branch",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "simplify-cond-branch"
+  },
+  {
+   "id": 104,
+   "new": "O1",
+   "op": "param",
+   "tok": "O3"
+  },
+  {
+   "new": "O2",
+   "op": "param_all",
+   "pass": "loop-unroll",
+   "tok": "O3"
+  },
+  {
+   "id": 7,
+   "new": "hoist-common-insts",
+   "op": "param",
+   "tok": "no-hoist-common-insts"
+  },
+  {
+   "op": "del_all",
+   "pass": "loop-rotate"
+  },
+  {
+   "id": 8,
+   "op": "del"
+  },
+  {
+   "id": 7,
+   "new": "no-simplify-cond-branch",
+   "op": "param",
+   "tok": "simplify-cond-branch"
+  },
+  {
+   "id": 100,
+   "new": "bonus-inst-threshold=2",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "name": "-unroll-threshold",
+   "op": "knob",
+   "value": 0
+  },
+  {
+   "id": 54,
+   "op": "del"
+  },
+  {
+   "id": 36,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "new": "no-header-duplication",
+   "op": "param_all",
+   "pass": "loop-rotate",
+   "tok": "header-duplication"
+  },
+  {
+   "id": 37,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 60,
+   "new": "split-footer-bb",
+   "op": "param",
+   "tok": "no-split-footer-bb"
+  },
+  {
+   "id": 116,
+   "new": "sink-common-insts",
+   "op": "param",
+   "tok": "no-sink-common-insts"
+  },
+  {
+   "id": 41,
+   "new": "sink-common-insts",
+   "op": "param",
+   "tok": "no-sink-common-insts"
+  },
+  {
+   "id": 36,
+   "new": "no-keep-loops",
+   "op": "param",
+   "tok": "keep-loops"
+  },
+  {
+   "id": 7,
+   "new": "sink-common-insts",
+   "op": "param",
+   "tok": "no-sink-common-insts"
+  },
+  {
+   "id": 35,
+   "op": "del"
+  },
+  {
+   "id": 116,
+   "new": "no-speculate-blocks",
+   "op": "param",
+   "tok": "speculate-blocks"
+  },
+  {
+   "id": 18,
+   "new": "hoist-common-insts",
+   "op": "param",
+   "tok": "no-hoist-common-insts"
+  },
+  {
+   "name": "-jump-threading-threshold",
+   "op": "knob",
+   "value": 12
+  },
+  {
+   "op": "del_all",
+   "pass": "loop-deletion"
+  },
+  {
+   "id": 103,
+   "op": "del"
+  },
+  {
+   "id": 9,
+   "op": "del"
+  },
+  {
+   "id": 100,
+   "new": "no-hoist-common-insts",
+   "op": "param",
+   "tok": "hoist-common-insts"
+  },
+  {
+   "id": 74,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "name": "llc:-tail-dup-size",
+   "op": "knob",
+   "value": 4
+  },
+  {
+   "op": "del_all",
+   "pass": "globaldce"
+  },
+  {
+   "name": "-phi-node-folding-threshold",
+   "op": "knob",
+   "value": 4
+  },
+  {
+   "id": 74,
+   "op": "del"
+  },
+  {
+   "id": 116,
+   "new": "no-keep-loops",
+   "op": "param",
+   "tok": "keep-loops"
+  },
+  {
+   "id": 7,
+   "new": "switch-range-to-icmp",
+   "op": "param",
+   "tok": "no-switch-range-to-icmp"
+  },
+  {
+   "new": "switch-range-to-icmp",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "no-switch-range-to-icmp"
+  },
+  {
+   "id": 17,
+   "op": "del"
+  },
+  {
+   "id": 36,
+   "op": "del"
+  },
+  {
+   "id": 36,
+   "new": "no-speculate-blocks",
+   "op": "param",
+   "tok": "speculate-blocks"
+  },
+  {
+   "id": 64,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 99,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 7,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "id": 38,
+   "op": "del"
+  },
+  {
+   "id": 7,
+   "new": "forward-switch-cond",
+   "op": "param",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "id": 7,
+   "new": "switch-to-lookup",
+   "op": "param",
+   "tok": "no-switch-to-lookup"
+  },
+  {
+   "id": 8,
+   "new": "preserve-cfg",
+   "op": "param",
+   "tok": "modify-cfg"
+  },
+  {
+   "id": 11,
+   "op": "del"
+  },
+  {
+   "id": 13,
+   "op": "del"
+  },
+  {
+   "id": 17,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 17,
+   "new": "use-loop-info",
+   "op": "param",
+   "tok": "no-use-loop-info"
+  },
+  {
+   "id": 18,
+   "new": "forward-switch-cond",
+   "op": "param",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "id": 29,
+   "op": "del"
+  },
+  {
+   "id": 31,
+   "new": "preserve-cfg",
+   "op": "param",
+   "tok": "modify-cfg"
+  },
+  {
+   "id": 36,
+   "new": "no-switch-range-to-icmp",
+   "op": "param",
+   "tok": "switch-range-to-icmp"
+  },
+  {
+   "id": 36,
+   "new": "forward-switch-cond",
+   "op": "param",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "id": 37,
+   "new": "use-loop-info",
+   "op": "param",
+   "tok": "no-use-loop-info"
+  },
+  {
+   "id": 41,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "id": 41,
+   "new": "no-switch-range-to-icmp",
+   "op": "param",
+   "tok": "switch-range-to-icmp"
+  },
+  {
+   "id": 41,
+   "new": "no-speculate-blocks",
+   "op": "param",
+   "tok": "speculate-blocks"
+  },
+  {
+   "id": 41,
+   "new": "forward-switch-cond",
+   "op": "param",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "id": 51,
+   "new": "no-switch-range-to-icmp",
+   "op": "param",
+   "tok": "switch-range-to-icmp"
+  },
+  {
+   "id": 51,
+   "new": "forward-switch-cond",
+   "op": "param",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "id": 52,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 52,
+   "new": "use-loop-info",
+   "op": "param",
+   "tok": "no-use-loop-info"
+  },
+  {
+   "id": 58,
+   "new": "preserve-cfg",
+   "op": "param",
+   "tok": "modify-cfg"
+  },
+  {
+   "id": 59,
+   "op": "del"
+  },
+  {
+   "id": 64,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 64,
+   "new": "use-loop-info",
+   "op": "param",
+   "tok": "no-use-loop-info"
+  },
+  {
+   "id": 73,
+   "op": "del"
+  },
+  {
+   "id": 74,
+   "new": "no-switch-range-to-icmp",
+   "op": "param",
+   "tok": "switch-range-to-icmp"
+  },
+  {
+   "id": 74,
+   "new": "forward-switch-cond",
+   "op": "param",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "id": 75,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 75,
+   "new": "use-loop-info",
+   "op": "param",
+   "tok": "no-use-loop-info"
+  },
+  {
+   "id": 75,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 81,
+   "op": "del"
+  },
+  {
+   "id": 85,
+   "op": "del"
+  },
+  {
+   "id": 86,
+   "op": "del"
+  },
+  {
+   "id": 94,
+   "op": "del"
+  },
+  {
+   "id": 98,
+   "op": "del"
+  },
+  {
+   "id": 99,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 100,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "id": 100,
+   "new": "no-forward-switch-cond",
+   "op": "param",
+   "tok": "forward-switch-cond"
+  },
+  {
+   "id": 100,
+   "new": "no-switch-range-to-icmp",
+   "op": "param",
+   "tok": "switch-range-to-icmp"
+  },
+  {
+   "id": 103,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 103,
+   "new": "use-loop-info",
+   "op": "param",
+   "tok": "no-use-loop-info"
+  },
+  {
+   "id": 103,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 106,
+   "new": "modify-cfg",
+   "op": "param",
+   "tok": "preserve-cfg"
+  },
+  {
+   "id": 108,
+   "new": "max-iterations=2",
+   "op": "param",
+   "tok": "max-iterations=1"
+  },
+  {
+   "id": 108,
+   "new": "use-loop-info",
+   "op": "param",
+   "tok": "no-use-loop-info"
+  },
+  {
+   "id": 108,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 111,
+   "op": "del"
+  },
+  {
+   "id": 116,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "id": 116,
+   "new": "switch-to-lookup",
+   "op": "param",
+   "tok": "no-switch-to-lookup"
+  },
+  {
+   "new": "no-forward-switch-cond",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "forward-switch-cond"
+  },
+  {
+   "new": "forward-switch-cond",
+   "op": "param_all",
+   "pass": "simplifycfg",
+   "tok": "no-forward-switch-cond"
+  },
+  {
+   "new": "preserve-cfg",
+   "op": "param_all",
+   "pass": "sroa",
+   "tok": "modify-cfg"
+  },
+  {
+   "new": "no-trivial",
+   "op": "param_all",
+   "pass": "simple-loop-unswitch",
+   "tok": "trivial"
+  },
+  {
+   "name": "-inline-threshold",
+   "op": "knob",
+   "value": 250
+  },
+  {
+   "id": 84,
+   "op": "del"
+  },
+  {
+   "id": 36,
+   "new": "switch-to-lookup",
+   "op": "param",
+   "tok": "no-switch-to-lookup"
+  },
+  {
+   "id": 41,
+   "new": "switch-to-lookup",
+   "op": "param",
+   "tok": "no-switch-to-lookup"
+  },
+  {
+   "id": 51,
+   "new": "switch-to-lookup",
+   "op": "param",
+   "tok": "no-switch-to-lookup"
+  },
+  {
+   "id": 74,
+   "new": "switch-to-lookup",
+   "op": "param",
+   "tok": "no-switch-to-lookup"
+  },
+  {
+   "id": 92,
+   "op": "del"
+  },
+  {
+   "id": 18,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "name": "llc:-min-jump-table-entries",
+   "op": "knob",
+   "value": 16
+  },
+  {
+   "id": 10,
+   "op": "del"
+  },
+  {
+   "id": 74,
+   "new": "no-hoist-common-insts",
+   "op": "param",
+   "tok": "hoist-common-insts"
+  },
+  {
+   "id": 58,
+   "op": "del"
+  },
+  {
+   "id": 36,
+   "new": "hoist-common-insts",
+   "op": "param",
+   "tok": "no-hoist-common-insts"
+  },
+  {
+   "id": 56,
+   "op": "del"
+  },
+  {
+   "id": 92,
+   "new": "prepare-for-lto",
+   "op": "param",
+   "tok": "no-prepare-for-lto"
+  },
+  {
+   "id": 63,
+   "op": "del"
+  },
+  {
+   "id": 41,
+   "new": "hoist-common-insts",
+   "op": "param",
+   "tok": "no-hoist-common-insts"
+  },
+  {
+   "id": 14,
+   "op": "del"
+  },
+  {
+   "id": 64,
+   "op": "del"
+  },
+  {
+   "op": "del_all",
+   "pass": "infer-alignment"
+  },
+  {
+   "id": 100,
+   "new": "no-sink-common-insts",
+   "op": "param",
+   "tok": "sink-common-insts"
+  },
+  {
+   "id": 51,
+   "new": "bonus-inst-threshold=0",
+   "op": "param",
+   "tok": "bonus-inst-threshold=1"
+  },
+  {
+   "id": 74,
+   "new": "no-simplify-cond-branch",
+   "op": "param",
+   "tok": "simplify-cond-branch"
+  },
+  {
+   "id": 74,
+   "new": "no-keep-loops",
+   "op": "param",
+   "tok": "keep-loops"
+  },
+  {
+   "name": "-inline-threshold",
+   "op": "knob",
+   "value": 100
+  },
+  {
+   "id": 41,
+   "op": "del"
+  },
+  {
+   "id": 41,
+   "new": "no-simplify-cond-branch",
+   "op": "param",
+   "tok": "simplify-cond-branch"
+  },
+  {
+   "id": 7,
+   "new": "no-keep-loops",
+   "op": "param",
+   "tok": "keep-loops"
+  },
+  {
+   "id": 68,
+   "op": "del"
+  },
+  {
+   "id": 113,
+   "op": "del"
+  },
+  {
+   "id": 57,
+   "op": "del"
+  },
+  {
+   "id": 100,
+   "new": "no-simplify-cond-branch",
+   "op": "param",
+   "tok": "simplify-cond-branch"
+  },
+  {
+   "id": 17,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 18,
+   "new": "no-speculate-blocks",
+   "op": "param",
+   "tok": "speculate-blocks"
+  },
+  {
+   "id": 37,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 52,
+   "new": "verify-fixpoint",
+   "op": "param",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "new": "verify-fixpoint",
+   "op": "param_all",
+   "pass": "instcombine",
+   "tok": "no-verify-fixpoint"
+  },
+  {
+   "id": 100,
+   "new": "no-speculate-blocks",
+   "op": "param",
+   "tok": "speculate-blocks"
+  },
+  {
+   "id": 110,
+   "new": "no-allowspeculation",
+   "op": "param",
+   "tok": "allowspeculation"
+  },
+  {
+   "id": 48,
+   "new": "prepare-for-lto",
+   "op": "param",
+   "tok": "no-prepare-for-lto"
+  },
+  {
+   "id": 49,
+   "new": "no-allowspeculation",
+   "op": "param",
+   "tok": "allowspeculation"
+  },
+  {
+   "id": 50,
+   "new": "no-nontrivial",
+   "op": "param",
+   "tok": "nontrivial"
+  }
+ ],
+ "horizon": 3,
+ "history": [
+  -0.007478770797402593,
+  -0.005318697217249926,
+  -0.007260383984539041,
+  -0.003900783843600567,
+  -0.006489727811747654,
+  -0.005585934789871514,
+  -0.0034576951850071548,
+  -0.003481408379078557,
+  -0.0036686528173158844,
+  -0.005956802212688851,
+  -0.0027576304976423714,
+  -0.0032824267841758317,
+  -0.002503358106211837,
+  -0.002001146396789723,
+  -0.0033399749086691186,
+  -0.002697945129709149,
+  -0.002555237769299683,
+  -0.003206394354388143,
+  -0.0030995057093757515,
+  -0.002569713758033032,
+  -0.0018619935065648263,
+  -0.002489481463223619,
+  -0.001101758781369234,
+  -0.003408286423181418,
+  -0.00284692688975648,
+  -0.0019533914102899006,
+  -0.0023302882944615105,
+  -0.0012508882272070742,
+  -0.0031185172924561503,
+  -0.0010112658838567993,
+  -0.0010796717343459206,
+  -0.0020386245773956857,
+  -0.0032850671757770214,
+  -0.00034988061777063787,
+  -0.0018848113400015219,
+  -0.0025943372588406294,
+  -0.001135750764927986,
+  -0.0030941486259219294,
+  -0.001526445817503404,
+  -0.0013853978080337708,
+  -0.002124827322196577,
+  -0.0007305364148541224,
+  -0.0009059595300497229,
+  -0.0010495560162730139,
+  -0.001025704295333313,
+  -0.0013272132123863913,
+  -0.002012198831393317,
+  -0.0002922086764359104,
+  -0.0010203477980484364,
+  -0.0005760288435963578,
+  0.00017388459996113803,
+  0.0008781132462705309,
+  0.0011429579040087162,
+  -0.00022727067516511675,
+  0.001595861927051149,
+  0.0013009233055737608,
+  0.0024471440034896804,
+  0.0004498164431024019,
+  0.00014203447738544056,
+  0.0024048677526713547,
+  0.0013434030099094391,
+  0.002393878461649267,
+  -0.00010358895224970286,
+  0.0024343796311875787,
+  0.00329211286909996,
+  0.0035184575799239145,
+  0.0014081261040790548,
+  0.0011323905181391414,
+  0.003706814653138455,
+  0.0020040720978804286,
+  0.002290097466957357,
+  0.0029379249521732037,
+  0.0017915703330301945,
+  0.0019720855620051153,
+  0.0032034736501053936,
+  0.0007460247550420219,
+  0.0007782181798047244,
+  0.0013148236567827308,
+  0.001151399578862235,
+  0.0022937521876449543,
+  0.0012447852344832143,
+  0.0019430510164723997,
+  3.842715493970945e-05,
+  0.00011796199647823454,
+  0.002721246522874196,
+  0.001801910005545111,
+  0.003310634638098802,
+  0.002847136168811832,
+  0.003029059104011995,
+  0.0042282720195258704,
+  0.0019435229598246994,
+  0.0016575862098011692,
+  0.002661789416511729,
+  0.0015395388883879526,
+  0.0031270923631057457,
+  0.003865943921810411,
+  0.0016829529191856574,
+  0.002757693300327031,
+  0.0022329130345223472,
+  0.003793212517659169,
+  0.002295864742676733,
+  0.002290793838121841,
+  0.0031922268338708845,
+  0.004424913914877617,
+  0.002741820565453211,
+  0.0028793677023958106,
+  0.001797826729507504,
+  0.002661624932800635,
+  0.0031704969597819094,
+  0.003621752834568359,
+  0.004299319069307944,
+  0.003862124757432427,
+  0.003638022079516014,
+  0.0029615957009149567,
+  0.003795251197336965,
+  0.003746777767323011,
+  0.0026563268371894264,
+  0.003731211331926698,
+  0.004656772920150119,
+  0.0024899099872557695,
+  0.003973284039704697,
+  0.005134200945354526,
+  0.0037542187935315635,
+  0.004508013419937914,
+  0.004475585153697265,
+  0.003404068639520064,
+  0.003451188595033081,
+  0.003435909606017914,
+  0.0028633255030540285,
+  0.003305165437644914,
+  0.0027514300725757124,
+  0.004570000648746613,
+  0.0044062865324282175,
+  0.0024023406455060004,
+  0.004492191480845016,
+  0.004097616073479587,
+  0.002349682998748818,
+  0.0037916170851163373,
+  0.003583107758578702,
+  0.0025873048352989744,
+  0.004087869803595892,
+  0.0063123435725162685,
+  0.005754555725488244,
+  0.004190115791277347,
+  0.0031431032529216133,
+  0.005419698320489955,
+  0.0029155329640627474,
+  0.0031909475185372474,
+  0.0036844737236313794,
+  0.004146864783420381
+ ],
+ "created": "20261025-163934"
+}

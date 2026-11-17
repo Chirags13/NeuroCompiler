@@ -1,0 +1,1596 @@
+[
+ {
+  "id": "hook",
+  "duration": 10.44,
+  "phrases": [
+   {
+    "say": "Compile with dash O three,",
+    "text": "Compile with -O3,",
+    "start": 0.093,
+    "end": 1.586
+   },
+   {
+    "say": "and one hundred nine passes run",
+    "text": "and 109 passes run",
+    "start": 1.863,
+    "end": 3.426
+   },
+   {
+    "say": "in the same order, for every program.",
+    "text": "in the same order, for every program.",
+    "start": 3.438,
+    "end": 5.336
+   },
+   {
+    "say": "Neuro Compiler looks for a faster recipe per program,",
+    "text": "NeuroCompiler looks for a faster recipe per program,",
+    "start": 5.718,
+    "end": 8.356
+   },
+   {
+    "say": "and proves it with a stopwatch.",
+    "text": "and proves it with a stopwatch.",
+    "start": 8.704,
+    "end": 10.093
+   }
+  ],
+  "words": [
+   {
+    "t": 0.092583,
+    "d": 0.405083,
+    "w": "Compile"
+   },
+   {
+    "t": 0.50925,
+    "d": 0.173625,
+    "w": "with"
+   },
+   {
+    "t": 0.694458,
+    "d": 0.3125,
+    "w": "dash"
+   },
+   {
+    "t": 1.0185,
+    "d": 0.081,
+    "w": "O"
+   },
+   {
+    "t": 1.111125,
+    "d": 0.474541,
+    "w": "three"
+   },
+   {
+    "t": 1.863416,
+    "d": 0.138875,
+    "w": "and"
+   },
+   {
+    "t": 2.013875,
+    "d": 0.127333,
+    "w": "one"
+   },
+   {
+    "t": 2.152791,
+    "d": 0.266208,
+    "w": "hundred"
+   },
+   {
+    "t": 2.430541,
+    "d": 0.2315,
+    "w": "nine"
+   },
+   {
+    "t": 2.673625,
+    "d": 0.439833,
+    "w": "passes"
+   },
+   {
+    "t": 3.125,
+    "d": 0.300916,
+    "w": "run"
+   },
+   {
+    "t": 3.4375,
+    "d": 0.069458,
+    "w": "in"
+   },
+   {
+    "t": 3.5185,
+    "d": 0.069458,
+    "w": "the"
+   },
+   {
+    "t": 3.599541,
+    "d": 0.289333,
+    "w": "same"
+   },
+   {
+    "t": 3.900458,
+    "d": 0.324083,
+    "w": "order"
+   },
+   {
+    "t": 4.456,
+    "d": 0.173625,
+    "w": "for"
+   },
+   {
+    "t": 4.641208,
+    "d": 0.185166,
+    "w": "every"
+   },
+   {
+    "t": 4.837958,
+    "d": 0.497666,
+    "w": "program"
+   },
+   {
+    "t": 5.717583,
+    "d": 0.243041,
+    "w": "Neuro"
+   },
+   {
+    "t": 5.972208,
+    "d": 0.497666,
+    "w": "Compiler"
+   },
+   {
+    "t": 6.4815,
+    "d": 0.208333,
+    "w": "looks"
+   },
+   {
+    "t": 6.701375,
+    "d": 0.138875,
+    "w": "for"
+   },
+   {
+    "t": 6.851833,
+    "d": 0.0462909,
+    "w": "a"
+   },
+   {
+    "t": 6.909708,
+    "d": 0.474541,
+    "w": "faster"
+   },
+   {
+    "t": 7.395833,
+    "d": 0.347208,
+    "w": "recipe"
+   },
+   {
+    "t": 7.754625,
+    "d": 0.138875,
+    "w": "per"
+   },
+   {
+    "t": 7.905083,
+    "d": 0.451375,
+    "w": "program"
+   },
+   {
+    "t": 8.703708,
+    "d": 0.057875,
+    "w": "and"
+   },
+   {
+    "t": 8.773166,
+    "d": 0.324083,
+    "w": "proves"
+   },
+   {
+    "t": 9.108791,
+    "d": 0.104166,
+    "w": "it"
+   },
+   {
+    "t": 9.224541,
+    "d": 0.11575,
+    "w": "with"
+   },
+   {
+    "t": 9.351833,
+    "d": 0.034708,
+    "w": "a"
+   },
+   {
+    "t": 9.398166,
+    "d": 0.694458,
+    "w": "stopwatch"
+   }
+  ]
+ },
+ {
+  "id": "problem",
+  "duration": 11.9,
+  "phrases": [
+   {
+    "say": "That recipe is a compromise.",
+    "text": "That recipe is a compromise.",
+    "start": 0.104,
+    "end": 1.62
+   },
+   {
+    "say": "One edit speeds some programs up and slows others down.",
+    "text": "One edit speeds some programs up and slows others down.",
+    "start": 2.014,
+    "end": 4.699
+   },
+   {
+    "say": "And the easy metric is a trap:",
+    "text": "And the easy metric is a trap:",
+    "start": 5.081,
+    "end": 6.736
+   },
+   {
+    "say": "across eighteen thousand candidates,",
+    "text": "across 18,000 timed candidates,",
+    "start": 7.025,
+    "end": 8.866
+   },
+   {
+    "say": "I R instruction count barely predicted speed.",
+    "text": "IR instruction count barely predicted speed.",
+    "start": 9.132,
+    "end": 11.551
+   }
+  ],
+  "words": [
+   {
+    "t": 0.104166,
+    "d": 0.138875,
+    "w": "That"
+   },
+   {
+    "t": 0.254625,
+    "d": 0.474541,
+    "w": "recipe"
+   },
+   {
+    "t": 0.74075,
+    "d": 0.092583,
+    "w": "is"
+   },
+   {
+    "t": 0.844916,
+    "d": 0.0462909,
+    "w": "a"
+   },
+   {
+    "t": 0.902791,
+    "d": 0.717583,
+    "w": "compromise"
+   },
+   {
+    "t": 2.013875,
+    "d": 0.173625,
+    "w": "One"
+   },
+   {
+    "t": 2.199083,
+    "d": 0.185166,
+    "w": "edit"
+   },
+   {
+    "t": 2.395833,
+    "d": 0.358791,
+    "w": "speeds"
+   },
+   {
+    "t": 2.766208,
+    "d": 0.127333,
+    "w": "some"
+   },
+   {
+    "t": 2.905083,
+    "d": 0.50925,
+    "w": "programs"
+   },
+   {
+    "t": 3.425916,
+    "d": 0.185166,
+    "w": "up"
+   },
+   {
+    "t": 3.761583,
+    "d": 0.081,
+    "w": "and"
+   },
+   {
+    "t": 3.854166,
+    "d": 0.3125,
+    "w": "slows"
+   },
+   {
+    "t": 4.17825,
+    "d": 0.208333,
+    "w": "others"
+   },
+   {
+    "t": 4.398166,
+    "d": 0.300916,
+    "w": "down"
+   },
+   {
+    "t": 5.081,
+    "d": 0.081,
+    "w": "And"
+   },
+   {
+    "t": 5.173625,
+    "d": 0.081,
+    "w": "the"
+   },
+   {
+    "t": 5.266208,
+    "d": 0.3125,
+    "w": "easy"
+   },
+   {
+    "t": 5.590291,
+    "d": 0.42825,
+    "w": "metric"
+   },
+   {
+    "t": 6.122666,
+    "d": 0.127333,
+    "w": "is"
+   },
+   {
+    "t": 6.261583,
+    "d": 0.034708,
+    "w": "a"
+   },
+   {
+    "t": 6.307875,
+    "d": 0.42825,
+    "w": "trap"
+   },
+   {
+    "t": 7.025458,
+    "d": 0.381958,
+    "w": "across"
+   },
+   {
+    "t": 7.534708,
+    "d": 0.358791,
+    "w": "eighteen"
+   },
+   {
+    "t": 7.905083,
+    "d": 0.370375,
+    "w": "thousand"
+   },
+   {
+    "t": 8.287041,
+    "d": 0.578708,
+    "w": "candidates"
+   },
+   {
+    "t": 9.131958,
+    "d": 0.104166,
+    "w": "I"
+   },
+   {
+    "t": 9.247666,
+    "d": 0.092583,
+    "w": "R"
+   },
+   {
+    "t": 9.351833,
+    "d": 0.50925,
+    "w": "instruction"
+   },
+   {
+    "t": 9.872666,
+    "d": 0.324083,
+    "w": "count"
+   },
+   {
+    "t": 10.266208,
+    "d": 0.347208,
+    "w": "barely"
+   },
+   {
+    "t": 10.625,
+    "d": 0.462958,
+    "w": "predicted"
+   },
+   {
+    "t": 11.099541,
+    "d": 0.451375,
+    "w": "speed"
+   }
+  ]
+ },
+ {
+  "id": "measure",
+  "duration": 13.2,
+  "phrases": [
+   {
+    "say": "So, one rule: only measured runtime counts.",
+    "text": "So, one rule: only measured runtime counts.",
+    "start": 0.093,
+    "end": 3.044
+   },
+   {
+    "say": "Candidates race dash O three in shuffled rounds on a pinned core,",
+    "text": "Candidates race -O3 in shuffled rounds on a pinned core,",
+    "start": 3.426,
+    "end": 6.991
+   },
+   {
+    "say": "beside an identical copy that exposes noise.",
+    "text": "beside an identical copy that exposes noise.",
+    "start": 7.269,
+    "end": 9.803
+   },
+   {
+    "say": "If the output changes, the candidate is rejected.",
+    "text": "If the output changes, the candidate is rejected.",
+    "start": 10.185,
+    "end": 12.847
+   }
+  ],
+  "words": [
+   {
+    "t": 0.092583,
+    "d": 0.254625,
+    "w": "So"
+   },
+   {
+    "t": 0.567125,
+    "d": 0.2315,
+    "w": "one"
+   },
+   {
+    "t": 0.810166,
+    "d": 0.300916,
+    "w": "rule"
+   },
+   {
+    "t": 1.539333,
+    "d": 0.185166,
+    "w": "only"
+   },
+   {
+    "t": 1.736125,
+    "d": 0.381958,
+    "w": "measured"
+   },
+   {
+    "t": 2.129625,
+    "d": 0.405083,
+    "w": "runtime"
+   },
+   {
+    "t": 2.546291,
+    "d": 0.497666,
+    "w": "counts"
+   },
+   {
+    "t": 3.425916,
+    "d": 0.439833,
+    "w": "Candidates"
+   },
+   {
+    "t": 3.877333,
+    "d": 0.3125,
+    "w": "race"
+   },
+   {
+    "t": 4.201375,
+    "d": 0.358791,
+    "w": "dash"
+   },
+   {
+    "t": 4.641208,
+    "d": 0.104166,
+    "w": "O"
+   },
+   {
+    "t": 4.756958,
+    "d": 0.474541,
+    "w": "three"
+   },
+   {
+    "t": 5.243041,
+    "d": 0.11575,
+    "w": "in"
+   },
+   {
+    "t": 5.370375,
+    "d": 0.416666,
+    "w": "shuffled"
+   },
+   {
+    "t": 5.798625,
+    "d": 0.347208,
+    "w": "rounds"
+   },
+   {
+    "t": 6.157416,
+    "d": 0.081,
+    "w": "on"
+   },
+   {
+    "t": 6.25,
+    "d": 0.057875,
+    "w": "a"
+   },
+   {
+    "t": 6.319458,
+    "d": 0.289333,
+    "w": "pinned"
+   },
+   {
+    "t": 6.620375,
+    "d": 0.370375,
+    "w": "core"
+   },
+   {
+    "t": 7.2685,
+    "d": 0.358791,
+    "w": "beside"
+   },
+   {
+    "t": 7.638875,
+    "d": 0.069458,
+    "w": "an"
+   },
+   {
+    "t": 7.719916,
+    "d": 0.486125,
+    "w": "identical"
+   },
+   {
+    "t": 8.217583,
+    "d": 0.370375,
+    "w": "copy"
+   },
+   {
+    "t": 8.599541,
+    "d": 0.104166,
+    "w": "that"
+   },
+   {
+    "t": 8.715291,
+    "d": 0.555541,
+    "w": "exposes"
+   },
+   {
+    "t": 9.282416,
+    "d": 0.520833,
+    "w": "noise"
+   },
+   {
+    "t": 10.185166,
+    "d": 0.092583,
+    "w": "If"
+   },
+   {
+    "t": 10.289333,
+    "d": 0.092583,
+    "w": "the"
+   },
+   {
+    "t": 10.3935,
+    "d": 0.347208,
+    "w": "output"
+   },
+   {
+    "t": 10.752333,
+    "d": 0.532416,
+    "w": "changes"
+   },
+   {
+    "t": 11.469916,
+    "d": 0.092583,
+    "w": "the"
+   },
+   {
+    "t": 11.574083,
+    "d": 0.520833,
+    "w": "candidate"
+   },
+   {
+    "t": 12.210666,
+    "d": 0.11575,
+    "w": "is"
+   },
+   {
+    "t": 12.337958,
+    "d": 0.50925,
+    "w": "rejected"
+   }
+  ]
+ },
+ {
+  "id": "learn",
+  "duration": 14.64,
+  "phrases": [
+   {
+    "say": "We searched one hundred forty six real programs,",
+    "text": "We searched 146 real programs,",
+    "start": 0.104,
+    "end": 2.581
+   },
+   {
+    "say": "building over seventy thousand candidates.",
+    "text": "building over 70,000 candidates.",
+    "start": 2.789,
+    "end": 4.873
+   },
+   {
+    "say": "That data trains two models.",
+    "text": "That data trains two models.",
+    "start": 5.266,
+    "end": 6.69
+   },
+   {
+    "say": "Light G B M predicts a pipeline's speedup.",
+    "text": "LightGBM predicts a pipeline's speedup.",
+    "start": 7.072,
+    "end": 9.317
+   },
+   {
+    "say": "P P O, a reinforcement learning agent, invents new ones, edit by edit.",
+    "text": "PPO, a reinforcement learning agent, invents new ones, edit by edit.",
+    "start": 9.711,
+    "end": 14.294
+   }
+  ],
+  "words": [
+   {
+    "t": 0.104166,
+    "d": 0.092583,
+    "w": "We"
+   },
+   {
+    "t": 0.208333,
+    "d": 0.370375,
+    "w": "searched"
+   },
+   {
+    "t": 0.590291,
+    "d": 0.162041,
+    "w": "one"
+   },
+   {
+    "t": 0.763875,
+    "d": 0.335666,
+    "w": "hundred"
+   },
+   {
+    "t": 1.111125,
+    "d": 0.324083,
+    "w": "forty"
+   },
+   {
+    "t": 1.44675,
+    "d": 0.277791,
+    "w": "six"
+   },
+   {
+    "t": 1.736125,
+    "d": 0.208333,
+    "w": "real"
+   },
+   {
+    "t": 1.956,
+    "d": 0.625,
+    "w": "programs"
+   },
+   {
+    "t": 2.789333,
+    "d": 0.324083,
+    "w": "building"
+   },
+   {
+    "t": 3.125,
+    "d": 0.219916,
+    "w": "over"
+   },
+   {
+    "t": 3.3565,
+    "d": 0.405083,
+    "w": "seventy"
+   },
+   {
+    "t": 3.773166,
+    "d": 0.416666,
+    "w": "thousand"
+   },
+   {
+    "t": 4.201375,
+    "d": 0.671291,
+    "w": "candidates"
+   },
+   {
+    "t": 5.266208,
+    "d": 0.150458,
+    "w": "That"
+   },
+   {
+    "t": 5.42825,
+    "d": 0.2315,
+    "w": "data"
+   },
+   {
+    "t": 5.671291,
+    "d": 0.324083,
+    "w": "trains"
+   },
+   {
+    "t": 6.006958,
+    "d": 0.173625,
+    "w": "two"
+   },
+   {
+    "t": 6.192125,
+    "d": 0.497666,
+    "w": "models"
+   },
+   {
+    "t": 7.07175,
+    "d": 0.2315,
+    "w": "Light"
+   },
+   {
+    "t": 7.314833,
+    "d": 0.208333,
+    "w": "G"
+   },
+   {
+    "t": 7.534708,
+    "d": 0.19675,
+    "w": "B"
+   },
+   {
+    "t": 7.743041,
+    "d": 0.127333,
+    "w": "M"
+   },
+   {
+    "t": 7.881958,
+    "d": 0.370375,
+    "w": "predicts"
+   },
+   {
+    "t": 8.263875,
+    "d": 0.0462909,
+    "w": "a"
+   },
+   {
+    "t": 8.32175,
+    "d": 0.544,
+    "w": "pipeline's"
+   },
+   {
+    "t": 8.877333,
+    "d": 0.439833,
+    "w": "speedup"
+   },
+   {
+    "t": 9.710666,
+    "d": 0.127333,
+    "w": "P"
+   },
+   {
+    "t": 9.849541,
+    "d": 0.243041,
+    "w": "P"
+   },
+   {
+    "t": 10.104166,
+    "d": 0.266208,
+    "w": "O"
+   },
+   {
+    "t": 10.567125,
+    "d": 0.092583,
+    "w": "a"
+   },
+   {
+    "t": 10.671291,
+    "d": 0.729166,
+    "w": "reinforcement"
+   },
+   {
+    "t": 11.412041,
+    "d": 0.289333,
+    "w": "learning"
+   },
+   {
+    "t": 11.712958,
+    "d": 0.300916,
+    "w": "agent"
+   },
+   {
+    "t": 12.30325,
+    "d": 0.358791,
+    "w": "invents"
+   },
+   {
+    "t": 12.673625,
+    "d": 0.266208,
+    "w": "new"
+   },
+   {
+    "t": 12.951375,
+    "d": 0.451375,
+    "w": "ones"
+   },
+   {
+    "t": 13.576375,
+    "d": 0.208333,
+    "w": "edit"
+   },
+   {
+    "t": 13.796291,
+    "d": 0.162041,
+    "w": "by"
+   },
+   {
+    "t": 13.969916,
+    "d": 0.324083,
+    "w": "edit"
+   }
+  ]
+ },
+ {
+  "id": "tune",
+  "duration": 17.14,
+  "phrases": [
+   {
+    "say": "For a new program, P P O proposes twenty four pipelines.",
+    "text": "For a new program, PPO proposes 24 pipelines.",
+    "start": 0.127,
+    "end": 3.657
+   },
+   {
+    "say": "Light G B M ranks them with about nine hundred more.",
+    "text": "LightGBM ranks them with about 900 more.",
+    "start": 4.039,
+    "end": 6.736
+   },
+   {
+    "say": "The top eight are compiled, verified and timed.",
+    "text": "The top 8 are compiled, verified and timed.",
+    "start": 7.13,
+    "end": 9.63
+   },
+   {
+    "say": "The fastest must win again in a fresh run,",
+    "text": "The fastest must win again in a fresh run,",
+    "start": 10.023,
+    "end": 12.049
+   },
+   {
+    "say": "or dash O three ships.",
+    "text": "or -O3 ships.",
+    "start": 12.407,
+    "end": 13.889
+   },
+   {
+    "say": "The models shortlist. The stopwatch decides.",
+    "text": "The models shortlist. The stopwatch decides.",
+    "start": 14.282,
+    "end": 16.782
+   }
+  ],
+  "words": [
+   {
+    "t": 0.127333,
+    "d": 0.104166,
+    "w": "For"
+   },
+   {
+    "t": 0.243041,
+    "d": 0.023166,
+    "w": "a"
+   },
+   {
+    "t": 0.277791,
+    "d": 0.162041,
+    "w": "new"
+   },
+   {
+    "t": 0.451375,
+    "d": 0.50925,
+    "w": "program"
+   },
+   {
+    "t": 1.238416,
+    "d": 0.185166,
+    "w": "P"
+   },
+   {
+    "t": 1.435166,
+    "d": 0.266208,
+    "w": "P"
+   },
+   {
+    "t": 1.712958,
+    "d": 0.069458,
+    "w": "O"
+   },
+   {
+    "t": 1.794,
+    "d": 0.613416,
+    "w": "proposes"
+   },
+   {
+    "t": 2.419,
+    "d": 0.300916,
+    "w": "twenty"
+   },
+   {
+    "t": 2.7315,
+    "d": 0.219916,
+    "w": "four"
+   },
+   {
+    "t": 2.962958,
+    "d": 0.694458,
+    "w": "pipelines"
+   },
+   {
+    "t": 4.039333,
+    "d": 0.243041,
+    "w": "Light"
+   },
+   {
+    "t": 4.294,
+    "d": 0.19675,
+    "w": "G"
+   },
+   {
+    "t": 4.502333,
+    "d": 0.266208,
+    "w": "B"
+   },
+   {
+    "t": 4.780083,
+    "d": 0.219916,
+    "w": "M"
+   },
+   {
+    "t": 5.011583,
+    "d": 0.254625,
+    "w": "ranks"
+   },
+   {
+    "t": 5.277791,
+    "d": 0.173625,
+    "w": "them"
+   },
+   {
+    "t": 5.462958,
+    "d": 0.127333,
+    "w": "with"
+   },
+   {
+    "t": 5.601833,
+    "d": 0.266208,
+    "w": "about"
+   },
+   {
+    "t": 5.879625,
+    "d": 0.277791,
+    "w": "nine"
+   },
+   {
+    "t": 6.169,
+    "d": 0.243041,
+    "w": "hundred"
+   },
+   {
+    "t": 6.423625,
+    "d": 0.3125,
+    "w": "more"
+   },
+   {
+    "t": 7.129625,
+    "d": 0.057875,
+    "w": "The"
+   },
+   {
+    "t": 7.199083,
+    "d": 0.243041,
+    "w": "top"
+   },
+   {
+    "t": 7.453708,
+    "d": 0.19675,
+    "w": "eight"
+   },
+   {
+    "t": 7.708333,
+    "d": 0.104166,
+    "w": "are"
+   },
+   {
+    "t": 7.824083,
+    "d": 0.567125,
+    "w": "compiled"
+   },
+   {
+    "t": 8.657416,
+    "d": 0.486125,
+    "w": "verified"
+   },
+   {
+    "t": 9.155083,
+    "d": 0.057875,
+    "w": "and"
+   },
+   {
+    "t": 9.224541,
+    "d": 0.405083,
+    "w": "timed"
+   },
+   {
+    "t": 10.023166,
+    "d": 0.0462909,
+    "w": "The"
+   },
+   {
+    "t": 10.081,
+    "d": 0.497666,
+    "w": "fastest"
+   },
+   {
+    "t": 10.590291,
+    "d": 0.277791,
+    "w": "must"
+   },
+   {
+    "t": 10.879625,
+    "d": 0.127333,
+    "w": "win"
+   },
+   {
+    "t": 11.0185,
+    "d": 0.289333,
+    "w": "again"
+   },
+   {
+    "t": 11.319458,
+    "d": 0.069458,
+    "w": "in"
+   },
+   {
+    "t": 11.400458,
+    "d": 0.034708,
+    "w": "a"
+   },
+   {
+    "t": 11.44675,
+    "d": 0.324083,
+    "w": "fresh"
+   },
+   {
+    "t": 11.782416,
+    "d": 0.266208,
+    "w": "run"
+   },
+   {
+    "t": 12.407416,
+    "d": 0.104166,
+    "w": "or"
+   },
+   {
+    "t": 12.523166,
+    "d": 0.370375,
+    "w": "dash"
+   },
+   {
+    "t": 12.974541,
+    "d": 0.081,
+    "w": "O"
+   },
+   {
+    "t": 13.067125,
+    "d": 0.289333,
+    "w": "three"
+   },
+   {
+    "t": 13.368041,
+    "d": 0.520833,
+    "w": "ships"
+   },
+   {
+    "t": 14.282416,
+    "d": 0.0462909,
+    "w": "The"
+   },
+   {
+    "t": 14.340291,
+    "d": 0.289333,
+    "w": "models"
+   },
+   {
+    "t": 14.641208,
+    "d": 0.613416,
+    "w": "shortlist"
+   },
+   {
+    "t": 15.648166,
+    "d": 0.0462909,
+    "w": "The"
+   },
+   {
+    "t": 15.706,
+    "d": 0.486125,
+    "w": "stopwatch"
+   },
+   {
+    "t": 16.203708,
+    "d": 0.578708,
+    "w": "decides"
+   }
+  ]
+ },
+ {
+  "id": "results",
+  "duration": 14.64,
+  "phrases": [
+   {
+    "say": "On thirty three programs from unseen families,",
+    "text": "On 33 programs from unseen families,",
+    "start": 0.093,
+    "end": 2.616
+   },
+   {
+    "say": "it averages eight percent faster than dash O three,",
+    "text": "it averages 8% faster than -O3,",
+    "start": 2.847,
+    "end": 5.498
+   },
+   {
+    "say": "about five without its biggest win,",
+    "text": "about 5% without its biggest win,",
+    "start": 5.799,
+    "end": 7.465
+   },
+   {
+    "say": "and none got measurably slower.",
+    "text": "and none got measurably slower.",
+    "start": 7.836,
+    "end": 9.363
+   },
+   {
+    "say": "On one interpreter demo, runtime fell from eight fifty milliseconds to two twenty.",
+    "text": "On one interpreter demo, runtime fell from 850 ms to 220.",
+    "start": 9.745,
+    "end": 14.282
+   }
+  ],
+  "words": [
+   {
+    "t": 0.092583,
+    "d": 0.11575,
+    "w": "On"
+   },
+   {
+    "t": 0.219916,
+    "d": 0.324083,
+    "w": "thirty"
+   },
+   {
+    "t": 0.555541,
+    "d": 0.19675,
+    "w": "three"
+   },
+   {
+    "t": 0.763875,
+    "d": 0.578708,
+    "w": "programs"
+   },
+   {
+    "t": 1.354166,
+    "d": 0.173625,
+    "w": "from"
+   },
+   {
+    "t": 1.608791,
+    "d": 0.3935,
+    "w": "unseen"
+   },
+   {
+    "t": 2.013875,
+    "d": 0.601833,
+    "w": "families"
+   },
+   {
+    "t": 2.847208,
+    "d": 0.092583,
+    "w": "it"
+   },
+   {
+    "t": 2.951375,
+    "d": 0.474541,
+    "w": "averages"
+   },
+   {
+    "t": 3.541666,
+    "d": 0.150458,
+    "w": "eight"
+   },
+   {
+    "t": 3.703708,
+    "d": 0.347208,
+    "w": "percent"
+   },
+   {
+    "t": 4.0625,
+    "d": 0.451375,
+    "w": "faster"
+   },
+   {
+    "t": 4.525458,
+    "d": 0.11575,
+    "w": "than"
+   },
+   {
+    "t": 4.652791,
+    "d": 0.3125,
+    "w": "dash"
+   },
+   {
+    "t": 4.976833,
+    "d": 0.092583,
+    "w": "O"
+   },
+   {
+    "t": 5.081,
+    "d": 0.416666,
+    "w": "three"
+   },
+   {
+    "t": 5.798625,
+    "d": 0.243041,
+    "w": "about"
+   },
+   {
+    "t": 6.05325,
+    "d": 0.381958,
+    "w": "five"
+   },
+   {
+    "t": 6.44675,
+    "d": 0.289333,
+    "w": "without"
+   },
+   {
+    "t": 6.747666,
+    "d": 0.127333,
+    "w": "its"
+   },
+   {
+    "t": 6.886583,
+    "d": 0.335666,
+    "w": "biggest"
+   },
+   {
+    "t": 7.233791,
+    "d": 0.2315,
+    "w": "win"
+   },
+   {
+    "t": 7.835666,
+    "d": 0.11575,
+    "w": "and"
+   },
+   {
+    "t": 7.962958,
+    "d": 0.2315,
+    "w": "none"
+   },
+   {
+    "t": 8.206,
+    "d": 0.208333,
+    "w": "got"
+   },
+   {
+    "t": 8.425916,
+    "d": 0.474541,
+    "w": "measurably"
+   },
+   {
+    "t": 8.912041,
+    "d": 0.451375,
+    "w": "slower"
+   },
+   {
+    "t": 9.745375,
+    "d": 0.150458,
+    "w": "On"
+   },
+   {
+    "t": 9.907416,
+    "d": 0.162041,
+    "w": "one"
+   },
+   {
+    "t": 10.081,
+    "d": 0.451375,
+    "w": "interpreter"
+   },
+   {
+    "t": 10.544,
+    "d": 0.358791,
+    "w": "demo"
+   },
+   {
+    "t": 11.203708,
+    "d": 0.42825,
+    "w": "runtime"
+   },
+   {
+    "t": 11.6435,
+    "d": 0.277791,
+    "w": "fell"
+   },
+   {
+    "t": 11.932875,
+    "d": 0.185166,
+    "w": "from"
+   },
+   {
+    "t": 12.256958,
+    "d": 0.162041,
+    "w": "eight"
+   },
+   {
+    "t": 12.430541,
+    "d": 0.370375,
+    "w": "fifty"
+   },
+   {
+    "t": 12.8125,
+    "d": 0.706,
+    "w": "milliseconds"
+   },
+   {
+    "t": 13.611125,
+    "d": 0.092583,
+    "w": "to"
+   },
+   {
+    "t": 13.715291,
+    "d": 0.208333,
+    "w": "two"
+   },
+   {
+    "t": 13.935166,
+    "d": 0.347208,
+    "w": "twenty"
+   }
+  ]
+ },
+ {
+  "id": "stack",
+  "duration": 10.9,
+  "phrases": [
+   {
+    "say": "Built on LLVM eighteen,",
+    "text": "Built on LLVM 18,",
+    "start": 0.104,
+    "end": 1.609
+   },
+   {
+    "say": "with a live dashboard showing every changed pass.",
+    "text": "with a live dashboard showing every changed pass.",
+    "start": 1.898,
+    "end": 4.676
+   },
+   {
+    "say": "The lesson: alone, the models are weak, and R L added little.",
+    "text": "The lesson: alone, the models are weak, and RL added little.",
+    "start": 5.069,
+    "end": 8.889
+   },
+   {
+    "say": "Measurement makes it reliable.",
+    "text": "Measurement makes it reliable.",
+    "start": 9.271,
+    "end": 10.556
+   }
+  ],
+  "words": [
+   {
+    "t": 0.104166,
+    "d": 0.219916,
+    "w": "Built"
+   },
+   {
+    "t": 0.42825,
+    "d": 0.173625,
+    "w": "on"
+   },
+   {
+    "t": 0.613416,
+    "d": 0.497666,
+    "w": "LLVM"
+   },
+   {
+    "t": 1.122666,
+    "d": 0.486125,
+    "w": "eighteen"
+   },
+   {
+    "t": 1.898166,
+    "d": 0.104166,
+    "w": "with"
+   },
+   {
+    "t": 2.013875,
+    "d": 0.023166,
+    "w": "a"
+   },
+   {
+    "t": 2.048625,
+    "d": 0.3125,
+    "w": "live"
+   },
+   {
+    "t": 2.372666,
+    "d": 0.497666,
+    "w": "dashboard"
+   },
+   {
+    "t": 3.020833,
+    "d": 0.370375,
+    "w": "showing"
+   },
+   {
+    "t": 3.541666,
+    "d": 0.243041,
+    "w": "every"
+   },
+   {
+    "t": 3.796291,
+    "d": 0.347208,
+    "w": "changed"
+   },
+   {
+    "t": 4.155083,
+    "d": 0.520833,
+    "w": "pass"
+   },
+   {
+    "t": 5.069458,
+    "d": 0.057875,
+    "w": "The"
+   },
+   {
+    "t": 5.138875,
+    "d": 0.370375,
+    "w": "lesson"
+   },
+   {
+    "t": 5.902791,
+    "d": 0.370375,
+    "w": "alone"
+   },
+   {
+    "t": 6.597208,
+    "d": 0.069458,
+    "w": "the"
+   },
+   {
+    "t": 6.67825,
+    "d": 0.358791,
+    "w": "models"
+   },
+   {
+    "t": 7.048625,
+    "d": 0.127333,
+    "w": "are"
+   },
+   {
+    "t": 7.1875,
+    "d": 0.300916,
+    "w": "weak"
+   },
+   {
+    "t": 7.858791,
+    "d": 0.057875,
+    "w": "and"
+   },
+   {
+    "t": 7.92825,
+    "d": 0.150458,
+    "w": "R"
+   },
+   {
+    "t": 8.090291,
+    "d": 0.254625,
+    "w": "L"
+   },
+   {
+    "t": 8.3565,
+    "d": 0.2315,
+    "w": "added"
+   },
+   {
+    "t": 8.599541,
+    "d": 0.289333,
+    "w": "little"
+   },
+   {
+    "t": 9.270833,
+    "d": 0.416666,
+    "w": "Measurement"
+   },
+   {
+    "t": 9.699083,
+    "d": 0.219916,
+    "w": "makes"
+   },
+   {
+    "t": 9.930541,
+    "d": 0.069458,
+    "w": "it"
+   },
+   {
+    "t": 10.011583,
+    "d": 0.544,
+    "w": "reliable"
+   }
+  ]
+ },
+ {
+  "id": "close",
+  "duration": 3.79,
+  "phrases": [
+   {
+    "say": "Neuro Compiler. Faster code, measured, not guessed.",
+    "text": "NeuroCompiler. Faster code, measured, not guessed.",
+    "start": 0.093,
+    "end": 3.437
+   }
+  ],
+  "words": [
+   {
+    "t": 0.092583,
+    "d": 0.243041,
+    "w": "Neuro"
+   },
+   {
+    "t": 0.347208,
+    "d": 0.544,
+    "w": "Compiler"
+   },
+   {
+    "t": 1.331,
+    "d": 0.300916,
+    "w": "Faster"
+   },
+   {
+    "t": 1.6435,
+    "d": 0.300916,
+    "w": "code"
+   },
+   {
+    "t": 2.210666,
+    "d": 0.347208,
+    "w": "measured"
+   },
+   {
+    "t": 2.800916,
+    "d": 0.208333,
+    "w": "not"
+   },
+   {
+    "t": 3.020833,
+    "d": 0.416666,
+    "w": "guessed"
+   }
+  ]
+ }
+]

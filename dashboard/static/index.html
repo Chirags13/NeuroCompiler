@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NeuroCompiler</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Cpath d='M9 22V10l14 12V10' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="vendor/codemirror.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="vendor/chart.umd.min.js"></script>
+<script src="vendor/codemirror.min.js"></script>
+<script src="vendor/clike.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18V6l12 12V6"/></svg></div>
+    <div>NeuroCompiler<small>ML + RL guided LLVM pass selection</small></div>
+  </div>
+  <nav class="nav">
+    <a href="#run" data-page="run"><span data-ico="play"></span>Run</a>
+    <a href="#research" data-page="research"><span data-ico="chart"></span>Research &amp; results</a>
+    <a href="#architecture" data-page="architecture"><span data-ico="layers"></span>Architecture</a>
+  </nav>
+  <div class="top-right">
+    <div class="status-pill" id="queue-pill" title="Background tasks"><span class="dot" id="queue-dot"></span><span id="queue-text">idle</span></div>
+    <div class="status-pill" id="env-pill" title="Environment status (click to check)"><span class="dot" id="env-dot"></span><span id="env-text">environment</span></div>
+  </div>
+</header>
+
+<main>
+  <section class="page" id="page-run"></section>
+  <section class="page" id="page-research"></section>
+  <section class="page" id="page-architecture"></section>
+</main>
+<div class="toast" id="toast"></div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

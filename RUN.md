@@ -129,6 +129,55 @@ one wins (on the held-out test set: 1 of 33 programs, `fibo`, 1.231x).
 
 **Time per program:** ~80 compiles plus a few minutes of timing; longer for programs that run longer.
 
+### Modes
+
+```bash
+bin/neurocompiler tune    myprog.c --out myprog      # default (same as `bin/neurocompiler myprog.c ...`)
+bin/neurocompiler predict myprog.c --args "..." --out myprog   # predicts without running (~1 s), then times its top pick vs -O3
+bin/neurocompiler compare myprog.c --args "..."      # measure every mode on this program
+```
+
+| mode | what it does | measured on 33 held-out programs |
+|---|---|---|
+| `tune` | RL + SL; 8 candidates timed against `-O3`, fresh confirmation, `-O3` fallback | +7.5-8.1% geomean, minutes per program |
+| `predict` | chooses without running (own ensemble ranks safe edits + RL proposals; recommends only when confident), then compiles its top pick and times it once vs `-O3` (20 rounds + A/A; `--no-measure` skips this) | choice: +0.64% (CI includes 0), +0.6 s; measurement adds ~10-60 s |
+| `compare` | one interleaved run of `-O3`, `-O2`, `-Os`, predict's pick, tune's pick, random@8, GA@8, with an A/A control | table of speedups with 95% CIs |
+
+`predict` missed its pre-registered success criterion (>= +1.5% with CI above 0), so it is **advisory**: it
+writes the `-O3` binary and prints its recommendation (pipeline, predicted range, confidence, reason). Add
+`--apply` to write the recommended pipeline, and `--verify` (with `--args`) to check its output against `-O0`
+once.
+
+After predicting, predict always compiles its **top-ranked** sequence (the recommendation, or the best guess if it
+did not pass the gate), checks the output against `-O0`, and times it against `-O3` (20 interleaved rounds with an
+A/A control), reporting both runtimes in ms and the measured speedup next to the predicted one. This measurement is
+reporting only: it does not change predict's choice or which binary is written. Use `--no-measure` for the
+original compile-only behaviour (`--args`, `--stdin`, `--cwd` set the workload for the measurement).
+
+### Dashboard (demo UI)
+
+```bash
+.venv/bin/pip install -r dashboard/requirements.txt   # once: fastapi, uvicorn, python-multipart
+./dashboard/run.sh                                    # then open http://localhost:8000
+```
+
+From Windows, double-click `dashboard\windows\Start-NeuroCompiler.bat`: it starts WSL (distro `Ubuntu`,
+repo `~/neurocompiler`; override with `NC_DISTRO` / `NC_REPO`), runs the server and opens the browser.
+Everything is served locally (fonts, Chart.js and CodeMirror are vendored), so it works offline.
+
+- **Run**: choose Tune, Predict or Compare; paste code, upload files or load an example; set args/flags/stdin.
+  Jobs run one at a time (timings never overlap); the terminal panel streams the job's output live. Results show
+  the selected pipeline next to the `-O3` pipeline (pass-by-pass diff + backend flags), edits explained in words,
+  runtimes in ms for `-O3` and every timed candidate with 95% CIs, and downloads (binary, JSON). Finished runs
+  can be saved and replayed instantly (`dashboard/saved/`). The environment card checks WSL2, LLVM 18.1.8, the
+  frozen model hashes, machine load and the last timing selftest, and can run a selftest.
+- **Research & results**: corpus, measurement, headroom gates, wider search, training/validation, held-out test,
+  IR-vs-runtime, timeline. Data: `dashboard/static/data/research.json`, regenerate with
+  `.venv/bin/python scripts/export_dashboard_data.py`.
+- **Architecture**: clickable system diagram, tune and predict flows, edit types, stack, limits.
+
+Job files live in `work/dashboard/jobs/<id>/` (sources, log, binary, JSON).
+
 ## 6. Tips and troubleshooting
 
 - **Keep the machine idle while it times.** Before each timing block a quiet guard waits (up to 30 min) while
@@ -157,6 +206,14 @@ one wins (on the held-out test set: 1 of 33 programs, `fibo`, 1.231x).
 | `work/*.json` | cached edit menus for LLVM 18.1.8 |
 | `results/FINAL_REPORT.md` and other `results/` files | evaluation results and reports |
 | `scripts/` | research scripts (searches, evaluations, reports) |
+| `nc/predict.py`, `results/models/predict/` | predict mode (no program run) and its models |
+| `results/models/tune/MANIFEST.json` | hashes that pin tune mode's frozen model files |
+| `dashboard/` | demo web UI (`./dashboard/run.sh`), saved example runs in `dashboard/saved/` |
+| `corpus/manifest.jsonl`, `split.json`, `generated/` | program list, frozen train/val/test split, generated programs (suite sources are fetched, not stored) |
+| `docs/handbook/` | **project handbook** (PDF, Word, Markdown): full explanation, results and Q&A for reports |
+| `docs/` | major-project report, poster, glossary, presentation script |
+| `open_day/` | Open Day deck (`.pptx`/PDF), speaking script and the scripts that build them |
+| `project_video/` | project video (`final_video.mp4`) and its source; toolchain not included (see its README) |
 
 Re-running the research pipeline (corpus scan, searches, training, evaluation) additionally needs the
 benchmark sources (`python -m nc.cli corpus fetch`), many hours of machine time, and the commands in

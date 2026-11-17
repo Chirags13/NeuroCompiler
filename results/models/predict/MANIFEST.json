@@ -1,0 +1,148 @@
+{
+ "created": "2026-10-25T16:41:01",
+ "mode": "predict",
+ "files": {
+  "safe_pool": {
+   "path": "results/models/predict/safe_pool.json",
+   "sha256": "dbc47627dd5fce810f00152ae62b62d49a04407ffabf8bd880fc5326f1743a9b"
+  },
+  "cv": {
+   "path": "results/models/predict/cv.json",
+   "sha256": "0df38f379ea94fc7e7a7fa0e6f6473e3151d5a9a92986dd4792e1eb9375139b7"
+  },
+  "ensemble_trainonly_m0": {
+   "path": "results/models/predict/ensemble_trainonly_m0.txt",
+   "sha256": "2f9ae109226d6d1574676d7c502a66a50be2812cf87fa6a54cef99e93ede1b9f"
+  },
+  "ensemble_trainonly_m1": {
+   "path": "results/models/predict/ensemble_trainonly_m1.txt",
+   "sha256": "ac7456da0670b10d0ed73d47d6974ecad4987069f74bc84b2dbe0a02aa591022"
+  },
+  "ensemble_trainonly_m2": {
+   "path": "results/models/predict/ensemble_trainonly_m2.txt",
+   "sha256": "8d484915eb7bec46cdabc70cb7e3539782e3d6360673f009cc62873ff4f7d87f"
+  },
+  "ensemble_trainonly_m3": {
+   "path": "results/models/predict/ensemble_trainonly_m3.txt",
+   "sha256": "7d22daed291e8f702451bc84a296012319a9666fabac17cc5c6939d5e60ef427"
+  },
+  "ensemble_trainonly_m4": {
+   "path": "results/models/predict/ensemble_trainonly_m4.txt",
+   "sha256": "41d8e79eb0b2dfb95e7c401ee43079a10dde3755e43632b2b0975b2ee65e7452"
+  },
+  "ensemble_trainonly_m5": {
+   "path": "results/models/predict/ensemble_trainonly_m5.txt",
+   "sha256": "e80086a96d184104befb08fcb3341b2b6ddc2c9da92b5ca4a0cfc1474d317443"
+  },
+  "ensemble_trainonly_m6": {
+   "path": "results/models/predict/ensemble_trainonly_m6.txt",
+   "sha256": "294f400c05f0fbfc686f1a46c341ed70321009d428d09dc33e3b33cb4edd04f8"
+  },
+  "ensemble_trainonly_harm": {
+   "path": "results/models/predict/ensemble_trainonly_harm.txt",
+   "sha256": "0834767cd8b35237b895f7bc9b6fd5e5395999ddd927e71c3e226883e531dbbe"
+  },
+  "ensemble_trainonly_meta": {
+   "path": "results/models/predict/ensemble_trainonly.json",
+   "sha256": "7dcdcb1af597a7bde9f910d29ad008f336bf884ce7ac612d5363c00f07531e75"
+  },
+  "rl_policy_trainonly": {
+   "path": "results/models/predict/rl_policy_trainonly.npz",
+   "sha256": "662d625d0291d0c15f93ed4c95ddeadf6b741089a8a8d62a01b06a74002fd9d4"
+  },
+  "rl_policy_trainonly_meta": {
+   "path": "results/models/predict/rl_policy_trainonly.json",
+   "sha256": "b5bb0b6d2927a079d1c8571fb417490d029ac6f727c7126a5f501e7e89c6507e"
+  },
+  "ensemble_m0": {
+   "path": "results/models/predict/ensemble_m0.txt",
+   "sha256": "3aa10ec03f8596c539594989ab3455755cb5f2028cf74d849e7ab1869f65ce04"
+  },
+  "ensemble_m1": {
+   "path": "results/models/predict/ensemble_m1.txt",
+   "sha256": "20e64ed7ceb11fb9ddae960df559df93b14bcc5635c475320c59020045058169"
+  },
+  "ensemble_m2": {
+   "path": "results/models/predict/ensemble_m2.txt",
+   "sha256": "900c4d2caf5b49a7294ff3208fc343f3c20005d3b5d80c76977162bf23f75dcf"
+  },
+  "ensemble_m3": {
+   "path": "results/models/predict/ensemble_m3.txt",
+   "sha256": "1ae942eac08e9a778b30469748cf9077d4801051b890ccbdca4ca424cb6aa62b"
+  },
+  "ensemble_m4": {
+   "path": "results/models/predict/ensemble_m4.txt",
+   "sha256": "b5deb47aa3a4576d3b4764085d4c19a702606c7d6b40aa129c046d1489413d5b"
+  },
+  "ensemble_m5": {
+   "path": "results/models/predict/ensemble_m5.txt",
+   "sha256": "2a9b2b13207b9120d48361a7bbeb6cfa97373e9f84bd543ca3d5a170241d01e9"
+  },
+  "ensemble_m6": {
+   "path": "results/models/predict/ensemble_m6.txt",
+   "sha256": "cee68f7156f84b3ddb7e70e7a9d11e6e11b0b9ac79f48a25d1b6cb4b6d636ab4"
+  },
+  "ensemble_harm": {
+   "path": "results/models/predict/ensemble_harm.txt",
+   "sha256": "fdfeabdd2b75d155384eef171d775fe452e09b6095010155a4a9f4fedb51056d"
+  },
+  "ensemble_meta": {
+   "path": "results/models/predict/ensemble.json",
+   "sha256": "4225a91475778ac65bc3de2450d5a23d92c15f27a02eb207982d6adb5fd7634f"
+  },
+  "rl_policy": {
+   "path": "results/models/predict/rl_policy.npz",
+   "sha256": "a44a6efb2a0d90242dbebd9ba05cff5ded4e18609844341a03898c95a53b5c63"
+  },
+  "rl_policy_meta": {
+   "path": "results/models/predict/rl_policy.json",
+   "sha256": "7c97e7d484eca8bfb8678621868671e8628062c5f6bf444b79a7e53b9853aa38"
+  }
+ },
+ "thresholds": {
+  "margin": 0.03,
+  "tau": 0.5,
+  "agree": 0.8,
+  "pess_z": 1.28
+ },
+ "pool": {
+  "singles": 164,
+  "pairs": 776,
+  "wrong_output_edits_excluded": 319,
+  "rule": "never in a wrong-output candidate; harmful on <= 10% of >= 3 programs it changes; pairs of the top 40 by mean screening gain"
+ },
+ "train_families_excluded": {
+  "final": [
+   "ms/Applications/JM",
+   "ms/Applications/aha",
+   "ms/Applications/siod",
+   "ms/BitBench",
+   "ms/NPB-serial",
+   "ms/Ptrdist",
+   "ms/VersaBench",
+   "polybench/linear-algebra/kernels",
+   "polybench/linear-algebra/solvers",
+   "polybench/medley",
+   "ss/Shootout-C++"
+  ],
+  "trainonly": [
+   "ms/ASC_Sequoia",
+   "ms/Applications/JM",
+   "ms/Applications/aha",
+   "ms/Applications/obsequi",
+   "ms/Applications/siod",
+   "ms/Benchmarks/Fhourstones-3.1",
+   "ms/BitBench",
+   "ms/NPB-serial",
+   "ms/Ptrdist",
+   "ms/VersaBench",
+   "polybench/linear-algebra/kernels",
+   "polybench/linear-algebra/solvers",
+   "polybench/medley",
+   "polybench/stencils",
+   "ss/Misc",
+   "ss/Shootout-C++"
+  ]
+ },
+ "note": "Predict mode loads only these files and refuses to run if a hash differs. Never reads tune's models."
+}

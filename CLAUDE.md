@@ -80,6 +80,33 @@ The machine is shared with other heavy experiments: check load before timing; th
   pool RL proposals with the library, SL ranks, timing + confirmation decide, -O3 fallback; --no-rl = SL only.
   Measured effect of RL vs SL: +0.2% (n.s.); RL proposal shipped on 1/33 test programs. State this when presenting.
 
+- 2026-10-25 **PREDICT mode: criteria and definitions recorded BEFORE building** (do not change after results):
+  * Mode: `neurocompiler predict` returns a pipeline WITHOUT running the program (compile + analysis only),
+    RL + SL with its own models in results/models/predict/ (own MANIFEST.json); never reads tune's models.
+    Tune is frozen (results/models/tune/MANIFEST.json, hashes checked; top-8 order regression check).
+  * Success on the 33 frozen test programs (serial re-measurement): geomean >= +1.5% with 95% CI above 0;
+    at most 2 programs measurably slower; predict's added time over a plain -O3 build <= 10 s (median; max reported).
+  * "Measurably slower" = serial 95% CI upper bound < 1.0. "Harmful" training label = confirmed/validated CI upper
+    < 1.0, or screening speedup < 0.97 with >= 3 rounds. "Ensemble agrees" = >= 80% of members predict above
+    1 + margin AND the pessimistic estimate (mean - 1.28 std across members) is above it.
+  * Thresholds chosen only on train+val families (leave-one-family-out out-of-fold predictions); validation
+    timing check (22 val programs) uses an ensemble trained on TRAIN only; final ensemble trained on train+val with
+    frozen thresholds; test evaluated once. Predict writes all its measurements to results/predict.sqlite.
+  * Candidate pool: knowledge-base single edits that never gave wrong output and are rarely harmful, plus pairs.
+  * Methods evaluated: predict (RL + SL, gated), predict_ungated, predict_sl (SL only, gated: RL ablation).
+  * If criteria are not met: predict ships as "advisory, -O3 by default" and the report says so.
+
+- 2026-10-26 **PREDICT result (test set, once, serial; results/predict/modes_paired.txt)**: gated +0.64%
+  (CI -0.16..+2.05), excl. largest +0.02%, 1 measurably slower (lencod 0.971x), added time median +0.62 s
+  (max +17.8 s). Criteria: gain NOT MET, regressions MET, time MET => predict ships ADVISORY, -O3 by default
+  (`--apply` to use the recommendation). RL added nothing in predict (predict = predict_sl). Ungated -0.69%,
+  8 slower, 2 wrong-output picks. Tune unchanged (MANIFEST OK, top-8 IDENTICAL before/after).
+
+- 2026-10-26 **Predict now measures its top pick (user request)**: after the compile-only choice, predict compiles the
+  top-ranked sequence (gated recommendation or best guess), checks output vs -O0 and times it vs -O3 (20 rounds + A/A),
+  reported as `measured` in the JSON. Reporting only: choice, gate, ADVISORY binary rule and the test-set results above
+  are unchanged; predict's added-time metric still excludes the measurement. `--no-measure` = compile-only.
+
 ## Workflow
 Commands and phase descriptions: README.md (sections 7-9). Overnight Phase 3 job: `scripts/overnight_phase3.sh`.
 Gates: Phase 3 headroom (validated, >= 10 programs) -> Phase 5 quality CLEAN -> 7B surrogate beats random on

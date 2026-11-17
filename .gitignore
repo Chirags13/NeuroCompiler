@@ -1,5 +1,26 @@
+# Python / environments
 .venv/
-work/
 __pycache__/
 *.pyc
+open_day/.pptxenv/
+
+# Scratch and run-time state (recreated on demand)
+work/*
+!work/pools_llvm18.1.8.json
+!work/space_v2_llvm18.1.8.json
+logs/
+backups/
+results/.*_done
+results/.*_requested
+
+# Third-party benchmark sources: fetch with `python -m nc.cli corpus fetch`
+corpus/suites/
+
+# Video toolchain (node, python venv, binaries): see project_video/README.md
+project_video/node_modules/
+project_video/tools/
+project_video/out/
+open_day/review/
+
+# Windows download metadata
 *:Zone.Identifier

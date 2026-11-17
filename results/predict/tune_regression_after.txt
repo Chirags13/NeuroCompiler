@@ -1,0 +1,4 @@
+polybench/3mm                    top-8 sources ['library', 'library', 'library', 'library', 'library', 'library', 'library', 'library']  IDENTICAL
+ss/Shootout-C++/fibo             top-8 sources ['library', 'RL', 'RL', 'RL', 'RL', 'RL', 'RL', 'library']  IDENTICAL
+ms/Benchmarks/Ptrdist/ft         top-8 sources ['library', 'library', 'library', 'library', 'library', 'library', 'library', 'library']  IDENTICAL
+TUNE REGRESSION CHECK: IDENTICAL top-8 order on all programs
